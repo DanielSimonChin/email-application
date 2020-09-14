@@ -10,7 +10,10 @@
     <properties>
         <!-- class that has the main method -->
         
-        <mainClass>com.danielsimonchin.business.SendAndReceive</mainClass>
+        <!--<mainClass>com.danielsimonchin.business.SendAndReceive</mainClass>-->
+        
+        <mainClass>${groupId}.${artifactId}.App</mainClass>
+        
         
         <skipTests>false</skipTests>
     </properties>

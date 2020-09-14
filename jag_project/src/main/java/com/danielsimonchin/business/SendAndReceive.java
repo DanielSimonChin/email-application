@@ -1,7 +1,9 @@
 package com.danielsimonchin.business;
 
+import data.MailConfig;
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.activation.DataSource;
@@ -51,6 +53,7 @@ public class SendAndReceive {
     private final String emailReceivePwd = "Danieltester2";
     private final String emailCC1 = "danieldawsontest3@gmail.com";
     private final String emailCC2 = "recievedanieldawson1@gmail.com";
+    
 
     private final int secondsToSleep = 3;
 
@@ -88,29 +91,36 @@ public class SendAndReceive {
     }*/
 
     /**
-     * Standard send routine using Jodd. Jodd knows about GMail so no need to
-     * include port information
+     * Send a basic email to one or many recipients with plain text and html
+     * @param sender MailConfig representing the credentials of the sender
+     * @param receivers MailConfig representing the credentials of the recipients
+     * @param subject Subject of email
+     * @param textMsg Plain text message    
+     * @param htmlMsg Html message in email
      */
-    public void sendEmail() {
-
-        if (checkEmail(emailSend) && checkEmail(emailReceive)) {
+    public void sendEmail(MailConfig sender, ArrayList<MailConfig> receivers, String subject, String textMsg,String htmlMsg) {
+        if (checkEmail(sender.getUserEmailAddress()) && verifyEmailList(receivers)) {
             // Create am SMTP server object
             SmtpServer smtpServer = MailServer.create()
                     .ssl(true)
                     .host(smtpServerName)
-                    .auth(emailSend, emailSendPwd)
+                    .auth(sender.getUserEmailAddress(), sender.getPassword())
                     //.debugMode(true)
                     .buildSmtpMailServer();
 
+            String[] emailList = new String[receivers.size()];
+            int index = 0;
+            for(MailConfig mail : receivers)
+            {
+                emailList[index] = mail.getUserEmailAddress();
+                index++;
+            }
             // Using the fluent style of coding create a plain text message
-            Email email = Email.create().from(emailSend)
-                    .to(emailReceive)
-                    .subject("Jodd Test")
-                    .textMessage("Hello from plain text email: " + LocalDateTime.now())
-                    .htmlMessage("<html><META http-equiv=Content-Type "
-                            + "content=\"text/html; charset=utf-8\">"
-                            + "<body><h1>HTML Message</h1>"
-                            + "<h2>Here is some text in the HTML message</h2></body></html>");
+            Email email = Email.create().from(sender.getUserEmailAddress())
+                    .to(emailList)
+                    .subject(subject)
+                    .textMessage(textMsg)
+                    .htmlMessage(htmlMsg);
 
             // Like a file we open the session, send the message and close the
             // session
@@ -126,6 +136,28 @@ public class SendAndReceive {
             LOG.info("Unable to send email because either send or recieve addresses are invalid");
         }
     }
+    /**
+     * Verify that all MailConfigs in list is valid by calling the checkEmail() method.
+     * @param emailList the list of Mails needed to be checked
+     * @return true if all emails are valid, false otherwise.
+     */
+    private boolean verifyEmailList(ArrayList<MailConfig> emailList)
+    {
+      int count = 0;
+      for(MailConfig email : emailList)
+      {
+          if(checkEmail(email.getUserEmailAddress()))
+          {
+              count++;
+          }
+      }
+      if(count == emailList.size())
+      {
+          return true;
+      }
+      return false;
+    }
+    
 
     /**
      * Example with CC field
@@ -297,12 +329,13 @@ public class SendAndReceive {
      *
      * @param args
      */
+    /*
     public static void main(String[] args) {
 
         //SendAndReceive m = new SendAndReceive();
         //m.perform();
         //System.exit(0);
-    }
+    }*/
 }
    
 
