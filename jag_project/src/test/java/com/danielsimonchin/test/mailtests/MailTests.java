@@ -6,17 +6,15 @@
 package com.danielsimonchin.test.mailtests;
 
 import com.danielsimonchin.business.SendAndReceive;
-import com.danielsimonchin.test.MethodLogger;
 import data.MailConfig;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.util.List;
+import jodd.mail.EmailMessage;
+import jodd.mail.ReceivedEmail;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Rule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +24,12 @@ import org.slf4j.LoggerFactory;
  */
 public class MailTests {
     SendAndReceive runMail;
+    String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
+    String htmlMsg = "<html><META http-equiv=Content-Type "
+                            + "content=\"text/html; charset=utf-8\">"
+                            + "<body><h1>HTML Message</h1>"
+                            + "<h2>Here is some text in the HTML message</h2></body></html>";
+    String subject = "Jodd Test";
     /**
      * Prepare the objects that will be re-used
      */
@@ -33,38 +37,49 @@ public class MailTests {
     public void init() {
         runMail = new SendAndReceive();
     }
-    @Rule
-    public MethodLogger methodLogger = new MethodLogger();
     
     private final static Logger LOG = LoggerFactory.getLogger(MailTests.class);
     
     /**
      * Testing the sendEmail method which sends a simple text/html email to a single recipient.
-     * An email is send, received and compared.
+     * An email is sent, received and compared.
      */
     @Test
     public void singleEmailTest()
     {
         MailConfig sender = new MailConfig("smtp.gmail.com","danieldawsontest1@gmail.com","Danieltester1");
-        ArrayList<MailConfig> recipients = new ArrayList<MailConfig>();
+        ArrayList<MailConfig> recipients = new ArrayList<>();
         recipients.add(new MailConfig("smtp.gmail.com","danieldawsontest2@gmail.com","Danieltester2"));
-        // Send an ordinary text message
-        String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
-        String htmlMsg = "<html><META http-equiv=Content-Type "
-                            + "content=\"text/html; charset=utf-8\">"
-                            + "<body><h1>HTML Message</h1>"
-                            + "<h2>Here is some text in the HTML message</h2></body></html>";
-        runMail.sendEmail(sender,recipients,"Jodd Test", plainMsg, htmlMsg );
-        // Add a one second pause to allow the Gmail server to receive what has
+        recipients.add(new MailConfig("smtp.gmail.com","danieldawsontest3@gmail.com","Danieltester3"));
+        
+        runMail.sendEmail(sender,recipients, subject, plainMsg, htmlMsg );
+        // Add a three second pause to allow the Gmail server to receive what has
         // been sent
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ie) {
             Thread.currentThread().interrupt();
         }
-        runMail.receiveEmail();
-        LOG.info("HELLO");
-        assertTrue(true);
+        
+        int passedEmailsCount = 0;
+        for(MailConfig recipient : recipients)
+        {
+            ReceivedEmail[] emails = runMail.receiveEmail(recipient);
+            for(ReceivedEmail email : emails)
+            {
+                if(sender.getUserEmailAddress().equals(email.from().toString())){
+                    System.out.println(sender.getUserEmailAddress() + " " + email.from().toString());
+                    if(subject.equals(email.subject())){
+                        System.out.println(subject + " " + email.subject());
+                        passedEmailsCount++;
+                    }
+                        
+                        
+                     
+                }
+            }
+        }
+        
+        assertEquals(recipients.size(),passedEmailsCount);
     }
-   
 }

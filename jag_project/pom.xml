@@ -9,10 +9,7 @@
     by placing the tag name in ${...} ex. ${mainClass} -->
     <properties>
         <!-- class that has the main method -->
-        
-        <!--<mainClass>com.danielsimonchin.business.SendAndReceive</mainClass>-->
-        
-        <mainClass>${groupId}.${artifactId}.App</mainClass>
+        <!--<mainClass>${project.groupId}.${project.artifactId}.SendAndReceive</mainClass>-->
         
         
         <skipTests>false</skipTests>
@@ -105,4 +102,8 @@
             <type>jar</type>
         </dependency>
     </dependencies>
+    <build>
+	<defaultGoal>clean test</defaultGoal>
+    </build> 
+
 </project>

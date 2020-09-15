@@ -103,7 +103,7 @@ public class SendAndReceive {
             // Create am SMTP server object
             SmtpServer smtpServer = MailServer.create()
                     .ssl(true)
-                    .host(smtpServerName)
+                    .host(sender.getHost())
                     .auth(sender.getUserEmailAddress(), sender.getPassword())
                     //.debugMode(true)
                     .buildSmtpMailServer();
@@ -196,16 +196,17 @@ public class SendAndReceive {
     }
 
     /**
-     * Standard receive routine for Jodd using an ImapServer. Assumes the
-     * existence of a folder c:\temp
+     * Standard receive routine for Jodd using an ImapServer.Assumes the existence of a folder c:\temp
+     * @param recipient
+     * @return the list of receivedEmails
      */
-    public void receiveEmail() {
+    public ReceivedEmail[] receiveEmail(MailConfig recipient) {
 
-        if (checkEmail(emailReceive)) {
+        if (checkEmail(recipient.getUserEmailAddress())) {
             ImapServer imapServer = MailServer.create()
-                    .host(imapServerName)
+                    .host(recipient.getHost())
                     .ssl(true)
-                    .auth(emailReceive, emailReceivePwd)
+                    .auth(recipient.getUserEmailAddress(), recipient.getPassword())
                     //.debugMode(true)
                     .buildImapMailServer();
 
@@ -214,6 +215,8 @@ public class SendAndReceive {
                 LOG.info("Message count: " + session.getMessageCount());
                 ReceivedEmail[] emails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
                 if (emails != null) {
+                    return emails;
+                    /*
                     LOG.info("\n >>>> ReceivedEmail count = " + emails.length);
                     for (ReceivedEmail email : emails) {
                         LOG.info("\n\n===[" + email.messageNumber() + "]===");
@@ -263,11 +266,13 @@ public class SendAndReceive {
                             });
                         }
                     }
+                    */
                 }
             }
         } else {
             LOG.info("Unable to send email because either send or recieve addresses are invalid");
         }
+        return null;
     }
 
     /**
