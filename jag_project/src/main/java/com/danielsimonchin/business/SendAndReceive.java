@@ -1,22 +1,15 @@
 package com.danielsimonchin.business;
 
-import data.MailConfig;
+import data.MailConfigBean;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.activation.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.mail.Flags;
-
 import jodd.mail.EmailFilter;
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;
-import jodd.mail.EmailMessage;
 import jodd.mail.ImapServer;
 import jodd.mail.MailServer;
 import jodd.mail.RFC2822AddressParser;
@@ -38,90 +31,41 @@ import jodd.mail.SmtpServer;
  *
  */
 public class SendAndReceive {
-     // Real programmers use logging
-    private final static Logger LOG = LoggerFactory.getLogger(SendAndReceive.class);
-
-    // These must be updated to your email accounts
-    // These must be updated to your email accounts
-    private final String smtpServerName = "smtp.gmail.com";
-    private final String imapServerName = "imap.gmail.com";
-    // To use this program you need to fill in the following with two Gmail accounts
-    // The cc fields can contain any valid email address
-    private final String emailSend = "danieldawsontest1@gmail.com";
-    private final String emailReceive = "danieldawsontest2@gmail.com";
-    private final String emailSendPwd = "Danieltester1";
-    private final String emailReceivePwd = "Danieltester2";
-    private final String emailCC1 = "danieldawsontest3@gmail.com";
-    private final String emailCC2 = "recievedanieldawson1@gmail.com";
     
+    private MailConfigBean mailConfigBean;
 
-    private final int secondsToSleep = 3;
-
-    /**
-     * This method is where the different uses of Jodd are demonstrated
-     */
-    /*public void perform() {
-        // Send an ordinary text message
-        sendEmail();
-        try {
-            Thread.sleep(secondsToSleep * 1000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
-        receiveEmail();
-        sendEmailWithCC();
-        try {
-            Thread.sleep(secondsToSleep * 1000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
-        receiveEmail();
-        try {
-            sendWithEmbeddedAndAttachment();
-            try {
-                Thread.sleep(secondsToSleep * 1000);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
-            receiveEmail();
-        } catch (Exception ex) {
-            LOG.debug("Problem sending with embedded attachment.", ex);
-        }
-
-    }*/
+    public SendAndReceive(MailConfigBean mc) {
+        this.mailConfigBean = mc;
+    }
 
     /**
-     * Send a basic email to one or many recipients with plain text and html
-     * @param sender MailConfig representing the credentials of the sender
-     * @param receivers MailConfig representing the credentials of the recipients
+     * Creates an Email object, sends it and returns the Email object. Validates
+     * all the email addresses in the ArrayLists.
+     *
+     * @param toList List of all recipients in the 'To' field
+     * @param ccList List of all cc recipients
+     * @param bccList List of all bcc recipients
      * @param subject Subject of email
-     * @param textMsg Plain text message    
-     * @param htmlMsg Html message in email
+     * @param textMsg plain text of the email
+     * @param htmlMsg html text of the email
+     * @param regularAttachments List of File objects
+     * @param embeddedAttachments List of File objects that will be embedded in
+     * the email
+     * @return An Email object which was created and sent.
      */
-    public void sendEmail(MailConfig sender, ArrayList<MailConfig> receivers, String subject, String textMsg,String htmlMsg) {
-        if (checkEmail(sender.getUserEmailAddress()) && verifyEmailList(receivers)) {
+    public Email sendEmail(ArrayList<String> toList, ArrayList<String> ccList, ArrayList<String> bccList, String subject, String textMsg, String htmlMsg, ArrayList<File> regularAttachments, ArrayList<File> embeddedAttachments) {
+        //The constructed and sent email that will be returned
+        Email email;
+        if (checkEmail(this.mailConfigBean.getUserEmailAddress()) && verifyEmailList(toList) && verifyEmailList(ccList) && verifyEmailList(bccList)) {
             // Create am SMTP server object
             SmtpServer smtpServer = MailServer.create()
                     .ssl(true)
-                    .host(sender.getHost())
-                    .auth(sender.getUserEmailAddress(), sender.getPassword())
-                    //.debugMode(true)
+                    .host(this.mailConfigBean.getHost())
+                    .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
                     .buildSmtpMailServer();
 
-            String[] emailList = new String[receivers.size()];
-            int index = 0;
-            for(MailConfig mail : receivers)
-            {
-                emailList[index] = mail.getUserEmailAddress();
-                index++;
-            }
-            // Using the fluent style of coding create a plain text message
-            Email email = Email.create().from(sender.getUserEmailAddress())
-                    .to(emailList)
-                    .subject(subject)
-                    .textMessage(textMsg)
-                    .htmlMessage(htmlMsg);
-
+            //Create an email with the needed parameters
+            email = createEmail(toList, ccList, bccList, subject, textMsg, htmlMsg, regularAttachments, embeddedAttachments);
             // Like a file we open the session, send the message and close the
             // session
             try ( // A session is the object responsible for communicating with the server
@@ -130,192 +74,95 @@ public class SendAndReceive {
                 // session
                 session.open();
                 session.sendMail(email);
-                LOG.info("Email sent");
             }
         } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
+            throw new IllegalArgumentException("Unable to send email because either send or recieve addresses are invalid");
         }
+        return email;
     }
+
     /**
-     * Verify that all MailConfigs in list is valid by calling the checkEmail() method.
+     * Helper method that creates and returns an Email object given the
+     * parameters needed to create an email
+     *
+     * @param toList List of all recipients in the 'To' field
+     * @param ccList List of all cc recipients
+     * @param bccList List of all bcc recipients
+     * @param subject Subject of email
+     * @param textMsg plain text of the email
+     * @param htmlMsg html text of the email
+     * @param regularAttachments List of File objects
+     * @param embeddedAttachments List of File objects that will be embedded in
+     * the email
+     * @return An Email object with the correct values and parameters needed.
+     */
+    private Email createEmail(ArrayList<String> toList, ArrayList<String> ccList, ArrayList<String> bccList, String subject, String textMsg, String htmlMsg, ArrayList<File> regularAttachments, ArrayList<File> embeddedAttachments) {
+        // Using the fluent style of coding create a plain text message
+        Email email = Email.create().from(this.mailConfigBean.getUserEmailAddress());
+        email.subject(subject);
+        email.textMessage(textMsg);
+        email.htmlMessage(htmlMsg);
+        toList.forEach(emailAddress -> {
+            email.to(emailAddress);
+        });
+        ccList.forEach(emailAddress -> {
+            email.cc(emailAddress);
+        });
+        bccList.forEach(emailAddress -> {
+            email.bcc(emailAddress);
+        });
+        regularAttachments.forEach(attachment -> {
+            email.attachment(EmailAttachment.with().content(attachment.getName()));
+        });
+        embeddedAttachments.forEach(attachment -> {
+            email.embeddedAttachment(EmailAttachment.with().content(new File(attachment.getName())));
+        });
+
+        return email;
+    }
+
+    /**
+     * Verify that all MailConfigs in list is valid by calling the checkEmail()
+     * method.
+     *
      * @param emailList the list of Mails needed to be checked
      * @return true if all emails are valid, false otherwise.
      */
-    private boolean verifyEmailList(ArrayList<MailConfig> emailList)
-    {
-      int count = 0;
-      for(MailConfig email : emailList)
-      {
-          if(checkEmail(email.getUserEmailAddress()))
-          {
-              count++;
-          }
-      }
-      if(count == emailList.size())
-      {
-          return true;
-      }
-      return false;
-    }
-    
-
-    /**
-     * Example with CC field
-     */
-    public void sendEmailWithCC() {
-
-        if (checkEmail(emailSend) && checkEmail(emailReceive) && checkEmail(emailCC1) && checkEmail(emailCC2)) {
-
-            // Create am SMTP server object
-            SmtpServer smtpServer = MailServer.create()
-                    .ssl(true)
-                    .host(smtpServerName)
-                    .auth(emailSend, emailSendPwd)
-                    //.debugMode(true)
-                    .buildSmtpMailServer();
-
-            // Using the fluent style requires EmailMessage
-            Email email = Email.create().from(emailSend)
-                    .to(emailReceive)
-                    .cc(new String[]{emailCC1, emailCC2})
-                    .subject("Jodd Test").textMessage("Hello from plain text email with cc");
-
-            // Like a file we open the session, send the message and close the
-            // session
-            try ( // A session is the object responsible for communicating with the server
-                     SendMailSession session = smtpServer.createSession()) {
-                // Like a file we open the session, send the message and close the
-                // session
-                session.open();
-                session.sendMail(email);
-                LOG.info("Email sent");
+    private boolean verifyEmailList(ArrayList<String> emailList) {
+        int count = 0;
+        for (String email : emailList) {
+            //call the checkEmail method to validate that the email is good
+            if (checkEmail(email)) {
+                //increment the count if it is valid
+                count++;
             }
-        } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
         }
+        //check if the total number of valid email addresses equals the number of total number of email addresses
+        return count == emailList.size();
     }
 
     /**
-     * Standard receive routine for Jodd using an ImapServer.Assumes the existence of a folder c:\temp
-     * @param recipient
-     * @return the list of receivedEmails
+     * Standard receive routine for Jodd using an ImapServer.
+     * @param mailConfigBean
+     * @return 
      */
-    public ReceivedEmail[] receiveEmail(MailConfig recipient) {
-
-        if (checkEmail(recipient.getUserEmailAddress())) {
+    public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
+        ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
+        if (checkEmail(mailConfigBean.getUserEmailAddress())) {
             ImapServer imapServer = MailServer.create()
-                    .host(recipient.getHost())
+                    .host(mailConfigBean.getHost())
                     .ssl(true)
-                    .auth(recipient.getUserEmailAddress(), recipient.getPassword())
-                    //.debugMode(true)
+                    .auth(mailConfigBean.getUserEmailAddress(),mailConfigBean.getPassword())
                     .buildImapMailServer();
 
             try ( ReceiveMailSession session = imapServer.createSession()) {
                 session.open();
-                LOG.info("Message count: " + session.getMessageCount());
-                ReceivedEmail[] emails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
-                if (emails != null) {
-                    return emails;
-                    /*
-                    LOG.info("\n >>>> ReceivedEmail count = " + emails.length);
-                    for (ReceivedEmail email : emails) {
-                        LOG.info("\n\n===[" + email.messageNumber() + "]===");
-
-                        // common info
-                        LOG.info("FROM:" + email.from());
-                        // Handling array in email object
-                        LOG.info("TO:" + Arrays.toString(email.to()));
-                        LOG.info("CC:" + Arrays.toString(email.cc()));
-                        LOG.info("SUBJECT:" + email.subject());
-                        LOG.info("PRIORITY:" + email.priority());
-                        LOG.info("SENT DATE:" + email.sentDate());
-                        LOG.info("RECEIVED DATE: " + email.receivedDate());
-
-                        // process messages
-                        List<EmailMessage> messages = email.messages();
-
-                        messages.stream().map((msg) -> {
-                            LOG.info("------");
-                            return msg;
-                        }).map((msg) -> {
-                            LOG.info(msg.getEncoding());
-                            return msg;
-                        }).map((msg) -> {
-                            LOG.info(msg.getMimeType());
-                            return msg;
-                        }).forEachOrdered((msg) -> {
-                            LOG.info(msg.getContent());
-                        });
-
-                        // process attachments
-                        List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
-                        if (attachments != null) {
-                            LOG.info("+++++");
-                            attachments.stream().map((attachment) -> {
-                                LOG.info("name: " + attachment.getName());
-                                return attachment;
-                            }).map((attachment) -> {
-                                LOG.info("cid: " + attachment.getContentId());
-                                return attachment;
-                            }).map((attachment) -> {
-                                LOG.info("size: " + attachment.getSize());
-                                return attachment;
-                            }).forEachOrdered((attachment) -> {
-                                attachment.writeToFile(
-                                        new File("c:\\temp", attachment.getName()));
-                            });
-                        }
-                    }
-                    */
-                }
+                receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
             }
         } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
+            throw new IllegalArgumentException("Unable to send email because either send or recieve addresses are invalid");
         }
-        return null;
-    }
-
-    /**
-     * Here we create an email message that contains html, embedded image, and
-     * an attachment
-     *
-     * @throws Exception In case we don't find the file to attach/embed
-     */
-    public void sendWithEmbeddedAndAttachment() throws Exception {
-
-        if (checkEmail(emailSend) && checkEmail(emailReceive)) {
-            SmtpServer smtpServer = MailServer.create()
-                    .ssl(true)
-                    .host(smtpServerName)
-                    .auth(emailSend, emailSendPwd)
-                    //.debugMode(true)
-                    .buildSmtpMailServer();
-
-            // Using the fluent style of coding create a plain text message
-            Email email = Email.create().from(emailSend)
-                    .to(emailReceive)
-                    .subject("Jodd Test").textMessage("Hello from plain text email: " + LocalDateTime.now())
-                    .htmlMessage("<html><META http-equiv=Content-Type "
-                            + "content=\"text/html; charset=utf-8\">"
-                            + "<body><h1>Here is my photograph embedded in "
-                            + "this email.</h1><img src='cid:FreeFall.jpg'>"
-                            + "<h2>I'm flying!</h2></body></html>")
-                    .embeddedAttachment(EmailAttachment.with().content(new File("FreeFall.jpg")))
-                    .attachment(EmailAttachment.with().content("WindsorKen180.jpg"));
-
-            // Like a file we open the session, send the message and close the
-            // session
-            try ( // A session is the object responsible for communicating with the server
-                     SendMailSession session = smtpServer.createSession()) {
-                // Like a file we open the session, send the message and close the
-                // session
-                session.open();
-                session.sendMail(email);
-                LOG.info("Email sent");
-            }
-        } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
-        }
+        return receivedEmails;
     }
 
     /**
@@ -328,19 +175,4 @@ public class SendAndReceive {
     private boolean checkEmail(String address) {
         return RFC2822AddressParser.STRICT.parseToEmailAddress(address) != null;
     }
-
-    /**
-     * It all begins here
-     *
-     * @param args
-     */
-    /*
-    public static void main(String[] args) {
-
-        //SendAndReceive m = new SendAndReceive();
-        //m.perform();
-        //System.exit(0);
-    }*/
 }
-   
-

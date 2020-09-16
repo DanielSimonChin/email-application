@@ -15,7 +15,7 @@ package data;
  * @author Ken Fogel
  *
  */
-public class MailConfig {
+public class MailConfigBean {
 
     private String host;
     private String userEmailAddress;
@@ -24,7 +24,7 @@ public class MailConfig {
     /**
      * Default Constructor
      */
-    public MailConfig() {
+    public MailConfigBean() {
         this.host = "";
         this.userEmailAddress = "";
         this.password = "";
@@ -37,7 +37,7 @@ public class MailConfig {
      * @param userEmailAddress
      * @param password
      */
-    public MailConfig(final String host, final String userEmailAddress, final String password) {
+    public MailConfigBean(final String host, final String userEmailAddress, final String password) {
         this.host = host;
         this.userEmailAddress = userEmailAddress;
         this.password = password;
