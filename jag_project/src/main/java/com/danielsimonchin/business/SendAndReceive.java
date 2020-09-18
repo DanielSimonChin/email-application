@@ -2,14 +2,14 @@ package com.danielsimonchin.business;
 
 import data.MailConfigBean;
 import java.io.File;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Arrays;
+import java.util.List;
+import javax.activation.DataSource;
 import javax.mail.Flags;
 import jodd.mail.EmailFilter;
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;
+import jodd.mail.EmailMessage;
 import jodd.mail.ImapServer;
 import jodd.mail.MailServer;
 import jodd.mail.RFC2822AddressParser;
@@ -17,6 +17,8 @@ import jodd.mail.ReceiveMailSession;
 import jodd.mail.ReceivedEmail;
 import jodd.mail.SendMailSession;
 import jodd.mail.SmtpServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This is a demo of the code necessary to carry out the following tasks: 1)
@@ -31,11 +33,12 @@ import jodd.mail.SmtpServer;
  *
  */
 public class SendAndReceive {
-    
-    private MailConfigBean mailConfigBean;
 
-    public SendAndReceive(MailConfigBean mc) {
-        this.mailConfigBean = mc;
+    private final static Logger LOG = LoggerFactory.getLogger(SendAndReceive.class);
+    private final MailConfigBean mailConfigBean;
+
+    public SendAndReceive(MailConfigBean mailConfigBean) {
+        this.mailConfigBean = mailConfigBean;
     }
 
     /**
@@ -53,10 +56,10 @@ public class SendAndReceive {
      * the email
      * @return An Email object which was created and sent.
      */
-    public Email sendEmail(ArrayList<String> toList, ArrayList<String> ccList, ArrayList<String> bccList, String subject, String textMsg, String htmlMsg, ArrayList<File> regularAttachments, ArrayList<File> embeddedAttachments) {
+    public Email sendEmail(List<String> toList, List<String> ccList, List<String> bccList, String subject, String textMsg, String htmlMsg, List<File> regularAttachments, List<File> embeddedAttachments) {
         //The constructed and sent email that will be returned
-        Email email;
-        if (checkEmail(this.mailConfigBean.getUserEmailAddress()) && verifyEmailList(toList) && verifyEmailList(ccList) && verifyEmailList(bccList)) {
+        Email email = null;
+        if (hasMinimumOneAddress(toList, ccList, bccList) && checkEmail(this.mailConfigBean.getUserEmailAddress()) && verifyEmailList(toList) && verifyEmailList(ccList) && verifyEmailList(bccList)) {
             // Create am SMTP server object
             SmtpServer smtpServer = MailServer.create()
                     .ssl(true)
@@ -74,11 +77,26 @@ public class SendAndReceive {
                 // session
                 session.open();
                 session.sendMail(email);
+                LOG.info("Email sent");
             }
         } else {
-            throw new IllegalArgumentException("Unable to send email because either send or recieve addresses are invalid");
+            LOG.info("Unable to send email because either send or recieve addresses are invalid");
         }
         return email;
+    }
+
+    /**
+     * Return a boolean depending on if the combined total of email addresses is
+     * at least 1. An email must have one recipient at minimum.
+     *
+     * @param toList List of recipients in the TO List
+     * @param ccList List of recipients in the cc List
+     * @param bccList List of recipients in the bcc List
+     * @return A boolean representing if the number of recipients is at least 1.
+     */
+    private boolean hasMinimumOneAddress(List<String> toList, List<String> ccList, List<String> bccList) {
+        int numberOfAddresses = toList.size() + ccList.size() + bccList.size();
+        return numberOfAddresses >= 1;
     }
 
     /**
@@ -96,7 +114,7 @@ public class SendAndReceive {
      * the email
      * @return An Email object with the correct values and parameters needed.
      */
-    private Email createEmail(ArrayList<String> toList, ArrayList<String> ccList, ArrayList<String> bccList, String subject, String textMsg, String htmlMsg, ArrayList<File> regularAttachments, ArrayList<File> embeddedAttachments) {
+    private Email createEmail(List<String> toList, List<String> ccList, List<String> bccList, String subject, String textMsg, String htmlMsg, List<File> regularAttachments, List<File> embeddedAttachments) {
         // Using the fluent style of coding create a plain text message
         Email email = Email.create().from(this.mailConfigBean.getUserEmailAddress());
         email.subject(subject);
@@ -128,11 +146,14 @@ public class SendAndReceive {
      * @param emailList the list of Mails needed to be checked
      * @return true if all emails are valid, false otherwise.
      */
-    private boolean verifyEmailList(ArrayList<String> emailList) {
+    private boolean verifyEmailList(List<String> emailList) {
         int count = 0;
         for (String email : emailList) {
-            //call the checkEmail method to validate that the email is good
-            if (checkEmail(email)) {
+            //throw an exception if the email is null
+            if (email == null) {
+                LOG.info("The input email address cannot be null.");
+            } //call the checkEmail method to validate that the email is good
+            else if (checkEmail(email)) {
                 //increment the count if it is valid
                 count++;
             }
@@ -143,8 +164,9 @@ public class SendAndReceive {
 
     /**
      * Standard receive routine for Jodd using an ImapServer.
+     *
      * @param mailConfigBean
-     * @return 
+     * @return
      */
     public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
         ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
@@ -152,15 +174,67 @@ public class SendAndReceive {
             ImapServer imapServer = MailServer.create()
                     .host(mailConfigBean.getHost())
                     .ssl(true)
-                    .auth(mailConfigBean.getUserEmailAddress(),mailConfigBean.getPassword())
+                    .auth(mailConfigBean.getUserEmailAddress(), mailConfigBean.getPassword())
                     .buildImapMailServer();
 
             try ( ReceiveMailSession session = imapServer.createSession()) {
                 session.open();
+                LOG.info("Message count: " + session.getMessageCount());
                 receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
+                if (receivedEmails != null) {
+                    LOG.info("\n >>>> ReceivedEmail count = " + receivedEmails.length);
+                    for (ReceivedEmail email : receivedEmails) {
+                        LOG.info("\n\n===[" + email.messageNumber() + "]===");
+
+                        // common info
+                        LOG.info("FROM:" + email.from());
+                        // Handling array in email object
+                        LOG.info("TO:" + Arrays.toString(email.to()));
+                        LOG.info("CC:" + Arrays.toString(email.cc()));
+                        LOG.info("SUBJECT:" + email.subject());
+                        LOG.info("PRIORITY:" + email.priority());
+                        LOG.info("SENT DATE:" + email.sentDate());
+                        LOG.info("RECEIVED DATE: " + email.receivedDate());
+
+                        // process messages
+                        List<EmailMessage> messages = email.messages();
+
+                        messages.stream().map((msg) -> {
+                            LOG.info("------");
+                            return msg;
+                        }).map((msg) -> {
+                            LOG.info(msg.getEncoding());
+                            return msg;
+                        }).map((msg) -> {
+                            LOG.info(msg.getMimeType());
+                            return msg;
+                        }).forEachOrdered((msg) -> {
+                            LOG.info(msg.getContent());
+                        });
+
+                        // process attachments
+                        List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
+                        if (attachments != null) {
+                            LOG.info("+++++");
+                            attachments.stream().map((attachment) -> {
+                                LOG.info("name: " + attachment.getName());
+                                return attachment;
+                            }).map((attachment) -> {
+                                LOG.info("cid: " + attachment.getContentId());
+                                return attachment;
+                            }).map((attachment) -> {
+                                LOG.info("size: " + attachment.getSize());
+                                return attachment;
+                            }).forEachOrdered((attachment) -> {
+                                attachment.writeToFile(
+                                        new File("c:\\temp", attachment.getName()));
+                            });
+                        }
+                    }
+                }
             }
         } else {
-            throw new IllegalArgumentException("Unable to send email because either send or recieve addresses are invalid");
+            LOG.info("Unable to send email because either send or recieve addresses are invalid");
         }
         return receivedEmails;
     }
