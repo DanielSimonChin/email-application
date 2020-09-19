@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.danielsimonchin.test.mailtests.MailTests" time="5.077" tests="14" errors="0" skipped="13" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.danielsimonchin.test.mailtests.MailTests" time="161.483" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-14.0.2.12-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Daniel\AppData\Local\Temp\surefire1760680019570489117\surefirebooter18375745168213098603.jar C:\Users\Daniel\AppData\Local\Temp\surefire1760680019570489117 2020-09-18T22-55-52_182-jvmRun1 surefire8144581351474518922tmp surefire_013680904097372870056tmp"/>
+    <property name="sun.java.command" value="C:\Users\Daniel\AppData\Local\Temp\surefire12464338649188519694\surefirebooter11094855078210200401.jar C:\Users\Daniel\AppData\Local\Temp\surefire12464338649188519694 2020-09-19T15-44-55_200-jvmRun1 surefire831970063519117451tmp surefire_04053534800742544732tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\dev\420-517\jag-project\jag_project\target\test-classes;C:\dev\420-517\jag-project\jag_project\target\classes;C:\devapp\.m2\repository\org\openjfx\javafx-controls\16-ea+1\javafx-controls-16-ea+1.jar;C:\devapp\.m2\repository\org\openjfx\javafx-controls\16-ea+1\javafx-controls-16-ea+1-win.jar;C:\devapp\.m2\repository\org\openjfx\javafx-graphics\16-ea+1\javafx-graphics-16-ea+1.jar;C:\devapp\.m2\repository\org\openjfx\javafx-graphics\16-ea+1\javafx-graphics-16-ea+1-win.jar;C:\devapp\.m2\repository\org\openjfx\javafx-base\16-ea+1\javafx-base-16-ea+1.jar;C:\devapp\.m2\repository\org\openjfx\javafx-base\16-ea+1\javafx-base-16-ea+1-win.jar;C:\devapp\.m2\repository\org\jodd\jodd-mail\5.1.6\jodd-mail-5.1.6.jar;C:\devapp\.m2\repository\org\jodd\jodd-core\5.1.6\jodd-core-5.1.6.jar;C:\devapp\.m2\repository\jakarta\mail\jakarta.mail-api\1.6.5\jakarta.mail-api-1.6.5.jar;C:\devapp\.m2\repository\com\sun\mail\jakarta.mail\1.6.5\jakarta.mail-1.6.5.jar;C:\devapp\.m2\repository\javax\mail\javax.mail-api\1.6.2\javax.mail-api-1.6.2.jar;C:\devapp\.m2\repository\com\sun\activation\jakarta.activation\1.2.1\jakarta.activation-1.2.1.jar;C:\devapp\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\devapp\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.13.3\log4j-slf4j-impl-2.13.3.jar;C:\devapp\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\devapp\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.3\log4j-core-2.13.3.jar;C:\devapp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.2\junit-jupiter-engine-5.6.2.jar;C:\devapp\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\devapp\.m2\repository\org\junit\platform\junit-platform-engine\1.6.2\junit-platform-engine-1.6.2.jar;C:\devapp\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\devapp\.m2\repository\org\junit\platform\junit-platform-commons\1.6.2\junit-platform-commons-1.6.2.jar;C:\devapp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.2\junit-jupiter-api-5.6.2.jar;C:\devapp\.m2\repository\org\junit\vintage\junit-vintage-engine\5.6.2\junit-vintage-engine-5.6.2.jar;C:\devapp\.m2\repository\junit\junit\4.13\junit-4.13.jar;C:\devapp\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Daniel\AppData\Local\Temp\surefire1760680019570489117\surefirebooter18375745168213098603.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Daniel\AppData\Local\Temp\surefire12464338649188519694\surefirebooter11094855078210200401.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12"/>
@@ -57,44 +57,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="testInvalidEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="sendEmailCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="receiveEmailInvalidPassword" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="sendEmailBCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testReceiveEmailVerifySender" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="sendEmailToList" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="receiveEmailInvalidHost" classname="com.danielsimonchin.test.mailtests.MailTests" time="5.07"/>
-  <testcase name="testReceiveEmail" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="sendEmailTestPassed" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="receiveEmailInvalidUsername" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testAllAttachments" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="receiveEmailCheckRecipientNames" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testNullEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testNoRecipients" classname="com.danielsimonchin.test.mailtests.MailTests" time="0">
-    <skipped/>
-  </testcase>
+  <testcase name="testInvalidEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="4.462"/>
+  <testcase name="testInvalidMailConfigBeanUserName" classname="com.danielsimonchin.test.mailtests.MailTests" time="4.016"/>
+  <testcase name="sendEmailCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="15.567"/>
+  <testcase name="receiveEmailInvalidPassword" classname="com.danielsimonchin.test.mailtests.MailTests" time="9.134"/>
+  <testcase name="sendEmailBCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="15.22"/>
+  <testcase name="sendEmailToList" classname="com.danielsimonchin.test.mailtests.MailTests" time="13.717"/>
+  <testcase name="testNoEmailsSent" classname="com.danielsimonchin.test.mailtests.MailTests" time="5.392"/>
+  <testcase name="receiveEmailInvalidHost" classname="com.danielsimonchin.test.mailtests.MailTests" time="8.252"/>
+  <testcase name="testReceiveEmail" classname="com.danielsimonchin.test.mailtests.MailTests" time="23.488"/>
+  <testcase name="sendEmailTestPassed" classname="com.danielsimonchin.test.mailtests.MailTests" time="16.923"/>
+  <testcase name="receiveEmailInvalidUsername" classname="com.danielsimonchin.test.mailtests.MailTests" time="8.463"/>
+  <testcase name="testAllAttachments" classname="com.danielsimonchin.test.mailtests.MailTests" time="13.826"/>
+  <testcase name="receiveEmailCheckRecipientNames" classname="com.danielsimonchin.test.mailtests.MailTests" time="15.381"/>
+  <testcase name="testNullEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="3.564"/>
+  <testcase name="testNoRecipients" classname="com.danielsimonchin.test.mailtests.MailTests" time="4.073"/>
 </testsuite>

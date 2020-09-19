@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.danielsimonchin.test.mailtests;
 
 import com.danielsimonchin.business.SendAndReceive;
@@ -11,9 +6,14 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javax.mail.Flags;
 import jodd.mail.Email;
 import jodd.mail.EmailAddress;
+import jodd.mail.EmailFilter;
 import jodd.mail.EmailMessage;
+import jodd.mail.ImapServer;
+import jodd.mail.MailServer;
+import jodd.mail.ReceiveMailSession;
 import jodd.mail.ReceivedEmail;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,6 +26,7 @@ import org.junit.Ignore;
  * text, cc, and embedded attachments, attachments emails.
  *
  * @author Daniel Simon Chin
+ * @version September 20, 2020
  */
 public class MailTests {
 
@@ -39,24 +40,28 @@ public class MailTests {
     private MailConfigBean mailConfigBean;
 
     //List of all recipients, will be used later when validating the emails received
-    private List<MailConfigBean> allRecipients = new ArrayList<>();
+    private List<MailConfigBean> allRecipients;
     //The mail config beans relating to the recipients of the email
     private MailConfigBean recipient1 = new MailConfigBean("imap.gmail.com", "danieldawsontest2@gmail.com", "Danieltester2");
     private MailConfigBean recipient2 = new MailConfigBean("imap.gmail.com", "danieldawsontest3@gmail.com", "Danieltester3");
     private MailConfigBean recipient3 = new MailConfigBean("imap.gmail.com", "recievedanieldawson1@gmail.com", "Danieltester4");
 
     //ArrayList of recipients in the To List
-    private List<String> toList = new ArrayList<>();
+    private List<String> toList;
     //ArrayList of recipients in the CC List
-    private List<String> ccList = new ArrayList<>();
+    private List<String> ccList;
     //ArrayList of recipients in the BCC List
-    private List<String> bccList = new ArrayList<>();
+    private List<String> bccList;
 
     //ArrayList of attachment files
-    private ArrayList<File> regularAttachments = new ArrayList<>();
+    private ArrayList<File> regularAttachments;
     //ArrayList of embedded attachment files
-    private ArrayList<File> embeddedAttachments = new ArrayList<>();
+    private ArrayList<File> embeddedAttachments;
 
+    /**
+     * Before every test, re-instantiate all the lists and variables that will
+     * be re-used in tests.
+     */
     @Before
     public void createMailConfigBean() {
         allRecipients = new ArrayList<>();
@@ -69,17 +74,27 @@ public class MailTests {
         regularAttachments = new ArrayList<>();
         embeddedAttachments = new ArrayList<>();
         this.mailConfigBean = new MailConfigBean("smtp.gmail.com", "danieldawsontest1@gmail.com", "Danieltester1");
+
+        //This is to make sure that all emails in all recipient accounts have seen/read the emails sent. Prevents having a test affect the result of the next.
+        allRecipients.stream().map(recipient -> MailServer.create()
+                .host(recipient.getHost())
+                .ssl(true)
+                .auth(recipient.getUserEmailAddress(), recipient.getPassword())
+                .buildImapMailServer()).forEachOrdered(imapServer -> {
+            try ( ReceiveMailSession session = imapServer.createSession()) {
+                session.open();
+                //read all the emails and mark them as seen
+                ReceivedEmail[] receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
+            }
+        });
     }
 
     /**
-     * Testing the sendEmail method which sends a simple text/html email to a
-     * single recipient. An email is sent, received and compared. Assuming that
-     * all the input parameters are valid and provided
+     * Testing the sendEmail method which sends an email to multiple recipients. An email is sent, received and compared. Assuming that
+     * all the input parameters are valid and provided.
      */
-    @Ignore
     @Test
     public void sendEmailTestPassed() {
-
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -108,41 +123,33 @@ public class MailTests {
             for (ReceivedEmail email : emails) {
                 //Check that the sender email address matches
                 if (resultEmail.from().toString().equals(email.from().toString())) {
-
-                    System.out.println(resultEmail.from().toString() + " " + email.from().toString());
                     //Check that the subject line matches
                     if (resultEmail.subject().equals(email.subject())) {
-                        System.out.println(resultEmail.subject() + " " + email.subject());
-
                         //Checking that the cc lists of recipients are identical
                         if (compareRecipientArrays(resultEmail.cc(), email.cc())) {
-
                             List<EmailMessage> messages = email.messages();
                             //the messages coming from the returned Email object
                             List<EmailMessage> resultEmailMessages = resultEmail.messages();
                             //Check that the plain text and html message matches
                             if (resultEmailMessages.get(0).getContent().equals(messages.get(0).getContent()) && resultEmailMessages.get(1).getContent().equals(messages.get(1).getContent())) {
-                                System.out.println(resultEmailMessages.get(0).getContent() + " : " + messages.get(0).getContent());
-                                System.out.println(resultEmailMessages.get(1).getContent() + " : " + messages.get(1).getContent());
                                 passedEmailsCount++;
                             }
                         }
                     }
                 }
             }
-            System.out.println();
         }
         //Test that the number of valid emails is equal to the amount of emails sent.
         assertEquals(allRecipients.size(), passedEmailsCount);
     }
 
     /**
-     * Checks that two lists of email addresses are identical. Useful to see
-     * that the cc fields are the same
+     * Helper method that checks that two lists of email addresses are identical. Useful to see
+     * that the to,cc,bcc fields are the same
      *
-     * @param list1 First List of cc recipients
-     * @param list2 Second List of bcc recipients
-     * @return
+     * @param list1 First List of recipients
+     * @param list2 Second List of recipients
+     * @return true if their contents are equals, false otherwise.
      */
     private boolean compareRecipientArrays(EmailAddress[] list1, EmailAddress[] list2) {
         int countPassed = 0;
@@ -162,10 +169,9 @@ public class MailTests {
      * This sends an email to the TO List only. The cc and bcc fields are left
      * empty. Checking that the toFields are the same, and the cc, bcc are empty
      */
-    @Ignore
     @Test
     public void sendEmailToList() {
-        //Adding one person into the TO list
+        //Adding people into the TO list
         toList.add(recipient1.getUserEmailAddress());
         toList.add(recipient2.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
@@ -203,18 +209,16 @@ public class MailTests {
                 }
             }
         }
-        System.out.println();
         assertEquals(toList.size(), countValidRecipients);
     }
 
     /**
      * This sends an email to the CC List only. The TO and BCC fields are left
-     * empty. Checking that the toFields are the same, and the TO, BCC are empty
+     * empty. Checking that the CCFields are the same, and the TO, BCC are empty
      */
-    @Ignore
     @Test
     public void sendEmailCCList() {
-        //Adding one person into the TO list
+        //Adding people into the TO list
         ccList.add(recipient1.getUserEmailAddress());
         ccList.add(recipient2.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
@@ -233,7 +237,7 @@ public class MailTests {
         //Count of emails which have been sent and properly validated with the intended parameters
         int countValidRecipients = 0;
 
-        //The recipients of the To list from the returned Email object
+        //The recipients of the cc list from the returned Email object
         EmailAddress[] resultEmailCC = resultEmail.cc();
         for (MailConfigBean recipient : allRecipients) {
             //The email that this recipient just received
@@ -243,7 +247,7 @@ public class MailTests {
                 EmailAddress[] receivedEmailCC = email.cc();
                 if (resultEmailCC.length == receivedEmailCC.length) {
                     if (compareRecipientArrays(resultEmailCC, receivedEmailCC)) {
-                        //increment if the cc and bcc are empty and the previous condition passed
+                        //increment if the to and bcc are empty and the previous condition passed
                         if (email.to().length == 0 && resultEmail.bcc().length == 0) {
                             //increment the number of passed emails for the TO list recipients
                             countValidRecipients++;
@@ -252,14 +256,12 @@ public class MailTests {
                 }
             }
         }
-        System.out.println();
         assertEquals(ccList.size(), countValidRecipients);
     }
 
     /**
-     * Sends an email to the bcc List only. The TO and cc fields are left
+     * Sends an email to the bcc List only. Checking that the bcc fields are the same, and the TO, CC are empty.
      */
-    @Ignore
     @Test
     public void sendEmailBCCList() {
         //Adding people into the TO list
@@ -291,15 +293,17 @@ public class MailTests {
                 }
             }
         }
-        System.out.println();
         assertEquals(bccList.size(), countBccEmailsSent);
     }
 
-    @Ignore
+    /**
+     * Sends an email and verifies the contents of the attachments. Loops through every email, compares the file names and if one of the files are embedded.
+     */
     @Test
     public void testAllAttachments() {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
+        toList.add(recipient2.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
@@ -319,11 +323,12 @@ public class MailTests {
             //The email that this recipient just received
             ReceivedEmail[] emails = runMail.receiveEmail(recipient);
             for (ReceivedEmail email : emails) {
+                //Comparing the names to the expected file names
                 if (regularAttachments.get(0).getName().equals(email.attachments().get(1).getName()) && embeddedAttachments.get(0).getName().equals(email.attachments().get(0).getName())) {
+                    //One attachment must be regular and the other is an embedded attachment
                     if (email.attachments().get(0).isEmbedded() && !email.attachments().get(1).isEmbedded()) {
                         countValidRecipients++;
                     }
-
                 }
             }
         }
@@ -334,7 +339,6 @@ public class MailTests {
      * Expects to receive an IllegalArgumentException since no recipients were
      * given in the parameters for sendEmail
      */
-    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testNoRecipients() {
         //Adding a regular attachment to the attachment lists
@@ -352,7 +356,6 @@ public class MailTests {
      * Expects to receive a NullPointerException when presented with a null
      * email address
      */
-    @Ignore
     @Test(expected = NullPointerException.class)
     public void testNullEmailAddress() {
         toList.add(recipient1.getUserEmailAddress());
@@ -365,9 +368,8 @@ public class MailTests {
 
     /**
      * Expects to receive an IllegalArgumentException when presented with an
-     * invalid email addresses.
+     * invalid recipient email addresses.
      */
-    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testInvalidEmailAddress() {
         toList.add(recipient1.getUserEmailAddress());
@@ -377,27 +379,37 @@ public class MailTests {
         //fail the test if the program does not throw an NullPointerException
         fail("The parameters did not receive an invalid email address");
     }
+    /**
+     * Expects an IllegalArgumentException if the sender's bean email address is invalid. The check is made in the sendEmail method.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidMailConfigBeanUserName(){
+        MailConfigBean invalidSenderBean = new MailConfigBean("smtp.gmail.com", "INVALIDSENDER", "Danieltester1");
+        toList.add(recipient1.getUserEmailAddress());
+        runMail = new SendAndReceive(invalidSenderBean);
+        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+        //fail the test if the program does not throw an IllegalArgumentException
+        fail("The program did not receive an invalid sender MailConfigBean");
+    }
 
     /**
      * This test verifies that the number of emails sent is the same number of
-     * emails received in receiveEmail.
+     * emails received in receiveEmail. (5 emails sent and received)
      */
-    @Ignore
     @Test
     public void testReceiveEmail() {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
-        //Adding one person into the CC list
-        ccList.add(recipient2.getUserEmailAddress());
-        //Adding one person into the BCC list
-        bccList.add(recipient3.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
-        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+        for (int i = 0; i < 5; i++) {
+            //send 5 emails 
+            Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+        }
         // Add a three second pause to allow the Gmail server to receive what has been sent
         try {
             Thread.sleep(3000);
@@ -405,47 +417,32 @@ public class MailTests {
             Thread.currentThread().interrupt();
         }
         int emailCount = 0;
-        for (MailConfigBean recipient : allRecipients) {
-            //The email that this recipient just received
-            ReceivedEmail[] emails = runMail.receiveEmail(recipient);
-            emailCount += emails.length;
+        //The emails that this recipient just received
+        ReceivedEmail[] emails = runMail.receiveEmail(recipient1);
+        for (ReceivedEmail email : emails) {
+            if (email.from().toString().equals(mailConfigBean.getUserEmailAddress())) {
+                emailCount++;
+            }
         }
-        int totalEmailsSent = toList.size() + ccList.size() + bccList.size();
-        assertEquals(totalEmailsSent, emailCount);
+        assertEquals(5, emailCount);
     }
 
     /**
-     * This unit test verifies that the receivedEmail object has the correct
-     * sender
+     * Tests that the receiveEmail method returns an empty array when there are
+     * no emails to receive.
      */
-    @Ignore
     @Test
-    public void testReceiveEmailVerifySender() {
-        //Adding one person into the TO list
-        toList.add(recipient1.getUserEmailAddress());
-        //Adding a regular attachment to the attachment lists
-        regularAttachments.add(new File("WindsorKen180.jpg"));
-        //Adding an embedded attachment to the embedded attachment lists
-        embeddedAttachments.add(new File("FreeFall.jpg"));
-        //Instantiate a SendAndReceive object to utilize its methods
+    public void testNoEmailsSent() {
         runMail = new SendAndReceive(mailConfigBean);
-        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
-        // Add a three second pause to allow the Gmail server to receive what has been sent
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
         ReceivedEmail[] emails = runMail.receiveEmail(recipient1);
-        //Pass the test if the sender's email is the same as the email's sender
-        assertEquals(mailConfigBean.getUserEmailAddress(), emails[0].from().toString());
+        //Assert that the number of emails in the result array is 0
+        assertEquals(0, emails.length);
     }
 
     /**
      * Tests that the to and cc lists of the receivedEmail[] are the same as the
      * intended recipients.
      */
-    @Ignore
     @Test
     public void receiveEmailCheckRecipientNames() {
         //Adding one person into the TO list
@@ -480,12 +477,11 @@ public class MailTests {
 
     /**
      * Checks that the receiveEmail method returns a null if the username is
-     * invalid. The program is expected to fail.
+     * invalid and cannot properly authenticate.
      */
-    @Ignore
     @Test
     public void receiveEmailInvalidUsername() {
-        MailConfigBean invalidUser = new MailConfigBean("imap.gmail.com", "invalidusername123@gmail.com", "Danieltester2");
+        MailConfigBean invalidUser = new MailConfigBean("imap.gmail.com", "invalidUserName@gmail.com", "Danieltester2");
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -502,9 +498,8 @@ public class MailTests {
 
     /**
      * Checks that the receiveEmail method returns a null if the password is
-     * invalid. The program is expected to fail.
+     * invalid and cannot properly authenticate.
      */
-    @Ignore
     @Test
     public void receiveEmailInvalidPassword() {
         MailConfigBean invalidUser = new MailConfigBean("imap.gmail.com", "danieldawsontest2@gmail.com", "invalidpassword2020");
@@ -523,11 +518,12 @@ public class MailTests {
     }
 
     /**
-     * Expects an IllegalArgumentException if the host name of the receiver is
-     * the same as the sender host name.
+     * Checks that the receiveEmail method returns a null if the host is
+     * invalid and cannot properly authenticate.
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void receiveEmailInvalidHost() {
+        //This bean does not have a valid recipient host (should be imap.gmail.com)
         MailConfigBean invalidUser = new MailConfigBean("smtp.gmail.com", "danieldawsontest2@gmail.com", "Danieltester2");
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
@@ -539,7 +535,6 @@ public class MailTests {
             Thread.currentThread().interrupt();
         }
         ReceivedEmail[] emails = runMail.receiveEmail(invalidUser);
-        fail("The host was valid");
+        Assert.assertArrayEquals(null, emails);
     }
-
 }

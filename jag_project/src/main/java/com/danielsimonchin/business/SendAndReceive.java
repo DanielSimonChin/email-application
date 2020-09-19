@@ -21,21 +21,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This is a demo of the code necessary to carry out the following tasks: 1)
- * Send plain text email 2) send plain text message with multiple cc 3) send
- * html email with an embedded image and an attachment 4) Receive email
- * including attachments
- *
- * Removed System.out.println with LOG.info Added an HTML section to sendEmail()
- *
+ * Contains two methods which send and receive an email. Takes in a set of parameters, constructs an Email object and sends the email.
+ * Receiving the email leave it on read and returns and array of ReceivedEmail.
  * @author Daniel Simon Chin 1836462
- * @version 2.1
- *
+ * @version September 20, 2020
  */
 public class SendAndReceive {
 
     private final static Logger LOG = LoggerFactory.getLogger(SendAndReceive.class);
-    private final MailConfigBean mailConfigBean;
+    private MailConfigBean mailConfigBean;
 
     public SendAndReceive(MailConfigBean mailConfigBean) {
         this.mailConfigBean = mailConfigBean;
@@ -86,7 +80,7 @@ public class SendAndReceive {
     }
 
     /**
-     * Return a boolean depending on if the combined total of email addresses is
+     * Helper method that returns a boolean depending on if the combined total of email addresses is
      * at least 1. An email must have one recipient at minimum.
      *
      * @param toList List of recipients in the TO List
@@ -115,7 +109,6 @@ public class SendAndReceive {
      * @return An Email object with the correct values and parameters needed.
      */
     private Email createEmail(List<String> toList, List<String> ccList, List<String> bccList, String subject, String textMsg, String htmlMsg, List<File> regularAttachments, List<File> embeddedAttachments) {
-        // Using the fluent style of coding create a plain text message
         Email email = Email.create().from(this.mailConfigBean.getUserEmailAddress());
         email.subject(subject);
         email.textMessage(textMsg);
@@ -164,12 +157,13 @@ public class SendAndReceive {
 
     /**
      * Standard receive routine for Jodd using an ImapServer.
-     *
-     * @param mailConfigBean
-     * @return
+     * Authenticates the receiver bean and leaves are received emails on seen.
+     * @param mailConfigBean The recipient that will be authenticated to retrieve its emails.
+     * @return An array of ReceivedEmail of the recipient.
      */
     public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
         ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
+        //The recipient email address must be valid and its host must be imap.gmail.com
         if (checkEmail(mailConfigBean.getUserEmailAddress()) && !(this.mailConfigBean.getHost().equals(mailConfigBean.getHost()))) {
             ImapServer imapServer = MailServer.create()
                     .host(mailConfigBean.getHost())
@@ -233,13 +227,15 @@ public class SendAndReceive {
                     }
                 }
             }
-            catch(Exception e){
-                LOG.info("One or many of the mailConfigBean's credentials are invalid");
+            catch(jodd.mail.MailException e){
+                //If the recipient's mail bean is invalid, and cannot log in, return null.
+                LOG.info("The session cannot be opened because the mailConfigBean's credentials are invalid.");
                 return null;
             }
         } else {
-            LOG.info("THE HOST WAS BAD");
-            throw new IllegalArgumentException("One or many of the mailConfigBean's credentials are invalid");
+            //if the username is not a proper email address or if the recipient host is not imap.gmail.com
+            LOG.info("One or many of the mailConfigBean's credentials were invalid.");
+            return null;
         }
         return receivedEmails;
     }
