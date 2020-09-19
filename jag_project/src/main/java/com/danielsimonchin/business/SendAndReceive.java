@@ -80,7 +80,7 @@ public class SendAndReceive {
                 LOG.info("Email sent");
             }
         } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
+            throw new IllegalArgumentException("The input parameters are invalid!");
         }
         return email;
     }
@@ -151,7 +151,7 @@ public class SendAndReceive {
         for (String email : emailList) {
             //throw an exception if the email is null
             if (email == null) {
-                LOG.info("The input email address cannot be null.");
+                throw new NullPointerException("The input email address cannot be null.");
             } //call the checkEmail method to validate that the email is good
             else if (checkEmail(email)) {
                 //increment the count if it is valid
@@ -170,7 +170,7 @@ public class SendAndReceive {
      */
     public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
         ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
-        if (checkEmail(mailConfigBean.getUserEmailAddress())) {
+        if (checkEmail(mailConfigBean.getUserEmailAddress()) && !(this.mailConfigBean.getHost().equals(mailConfigBean.getHost()))) {
             ImapServer imapServer = MailServer.create()
                     .host(mailConfigBean.getHost())
                     .ssl(true)
@@ -233,8 +233,13 @@ public class SendAndReceive {
                     }
                 }
             }
+            catch(Exception e){
+                LOG.info("One or many of the mailConfigBean's credentials are invalid");
+                return null;
+            }
         } else {
-            LOG.info("Unable to send email because either send or recieve addresses are invalid");
+            LOG.info("THE HOST WAS BAD");
+            throw new IllegalArgumentException("One or many of the mailConfigBean's credentials are invalid");
         }
         return receivedEmails;
     }
