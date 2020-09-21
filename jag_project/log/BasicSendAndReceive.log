@@ -6723,3 +6723,1605 @@
 [INFO ] 2020-09-19 15:47:29.597 [main] SendAndReceive - TEXT/HTML
 [INFO ] 2020-09-19 15:47:29.597 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
 [INFO ] 2020-09-19 15:47:29.597 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:30:50.373 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:30:54.150 [main] SendAndReceive - Message count: 1
+[INFO ] 2020-09-20 19:30:55.689 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:30:55.689 [main] SendAndReceive - 
+
+===[1]===
+[INFO ] 2020-09-20 19:30:55.690 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:30:55.690 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:30:55.691 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:30:55.691 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:30:55.692 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:30:55.692 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:30:48 EDT 2020
+[INFO ] 2020-09-20 19:30:55.693 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:30:50 EDT 2020
+[INFO ] 2020-09-20 19:30:55.695 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:30:55.695 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:30:55.696 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:30:55.696 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:30:43.867004
+[INFO ] 2020-09-20 19:30:55.696 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:30:55.696 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:30:55.697 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:30:55.697 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:30:55.697 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:30:55.698 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:30:55.699 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:30:55.699 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:30:55.701 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:30:55.701 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:30:55.701 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:30:56.430 [main] SendAndReceive - Message count: 1
+[INFO ] 2020-09-20 19:30:57.641 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:30:57.641 [main] SendAndReceive - 
+
+===[1]===
+[INFO ] 2020-09-20 19:30:57.641 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:30:57.641 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:30:48 EDT 2020
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:30:50 EDT 2020
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:30:57.642 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:30:43.867004
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:30:57.643 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:30:57.644 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:30:57.644 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:30:57.645 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:30:57.645 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:30:59.260 [main] SendAndReceive - Message count: 0
+[INFO ] 2020-09-20 19:30:59.420 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:31:04.962 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:31:08.786 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 19:31:15.222 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:31:19.226 [main] SendAndReceive - Message count: 3
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - 
+
+===[3]===
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:31:20.752 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:13 EDT 2020
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:15 EDT 2020
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:08.788831400
+[INFO ] 2020-09-20 19:31:20.753 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:31:20.754 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:20.755 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:31:20.755 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:31:20.755 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:21.636 [main] SendAndReceive - Message count: 2
+[INFO ] 2020-09-20 19:31:22.819 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - 
+
+===[2]===
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:13 EDT 2020
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:15 EDT 2020
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:22.820 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:08.788831400
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:31:22.821 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:22.822 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:31:22.822 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:31:22.822 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:24.472 [main] SendAndReceive - Message count: 0
+[INFO ] 2020-09-20 19:31:24.630 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:31:29.766 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:31:33.772 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - 
+
+===[4]===
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:31:35.256 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:28 EDT 2020
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:30 EDT 2020
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:24.947827900
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:31:35.257 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:31:35.258 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:31:35.258 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:31:35.258 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:31:35.258 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:35.259 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:31:35.259 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:31:35.259 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:36.051 [main] SendAndReceive - Message count: 3
+[INFO ] 2020-09-20 19:31:37.161 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:31:37.161 [main] SendAndReceive - 
+
+===[3]===
+[INFO ] 2020-09-20 19:31:37.161 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:31:37.161 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:28 EDT 2020
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:30 EDT 2020
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:24.947827900
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:31:37.162 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:31:37.163 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:31:37.163 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:31:37.163 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:31:37.163 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:31:37.163 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:37.164 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:31:37.164 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:31:37.164 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:31:38.162 [main] SendAndReceive - Message count: 0
+[INFO ] 2020-09-20 19:31:38.325 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:31:43.517 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 19:31:43.622 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:31:48.774 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:31:51.818 [main] SendAndReceive - One or many of the mailConfigBean's credentials were invalid.
+[INFO ] 2020-09-20 19:31:57.683 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:31:59.220 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:00.712 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:02.178 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:03.732 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:07.473 [main] SendAndReceive - Message count: 10
+[INFO ] 2020-09-20 19:32:14.099 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 5
+[INFO ] 2020-09-20 19:32:14.099 [main] SendAndReceive - 
+
+===[6]===
+[INFO ] 2020-09-20 19:32:14.099 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:14.099 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:56 EDT 2020
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:58 EDT 2020
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:51.818844400
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.100 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:14.101 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:14.101 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:14.101 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:14.101 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:14.101 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.102 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:14.102 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:14.102 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.103 [main] SendAndReceive - 
+
+===[7]===
+[INFO ] 2020-09-20 19:32:14.103 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:14.103 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:14.103 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:58 EDT 2020
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:31:59 EDT 2020
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:51.818844400
+[INFO ] 2020-09-20 19:32:14.104 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:14.105 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.106 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:14.106 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:14.106 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.106 [main] SendAndReceive - 
+
+===[8]===
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:31:59 EDT 2020
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:01 EDT 2020
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:51.818844400
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:14.107 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:14.108 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:14.108 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:14.108 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.108 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:14.108 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - 
+
+===[9]===
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:14.109 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:01 EDT 2020
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:02 EDT 2020
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:51.818844400
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:14.110 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:14.111 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.111 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:14.111 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:14.111 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - 
+
+===[10]===
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:02 EDT 2020
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:04 EDT 2020
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:14.112 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:31:51.818844400
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:14.113 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:14.114 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:14.114 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:19.755 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:23.797 [main] SendAndReceive - Message count: 11
+[INFO ] 2020-09-20 19:32:25.341 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:32:25.341 [main] SendAndReceive - 
+
+===[11]===
+[INFO ] 2020-09-20 19:32:25.341 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:18 EDT 2020
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:20 EDT 2020
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:14.337114500
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:25.342 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:25.343 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:25.343 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:25.343 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:25.344 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:26.219 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - 
+
+===[4]===
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:32:27.430 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:18 EDT 2020
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:20 EDT 2020
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:14.337114500
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:27.431 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:27.432 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:27.432 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:27.432 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:27.433 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:28.825 [main] SendAndReceive - Message count: 1
+[INFO ] 2020-09-20 19:32:31.619 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - 
+
+===[1]===
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:18 EDT 2020
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:20 EDT 2020
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:14.337114500
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:31.620 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:31.621 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:31.622 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:31.622 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:38.168 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:42.567 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 19:32:47.938 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:32:52.020 [main] SendAndReceive - Message count: 12
+[INFO ] 2020-09-20 19:32:53.691 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:32:53.691 [main] SendAndReceive - 
+
+===[12]===
+[INFO ] 2020-09-20 19:32:53.691 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:53.691 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:46 EDT 2020
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:48 EDT 2020
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:42.567067100
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:53.692 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:53.693 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:53.693 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:53.693 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:53.693 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:53.694 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:53.694 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:53.694 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:54.535 [main] SendAndReceive - Message count: 5
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - 
+
+===[5]===
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:32:46 EDT 2020
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:32:48 EDT 2020
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:42.567067100
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:32:55.806 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:55.807 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:32:55.808 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:32:55.808 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:32:57.513 [main] SendAndReceive - Message count: 1
+[INFO ] 2020-09-20 19:32:57.680 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:33:03.407 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:33:07.175 [main] SendAndReceive - Message count: 13
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - 
+
+===[13]===
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:33:08.269 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:33:02 EDT 2020
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:33:03 EDT 2020
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:58.017244800
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:33:08.270 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:33:09.070 [main] SendAndReceive - Message count: 6
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - 
+
+===[6]===
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:33:02 EDT 2020
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:33:03 EDT 2020
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:58.017244800
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:09.913 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:33:09.914 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:33:09.914 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:33:11.651 [main] SendAndReceive - Message count: 2
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - 
+
+===[2]===
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:33:13.150 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:33:02 EDT 2020
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:33:03 EDT 2020
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:32:58.017244800
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:33:13.151 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:48:19.457 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:48:23.213 [main] SendAndReceive - Message count: 14
+[INFO ] 2020-09-20 19:48:24.735 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:48:24.736 [main] SendAndReceive - 
+
+===[14]===
+[INFO ] 2020-09-20 19:48:24.736 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:48:24.736 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:48:24.736 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:48:24.737 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:48:24.737 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:48:24.737 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:18 EDT 2020
+[INFO ] 2020-09-20 19:48:24.738 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:19 EDT 2020
+[INFO ] 2020-09-20 19:48:24.739 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:24.739 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:24.739 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:48:24.739 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:14.430203900
+[INFO ] 2020-09-20 19:48:24.739 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:24.740 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:24.740 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:48:24.740 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:48:24.740 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:48:24.741 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:48:24.742 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:48:24.742 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:24.745 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:48:24.746 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:48:24.746 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:25.572 [main] SendAndReceive - Message count: 7
+[INFO ] 2020-09-20 19:48:26.728 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:48:26.728 [main] SendAndReceive - 
+
+===[7]===
+[INFO ] 2020-09-20 19:48:26.728 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:18 EDT 2020
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:19 EDT 2020
+[INFO ] 2020-09-20 19:48:26.729 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:14.430203900
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:48:26.730 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:48:26.731 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:48:26.731 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:48:26.731 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:48:26.731 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:26.732 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:48:26.732 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:48:26.732 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:28.333 [main] SendAndReceive - Message count: 2
+[INFO ] 2020-09-20 19:48:28.502 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:48:33.464 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:48:36.961 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 19:48:43.153 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:48:46.884 [main] SendAndReceive - Message count: 16
+[INFO ] 2020-09-20 19:48:48.351 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:48:48.351 [main] SendAndReceive - 
+
+===[16]===
+[INFO ] 2020-09-20 19:48:48.351 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:48:48.351 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:42 EDT 2020
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:43 EDT 2020
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:36.963028300
+[INFO ] 2020-09-20 19:48:48.352 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:48:48.353 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:48.354 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:48:48.354 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:48:48.354 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:49.131 [main] SendAndReceive - Message count: 8
+[INFO ] 2020-09-20 19:48:50.155 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:48:50.155 [main] SendAndReceive - 
+
+===[8]===
+[INFO ] 2020-09-20 19:48:50.155 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:48:50.155 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 19:48:50.155 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:42 EDT 2020
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:43 EDT 2020
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:36.963028300
+[INFO ] 2020-09-20 19:48:50.156 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:48:50.157 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:50.158 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:48:50.158 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:48:50.158 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:48:51.776 [main] SendAndReceive - Message count: 2
+[INFO ] 2020-09-20 19:48:51.939 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:48:57.605 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:01.569 [main] SendAndReceive - Message count: 17
+[INFO ] 2020-09-20 19:49:03.071 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:49:03.071 [main] SendAndReceive - 
+
+===[17]===
+[INFO ] 2020-09-20 19:49:03.071 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:03.071 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:56 EDT 2020
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:58 EDT 2020
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:03.072 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:52.260981100
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:03.073 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:03.074 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:03.075 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:03.075 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:03.075 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:03.810 [main] SendAndReceive - Message count: 9
+[INFO ] 2020-09-20 19:49:04.920 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:49:04.920 [main] SendAndReceive - 
+
+===[9]===
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:48:56 EDT 2020
+[INFO ] 2020-09-20 19:49:04.921 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:48:58 EDT 2020
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:48:52.260981100
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:04.922 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:04.923 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:04.923 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:04.923 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:04.924 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:04.925 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:04.925 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:06.507 [main] SendAndReceive - Message count: 2
+[INFO ] 2020-09-20 19:49:06.669 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:49:11.108 [main] SendAndReceive - Message count: 17
+[INFO ] 2020-09-20 19:49:11.212 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:49:15.931 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:18.971 [main] SendAndReceive - One or many of the mailConfigBean's credentials were invalid.
+[INFO ] 2020-09-20 19:49:25.440 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:27.054 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:28.663 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:30.269 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:32.307 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:35.987 [main] SendAndReceive - Message count: 23
+[INFO ] 2020-09-20 19:49:42.506 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 5
+[INFO ] 2020-09-20 19:49:42.506 [main] SendAndReceive - 
+
+===[19]===
+[INFO ] 2020-09-20 19:49:42.506 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:42.507 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:42.507 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:42.507 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:42.507 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:24 EDT 2020
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:25 EDT 2020
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:42.508 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:18.971847100
+[INFO ] 2020-09-20 19:49:42.509 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.509 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.509 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:42.509 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:42.509 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:42.510 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:42.510 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:42.510 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.511 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:42.512 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:42.512 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.512 [main] SendAndReceive - 
+
+===[20]===
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:25 EDT 2020
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:27 EDT 2020
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.513 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:18.971847100
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:42.514 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.515 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:42.515 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:42.515 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - 
+
+===[21]===
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:42.516 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:27 EDT 2020
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:29 EDT 2020
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:18.971847100
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:42.517 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.518 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:42.518 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:42.518 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - 
+
+===[22]===
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:29 EDT 2020
+[INFO ] 2020-09-20 19:49:42.519 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:30 EDT 2020
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:18.971847100
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:42.520 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.521 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:42.521 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:42.521 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - 
+
+===[23]===
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:30 EDT 2020
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:32 EDT 2020
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.522 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:18.971847100
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:42.523 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:42.524 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:42.524 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:42.524 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:47.987 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:49:52.034 [main] SendAndReceive - Message count: 24
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - 
+
+===[24]===
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:46 EDT 2020
+[INFO ] 2020-09-20 19:49:53.549 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:48 EDT 2020
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:42.729411900
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:53.550 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:53.551 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:53.551 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:53.551 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:54.352 [main] SendAndReceive - Message count: 10
+[INFO ] 2020-09-20 19:49:55.505 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:49:55.505 [main] SendAndReceive - 
+
+===[10]===
+[INFO ] 2020-09-20 19:49:55.505 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:55.505 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:55.506 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:49:55.506 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:55.506 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:55.506 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:46 EDT 2020
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:48 EDT 2020
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:42.729411900
+[INFO ] 2020-09-20 19:49:55.507 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:55.508 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:55.510 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:55.510 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:55.510 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:56.535 [main] SendAndReceive - Message count: 3
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - 
+
+===[3]===
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:49:58.865 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:49:46 EDT 2020
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:49:48 EDT 2020
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:49:42.729411900
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:49:58.866 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:49:58.867 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:49:58.867 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:49:58.867 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:50:03.912 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:50:07.633 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 19:50:13.378 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:50:17.141 [main] SendAndReceive - Message count: 25
+[INFO ] 2020-09-20 19:50:18.642 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:50:18.642 [main] SendAndReceive - 
+
+===[25]===
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:50:12 EDT 2020
+[INFO ] 2020-09-20 19:50:18.643 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:50:13 EDT 2020
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:50:07.633185900
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:50:18.644 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:50:18.645 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:50:18.645 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:50:18.645 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:50:19.499 [main] SendAndReceive - Message count: 11
+[INFO ] 2020-09-20 19:50:20.858 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:50:20.858 [main] SendAndReceive - 
+
+===[11]===
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:50:12 EDT 2020
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:50:13 EDT 2020
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:50:07.633185900
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 19:50:20.859 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:50:20.860 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 19:50:20.860 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 19:50:20.860 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 19:50:22.476 [main] SendAndReceive - Message count: 3
+[INFO ] 2020-09-20 19:50:22.643 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 19:50:28.320 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 19:50:31.993 [main] SendAndReceive - Message count: 26
+[INFO ] 2020-09-20 19:50:33.035 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:50:33.035 [main] SendAndReceive - 
+
+===[26]===
+[INFO ] 2020-09-20 19:50:33.035 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:50:33.035 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:50:33.035 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:50:27 EDT 2020
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:50:28 EDT 2020
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:50:22.983690700
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:50:33.036 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:50:33.856 [main] SendAndReceive - Message count: 12
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - 
+
+===[12]===
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:50:34.633 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:50:34.634 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:50:34.634 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:50:27 EDT 2020
+[INFO ] 2020-09-20 19:50:34.634 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:50:28 EDT 2020
+[INFO ] 2020-09-20 19:50:34.634 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:34.634 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:50:22.983690700
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:50:34.635 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 19:50:35.760 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 19:50:37.261 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 19:50:37.261 [main] SendAndReceive - 
+
+===[4]===
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - SENT DATE:Sun Sep 20 19:50:27 EDT 2020
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 19:50:28 EDT 2020
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - Hello from plain text email: 2020-09-20T19:50:22.983690700
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 19:50:37.262 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:02:31.108 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:02:34.782 [main] SendAndReceive - Message count: 27
+[INFO ] 2020-09-20 20:02:36.323 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:02:36.323 [main] SendAndReceive - 
+
+===[27]===
+[INFO ] 2020-09-20 20:02:36.324 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:02:36.324 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 20:02:36.324 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:02:36.324 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:02:36.324 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:02:36.325 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:02:29 EDT 2020
+[INFO ] 2020-09-20 20:02:36.325 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:02:31 EDT 2020
+[INFO ] 2020-09-20 20:02:36.326 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:02:36.326 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:02:36.326 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:02:36.326 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:02:24.529800800
+[INFO ] 2020-09-20 20:02:36.326 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:02:36.327 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:02:36.327 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:02:36.327 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:02:36.327 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:02:36.328 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:02:36.328 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:02:36.328 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:02:36.330 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:02:36.330 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:02:36.330 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:02:37.163 [main] SendAndReceive - Message count: 13
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - 
+
+===[13]===
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - CC:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:02:38.337 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:02:29 EDT 2020
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:02:31 EDT 2020
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:02:24.529800800
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:02:38.338 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:02:38.339 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:02:38.339 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:02:38.339 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:02:38.340 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:02:38.340 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:02:38.340 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:02:39.933 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 20:02:40.098 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 20:02:45.593 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:02:49.150 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 20:02:55.181 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:02:59.196 [main] SendAndReceive - Message count: 29
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - 
+
+===[29]===
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:00.709 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:02:54 EDT 2020
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:02:55 EDT 2020
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:02:49.153731600
+[INFO ] 2020-09-20 20:03:00.710 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:00.711 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:00.712 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:00.712 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:00.712 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:01.517 [main] SendAndReceive - Message count: 14
+[INFO ] 2020-09-20 20:03:02.766 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:03:02.766 [main] SendAndReceive - 
+
+===[14]===
+[INFO ] 2020-09-20 20:03:02.766 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:02.766 [main] SendAndReceive - TO:[]
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:02:54 EDT 2020
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:02:55 EDT 2020
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:02.767 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:02:49.153731600
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:02.768 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:02.769 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:02.769 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:02.769 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:03.893 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 20:03:04.056 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 20:03:09.867 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:13.854 [main] SendAndReceive - Message count: 30
+[INFO ] 2020-09-20 20:03:15.363 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - 
+
+===[30]===
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:15.364 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:08 EDT 2020
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:10 EDT 2020
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:04.376750400
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:15.365 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:15.366 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:15.366 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:15.366 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:15.366 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:15.367 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:15.367 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:15.367 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:16.046 [main] SendAndReceive - Message count: 15
+[INFO ] 2020-09-20 20:03:17.147 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - 
+
+===[15]===
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:08 EDT 2020
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:10 EDT 2020
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:17.148 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:04.376750400
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:17.149 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:17.150 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:17.150 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:17.150 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:18.256 [main] SendAndReceive - Message count: 4
+[INFO ] 2020-09-20 20:03:18.418 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 20:03:23.286 [main] SendAndReceive - Message count: 30
+[INFO ] 2020-09-20 20:03:23.402 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 20:03:28.727 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:31.766 [main] SendAndReceive - One or many of the mailConfigBean's credentials were invalid.
+[INFO ] 2020-09-20 20:03:37.835 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:39.377 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:40.836 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:42.468 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:44.009 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:03:47.997 [main] SendAndReceive - Message count: 36
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 5
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - 
+
+===[32]===
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:54.711 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:36 EDT 2020
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:38 EDT 2020
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:31.766923600
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:54.712 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:54.713 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:54.713 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:54.713 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:54.713 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.714 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:54.714 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:54.714 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.715 [main] SendAndReceive - 
+
+===[33]===
+[INFO ] 2020-09-20 20:03:54.715 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:54.715 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:38 EDT 2020
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:39 EDT 2020
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:54.716 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:31.766923600
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:54.717 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.718 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:54.718 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:54.718 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - 
+
+===[34]===
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:39 EDT 2020
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:41 EDT 2020
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:54.719 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:31.766923600
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:54.720 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.721 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:54.721 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:54.721 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.722 [main] SendAndReceive - 
+
+===[35]===
+[INFO ] 2020-09-20 20:03:54.722 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:54.722 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:03:54.722 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:54.722 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:41 EDT 2020
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:42 EDT 2020
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:31.766923600
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.723 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:54.724 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:54.724 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:54.724 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:54.724 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:54.724 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - 
+
+===[36]===
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:03:54.725 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:42 EDT 2020
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:03:44 EDT 2020
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:31.766923600
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:03:54.726 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:54.727 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:03:54.727 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:03:54.727 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:03:59.970 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:04:03.732 [main] SendAndReceive - Message count: 37
+[INFO ] 2020-09-20 20:04:05.267 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:05.267 [main] SendAndReceive - 
+
+===[37]===
+[INFO ] 2020-09-20 20:04:05.267 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:05.267 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:58 EDT 2020
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:00 EDT 2020
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:54.924099700
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:04:05.268 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:05.269 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:04:05.270 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:04:05.270 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:06.094 [main] SendAndReceive - Message count: 16
+[INFO ] 2020-09-20 20:04:07.194 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:07.194 [main] SendAndReceive - 
+
+===[16]===
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:07.195 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:58 EDT 2020
+[INFO ] 2020-09-20 20:04:07.196 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:00 EDT 2020
+[INFO ] 2020-09-20 20:04:07.196 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:07.196 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:07.196 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:07.196 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:54.924099700
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:04:07.197 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:04:07.198 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:07.199 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:04:07.199 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:04:07.200 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:08.371 [main] SendAndReceive - Message count: 5
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - 
+
+===[5]===
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:10.819 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:03:58 EDT 2020
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:00 EDT 2020
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:03:54.924099700
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:04:10.820 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:10.821 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:04:10.821 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:04:10.821 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:15.758 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:04:19.578 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
+[INFO ] 2020-09-20 20:04:25.204 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:04:29.210 [main] SendAndReceive - Message count: 38
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - 
+
+===[38]===
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:04:23 EDT 2020
+[INFO ] 2020-09-20 20:04:30.747 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:25 EDT 2020
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:04:19.578749500
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:04:30.748 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:30.749 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:04:30.749 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:04:30.749 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:31.602 [main] SendAndReceive - Message count: 17
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - 
+
+===[17]===
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com, danieldawsontest3@gmail.com]
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - CC:[]
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:04:23 EDT 2020
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:25 EDT 2020
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:04:19.578749500
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:32.711 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - name: FreeFall.jpg
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - cid: <FreeFall.jpg>
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - name: WindsorKen180.jpg
+[INFO ] 2020-09-20 20:04:32.712 [main] SendAndReceive - cid: null
+[INFO ] 2020-09-20 20:04:32.713 [main] SendAndReceive - size: -1
+[INFO ] 2020-09-20 20:04:34.308 [main] SendAndReceive - Message count: 5
+[INFO ] 2020-09-20 20:04:34.484 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 0
+[INFO ] 2020-09-20 20:04:39.945 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-20 20:04:43.914 [main] SendAndReceive - Message count: 39
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - 
+
+===[39]===
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:44.934 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:04:39 EDT 2020
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:40 EDT 2020
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:04:34.805813500
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:44.935 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:45.615 [main] SendAndReceive - Message count: 18
+[INFO ] 2020-09-20 20:04:46.399 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:46.399 [main] SendAndReceive - 
+
+===[18]===
+[INFO ] 2020-09-20 20:04:46.399 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:04:39 EDT 2020
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:40 EDT 2020
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:04:34.805813500
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:46.400 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:46.401 [main] SendAndReceive - +++++
+[INFO ] 2020-09-20 20:04:48.037 [main] SendAndReceive - Message count: 6
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - 
+ >>>> ReceivedEmail count = 1
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - 
+
+===[6]===
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - FROM:danieldawsontest1@gmail.com
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - TO:[danieldawsontest2@gmail.com]
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - CC:[danieldawsontest3@gmail.com, recievedanieldawson1@gmail.com]
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - SUBJECT:Jodd Test
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - PRIORITY:-1
+[INFO ] 2020-09-20 20:04:49.514 [main] SendAndReceive - SENT DATE:Sun Sep 20 20:04:39 EDT 2020
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - RECEIVED DATE: Sun Sep 20 20:04:40 EDT 2020
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - TEXT/PLAIN
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - Hello from plain text email: 2020-09-20T20:04:34.805813500
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - ------
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - UTF-8
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - TEXT/HTML
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>HTML Message</h1><h2>Here is some text in the HTML message</h2></body></html>
+[INFO ] 2020-09-20 20:04:49.515 [main] SendAndReceive - +++++

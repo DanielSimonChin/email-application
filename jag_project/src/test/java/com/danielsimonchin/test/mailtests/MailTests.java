@@ -90,8 +90,9 @@ public class MailTests {
     }
 
     /**
-     * Testing the sendEmail method which sends an email to multiple recipients. An email is sent, received and compared. Assuming that
-     * all the input parameters are valid and provided.
+     * Testing the sendEmail method which sends an email to multiple recipients.
+     * An email is sent, received and compared. Assuming that all the input
+     * parameters are valid and provided.
      */
     @Test
     public void sendEmailTestPassed() {
@@ -144,8 +145,8 @@ public class MailTests {
     }
 
     /**
-     * Helper method that checks that two lists of email addresses are identical. Useful to see
-     * that the to,cc,bcc fields are the same
+     * Helper method that checks that two lists of email addresses are
+     * identical. Useful to see that the to,cc,bcc fields are the same
      *
      * @param list1 First List of recipients
      * @param list2 Second List of recipients
@@ -260,7 +261,8 @@ public class MailTests {
     }
 
     /**
-     * Sends an email to the bcc List only. Checking that the bcc fields are the same, and the TO, CC are empty.
+     * Sends an email to the bcc List only. Checking that the bcc fields are the
+     * same, and the TO, CC are empty.
      */
     @Test
     public void sendEmailBCCList() {
@@ -282,14 +284,17 @@ public class MailTests {
         }
 
         int countBccEmailsSent = 0;
-        for (MailConfigBean recipient : allRecipients) {
-            //The email that this recipient just received
-            ReceivedEmail[] emails = runMail.receiveEmail(recipient);
 
-            //Since the ReceivedEmail class doesn't have a bcc() method, we make sure the other fields are empty and increment the number of bcc emails
-            for (ReceivedEmail email : emails) {
-                if (email.to().length == 0 && email.cc().length == 0) {
-                    countBccEmailsSent++;
+        //Check that the count of bcc recipients is the same as count of sent emails
+        if (resultEmail.bcc().length == bccList.size()) {
+            for (MailConfigBean recipient : allRecipients) {
+                //The email that this recipient just received
+                ReceivedEmail[] emails = runMail.receiveEmail(recipient);
+                //Since the ReceivedEmail class doesn't have a bcc() method, we make sure the other fields are empty and increment the number of bcc emails
+                for (ReceivedEmail email : emails) {
+                    if (email.to().length == 0 && email.cc().length == 0) {
+                        countBccEmailsSent++;
+                    }
                 }
             }
         }
@@ -297,7 +302,9 @@ public class MailTests {
     }
 
     /**
-     * Sends an email and verifies the contents of the attachments. Loops through every email, compares the file names and if one of the files are embedded.
+     * Sends an email and verifies the contents of the attachments. Loops
+     * through every email, compares the file names and if one of the files are
+     * embedded.
      */
     @Test
     public void testAllAttachments() {
@@ -379,11 +386,13 @@ public class MailTests {
         //fail the test if the program does not throw an NullPointerException
         fail("The parameters did not receive an invalid email address");
     }
+
     /**
-     * Expects an IllegalArgumentException if the sender's bean email address is invalid. The check is made in the sendEmail method.
+     * Expects an IllegalArgumentException if the sender's bean email address is
+     * invalid (invalid format). The check is made in the sendEmail method.
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testInvalidMailConfigBeanUserName(){
+    public void testInvalidMailConfigBeanUserName() {
         MailConfigBean invalidSenderBean = new MailConfigBean("smtp.gmail.com", "INVALIDSENDER", "Danieltester1");
         toList.add(recipient1.getUserEmailAddress());
         runMail = new SendAndReceive(invalidSenderBean);
@@ -518,8 +527,8 @@ public class MailTests {
     }
 
     /**
-     * Checks that the receiveEmail method returns a null if the host is
-     * invalid and cannot properly authenticate.
+     * Checks that the receiveEmail method returns a null if the host is invalid
+     * and cannot properly authenticate.
      */
     @Test
     public void receiveEmailInvalidHost() {

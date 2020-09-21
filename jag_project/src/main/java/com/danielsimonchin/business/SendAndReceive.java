@@ -21,8 +21,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Contains two methods which send and receive an email. Takes in a set of parameters, constructs an Email object and sends the email.
- * Receiving the email leave it on read and returns and array of ReceivedEmail.
+ * Contains two methods which send and receive an email. Takes in a set of
+ * parameters, constructs an Email object and sends the email. Receiving the
+ * email leave it on read and returns and array of ReceivedEmail.
+ *
  * @author Daniel Simon Chin 1836462
  * @version September 20, 2020
  */
@@ -80,8 +82,9 @@ public class SendAndReceive {
     }
 
     /**
-     * Helper method that returns a boolean depending on if the combined total of email addresses is
-     * at least 1. An email must have one recipient at minimum.
+     * Helper method that returns a boolean depending on if the combined total
+     * of email addresses is at least 1. An email must have one recipient at
+     * minimum.
      *
      * @param toList List of recipients in the TO List
      * @param ccList List of recipients in the cc List
@@ -156,9 +159,11 @@ public class SendAndReceive {
     }
 
     /**
-     * Standard receive routine for Jodd using an ImapServer.
-     * Authenticates the receiver bean and leaves are received emails on seen.
-     * @param mailConfigBean The recipient that will be authenticated to retrieve its emails.
+     * Standard receive routine for Jodd using an ImapServer. Authenticates the
+     * receiver bean and leaves are received emails on seen.
+     *
+     * @param mailConfigBean The recipient that will be authenticated to
+     * retrieve its emails.
      * @return An array of ReceivedEmail of the recipient.
      */
     public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
@@ -226,8 +231,7 @@ public class SendAndReceive {
                         }
                     }
                 }
-            }
-            catch(jodd.mail.MailException e){
+            } catch (jodd.mail.MailException e) {
                 //If the recipient's mail bean is invalid, and cannot log in, return null.
                 LOG.info("The session cannot be opened because the mailConfigBean's credentials are invalid.");
                 return null;
