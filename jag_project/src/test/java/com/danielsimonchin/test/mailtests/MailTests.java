@@ -31,12 +31,13 @@ import org.junit.Ignore;
 public class MailTests {
 
     private SendAndReceive runMail;
-    private final String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
-    private final String htmlMsg = "<html><META http-equiv=Content-Type "
+    private String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
+    private String htmlMsg = "<html><META http-equiv=Content-Type "
             + "content=\"text/html; charset=utf-8\">"
-            + "<body><h1>HTML Message</h1>"
-            + "<h2>Here is some text in the HTML message</h2></body></html>";
-    private final String subject = "Jodd Test";
+            + "<body><h1>Here is my photograph embedded in "
+            + "this email.</h1><img src='cid:FreeFall.jpg'>"
+            + "<h2>I'm flying!</h2></body></html>";
+    private String subject = "Jodd Test";
     private MailConfigBean mailConfigBean;
 
     //List of all recipients, will be used later when validating the emails received
