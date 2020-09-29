@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.danielsimonchin.test.mailtests.MailTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.004 s - in com.danielsimonchin.test.mailtests.MailTests
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 166.221 s - in com.danielsimonchin.test.mailtests.MailTests

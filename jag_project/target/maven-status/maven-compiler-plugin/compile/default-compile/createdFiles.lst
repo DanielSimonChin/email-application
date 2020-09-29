@@ -1,2 +1,2 @@
 com\danielsimonchin\business\SendAndReceive.class
-data\MailConfigBean.class
+com\danielsimonchin\properties\MailConfigBean.class

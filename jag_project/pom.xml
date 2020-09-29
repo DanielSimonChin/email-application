@@ -11,7 +11,6 @@
         <!-- class that has the main method -->
         <!--<mainClass>${project.groupId}.${project.artifactId}.SendAndReceive</mainClass>-->
         
-        
         <skipTests>false</skipTests>
     </properties>
     
@@ -96,9 +95,9 @@
             <version>1.6.2</version>
         </dependency>
         <dependency>
-            <groupId>com.sun.activation</groupId>
-            <artifactId>jakarta.activation</artifactId>
-            <version>1.2.1</version>
+            <groupId>javax.activation</groupId>
+            <artifactId>javax.activation-api</artifactId>
+            <version>1.2.0</version>
             <type>jar</type>
         </dependency>
     </dependencies>

@@ -1,6 +1,6 @@
 package com.danielsimonchin.business;
 
-import data.MailConfigBean;
+import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -59,7 +59,7 @@ public class SendAndReceive {
             // Create am SMTP server object
             SmtpServer smtpServer = MailServer.create()
                     .ssl(true)
-                    .host(this.mailConfigBean.getHost())
+                    .host(this.mailConfigBean.getSmtpUrl())
                     .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
                     .buildSmtpMailServer();
 
@@ -169,9 +169,9 @@ public class SendAndReceive {
     public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
         ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
         //The recipient email address must be valid and its host must be imap.gmail.com
-        if (checkEmail(mailConfigBean.getUserEmailAddress()) && !(this.mailConfigBean.getHost().equals(mailConfigBean.getHost()))) {
+        if (checkEmail(mailConfigBean.getUserEmailAddress()) && (this.mailConfigBean.getImapUrl().equals(mailConfigBean.getImapUrl()))) {
             ImapServer imapServer = MailServer.create()
-                    .host(mailConfigBean.getHost())
+                    .host(mailConfigBean.getImapUrl())
                     .ssl(true)
                     .auth(mailConfigBean.getUserEmailAddress(), mailConfigBean.getPassword())
                     .buildImapMailServer();
@@ -224,9 +224,6 @@ public class SendAndReceive {
                             }).map((attachment) -> {
                                 LOG.info("size: " + attachment.getSize());
                                 return attachment;
-                            }).forEachOrdered((attachment) -> {
-                                attachment.writeToFile(
-                                        new File("c:\\temp", attachment.getName()));
                             });
                         }
                     }
