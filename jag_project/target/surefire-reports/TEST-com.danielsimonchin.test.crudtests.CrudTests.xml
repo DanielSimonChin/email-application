@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.danielsimonchin.test.mailtests.MailTests" time="167.337" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.danielsimonchin.test.crudtests.CrudTests" time="10.033" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,19 +57,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="testInvalidEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="9.177"/>
-  <testcase name="testInvalidMailConfigBeanUserName" classname="com.danielsimonchin.test.mailtests.MailTests" time="3.784"/>
-  <testcase name="sendEmailCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="14.537"/>
-  <testcase name="receiveEmailInvalidPassword" classname="com.danielsimonchin.test.mailtests.MailTests" time="8.523"/>
-  <testcase name="sendEmailBCCList" classname="com.danielsimonchin.test.mailtests.MailTests" time="16.279"/>
-  <testcase name="sendEmailToList" classname="com.danielsimonchin.test.mailtests.MailTests" time="14.841"/>
-  <testcase name="testNoEmailsSent" classname="com.danielsimonchin.test.mailtests.MailTests" time="4.951"/>
-  <testcase name="receiveEmailInvalidHost" classname="com.danielsimonchin.test.mailtests.MailTests" time="7.971"/>
-  <testcase name="testReceiveEmail" classname="com.danielsimonchin.test.mailtests.MailTests" time="23.432"/>
-  <testcase name="sendEmailTestPassed" classname="com.danielsimonchin.test.mailtests.MailTests" time="17.171"/>
-  <testcase name="receiveEmailInvalidUsername" classname="com.danielsimonchin.test.mailtests.MailTests" time="9.629"/>
-  <testcase name="testAllAttachments" classname="com.danielsimonchin.test.mailtests.MailTests" time="14.024"/>
-  <testcase name="receiveEmailCheckRecipientNames" classname="com.danielsimonchin.test.mailtests.MailTests" time="16.051"/>
-  <testcase name="testNullEmailAddress" classname="com.danielsimonchin.test.mailtests.MailTests" time="3.488"/>
-  <testcase name="testNoRecipients" classname="com.danielsimonchin.test.mailtests.MailTests" time="3.478"/>
+  <testcase name="testEmailCreate" classname="com.danielsimonchin.test.crudtests.CrudTests" time="10.03">
+    <error message="No suitable driver found for jdbc:mysql://localhost:3306?zeroDateTimeBehavior=CONVERT_TO_NULL" type="java.sql.SQLException">java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306?zeroDateTimeBehavior=CONVERT_TO_NULL
+	at com.danielsimonchin.test.crudtests.CrudTests.testEmailCreate(CrudTests.java:118)
+</error>
+    <system-out><![CDATA[[INFO ] 2020-09-29 22:12:34.815 [main] SendAndReceive - Email sent
+]]></system-out>
+  </testcase>
 </testsuite>

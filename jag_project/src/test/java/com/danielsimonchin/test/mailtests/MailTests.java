@@ -42,10 +42,10 @@ public class MailTests {
 
     //List of all recipients, will be used later when validating the emails received
     private List<MailConfigBean> allRecipients;
-    //The mail config beans relating to the recipients of the email
-    private MailConfigBean recipient1 = new MailConfigBean("danieldawsontest2@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com");
-    private MailConfigBean recipient2 = new MailConfigBean("danieldawsontest3@gmail.com", "Danieltester3","imap.gmail.com","smtp.gmail.com");
-    private MailConfigBean recipient3 = new MailConfigBean("recievedanieldawson1@gmail.com", "Danieltester4","imap.gmail.com","smtp.gmail.com");
+    //The mail config beans relating to the recipients of the email. The fields left as 0 or null are those relating to database that are not part of the email object.
+    private MailConfigBean recipient1 = new MailConfigBean(null,"danieldawsontest2@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    private MailConfigBean recipient2 = new MailConfigBean(null,"danieldawsontest3@gmail.com", "Danieltester3","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    private MailConfigBean recipient3 = new MailConfigBean(null,"recievedanieldawson1@gmail.com", "Danieltester4","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
 
     //ArrayList of recipients in the To List
     private List<String> toList;
@@ -74,7 +74,7 @@ public class MailTests {
         allRecipients.add(recipient3);
         regularAttachments = new ArrayList<>();
         embeddedAttachments = new ArrayList<>();
-        this.mailConfigBean = new MailConfigBean("danieldawsontest1@gmail.com", "Danieltester1","imap.gmail.com","smtp.gmail.com");
+        this.mailConfigBean = new MailConfigBean(null,"danieldawsontest1@gmail.com", "Danieltester1","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
 
         //This is to make sure that all emails in all recipient accounts have seen/read the emails sent. Prevents having a test affect the result of the next.
         allRecipients.stream().map(recipient -> MailServer.create()
@@ -394,7 +394,7 @@ public class MailTests {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testInvalidMailConfigBeanUserName() {
-        MailConfigBean invalidSenderBean = new MailConfigBean("INVALIDSENDER", "Danieltester1","imap.gmail.com","smtp.gmail.com");
+        MailConfigBean invalidSenderBean = new MailConfigBean(null,"INVALIDSENDER", "Danieltester1","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
         toList.add(recipient1.getUserEmailAddress());
         runMail = new SendAndReceive(invalidSenderBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -491,7 +491,7 @@ public class MailTests {
      */
     @Test
     public void receiveEmailInvalidUsername() {
-        MailConfigBean invalidUser = new MailConfigBean("invalidUserName@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com");
+        MailConfigBean invalidUser = new MailConfigBean(null,"invalidUserName@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -512,7 +512,7 @@ public class MailTests {
      */
     @Test
     public void receiveEmailInvalidPassword() {
-        MailConfigBean invalidUser = new MailConfigBean("danieldawsontest2@gmail.com", "invalidpassword2020","imap.gmail.com","smtp.gmail.com");
+        MailConfigBean invalidUser = new MailConfigBean(null,"danieldawsontest2@gmail.com", "invalidpassword2020","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -534,7 +534,7 @@ public class MailTests {
     @Test
     public void receiveEmailInvalidHost() {
         //This bean does not have a valid recipient host (should be imap.gmail.com)
-        MailConfigBean invalidUser = new MailConfigBean("danieldawsontest2@gmail.com","Danieltester2","invalidHost.com","smtp.gmail.com");
+        MailConfigBean invalidUser = new MailConfigBean(null,"danieldawsontest2@gmail.com","Danieltester2","invalidHost.com","smtp.gmail.com",null,null,null,null,null,null,null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);

@@ -1,2 +1,4 @@
 com\danielsimonchin\business\SendAndReceive.class
+com\danielsimonchin\persistence\EmailDAOImpl.class
 com\danielsimonchin\properties\MailConfigBean.class
+com\danielsimonchin\persistence\EmailDAO.class

@@ -17,15 +17,14 @@ public class MailConfigBean {
     private String password;
     private String imapUrl;
     private String smtpUrl;
-    private int imapPort;
-    private int smtpPort;
+    private String imapPort;
+    private String smtpPort;
     private String databaseURL;
     private String databaseName;
-    private int databasePort;
+    private String databasePort;
     private String databaseUserName;
     private String databasePassword;
-    
-    
+
     /**
      * Default Constructor
      */
@@ -35,49 +34,61 @@ public class MailConfigBean {
         this.password = "";
         this.imapUrl = "";
         this.smtpUrl = "";
-        this.imapPort = 0;
-        this.smtpPort = 0;
+        this.imapPort = "";
+        this.smtpPort = "";
         this.databaseURL = "";
         this.databaseName = "";
-        this.databasePort = 0;
+        this.databasePort = "";
         this.databaseUserName = "";
         this.databasePassword = "";
     }
 
     /**
-     * Non-default constructor
-     * Takes as input all the parameters relating to an Email Object and sets the fields. The non-applicable fields are left empty
+     * Non-default constructor Takes as input all the parameters relating to an
+     * Email Object and sets the fields.The non-applicable fields are left empty
+     *
+     * @param name
      * @param userEmailAddress
      * @param password
      * @param imapUrl
      * @param smtpUrl
+     * @param imapPort
+     * @param smtpPort
+     * @param databaseURL
+     * @param databaseName
+     * @param databasePort
+     * @param databaseUserName
+     * @param databasePassword
      */
-    public MailConfigBean(final String userEmailAddress, final String password, final String imapUrl, final String smtpUrl) {
-        this.name = "";
+    public MailConfigBean(final String name, final String userEmailAddress, final String password, final String imapUrl, final String smtpUrl, final String imapPort, final String smtpPort, final String databaseURL, final String databaseName, final String databasePort, final String databaseUserName, final String databasePassword) {
+        this.name = name;
         this.userEmailAddress = userEmailAddress;
         this.password = password;
         this.imapUrl = imapUrl;
         this.smtpUrl = smtpUrl;
-        this.imapPort = 993;
-        this.smtpPort = 465;
-        this.databaseURL = "";
-        this.databaseName = "";
-        this.databasePort = 0;
-        this.databaseUserName = "";
-        this.databasePassword = "";
+        this.imapPort = imapPort;
+        this.smtpPort = smtpPort;
+        this.databaseURL = databaseURL;
+        this.databaseName = databaseName;
+        this.databasePort = databasePort;
+        this.databaseUserName = databaseUserName;
+        this.databasePassword = databasePassword;
     }
+
     /**
-     * @return the user's name 
+     * @return the user's name
      */
-    public final String getName(){
+    public final String getName() {
         return this.name;
     }
+
     /**
-     * @param name 
+     * @param name
      */
-    public final void setName(final String name){
+    public final void setName(final String name) {
         this.name = name;
     }
+
     /**
      * @return the userEmailAddress
      */
@@ -105,6 +116,7 @@ public class MailConfigBean {
     public final void setPassword(final String password) {
         this.password = password;
     }
+
     /**
      * @return the imapUrl
      */
@@ -118,6 +130,7 @@ public class MailConfigBean {
     public final void setImapUrl(final String imapUrl) {
         this.imapUrl = imapUrl;
     }
+
     /**
      * @return the smtpUrl
      */
@@ -131,32 +144,35 @@ public class MailConfigBean {
     public final void setSmtpUrl(final String smtpUrl) {
         this.smtpUrl = smtpUrl;
     }
+
     /**
      * @return the imapPort
      */
-    public final int getImapPort() {
+    public final String getImapPort() {
         return this.imapPort;
     }
 
     /**
      * @param imapPort
      */
-    public final void setImapUrl(final int imapPort) {
+    public final void setImapPort(final String imapPort) {
         this.imapPort = imapPort;
     }
+
     /**
      * @return the smtpPort
      */
-    public final int getSmtpPort() {
+    public final String getSmtpPort() {
         return this.smtpPort;
     }
 
     /**
      * @param smtpPort
      */
-    public final void setSmtpPort(final int smtpPort) {
+    public final void setSmtpPort(final String smtpPort) {
         this.smtpPort = smtpPort;
     }
+
     /**
      * @return the databaseURL
      */
@@ -170,6 +186,7 @@ public class MailConfigBean {
     public final void setDatabaseURL(final String databaseURL) {
         this.databaseURL = databaseURL;
     }
+
     /**
      * @return the databaseName
      */
@@ -183,19 +200,21 @@ public class MailConfigBean {
     public final void setDatabaseName(final String databaseName) {
         this.databaseName = databaseName;
     }
+
     /**
      * @return the databasePort
      */
-    public final int getDatabasePort() {
+    public final String getDatabasePort() {
         return this.databasePort;
     }
 
     /**
      * @param databasePort
      */
-    public final void setDatabasePort(final int databasePort) {
+    public final void setDatabasePort(final String databasePort) {
         this.databasePort = databasePort;
     }
+
     /**
      * @return the databaseUserName
      */
@@ -209,6 +228,7 @@ public class MailConfigBean {
     public final void setDatabaseUserName(final String databaseUserName) {
         this.databaseUserName = databaseUserName;
     }
+
     /**
      * @return the databasePassword
      */
@@ -223,4 +243,3 @@ public class MailConfigBean {
         this.databasePassword = databasePassword;
     }
 }
-

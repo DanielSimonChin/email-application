@@ -14,7 +14,7 @@ CREATE TABLE Email (
   TextMessage varchar(255) default '',
   HtmlMessage varchar(255) default '',
   Folder varchar(25) default 'Inbox',
-  SentDate DATETIME NOT NULL,
+  SentDate TIMESTAMP NOT NULL,
   PRIMARY KEY  (EmailID)
 );
 --Emails in the inbox folder

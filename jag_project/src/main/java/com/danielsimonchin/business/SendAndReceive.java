@@ -2,14 +2,11 @@ package com.danielsimonchin.business;
 
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
-import javax.activation.DataSource;
 import javax.mail.Flags;
 import jodd.mail.EmailFilter;
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;
-import jodd.mail.EmailMessage;
 import jodd.mail.ImapServer;
 import jodd.mail.MailServer;
 import jodd.mail.RFC2822AddressParser;
@@ -178,56 +175,9 @@ public class SendAndReceive {
 
             try ( ReceiveMailSession session = imapServer.createSession()) {
                 session.open();
-                LOG.info("Message count: " + session.getMessageCount());
+
                 receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
-                if (receivedEmails != null) {
-                    LOG.info("\n >>>> ReceivedEmail count = " + receivedEmails.length);
-                    for (ReceivedEmail email : receivedEmails) {
-                        LOG.info("\n\n===[" + email.messageNumber() + "]===");
-
-                        // common info
-                        LOG.info("FROM:" + email.from());
-                        // Handling array in email object
-                        LOG.info("TO:" + Arrays.toString(email.to()));
-                        LOG.info("CC:" + Arrays.toString(email.cc()));
-                        LOG.info("SUBJECT:" + email.subject());
-                        LOG.info("PRIORITY:" + email.priority());
-                        LOG.info("SENT DATE:" + email.sentDate());
-                        LOG.info("RECEIVED DATE: " + email.receivedDate());
-
-                        // process messages
-                        List<EmailMessage> messages = email.messages();
-
-                        messages.stream().map((msg) -> {
-                            LOG.info("------");
-                            return msg;
-                        }).map((msg) -> {
-                            LOG.info(msg.getEncoding());
-                            return msg;
-                        }).map((msg) -> {
-                            LOG.info(msg.getMimeType());
-                            return msg;
-                        }).forEachOrdered((msg) -> {
-                            LOG.info(msg.getContent());
-                        });
-
-                        // process attachments
-                        List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
-                        if (attachments != null) {
-                            LOG.info("+++++");
-                            attachments.stream().map((attachment) -> {
-                                LOG.info("name: " + attachment.getName());
-                                return attachment;
-                            }).map((attachment) -> {
-                                LOG.info("cid: " + attachment.getContentId());
-                                return attachment;
-                            }).map((attachment) -> {
-                                LOG.info("size: " + attachment.getSize());
-                                return attachment;
-                            });
-                        }
-                    }
-                }
+                
             } catch (jodd.mail.MailException e) {
                 //If the recipient's mail bean is invalid, and cannot log in, return null.
                 LOG.info("The session cannot be opened because the mailConfigBean's credentials are invalid.");
