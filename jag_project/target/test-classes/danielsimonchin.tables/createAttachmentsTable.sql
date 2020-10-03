@@ -7,16 +7,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Attachments;
 SET FOREIGN_KEY_CHECKS = 1;
 
-CREATE TABLE Attachments (
-  AttachmentID int(11) NOT NULL auto_increment,
-  FileName varchar(50) NOT NULL default '',
-  CID varchar(50) NOT NULL default '',
-  Image BLOB, --leaving this as null for phase 2
-  is_Embedded int(1) NOT NULL default 0, --1 is embedded, 0 means regular
-  CONSTRAINT is_embedded_constraint CHECK (is_Embedded IN (1,0)),
-  PRIMARY KEY (AttachmentID)
+CREATE TABLE ATTACHMENTS (
+  ATTACHMENTID int(11) NOT NULL auto_increment,
+  FILENAME varchar(50) NOT NULL default '',
+  CID varchar(50) default '',
+  IMAGE BLOB, --leaving this as null for phase 2
+  IS_EMBEDDED int(1) NOT NULL default 0, --1 is embedded, 0 means regular
+  CONSTRAINT IS_EMBEDDED_CONSTRAINT CHECK (IS_EMBEDDED IN (1,0)),
+  PRIMARY KEY (ATTACHMENTID)
 );
---Inserting the regular attachment
-INSERT INTO Attachments (FileName,CID,is_Embedded) values ('WindsorKen180.jpg','WindsorKen180.jpg',0);
+--Inserting the regular attachment, not giving a CID since it is a regular attachment
+INSERT INTO ATTACHMENTS (FILENAME,IS_EMBEDDED) values ('WindsorKen180.jpg',0);
 --Inserting the embedded attachment
-INSERT INTO Attachments (FileName,CID,is_Embedded) values ('FreeFall.jpg','FreeFall.jpg',1);
+INSERT INTO ATTACHMENTS (FILENAME,CID,IS_EMBEDDED) values ('FreeFall.jpg','FreeFall.jpg',1);

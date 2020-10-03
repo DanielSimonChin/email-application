@@ -27,7 +27,7 @@ import org.junit.Ignore;
  * @author Daniel Simon Chin
  * @version September 20, 2020
  */
-//@Ignore
+@Ignore
 public class MailTests {
 
     private SendAndReceive runMail;

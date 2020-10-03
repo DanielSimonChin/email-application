@@ -28,36 +28,36 @@
     <dependencies>
         <!-- OpenFX Dependencies -->
         <!-- You do not require all of these dependencies. 
-             Dependent on the components you use. -->        
+        Dependent on the components you use. -->        
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>16-ea+1</version>
         </dependency>
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>16-ea+1</version>
         </dependency>-->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
             <version>16-ea+1</version>
         </dependency>-->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
             <version>16-ea+1</version>
         </dependency>-->
         <!-- None of the samples combine Swing with JavaFX -->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
             <version>16-ea+1</version>
         </dependency>-->
         <!-- Here are the 3 versions of the graphics libraries for Win, Mac & Linux -->
         <!-- Comment and uncomment depending on your OS, default is Windows -->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics </artifactId>
             <version>16-ea+1</version>
@@ -77,12 +77,13 @@
         </dependency>        -->
 		
         <!-- MySQL dependency (optional) ususally declared in local pom -->
-<!--        <dependency>
+        
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.21</version>
-        </dependency>-->
-	       <!-- Jodd Mail Dependency -->
+        </dependency>
+        <!-- Jodd Mail Dependency -->
         <dependency>
             <groupId>org.jodd</groupId>
             <artifactId>jodd-mail</artifactId>
@@ -102,7 +103,7 @@
         </dependency>
     </dependencies>
     <build>
-	<defaultGoal>clean test</defaultGoal>
+        <defaultGoal>clean test</defaultGoal>
     </build> 
 
 </project>

@@ -12730,3 +12730,209 @@
 [INFO ] 2020-09-29 22:14:48.196 [main] SendAndReceive - The session cannot be opened because the mailConfigBean's credentials are invalid.
 [INFO ] 2020-09-29 22:14:53.538 [main] SendAndReceive - Email sent
 [INFO ] 2020-09-29 22:15:07.966 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-29 23:35:35.962 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-29 23:36:34.878 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-29 23:43:04.579 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-29 23:45:49.095 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 00:00:00.743 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 00:05:10.861 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 00:05:14.324 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 00:07:47.510 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 09:47:43.352 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 09:48:41.269 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 09:57:31.341 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 09:59:29.782 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:05:49.596 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:09:49.528 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:09:52.802 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:17:20.634 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:17:23.903 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:17:23.903 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:21:19.548 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:21:22.806 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:21:22.807 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:23:13.369 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:23:16.624 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:23:16.625 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:27:29.192 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:27:32.442 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:27:32.443 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:29:54.875 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:29:58.128 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:29:58.129 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:29:58.129 [main] EmailDAOImpl - danieldawsontest1@gmail.com
+[INFO ] 2020-09-30 10:29:58.129 [main] EmailDAOImpl - Jodd Test
+[INFO ] 2020-09-30 10:29:58.129 [main] EmailDAOImpl - Hello from plain text email: 2020-09-30T10:29:42.693199200
+[INFO ] 2020-09-30 10:29:58.129 [main] EmailDAOImpl - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>Here is my photograph embedded in this email.</h1><img src='cid:FreeFall.jpg'><h2>I'm flying!</h2></body></html>
+[INFO ] 2020-09-30 10:41:58.678 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:42:01.920 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:42:01.920 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:42:01.921 [main] EmailDAOImpl - danieldawsontest1@gmail.com
+[INFO ] 2020-09-30 10:42:01.921 [main] EmailDAOImpl - Jodd Test
+[INFO ] 2020-09-30 10:42:01.921 [main] EmailDAOImpl - Hello from plain text email: 2020-09-30T10:41:45.162662300
+[INFO ] 2020-09-30 10:42:01.921 [main] EmailDAOImpl - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>Here is my photograph embedded in this email.</h1><img src='cid:FreeFall.jpg'><h2>I'm flying!</h2></body></html>
+[INFO ] 2020-09-30 10:42:57.486 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:43:00.738 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:43:00.739 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:43:00.739 [main] EmailDAOImpl - danieldawsontest1@gmail.com
+[INFO ] 2020-09-30 10:43:00.739 [main] EmailDAOImpl - Jodd Test
+[INFO ] 2020-09-30 10:43:00.739 [main] EmailDAOImpl - Hello from plain text email: 2020-09-30T10:42:44.130282300
+[INFO ] 2020-09-30 10:43:00.739 [main] EmailDAOImpl - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>Here is my photograph embedded in this email.</h1><img src='cid:FreeFall.jpg'><h2>I'm flying!</h2></body></html>
+[INFO ] 2020-09-30 10:49:24.396 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:49:27.660 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:49:27.660 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:49:27.660 [main] EmailDAOImpl - danieldawsontest1@gmail.com
+[INFO ] 2020-09-30 10:49:27.660 [main] EmailDAOImpl - Jodd Test
+[INFO ] 2020-09-30 10:49:27.660 [main] EmailDAOImpl - Hello from plain text email: 2020-09-30T10:49:14.141858900
+[INFO ] 2020-09-30 10:49:27.661 [main] EmailDAOImpl - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>Here is my photograph embedded in this email.</h1><img src='cid:FreeFall.jpg'><h2>I'm flying!</h2></body></html>
+[INFO ] 2020-09-30 10:49:27.661 [main] EmailDAOImpl - SENT DATE :null
+[INFO ] 2020-09-30 10:55:07.701 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 10:55:10.941 [main] EmailDAOImpl - PREPARED STATEMENT NOT READY YET
+[INFO ] 2020-09-30 10:55:10.941 [main] EmailDAOImpl - INSIDE THE PREPARE STATEMENT METHOD
+[INFO ] 2020-09-30 10:55:10.942 [main] EmailDAOImpl - danieldawsontest1@gmail.com
+[INFO ] 2020-09-30 10:55:10.942 [main] EmailDAOImpl - Jodd Test
+[INFO ] 2020-09-30 10:55:10.942 [main] EmailDAOImpl - Hello from plain text email: 2020-09-30T10:54:55.656653200
+[INFO ] 2020-09-30 10:55:10.942 [main] EmailDAOImpl - <html><META http-equiv=Content-Type content="text/html; charset=utf-8"><body><h1>Here is my photograph embedded in this email.</h1><img src='cid:FreeFall.jpg'><h2>I'm flying!</h2></body></html>
+[INFO ] 2020-09-30 10:55:10.943 [main] EmailDAOImpl - SENT DATE :Email{'danieldawsontest1@gmail.com', subject='Jodd Test'}
+[INFO ] 2020-09-30 10:55:10.943 [main] EmailDAOImpl - Time sent: 2020-09-30 10:55:10.942
+[INFO ] 2020-09-30 10:55:10.944 [main] EmailDAOImpl - The prepared statement is ready
+[INFO ] 2020-09-30 10:55:10.944 [main] EmailDAOImpl - METHOD HAS BEEN CALLED
+[INFO ] 2020-09-30 10:55:10.953 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-09-30 10:55:10.953 [main] CrudTests - The result is1
+[INFO ] 2020-09-30 11:03:49.978 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 11:03:53.299 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-09-30 11:03:53.299 [main] CrudTests - The result is1
+[INFO ] 2020-09-30 14:02:25.538 [main] SendAndReceive - Email sent
+[INFO ] 2020-09-30 14:03:02.843 [main] SendAndReceive - Email sent
+[DEBUG] 2020-09-30 14:03:06.143 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-09-30 14:03:06.144 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-01 16:23:19.226 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-01 16:23:22.582 [main] EmailDAOImpl - New record ID is 8
+[INFO ] 2020-10-01 16:23:22.583 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-01 16:25:10.381 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-01 16:25:13.669 [main] EmailDAOImpl - New record ID is 9
+[INFO ] 2020-10-01 16:28:03.692 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-01 16:28:06.978 [main] EmailDAOImpl - New record ID is 10
+[INFO ] 2020-10-01 16:29:36.935 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-01 16:29:40.257 [main] EmailDAOImpl - New record ID is 11
+[INFO ] 2020-10-01 16:29:40.361 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 17:35:57.462 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-02 17:36:00.769 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-02 17:42:33.109 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-02 17:42:36.369 [main] EmailDAOImpl - New record ID is 6
+[INFO ] 2020-10-02 17:42:36.421 [main] EmailDAOImpl - Email recipients for record :6 have been added in EmailToAddress
+[INFO ] 2020-10-02 17:42:36.513 [main] EmailDAOImpl - The attachments for the record: 6 have been added in EmailToAttachments
+[INFO ] 2020-10-02 17:42:36.514 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 17:44:16.777 [main] SendAndReceive - Email sent
+[DEBUG] 2020-10-02 17:44:20.086 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-02 17:44:20.135 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-02 17:44:20.250 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-02 17:44:20.251 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 17:48:11.963 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 17:48:15.235 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 17:48:15.252 [main] EmailDAOImpl - New record ID is 8
+[INFO ] 2020-10-02 17:48:15.315 [main] EmailDAOImpl - Email recipients for record #8 have been added in EmailToAddress
+[INFO ] 2020-10-02 17:48:15.437 [main] EmailDAOImpl - The attachments for the record #8 have been added in EmailToAttachments
+[INFO ] 2020-10-02 17:48:15.438 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 21:23:55.854 [main] EmailDAOImpl - IN FIND ALL
+[INFO ] 2020-10-02 21:23:56.083 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:24:52.010 [main] EmailDAOImpl - IN FIND ALL
+[INFO ] 2020-10-02 21:24:52.250 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:30:18.653 [main] EmailDAOImpl - IN FIND ALL
+[INFO ] 2020-10-02 21:30:18.881 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:30:18.908 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 21:31:24.337 [main] EmailDAOImpl - IN FIND ALL
+[INFO ] 2020-10-02 21:31:24.572 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:31:24.604 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 21:31:24.634 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 21:31:24.675 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 21:31:24.676 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 21:31:24.677 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:31:24.699 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 21:31:24.726 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 21:31:24.750 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 21:31:24.751 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 21:31:24.752 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:31:24.777 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 21:31:24.805 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 21:31:24.825 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 21:31:24.826 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 21:31:24.827 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 21:31:24.846 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 21:31:24.868 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 21:31:24.892 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 21:31:24.893 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 21:31:24.894 [main] EmailDAOImpl - # of records found : 4
+[INFO ] 2020-10-02 22:39:42.554 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:39:45.798 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:39:45.811 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-02 22:47:50.028 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:47:53.296 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:47:53.311 [main] EmailDAOImpl - New record ID is 6
+[INFO ] 2020-10-02 22:49:24.045 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:49:27.337 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:49:27.350 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-02 22:49:27.350 [main] EmailDAOImpl - IN insertUnknownAddresses METHOD
+[INFO ] 2020-10-02 22:49:27.350 [main] EmailDAOImpl - IN checkAddressInTable METHOD
+[INFO ] 2020-10-02 22:53:53.579 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:53:56.850 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:53:56.863 [main] EmailDAOImpl - New record ID is 8
+[INFO ] 2020-10-02 22:53:56.863 [main] EmailDAOImpl - IN insertUnknownAddresses METHOD
+[INFO ] 2020-10-02 22:53:56.863 [main] EmailDAOImpl - IN checkAddressInTable METHOD
+[INFO ] 2020-10-02 22:53:56.893 [main] EmailDAOImpl - BEFORE INSERT ADDRESS
+[INFO ] 2020-10-02 22:54:37.759 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:54:41.007 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:54:41.018 [main] EmailDAOImpl - New record ID is 9
+[INFO ] 2020-10-02 22:54:41.019 [main] EmailDAOImpl - IN insertUnknownAddresses METHOD
+[INFO ] 2020-10-02 22:54:41.019 [main] EmailDAOImpl - IN checkAddressInTable METHOD
+[INFO ] 2020-10-02 22:54:41.048 [main] EmailDAOImpl - BEFORE INSERT ADDRESS
+[INFO ] 2020-10-02 22:54:41.049 [main] EmailDAOImpl - The email address "notInTheAddressesTable@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-02 22:54:41.049 [main] EmailDAOImpl - IN insertNewAddress METHOD
+[INFO ] 2020-10-02 22:54:41.073 [main] EmailDAOImpl - The email address "notInTheAddressesTable@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-02 22:54:41.120 [main] EmailDAOImpl - Email recipients for record #9 have been added in EmailToAddress
+[INFO ] 2020-10-02 22:54:41.221 [main] EmailDAOImpl - The attachments for the record #9 have been added in EmailToAttachments
+[INFO ] 2020-10-02 22:54:41.222 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 22:58:24.678 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 22:58:27.945 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 22:58:27.961 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-02 22:58:27.961 [main] EmailDAOImpl - IN insertUnknownAddresses METHOD
+[INFO ] 2020-10-02 22:58:27.961 [main] EmailDAOImpl - IN checkAddressInTable METHOD
+[INFO ] 2020-10-02 23:01:11.368 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-02 23:01:14.623 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup
+[DEBUG] 2020-10-02 23:01:14.637 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-02 23:01:14.637 [main] EmailDAOImpl - IN insertUnknownAddresses METHOD
+[INFO ] 2020-10-02 23:01:14.637 [main] EmailDAOImpl - IN checkAddressInTable METHOD
+[INFO ] 2020-10-02 23:01:14.668 [main] EmailDAOImpl - BEFORE INSERT ADDRESS
+[INFO ] 2020-10-02 23:01:14.668 [main] EmailDAOImpl - The email address "notInTheAddressesTable@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-02 23:01:14.669 [main] EmailDAOImpl - IN insertNewAddress METHOD
+[INFO ] 2020-10-02 23:01:14.692 [main] EmailDAOImpl - The email address "notInTheAddressesTable@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-02 23:01:14.738 [main] EmailDAOImpl - Email recipients for record #5 have been added in EmailToAddress
+[INFO ] 2020-10-02 23:01:14.832 [main] EmailDAOImpl - The attachments for the record #5 have been added in EmailToAttachments
+[INFO ] 2020-10-02 23:01:14.833 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-02 23:02:23.795 [main] EmailDAOImpl - IN FIND ALL
+[INFO ] 2020-10-02 23:02:24.038 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 23:02:24.073 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 23:02:24.101 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 23:02:24.134 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 23:02:24.135 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 23:02:24.135 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 23:02:24.156 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 23:02:24.178 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 23:02:24.200 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 23:02:24.201 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 23:02:24.201 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 23:02:24.226 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 23:02:24.253 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 23:02:24.275 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 23:02:24.275 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 23:02:24.276 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 23:02:24.294 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 23:02:24.316 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 23:02:24.337 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 23:02:24.338 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 23:02:24.338 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-02 23:02:24.369 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-02 23:02:24.401 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-02 23:02:24.428 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-02 23:02:24.429 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-02 23:02:24.431 [main] EmailDAOImpl - # of records found : 5

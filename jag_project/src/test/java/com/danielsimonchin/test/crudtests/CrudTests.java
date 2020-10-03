@@ -6,7 +6,9 @@
 package com.danielsimonchin.test.crudtests;
 
 import com.danielsimonchin.business.SendAndReceive;
+import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
+import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
 import java.sql.SQLException;
@@ -25,12 +27,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author Daniel
  */
 public class CrudTests {
+    private final static Logger LOG = LoggerFactory.getLogger(CrudTests.class);
 
     private SendAndReceive runMail;
     private String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
@@ -76,7 +81,7 @@ public class CrudTests {
         allRecipients.add(recipient3);
         regularAttachments = new ArrayList<>();
         embeddedAttachments = new ArrayList<>();
-        String databaseURL = "jdbc:mysql://localhost:3306?zeroDateTimeBehavior=CONVERT_TO_NULL";
+        String databaseURL = "jdbc:mysql://localhost:3306/EMAILCLIENT";
         this.mailConfigBean = new MailConfigBean("Daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", databaseURL, "EMAILCLIENT", "3306", "root", "logitech7790");
 
         //This is to make sure that all emails in all recipient accounts have seen/read the emails sent. Prevents having a test affect the result of the next.
@@ -96,11 +101,12 @@ public class CrudTests {
     @Test
     public void testEmailCreate() throws SQLException {
         //Adding one person into the TO list
-        toList.add(recipient1.getUserEmailAddress());
+        //toList.add(recipient1.getUserEmailAddress());
+        toList.add("notInTheAddressesTable@gmail.com");
         //Adding one person into the CC list
-        ccList.add(recipient2.getUserEmailAddress());
+        //ccList.add(recipient2.getUserEmailAddress());
         //Adding one person into the BCC list
-        bccList.add(recipient3.getUserEmailAddress());
+        //bccList.add(recipient3.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
@@ -114,9 +120,16 @@ public class CrudTests {
         } catch (InterruptedException ie) {
             Thread.currentThread().interrupt();
         }
-        EmailDAOImpl crud = new EmailDAOImpl(mailConfigBean);
-        int result = crud.create(resultEmail);
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        EmailBean emailBean = new EmailBean(0,2,null,resultEmail);
+        int result = crud.createEmailRecord(emailBean);
         assertEquals(1,result);
+    }
+    @Test
+    public void testFindAll() throws SQLException {
+        EmailDAO crud  = new EmailDAOImpl(mailConfigBean);
+        List<EmailBean> emailBeanList = crud.findAll();
+        assertEquals("testFindAll: ", 5, emailBeanList.size());
     }
 
 }
