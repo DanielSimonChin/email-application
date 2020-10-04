@@ -9,9 +9,9 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE ATTACHMENTS (
   ATTACHMENTID int(11) NOT NULL auto_increment,
-  FILENAME varchar(50) NOT NULL default '',
-  CID varchar(50) default '',
-  IMAGE BLOB, --leaving this as null for phase 2
+  FILENAME varchar(50) UNIQUE NOT NULL default '',
+  CID varchar(50) UNIQUE default '',
+  IMAGE MEDIUMBLOB, --leaving this as null for phase 2
   IS_EMBEDDED int(1) NOT NULL default 0, --1 is embedded, 0 means regular
   CONSTRAINT IS_EMBEDDED_CONSTRAINT CHECK (IS_EMBEDDED IN (1,0)),
   PRIMARY KEY (ATTACHMENTID)

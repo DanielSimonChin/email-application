@@ -1,6 +1,7 @@
 package com.danielsimonchin.persistence;
 
 import com.danielsimonchin.properties.EmailBean;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import jodd.mail.Email;
@@ -11,18 +12,23 @@ import jodd.mail.Email;
  * @author Daniel
  */
 public interface EmailDAO {
+    public int createEmailRecord(EmailBean emailBean) throws SQLException, IOException;
 
-    // Create
-    public int createEmailRecord(EmailBean emailBean) throws SQLException;
-
-    // Read
     public List<EmailBean> findAll() throws SQLException;
 
-    public Email findID(int id) throws SQLException;
+    public EmailBean findID(int id) throws SQLException;
+    
+    public List<EmailBean> findAllInFolder(int folderKey) throws SQLException;
+    
+    public List<EmailBean> findEmailsBySender(String sender) throws SQLException;
+    
+    public List<EmailBean> findEmailsBySubject(String subject) throws SQLException;
+    
+    public void updateDraft(EmailBean emailBean) throws SQLException;
 
-    // Update
     public int update(Email email) throws SQLException;
 
-    // Delete
     public int delete(int id) throws SQLException;
+    
+    public int createFolder(String folderName) throws SQLException;
 }

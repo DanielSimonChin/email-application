@@ -11,9 +11,16 @@ import com.danielsimonchin.persistence.EmailDAOImpl;
 import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.mail.Flags;
 import jodd.mail.Email;
@@ -27,6 +34,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +43,7 @@ import org.slf4j.LoggerFactory;
  * @author Daniel
  */
 public class CrudTests {
+
     private final static Logger LOG = LoggerFactory.getLogger(CrudTests.class);
 
     private SendAndReceive runMail;
@@ -98,8 +107,9 @@ public class CrudTests {
         });
     }
 
+    @Ignore
     @Test
-    public void testEmailCreate() throws SQLException {
+    public void testEmailCreate() throws SQLException, IOException {
         //Adding one person into the TO list
         //toList.add(recipient1.getUserEmailAddress());
         toList.add("notInTheAddressesTable@gmail.com");
@@ -110,7 +120,8 @@ public class CrudTests {
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
-        embeddedAttachments.add(new File("FreeFall.jpg"));
+        //embeddedAttachments.add(new File("FreeFall.jpg"));
+        embeddedAttachments.add(new File("panda.jpeg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -121,15 +132,130 @@ public class CrudTests {
             Thread.currentThread().interrupt();
         }
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
-        EmailBean emailBean = new EmailBean(0,2,null,resultEmail);
-        int result = crud.createEmailRecord(emailBean);
-        assertEquals(1,result);
+        //since we are sending it, it does not have a receivedDate so we leave it as null.
+        EmailBean emailBean = new EmailBean(0, 2, null, resultEmail);
+        //LOG.info("The date " + new Timestamp(new Date().getTime()));
+        //int result = crud.createEmailRecord(emailBean);
+        //assertEquals(1,result);
     }
+
+    @Ignore
     @Test
     public void testFindAll() throws SQLException {
-        EmailDAO crud  = new EmailDAOImpl(mailConfigBean);
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         List<EmailBean> emailBeanList = crud.findAll();
-        assertEquals("testFindAll: ", 5, emailBeanList.size());
+        assertEquals("testFindAll: ", 8, emailBeanList.size());
     }
+    @Ignore
+    @Test
+    public void testFindById() throws SQLException, IOException {
+        //Adding one person into the TO list
+        toList.add(recipient1.getUserEmailAddress());
+        //Adding one person into the CC list
+        ccList.add(recipient2.getUserEmailAddress());
+        //Adding one person into the BCC list
+        bccList.add(recipient3.getUserEmailAddress());
+        //Adding a regular attachment to the attachment lists
+        regularAttachments.add(new File("WindsorKen180.jpg"));
+        //Adding an embedded attachment to the embedded attachment lists
+        //embeddedAttachments.add(new File("FreeFall.jpg"));
+        embeddedAttachments.add(new File("FreeFall.jpg"));
+        //Instantiate a SendAndReceive object to utilize its methods
+        runMail = new SendAndReceive(mailConfigBean);
+        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        //since we are sending it, it does not have a receivedDate so we leave it as null.
+        EmailBean emailBean = new EmailBean(-1, 2, null, resultEmail);
+        int result = crud.createEmailRecord(emailBean);
+        EmailBean resultBean = crud.findID(emailBean.getId());
+        assertEquals("Test findById :", emailBean, resultBean);
+    }
+    @Ignore
+    @Test
+    public void testFindAllInFolder() throws SQLException{
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        //Finding all emails in the SENT folder
+        List<EmailBean> emailsInFolder = crud.findAllInFolder(2);
+        assertEquals(emailsInFolder.size(), checkCountEmailsInFolder(2));
+    }
+    
+    private int checkCountEmailsInFolder(int folderKey) throws SQLException {
+        int countFound = -1;
+        String countEmailsInFolder = "SELECT COUNT(*) AS 'EMAILCOUNT' FROM EMAIL WHERE FOLDERID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(countEmailsInFolder);) {
+            ps.setInt(1,folderKey);
+            ResultSet countResult = ps.executeQuery();
+            if(countResult.next()){
+                countFound = countResult.getInt("EMAILCOUNT");
+            }
+        }
+        return countFound;
+    }
+    @Ignore
+    @Test
+    public void testFindBySender() throws SQLException {
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        List<EmailBean> emailsBySender = crud.findEmailsBySender("danieldawsontest1@gmail.com");
+        emailsBySender.forEach(bean -> {
+            LOG.info("ID: " + bean.getId() + " send by " + bean.email.from().toString());
+        });
+        assertEquals(emailsBySender.size(), checkCountBySender("danieldawsontest1@gmail.com"));
+    }
+    private int checkCountBySender(String sender) throws SQLException {
+        int countFound = -1;
+        String countEmailsBySender = "SELECT COUNT(*) AS 'EMAILCOUNT' FROM EMAIL WHERE FROMADDRESS = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(countEmailsBySender);) {
+            ps.setString(1,sender);
+            ResultSet countResult = ps.executeQuery();
+            if(countResult.next()){
+                countFound = countResult.getInt("EMAILCOUNT");
+            }
+        }
+        return countFound;
+    }
+    
+    @Test
+    public void testFindBySubject() throws SQLException {
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        List<EmailBean> emailsBySubject = crud.findEmailsBySubject("SQL TESTING");
+        emailsBySubject.forEach(bean -> {
+            LOG.info("ID: " + bean.getId() + " has subject:  " + bean.email.subject());
+        });
+        assertEquals(emailsBySubject.size(), checkCountBySubject("SQL TESTING"));
+    }
+    private int checkCountBySubject(String subject) throws SQLException {
+        int countFound = -1;
+        String countEmailsBySubject = "SELECT COUNT(*) AS 'EMAILCOUNT' FROM EMAIL WHERE SUBJECT = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(countEmailsBySubject);) {
+            ps.setString(1,subject);
+            ResultSet countResult = ps.executeQuery();
+            if(countResult.next()){
+                countFound = countResult.getInt("EMAILCOUNT");
+            }
+        }
+        return countFound;
+    }
+    @Ignore
+    @Test
+    public void testFolderCreation() throws SQLException{
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        int foldersCreated = crud.createFolder("MyImportantDocuments");
+        assertEquals(1,foldersCreated);
+    }
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void testFolderAlreadyExists() throws SQLException{
+        EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+        int foldersCreated = crud.createFolder("INBOX");
+        fail("The folder was created.");
+    }
+
+    
+
+    
 
 }
