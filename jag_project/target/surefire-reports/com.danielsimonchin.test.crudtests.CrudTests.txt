@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.danielsimonchin.test.crudtests.CrudTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.122 s - in com.danielsimonchin.test.crudtests.CrudTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.916 s - in com.danielsimonchin.test.crudtests.CrudTests

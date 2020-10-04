@@ -216,7 +216,7 @@ public class CrudTests {
         }
         return countFound;
     }
-    
+    @Ignore
     @Test
     public void testFindBySubject() throws SQLException {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
@@ -252,6 +252,18 @@ public class CrudTests {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         int foldersCreated = crud.createFolder("INBOX");
         fail("The folder was created.");
+    }
+    @Test
+    public void testUpdateDraftEmail() throws SQLException {
+         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
+         EmailBean emailBean = crud.findID(4);
+         LOG.info("BEFORE CHANGES SUBJECT: " + emailBean.email.subject());
+         LOG.info("BEFORE CHANGES FROM: " + emailBean.email.from().toString());
+         emailBean.email.subject("NEW SUBJECT");
+         emailBean.email.from("newsender1@gmail.com");
+         int resultUpdates = crud.updateDraft(emailBean);
+         assertEquals(1,resultUpdates);
+
     }
 
     

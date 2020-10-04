@@ -24,7 +24,7 @@ public interface EmailDAO {
     
     public List<EmailBean> findEmailsBySubject(String subject) throws SQLException;
     
-    public void updateDraft(EmailBean emailBean) throws SQLException;
+    public int updateDraft(EmailBean emailBean) throws SQLException;
 
     public int update(Email email) throws SQLException;
 

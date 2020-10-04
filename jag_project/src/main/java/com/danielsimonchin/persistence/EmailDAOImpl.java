@@ -67,8 +67,7 @@ public class EmailDAOImpl implements EmailDAO {
         String insertEmailTableQuery = "INSERT INTO Email (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID) VALUES (?,?,?,?,?,?,?)";
 
         // Connection is only open for the operation and then immediately closed
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(insertEmailTableQuery, Statement.RETURN_GENERATED_KEYS);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertEmailTableQuery, Statement.RETURN_GENERATED_KEYS);) {
             fillPreparedStatementForEmailTable(ps, emailBean);
             result = ps.executeUpdate();
             // Retrieve generated primary key value to insert data into the bridging tables
@@ -270,10 +269,13 @@ public class EmailDAOImpl implements EmailDAO {
         }
         ps.setString(3, plainText);
         ps.setString(4, htmlText);
-        //Set the sent date as the current date since an Email object's default sentDate is null
-        email.currentSentDate();
-        ps.setTimestamp(5, new Timestamp(email.sentDate().getTime()));
-        ps.setTimestamp(6, emailBean.getReceivedDate());
+        //If the folder of the email is not a draft, you are allowed to set the sent and receivedDate
+        if (emailBean.getFolderKey() != 3) {
+            //Set the sent date as the current date since an Email object's default sentDate is null
+            email.currentSentDate();
+            ps.setTimestamp(5, new Timestamp(email.sentDate().getTime()));
+            ps.setTimestamp(6, emailBean.getReceivedDate());
+        }
         ps.setInt(7, emailBean.getFolderKey());
         LOG.info("PreparedStatement for inserting a row in Email table has been setup.");
     }
@@ -283,10 +285,11 @@ public class EmailDAOImpl implements EmailDAO {
      * attachments.
      *
      * @param recordNum The Email row's primary key
-     * @param email The email object which contains attachments that must be inserted into the db
+     * @param email The email object which contains attachments that must be
+     * inserted into the db
      * @throws SQLException
      */
-    private void insertEmailToAttachments(int recordNum, Email email) throws SQLException, IOException{
+    private void insertEmailToAttachments(int recordNum, Email email) throws SQLException, IOException {
         String insertEmailToAttachmentsQuery = "INSERT INTO EmailToAttachments (EMAILID,ATTACHMENTID) VALUES (?,?)";
         List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
         if (attachments.size() >= 1) {
@@ -306,16 +309,16 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     /**
-     * Inserting an image by converting it to a byte array and making an insert into the Attachments table
-     * 
+     * Inserting an image by converting it to a byte array and making an insert
+     * into the Attachments table
+     *
      * @param attachment The attachment that will be inserted in the db
      * @throws SQLException
-     * @throws IOException 
+     * @throws IOException
      */
     private void insertUnknownAttachment(EmailAttachment attachment) throws SQLException, IOException {
         String queryInsertAttachment = "INSERT INTO ATTACHMENTS (FILENAME,CID,IMAGE,IS_EMBEDDED) VALUES(?,?,?,?)";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword()); 
-                PreparedStatement ps = connection.prepareStatement(queryInsertAttachment);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryInsertAttachment);) {
 
             //If the address is not in the table, insert it using the helper method insertNewAddress
             if (getAttachmentIndex(attachment) == -1) {
@@ -331,10 +334,10 @@ public class EmailDAOImpl implements EmailDAO {
                     isEmbedded = 1;
                 }
                 ps.setInt(4, isEmbedded);
-                 int countInserts = ps.executeUpdate();
-                 if(countInserts == 1){
-                     LOG.info("The attachment \"" + attachment.getName() + "\" has been added to the Attachments table.");
-                 }
+                int countInserts = ps.executeUpdate();
+                if (countInserts == 1) {
+                    LOG.info("The attachment \"" + attachment.getName() + "\" has been added to the Attachments table.");
+                }
             }
         }
     }
@@ -437,8 +440,7 @@ public class EmailDAOImpl implements EmailDAO {
 
     private Email queryEmailToAttachmentTableFields(ResultSet resultSet, Email email) throws SQLException {
         String emailToAttachmentQuery = "SELECT ATTACHMENTS.FILENAME,ATTACHMENTS.IS_EMBEDDED FROM ATTACHMENTS INNER JOIN EMAILTOATTACHMENTS ON ATTACHMENTS.ATTACHMENTID = EMAILTOATTACHMENTS.ATTACHMENTID WHERE EMAILTOATTACHMENTS.EMAILID = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(emailToAttachmentQuery);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailToAttachmentQuery);) {
             ps.setInt(1, resultSet.getInt("EMAILID"));
             ResultSet emailToAttachmentResultSet = ps.executeQuery();
             while (emailToAttachmentResultSet.next()) {
@@ -457,117 +459,154 @@ public class EmailDAOImpl implements EmailDAO {
     public EmailBean findID(int id) throws SQLException {
         EmailBean emailBean = new EmailBean();
         String findEmailById = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE EMAILID = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(findEmailById);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findEmailById);) {
             ps.setInt(1, id);
             ResultSet emailRowResult = ps.executeQuery();
-            if(emailRowResult.next()){
+            if (emailRowResult.next()) {
                 emailBean = createEmailBean(emailRowResult);
             }
         }
         return emailBean;
     }
+
     /**
-     * Finds and returns a List of EmailBean of all emails that are in a specified folder.
-     * 
+     * Finds and returns a List of EmailBean of all emails that are in a
+     * specified folder.
+     *
      * @param folderKey Folder primary key
      * @return List of EmailBean of all emails that are in a specified folder.
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
     public List<EmailBean> findAllInFolder(int folderKey) throws SQLException {
         List<EmailBean> emailsInFolder = new ArrayList<>();
         String queryEmailsInFolder = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE FOLDERID = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(queryEmailsInFolder);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsInFolder);) {
             ps.setInt(1, folderKey);
             ResultSet allEmailsInFolder = ps.executeQuery();
-            while(allEmailsInFolder.next()){
+            while (allEmailsInFolder.next()) {
                 //Add the EmailBean to the list
                 emailsInFolder.add(createEmailBean(allEmailsInFolder));
             }
         }
         return emailsInFolder;
     }
+
     @Override
     public List<EmailBean> findEmailsBySender(String sender) throws SQLException {
         List<EmailBean> emailsBySender = new ArrayList<>();
         String queryEmailsBySender = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE FROMADDRESS = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(queryEmailsBySender);) {
-            ps.setString(1,sender);
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsBySender);) {
+            ps.setString(1, sender);
             ResultSet resultEmails = ps.executeQuery();
-            while(resultEmails.next()){
+            while (resultEmails.next()) {
                 //Add the EmailBean to the list
                 emailsBySender.add(createEmailBean(resultEmails));
             }
         }
         return emailsBySender;
     }
+
     @Override
     public List<EmailBean> findEmailsBySubject(String subject) throws SQLException {
         List<EmailBean> emailsBySubject = new ArrayList<>();
         String queryEmailsBySubject = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE SUBJECT = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(queryEmailsBySubject);) {
-            ps.setString(1,subject);
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsBySubject);) {
+            ps.setString(1, subject);
             ResultSet resultEmails = ps.executeQuery();
-            while(resultEmails.next()){
+            while (resultEmails.next()) {
                 //Add the EmailBean to the list
                 emailsBySubject.add(createEmailBean(resultEmails));
             }
         }
         return emailsBySubject;
     }
+
     @Override
-    public void updateDraft(EmailBean emailBean) throws SQLException {
-        
+    public int updateDraft(EmailBean emailBean) throws SQLException {
+        int emailTableUpdateResult = updateEmailTableFields(emailBean);
+        if(emailTableUpdateResult != 1){
+            return -1;
+        }
+        return 1;
     }
+
+    private int updateEmailTableFields(EmailBean emailBean) throws SQLException {
+        int tableUpdatesResult = -1;
+        String emailTableUpdateQuery = "UPDATE EMAIL SET FROMADDRESS = ?, SUBJECT = ?, TEXTMESSAGE = ?, HTMLMESSAGE = ? WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(emailTableUpdateQuery);) {
+            ps.setString(1, emailBean.email.from().toString());
+            ps.setString(2, emailBean.email.subject());
+            List<EmailMessage> messages = emailBean.email.messages();
+            String plainText = "";
+            String htmlText = "";
+            //If the email has both a text and html message, assign them both
+            if (messages.size() == 2) {
+                plainText = messages.get(0).getContent();
+                htmlText = messages.get(1).getContent();
+                //If the email has either a text or html message, assign a single message.
+            } else if (messages.size() == 1) {
+                if (messages.get(0).getMimeType().equals("TEXT/PLAIN")) {
+                    plainText = messages.get(0).getContent();
+                } else {
+                    htmlText = messages.get(1).getContent();
+                }
+            }
+            ps.setString(3, plainText);
+            ps.setString(4, htmlText);
+            ps.setInt(5, emailBean.getId());
+            tableUpdatesResult = ps.executeUpdate();
+            //Should be 1 since only one row in the Email table was affected
+            return tableUpdatesResult;
+        }
+    }
+
     /**
-     * This method checks if a folder exists in the db, if not then creates a new folder and inserts it in the Folders table.
-     * 
+     * This method checks if a folder exists in the db, if not then creates a
+     * new folder and inserts it in the Folders table.
+     *
      * @param folderName New folder name
      * @return An int representing how many inserts were made in Folders table.
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
-    public int createFolder(String folderName) throws SQLException{
+    public int createFolder(String folderName) throws SQLException {
         //first check if this folder exists yet
-        if(checkFolderExists(folderName)){
+        if (checkFolderExists(folderName)) {
             throw new IllegalArgumentException("The folder \"" + folderName + "\" already exists.");
         }
         int resultInsert;
         String insertNewFolder = "INSERT INTO FOLDERS (FOLDERNAME) VALUES (?)";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(insertNewFolder);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertNewFolder);) {
             ps.setString(1, folderName);
-            resultInsert = ps.executeUpdate();   
-            if(resultInsert == 1){
+            resultInsert = ps.executeUpdate();
+            if (resultInsert == 1) {
                 LOG.info("The folder \"" + folderName + "\" has been created.");
             }
         }
         return resultInsert;
     }
+
     /**
      * Helper method that determines if a folder exists already.
+     *
      * @param folderName
      * @return True if it exists, false otherwise.
-     * @throws SQLException 
+     * @throws SQLException
      */
     private boolean checkFolderExists(String folderName) throws SQLException {
         String checkExists = "SELECT FOLDERID,FOLDERNAME FROM FOLDERS WHERE FOLDERNAME = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(checkExists);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(checkExists);) {
             ps.setString(1, folderName);
             ResultSet existingFolderQuery = ps.executeQuery();
             //return false if it doesn't exists yet
-            if(!existingFolderQuery.next()) {
+            if (!existingFolderQuery.next()) {
                 return false;
             }
         }
         return true;
     }
-    
 
     @Override
     public int update(Email email) throws SQLException {

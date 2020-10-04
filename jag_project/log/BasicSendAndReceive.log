@@ -15735,3 +15735,10 @@
 [INFO ] 2020-10-03 22:18:14.681 [main] EmailDAOImpl - EmailBean successfully created.
 [INFO ] 2020-10-03 22:18:14.684 [main] CrudTests - ID: 1 has subject:  SQL TESTING
 [INFO ] 2020-10-03 22:18:14.684 [main] CrudTests - ID: 2 has subject:  SQL TESTING
+[INFO ] 2020-10-04 00:07:16.058 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-04 00:07:16.094 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-04 00:07:16.119 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-04 00:07:16.155 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-04 00:07:16.156 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-04 00:07:16.157 [main] CrudTests - BEFORE CHANGES SUBJECT: Jodd Test
+[INFO ] 2020-10-04 00:07:16.157 [main] CrudTests - BEFORE CHANGES FROM: recievedanieldawson1@gmail.com
