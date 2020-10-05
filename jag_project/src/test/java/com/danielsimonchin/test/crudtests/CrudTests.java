@@ -91,7 +91,7 @@ public class CrudTests {
         regularAttachments = new ArrayList<>();
         embeddedAttachments = new ArrayList<>();
         String databaseURL = "jdbc:mysql://localhost:3306/EMAILCLIENT";
-        this.mailConfigBean = new MailConfigBean("Daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", databaseURL, "EMAILCLIENT", "3306", "root", "logitech7790");
+        this.mailConfigBean = new MailConfigBean("daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", databaseURL, "EMAILCLIENT", "3306", "daniel", "danielpw");
 
         //This is to make sure that all emails in all recipient accounts have seen/read the emails sent. Prevents having a test affect the result of the next.
         allRecipients.stream().map(recipient -> MailServer.create()
@@ -107,36 +107,29 @@ public class CrudTests {
         });
     }
 
-    @Ignore
     @Test
     public void testEmailCreate() throws SQLException, IOException {
         //Adding one person into the TO list
-        //toList.add(recipient1.getUserEmailAddress());
-        toList.add("notInTheAddressesTable@gmail.com");
+        toList.add(recipient1.getUserEmailAddress());
+        //toList.add("notInTheAddressesTable@gmail.com");
         //Adding one person into the CC list
-        //ccList.add(recipient2.getUserEmailAddress());
+        ccList.add(recipient2.getUserEmailAddress());
         //Adding one person into the BCC list
-        //bccList.add(recipient3.getUserEmailAddress());
+        bccList.add(recipient3.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
-        //embeddedAttachments.add(new File("FreeFall.jpg"));
-        embeddedAttachments.add(new File("panda.jpeg"));
+        embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         // Add a three second pause to allow the Gmail server to receive what has been sent
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
+
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
-        //since we are sending it, it does not have a receivedDate so we leave it as null.
+        //since we are sending it, it does not have a receivedDate so we leave it as null. The emailId will be set in the create method
         EmailBean emailBean = new EmailBean(0, 2, null, resultEmail);
-        //LOG.info("The date " + new Timestamp(new Date().getTime()));
-        //int result = crud.createEmailRecord(emailBean);
-        //assertEquals(1,result);
+        int result = crud.createEmailRecord(emailBean);
+        assertEquals(1,result);
     }
 
     @Ignore
@@ -261,6 +254,9 @@ public class CrudTests {
          LOG.info("BEFORE CHANGES FROM: " + emailBean.email.from().toString());
          emailBean.email.subject("NEW SUBJECT");
          emailBean.email.from("newsender1@gmail.com");
+         emailBean.email.to("newrecipient1");
+         emailBean.email.cc("newrecipient2");
+         emailBean.email.bcc("newrecipient3");
          int resultUpdates = crud.updateDraft(emailBean);
          assertEquals(1,resultUpdates);
 

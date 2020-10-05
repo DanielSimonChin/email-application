@@ -11,7 +11,7 @@ CREATE DATABASE EMAILCLIENT;
 USE EMAILCLIENT;
 
 DROP USER IF EXISTS daniel@localhost;
-CREATE USER daniel@'localhost' IDENTIFIED BY 'danielUser';
+CREATE USER daniel@'localhost' IDENTIFIED BY 'danielpw';
 GRANT ALL ON EMAILCLIENT.* TO daniel@'localhost';
 
 -- This creates a user with access from any IP number except localhost

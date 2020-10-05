@@ -4,9 +4,6 @@ import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -67,7 +64,8 @@ public class EmailDAOImpl implements EmailDAO {
         String insertEmailTableQuery = "INSERT INTO Email (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID) VALUES (?,?,?,?,?,?,?)";
 
         // Connection is only open for the operation and then immediately closed
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertEmailTableQuery, Statement.RETURN_GENERATED_KEYS);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(insertEmailTableQuery, Statement.RETURN_GENERATED_KEYS);) {
             fillPreparedStatementForEmailTable(ps, emailBean);
             result = ps.executeUpdate();
             // Retrieve generated primary key value to insert data into the bridging tables
@@ -83,9 +81,9 @@ public class EmailDAOImpl implements EmailDAO {
                 //Call this helper method to check if a recipient has been added yet in the Addresses table.
                 insertUnknownAddresses(emailBean.email);
                 //Call this helper method to create a row insert in EmailToAddress
-                insertEmailToAddress(recordNum, emailBean.email);
+                insertEmailToAddress(emailBean);
                 //Call this helper method to insert all attachments related to the Email object
-                insertEmailToAttachments(recordNum, emailBean.email);
+                insertAttachments(emailBean);
             }
         }
         LOG.info("# of records created : " + result);
@@ -164,30 +162,30 @@ public class EmailDAOImpl implements EmailDAO {
      * the EmailToAddresses Table
      * @throws SQLException
      */
-    private void insertEmailToAddress(int recordNum, Email email) throws SQLException {
+    private void insertEmailToAddress(EmailBean emailBean) throws SQLException {
 
-        EmailAddress[] toList = email.to();
-        EmailAddress[] ccList = email.cc();
-        EmailAddress[] bccList = email.bcc();
+        EmailAddress[] toList = emailBean.email.to();
+        EmailAddress[] ccList = emailBean.email.cc();
+        EmailAddress[] bccList = emailBean.email.bcc();
         if (toList.length >= 1) {
             for (EmailAddress address : toList) {
                 int emailIndex = getEmailAddressIndex(address);
-                executeEmailToAddressQuery(recordNum, emailIndex, "TO");
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "TO");
             }
         }
         if (ccList.length >= 1) {
             for (EmailAddress address : ccList) {
                 int emailIndex = getEmailAddressIndex(address);
-                executeEmailToAddressQuery(recordNum, emailIndex, "CC");
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "CC");
             }
         }
         if (bccList.length >= 1) {
             for (EmailAddress address : bccList) {
                 int emailIndex = getEmailAddressIndex(address);
-                executeEmailToAddressQuery(recordNum, emailIndex, "BCC");
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "BCC");
             }
         }
-        LOG.info("Email recipients for record #" + recordNum + " have been added in EmailToAddress");
+        LOG.info("Email recipients for record #" + emailBean.getId() + " have been added in EmailToAddress");
 
     }
 
@@ -200,16 +198,20 @@ public class EmailDAOImpl implements EmailDAO {
      * @param category A string representing the recipient Category (TO,CC,BCC)
      * @throws SQLException
      */
-    private void executeEmailToAddressQuery(int recordNum, int emailIndex, String category) throws SQLException {
+    private void executeEmailToAddressQuery(int emailId, int addressId, String recipientCategory) throws SQLException {
         String insertEmailToAddressQuery = "INSERT INTO EmailToAddress (EmailID,AddressID,RecipientCategory) values (?,?,?)";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword()); // Using a prepared statement to handle the conversion
                 // of special characters in the SQL statement and guard against
                 // SQL Injection
                   PreparedStatement ps = connection.prepareStatement(insertEmailToAddressQuery);) {
-            ps.setInt(1, recordNum);
-            ps.setInt(2, emailIndex);
-            ps.setString(3, category);
-            ps.executeUpdate();
+            ps.setInt(1, emailId);
+            ps.setInt(2, addressId);
+            ps.setString(3, recipientCategory);
+            int queryResult = ps.executeUpdate();
+            if (queryResult == 1) {
+                LOG.info("The address ID: \"" + addressId + "\" has been inserted as a \"" + recipientCategory + "\" for the email with ID: \"" + emailId + "\".");
+            }
+
         }
     }
 
@@ -229,7 +231,7 @@ public class EmailDAOImpl implements EmailDAO {
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(getEmailAddressQuery);) {
             ps.setString(1, emailAddress.getEmail());
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 resultAddress = rs.getInt(1);
             }
         }
@@ -248,7 +250,6 @@ public class EmailDAOImpl implements EmailDAO {
      * private field
      */
     private void fillPreparedStatementForEmailTable(PreparedStatement ps, EmailBean emailBean) throws SQLException {
-        LOG.info("FILLING THE PREPARED STATEMENT");
         Email email = emailBean.email;
         ps.setString(1, email.from().toString());
         ps.setString(2, email.subject());
@@ -289,82 +290,32 @@ public class EmailDAOImpl implements EmailDAO {
      * inserted into the db
      * @throws SQLException
      */
-    private void insertEmailToAttachments(int recordNum, Email email) throws SQLException, IOException {
-        String insertEmailToAttachmentsQuery = "INSERT INTO EmailToAttachments (EMAILID,ATTACHMENTID) VALUES (?,?)";
+    private void insertAttachments(EmailBean emailBean) throws SQLException, IOException {
+        Email email = emailBean.email;
+        int queryResult = 0;
+        String insertAttachmentQuery = "INSERT INTO ATTACHMENTS (EMAILID,FILENAME,CID,ATTACHMENT,IS_EMBEDDED) VALUES (?,?,?,?,?)";
         List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
         if (attachments.size() >= 1) {
             for (EmailAttachment attachment : attachments) {
-                //First check if the file exists in the database, if not, then insert it
-                insertUnknownAttachment(attachment);
-                //Now that it exists in the db, get its attachment primary key and insert into EmailToAttachments
-                int attachmentID = getAttachmentIndex(attachment);
-                try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertEmailToAttachmentsQuery);) {
-                    ps.setInt(1, recordNum);
-                    ps.setInt(2, attachmentID);
-                    ps.executeUpdate();
-                }
-            }
-            LOG.info("The attachments for the record #" + recordNum + " have been added in EmailToAttachments");
-        }
-    }
-
-    /**
-     * Inserting an image by converting it to a byte array and making an insert
-     * into the Attachments table
-     *
-     * @param attachment The attachment that will be inserted in the db
-     * @throws SQLException
-     * @throws IOException
-     */
-    private void insertUnknownAttachment(EmailAttachment attachment) throws SQLException, IOException {
-        String queryInsertAttachment = "INSERT INTO ATTACHMENTS (FILENAME,CID,IMAGE,IS_EMBEDDED) VALUES(?,?,?,?)";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryInsertAttachment);) {
-
-            //If the address is not in the table, insert it using the helper method insertNewAddress
-            if (getAttachmentIndex(attachment) == -1) {
-                LOG.info("The attachment \"" + attachment.getName() + "\" is not currently in the Attachments table.");
-                ps.setString(1, attachment.getName());
-                ps.setString(2, attachment.getContentId());
-                //Retreive the image and convert it to a byte array to be stored
-                Path p = FileSystems.getDefault().getPath("", attachment.getName());
-                byte[] imageBytes = Files.readAllBytes(p);
-                ps.setBytes(3, imageBytes);
-                int isEmbedded = 0;
-                if (attachment.isEmbedded()) {
-                    isEmbedded = 1;
-                }
-                ps.setInt(4, isEmbedded);
-                int countInserts = ps.executeUpdate();
-                if (countInserts == 1) {
-                    LOG.info("The attachment \"" + attachment.getName() + "\" has been added to the Attachments table.");
+                try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                        PreparedStatement ps = connection.prepareStatement(insertAttachmentQuery);) {
+                    ps.setInt(1, emailBean.getId());
+                    ps.setString(2, attachment.getName());
+                    ps.setString(3, attachment.getContentId());
+                    ps.setBytes(4, attachment.toByteArray());
+                    if(attachment.isEmbedded()){
+                        ps.setInt(5,1);
+                    }
+                    else{
+                        ps.setInt(5,0);
+                    }
+                    queryResult = ps.executeUpdate();
                 }
             }
         }
-    }
-
-    /**
-     * Query and return the index of an attachment in the Attachments table to
-     * insert it into the EmailToAddresses table
-     *
-     * @param attachment The EmailAttachment object that we need to retrieve its
-     * AttachmentID (primary key index)
-     * @return An int representing the Attachment's primary key index in the
-     * Attachments table
-     * @throws SQLException
-     */
-    private int getAttachmentIndex(EmailAttachment attachment) throws SQLException {
-        int resultAttachmentID = -1;
-        String getEmailAddressQuery = "SELECT Attachments.AttachmentID FROM Attachments WHERE Attachments.FileName = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(getEmailAddressQuery);) {
-            ps.setString(1, attachment.getName());
-            ResultSet rs = ps.executeQuery();
-            //Set the attachment's primary key to be returned
-            if (rs.next()) {
-                resultAttachmentID = rs.getInt(1);
-            }
+        if(queryResult > 0){
+            LOG.info("The attachments for the record #" + emailBean.getId() + " have been added in EmailToAttachments");
         }
-        //Return the primary key of the attachment
-        return resultAttachmentID;
     }
 
     @Override
@@ -372,7 +323,6 @@ public class EmailDAOImpl implements EmailDAO {
         List<EmailBean> rows = new ArrayList<>();
 
         String selectQuery = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL";
-        LOG.info("IN FIND ALL");
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement pStatement = connection.prepareStatement(selectQuery);  ResultSet resultSet = pStatement.executeQuery()) {
             while (resultSet.next()) {
                 rows.add(createEmailBean(resultSet));
@@ -383,7 +333,7 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     private EmailBean createEmailBean(ResultSet resultSet) throws SQLException {
-        LOG.info("CREATING A BEAN");
+        LOG.info("Creating an EmailBean");
         EmailBean emailBean = new EmailBean();
         emailBean.setId(resultSet.getInt("EMAILID"));
         emailBean.setFolderKey(resultSet.getInt("FOLDERID"));
@@ -524,18 +474,20 @@ public class EmailDAOImpl implements EmailDAO {
 
     @Override
     public int updateDraft(EmailBean emailBean) throws SQLException {
+        //Update the fields in the Email table with the new EmailBean information
         int emailTableUpdateResult = updateEmailTableFields(emailBean);
-        if(emailTableUpdateResult != 1){
+        if (emailTableUpdateResult != 1) {
             return -1;
         }
+        //Update the recipients of the updated email. first delete all EmailToAddressEntries for a specific Email id, then insert the new ones.
+        updateEmailRecipients(emailBean);
         return 1;
     }
 
     private int updateEmailTableFields(EmailBean emailBean) throws SQLException {
         int tableUpdatesResult = -1;
         String emailTableUpdateQuery = "UPDATE EMAIL SET FROMADDRESS = ?, SUBJECT = ?, TEXTMESSAGE = ?, HTMLMESSAGE = ? WHERE EMAILID = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(emailTableUpdateQuery);) {
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailTableUpdateQuery);) {
             ps.setString(1, emailBean.email.from().toString());
             ps.setString(2, emailBean.email.subject());
             List<EmailMessage> messages = emailBean.email.messages();
@@ -559,6 +511,54 @@ public class EmailDAOImpl implements EmailDAO {
             tableUpdatesResult = ps.executeUpdate();
             //Should be 1 since only one row in the Email table was affected
             return tableUpdatesResult;
+        }
+    }
+
+    private void updateEmailRecipients(EmailBean emailBean) throws SQLException {
+        EmailAddress[] toList = emailBean.email.to();
+        EmailAddress[] ccList = emailBean.email.cc();
+        EmailAddress[] bccList = emailBean.email.bcc();
+        //First insert new email recipients into the Addresses table if the updated draft has new email recipients that are not in the table yet.
+        insertUnknownAddresses(emailBean.email);
+        //First delete all associated recipients of the Email in the EmailToAddress table.
+        deleteEmailToAddressRow(emailBean.getId());
+        if (toList.length >= 1) {
+            for (EmailAddress address : toList) {
+                int emailIndex = getEmailAddressIndex(address);
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "TO");
+            }
+        }
+        if (ccList.length >= 1) {
+            for (EmailAddress address : ccList) {
+                int emailIndex = getEmailAddressIndex(address);
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "CC");
+            }
+        }
+        if (bccList.length >= 1) {
+            for (EmailAddress address : bccList) {
+                int emailIndex = getEmailAddressIndex(address);
+                executeEmailToAddressQuery(emailBean.getId(), emailIndex, "BCC");
+            }
+        }
+
+    }
+
+    /**
+     * Helper method that deletes all rows of recipients associated with an
+     * Email. Makes it so that a draft email can have its recipients updated.
+     *
+     * @param emailId The Email row that will update its recipients (only Draft
+     * emails can update the content)
+     * @throws SQLException
+     */
+    private void deleteEmailToAddressRow(int emailId) throws SQLException {
+        String deleteRowsToBeUpdated = "DELETE FROM EMAILTOADDRESS WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(deleteRowsToBeUpdated);) {
+            ps.setInt(1, emailId);
+            int resultDeletes = ps.executeUpdate();
+            if (resultDeletes > 0) {
+                LOG.info("The recipients for the email with ID: \"" + emailId + "\" has been deleted.");
+            }
         }
     }
 

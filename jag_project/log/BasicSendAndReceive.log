@@ -15742,3 +15742,54 @@
 [INFO ] 2020-10-04 00:07:16.156 [main] EmailDAOImpl - EmailBean successfully created.
 [INFO ] 2020-10-04 00:07:16.157 [main] CrudTests - BEFORE CHANGES SUBJECT: Jodd Test
 [INFO ] 2020-10-04 00:07:16.157 [main] CrudTests - BEFORE CHANGES FROM: recievedanieldawson1@gmail.com
+[INFO ] 2020-10-04 00:58:24.541 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-04 00:58:24.579 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-04 00:58:24.610 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-04 00:58:24.681 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-04 00:58:24.682 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-04 00:58:24.683 [main] CrudTests - BEFORE CHANGES SUBJECT: Jodd Test
+[INFO ] 2020-10-04 00:58:24.684 [main] CrudTests - BEFORE CHANGES FROM: recievedanieldawson1@gmail.com
+[INFO ] 2020-10-04 00:59:33.428 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-04 00:59:33.462 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-04 00:59:33.490 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-04 00:59:33.533 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-04 00:59:33.534 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-04 00:59:33.536 [main] CrudTests - BEFORE CHANGES SUBJECT: NEW SUBJECT
+[INFO ] 2020-10-04 00:59:33.536 [main] CrudTests - BEFORE CHANGES FROM: newsender1@gmail.com
+[INFO ] 2020-10-04 20:41:24.458 [main] EmailDAOImpl - CREATING A BEAN
+[INFO ] 2020-10-04 20:41:24.490 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-04 20:41:24.517 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-04 20:41:24.556 [main] EmailDAOImpl - Email object has set the attachments
+[INFO ] 2020-10-04 20:41:24.557 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-04 20:41:24.558 [main] CrudTests - BEFORE CHANGES SUBJECT: NEW SUBJECT
+[INFO ] 2020-10-04 20:41:24.558 [main] CrudTests - BEFORE CHANGES FROM: newsender1@gmail.com
+[INFO ] 2020-10-04 20:41:24.628 [main] EmailDAOImpl - The email address "newrecipient1" is not currently in the Addresses table.
+[INFO ] 2020-10-04 20:41:24.653 [main] EmailDAOImpl - The email address "newrecipient1" has been added to the Addresses table.
+[INFO ] 2020-10-04 20:41:24.675 [main] EmailDAOImpl - The email address "newrecipient2" is not currently in the Addresses table.
+[INFO ] 2020-10-04 20:41:24.698 [main] EmailDAOImpl - The email address "newrecipient2" has been added to the Addresses table.
+[INFO ] 2020-10-04 20:41:24.717 [main] EmailDAOImpl - The email address "newrecipient3" is not currently in the Addresses table.
+[INFO ] 2020-10-04 20:41:24.739 [main] EmailDAOImpl - The email address "newrecipient3" has been added to the Addresses table.
+[INFO ] 2020-10-04 20:41:24.762 [main] EmailDAOImpl - The recipients for the email with ID: "4" has been deleted.
+[INFO ] 2020-10-04 20:41:24.806 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-04 20:41:24.846 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-04 20:41:24.881 [main] EmailDAOImpl - The address ID: "6" has been inserted as a "CC" for the email with ID: "4".
+[INFO ] 2020-10-04 20:41:24.920 [main] EmailDAOImpl - The address ID: "7" has been inserted as a "BCC" for the email with ID: "4".
+[INFO ] 2020-10-04 23:05:02.657 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-04 23:05:02.899 [main] EmailDAOImpl - FILLING THE PREPARED STATEMENT
+[INFO ] 2020-10-04 23:05:02.900 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-04 23:05:02.912 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-04 23:05:03.031 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "5".
+[INFO ] 2020-10-04 23:05:03.082 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "5".
+[INFO ] 2020-10-04 23:05:03.129 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "BCC" for the email with ID: "5".
+[INFO ] 2020-10-04 23:05:03.130 [main] EmailDAOImpl - Email recipients for record #5 have been added in EmailToAddress
+[INFO ] 2020-10-04 23:05:03.177 [main] EmailDAOImpl - The attachments for the record #5 have been added in EmailToAttachments
+[INFO ] 2020-10-04 23:05:03.178 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-04 23:13:23.605 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-04 23:13:23.846 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-04 23:13:23.860 [main] EmailDAOImpl - New record ID is 5
+[INFO ] 2020-10-04 23:13:23.974 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "5".
+[INFO ] 2020-10-04 23:13:24.025 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "5".
+[INFO ] 2020-10-04 23:13:24.067 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "BCC" for the email with ID: "5".
+[INFO ] 2020-10-04 23:13:24.068 [main] EmailDAOImpl - Email recipients for record #5 have been added in EmailToAddress
+[INFO ] 2020-10-04 23:13:24.159 [main] EmailDAOImpl - The attachments for the record #5 have been added in EmailToAttachments
+[INFO ] 2020-10-04 23:13:24.159 [main] EmailDAOImpl - # of records created : 1
