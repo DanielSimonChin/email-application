@@ -1,7 +1,3 @@
-/**
- * Author:  Daniel
- * Created: Sep. 25, 2020
- */
 USE EMAILCLIENT;
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS ADDRESSES;

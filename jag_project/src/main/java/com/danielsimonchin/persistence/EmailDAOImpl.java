@@ -3,7 +3,10 @@ package com.danielsimonchin.persistence;
 import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,6 +23,9 @@ import java.util.ArrayList;
 import javax.activation.DataSource;
 import jodd.mail.EmailAddress;
 import jodd.mail.EmailAttachment;
+import jodd.mail.MailServer;
+import jodd.mail.SendMailSession;
+import jodd.mail.SmtpServer;
 
 /**
  * This class implements the EmailDAO. Contains multiple methods that perform
@@ -48,11 +54,12 @@ public class EmailDAOImpl implements EmailDAO {
     /**
      * This method adds an Email object as a record to the database. The column
      * list does not include ID as this is an auto increment value in the table.
-     * This method calls other helper methods to create inserts in the bridging
-     * tables: EmailToAddresses, EmailToAttachments
+     * This method calls other helper methods to create inserts in the
+     * connecting tables: EmailToAddresses, Attachments
+     *
      *
      * @param emailBean The emailBean that must be inserted into the tables:
-     * Email, EmailToAddresses, EmailToAttachments
+     * Email, EmailToAddresses, Attachments
      * @return The number of records created, should always be 1 since one row
      * is inserted into the email table
      * @throws SQLException
@@ -61,12 +68,21 @@ public class EmailDAOImpl implements EmailDAO {
     @Override
     public int createEmailRecord(EmailBean emailBean) throws SQLException, IOException {
         int result;
-        String insertEmailTableQuery = "INSERT INTO Email (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID) VALUES (?,?,?,?,?,?,?)";
-
+        String insertEmailQuery;
+        //If the email is a draft, execute the query that does not involve sentDate and receiveDate.
+        if (emailBean.getFolderKey() == 3) {
+            insertEmailQuery = "INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,FOLDERID) VALUES (?,?,?,?,?)";
+        } else {
+            //Regular query for sent and received emails
+            insertEmailQuery = "INSERT INTO Email (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID) VALUES (?,?,?,?,?,?,?)";
+        }
         // Connection is only open for the operation and then immediately closed
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                PreparedStatement ps = connection.prepareStatement(insertEmailTableQuery, Statement.RETURN_GENERATED_KEYS);) {
-            fillPreparedStatementForEmailTable(ps, emailBean);
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertEmailQuery, Statement.RETURN_GENERATED_KEYS);) {
+            if (emailBean.getFolderKey() == 3) {
+                fillPreparedStatementDraftEmail(ps, emailBean);
+            } else if (emailBean.getFolderKey() == 1 || emailBean.getFolderKey() == 2) {
+                fillPreparedStatementForEmailTable(ps, emailBean);
+            }
             result = ps.executeUpdate();
             // Retrieve generated primary key value to insert data into the bridging tables
             try ( ResultSet rs = ps.getGeneratedKeys();) {
@@ -239,6 +255,31 @@ public class EmailDAOImpl implements EmailDAO {
         return resultAddress;
     }
 
+    public void fillPreparedStatementDraftEmail(PreparedStatement ps, EmailBean emailBean) throws SQLException {
+        Email email = emailBean.email;
+        ps.setString(1, email.from().toString());
+        ps.setString(2, email.subject());
+        List<EmailMessage> messages = email.messages();
+        String plainText = "";
+        String htmlText = "";
+        //If the email has both a text and html message, assign them both
+        if (messages.size() == 2) {
+            plainText = messages.get(0).getContent();
+            htmlText = messages.get(1).getContent();
+            //If the email has either a text or html message, assign a single message.
+        } else if (messages.size() == 1) {
+            if (messages.get(0).getMimeType().equals("text/plain")) {
+                plainText = messages.get(0).getContent();
+            } else {
+                htmlText = messages.get(1).getContent();
+            }
+        }
+        ps.setString(3, plainText);
+        ps.setString(4, htmlText);
+        ps.setInt(5, emailBean.getFolderKey());
+        LOG.info("PreparedStatement for inserting a row in Email table has been setup.");
+    }
+
     /**
      * Set the parameterized values of the PreparedStatement using the Email
      * object given as input. The primary key will be auto-incremented so is not
@@ -262,7 +303,7 @@ public class EmailDAOImpl implements EmailDAO {
             htmlText = messages.get(1).getContent();
             //If the email has either a text or html message, assign a single message.
         } else if (messages.size() == 1) {
-            if (messages.get(0).getMimeType().equals("TEXT/PLAIN")) {
+            if (messages.get(0).getMimeType().equals("text/plain")) {
                 plainText = messages.get(0).getContent();
             } else {
                 htmlText = messages.get(1).getContent();
@@ -270,13 +311,11 @@ public class EmailDAOImpl implements EmailDAO {
         }
         ps.setString(3, plainText);
         ps.setString(4, htmlText);
-        //If the folder of the email is not a draft, you are allowed to set the sent and receivedDate
-        if (emailBean.getFolderKey() != 3) {
-            //Set the sent date as the current date since an Email object's default sentDate is null
-            email.currentSentDate();
-            ps.setTimestamp(5, new Timestamp(email.sentDate().getTime()));
-            ps.setTimestamp(6, emailBean.getReceivedDate());
-        }
+
+        //Set the sent date as the current date since an Email object's default sentDate is null
+        email.currentSentDate();
+        ps.setTimestamp(5, new Timestamp(email.sentDate().getTime()));
+        ps.setTimestamp(6, emailBean.getReceivedDate());
         ps.setInt(7, emailBean.getFolderKey());
         LOG.info("PreparedStatement for inserting a row in Email table has been setup.");
     }
@@ -297,29 +336,27 @@ public class EmailDAOImpl implements EmailDAO {
         List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
         if (attachments.size() >= 1) {
             for (EmailAttachment attachment : attachments) {
-                try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
-                        PreparedStatement ps = connection.prepareStatement(insertAttachmentQuery);) {
+                try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(insertAttachmentQuery);) {
                     ps.setInt(1, emailBean.getId());
                     ps.setString(2, attachment.getName());
                     ps.setString(3, attachment.getContentId());
                     ps.setBytes(4, attachment.toByteArray());
-                    if(attachment.isEmbedded()){
-                        ps.setInt(5,1);
-                    }
-                    else{
-                        ps.setInt(5,0);
+                    if (attachment.isEmbedded()) {
+                        ps.setInt(5, 1);
+                    } else {
+                        ps.setInt(5, 0);
                     }
                     queryResult = ps.executeUpdate();
                 }
             }
         }
-        if(queryResult > 0){
+        if (queryResult > 0) {
             LOG.info("The attachments for the record #" + emailBean.getId() + " have been added in EmailToAttachments");
         }
     }
 
     @Override
-    public List<EmailBean> findAll() throws SQLException {
+    public List<EmailBean> findAll() throws SQLException, FileNotFoundException, IOException {
         List<EmailBean> rows = new ArrayList<>();
 
         String selectQuery = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL";
@@ -332,7 +369,7 @@ public class EmailDAOImpl implements EmailDAO {
         return rows;
     }
 
-    private EmailBean createEmailBean(ResultSet resultSet) throws SQLException {
+    private EmailBean createEmailBean(ResultSet resultSet) throws SQLException, FileNotFoundException, IOException {
         LOG.info("Creating an EmailBean");
         EmailBean emailBean = new EmailBean();
         emailBean.setId(resultSet.getInt("EMAILID"));
@@ -340,7 +377,7 @@ public class EmailDAOImpl implements EmailDAO {
         emailBean.setReceivedDate(resultSet.getTimestamp("RECEIVEDATE"));
         emailBean.email = queryEmailTableFields(resultSet, emailBean.email);
         emailBean.email = queryEmailToAddressTableFields(resultSet, emailBean.email);
-        emailBean.email = queryEmailToAttachmentTableFields(resultSet, emailBean.email);
+        emailBean.email = queryAttachmentsFields(resultSet, emailBean.email);
         LOG.info("EmailBean successfully created.");
         return emailBean;
     }
@@ -354,7 +391,7 @@ public class EmailDAOImpl implements EmailDAO {
      * @throws SQLException
      */
     private Email queryEmailTableFields(ResultSet resultSet, Email email) throws SQLException {
-        String emailTableQuery = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,FOLDERID FROM EMAIL WHERE EMAIL.EMAILID = ?";
+        String emailTableQuery = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE FROM EMAIL WHERE EMAIL.EMAILID = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailTableQuery);) {
             ps.setInt(1, resultSet.getInt("EMAILID"));
             ResultSet emailTableResultSet = ps.executeQuery();
@@ -382,31 +419,60 @@ public class EmailDAOImpl implements EmailDAO {
                 } else if (emailToAddressResultSet.getString("RECIPIENTCATEGORY").equals("BCC")) {
                     email.bcc(emailToAddressResultSet.getString("EMAILADDRESS"));
                 }
-                LOG.info("Email object has set the recipient email addresses");
             }
         }
+        LOG.info("Email object has set the recipient email addresses");
         return email;
     }
 
-    private Email queryEmailToAttachmentTableFields(ResultSet resultSet, Email email) throws SQLException {
-        String emailToAttachmentQuery = "SELECT ATTACHMENTS.FILENAME,ATTACHMENTS.IS_EMBEDDED FROM ATTACHMENTS INNER JOIN EMAILTOATTACHMENTS ON ATTACHMENTS.ATTACHMENTID = EMAILTOATTACHMENTS.ATTACHMENTID WHERE EMAILTOATTACHMENTS.EMAILID = ?";
-        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailToAttachmentQuery);) {
+    private Email queryAttachmentsFields(ResultSet resultSet, Email email) throws SQLException, FileNotFoundException, IOException {
+        LOG.info("BEFORE");
+        List<File> regularAttachments = new ArrayList<>();
+        List<File> embeddedAttachments = new ArrayList<>();
+        String attachmentsQuery = "SELECT FILENAME,ATTACHMENT,IS_EMBEDDED FROM ATTACHMENTS WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(attachmentsQuery);) {
             ps.setInt(1, resultSet.getInt("EMAILID"));
-            ResultSet emailToAttachmentResultSet = ps.executeQuery();
-            while (emailToAttachmentResultSet.next()) {
-                if (emailToAttachmentResultSet.getInt("IS_EMBEDDED") == 1) {
-                    email.embeddedAttachment(EmailAttachment.with().content(new File(emailToAttachmentResultSet.getString("FILENAME"))));
-                } else {
-                    email.attachment(EmailAttachment.with().content(emailToAttachmentResultSet.getString("FILENAME")));
+            ResultSet emailAttachmentsResult = ps.executeQuery();
+            while (emailAttachmentsResult.next()) {
+                //Set the File object's name
+                File image = new File(emailAttachmentsResult.getString("FILENAME"));
+                FileOutputStream fos = new FileOutputStream(image);
+                byte[] buffer = new byte[1];
+                InputStream is = emailAttachmentsResult.getBinaryStream("ATTACHMENT");
+                //The mock data has a null attachments, so only read from the InputStream if it isn't null.
+                if (is != null) {
+                    //As long as there are bytes to read, keep writing to the FileOutputStream
+                    while (is.read(buffer) > 0) {
+
+                        fos.write(buffer);
+                    }
                 }
-                LOG.info("Email object has set the attachments");
+                fos.close();
+                //Add the File to the appropriate list depending on if the image is embedded or not
+                if (emailAttachmentsResult.getInt("IS_EMBEDDED") == 1) {
+                    embeddedAttachments.add(image);
+                } else {
+                    regularAttachments.add(image);
+                }
             }
         }
+        //Setting the files to the Email object's attachments
+        LOG.info("REGULAR ATTACHMENTS FOR EMAILID:" + resultSet.getInt("EMAILID"));
+        regularAttachments.forEach(attachment -> {
+            LOG.info("Regular attachment: " + attachment.getName());
+            email.attachment(EmailAttachment.with().content(attachment.getName()));
+        });
+        LOG.info("EMBEDDED ATTACHMENTS FOR EMAILID:" + resultSet.getInt("EMAILID"));
+        embeddedAttachments.forEach(attachment -> {
+            LOG.info("EMBEDDED attachment: " + attachment.getName());
+            email.embeddedAttachment(EmailAttachment.with().content(new File(attachment.getName())));
+        });
+        LOG.info("AFTER");
         return email;
     }
 
     @Override
-    public EmailBean findID(int id) throws SQLException {
+    public EmailBean findID(int id) throws SQLException, FileNotFoundException, IOException {
         EmailBean emailBean = new EmailBean();
         String findEmailById = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE EMAILID = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findEmailById);) {
@@ -423,29 +489,33 @@ public class EmailDAOImpl implements EmailDAO {
      * Finds and returns a List of EmailBean of all emails that are in a
      * specified folder.
      *
-     * @param folderKey Folder primary key
+     * @param folderName Folder name
      * @return List of EmailBean of all emails that are in a specified folder.
      * @throws SQLException
+     * @throws java.io.FileNotFoundException
      */
     @Override
-    public List<EmailBean> findAllInFolder(int folderKey) throws SQLException {
+    public List<EmailBean> findAllInFolder(String folderName) throws SQLException, FileNotFoundException, IOException {
+        LOG.info("BEFORE 1");
         List<EmailBean> emailsInFolder = new ArrayList<>();
-        String queryEmailsInFolder = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE FOLDERID = ?";
+        String queryEmailsInFolder = "SELECT EMAIL.EMAILID,EMAIL.FROMADDRESS,EMAIL.SUBJECT,EMAIL.TEXTMESSAGE,EMAIL.HTMLMESSAGE,EMAIL.SENTDATE,EMAIL.RECEIVEDATE,EMAIL.FOLDERID FROM EMAIL INNER JOIN FOLDERS ON EMAIL.FOLDERID = FOLDERS.FOLDERID WHERE FOLDERNAME = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsInFolder);) {
-            ps.setInt(1, folderKey);
+            ps.setString(1, folderName);
             ResultSet allEmailsInFolder = ps.executeQuery();
             while (allEmailsInFolder.next()) {
+                LOG.info("QUERY HAS BEEN RUN");
                 //Add the EmailBean to the list
                 emailsInFolder.add(createEmailBean(allEmailsInFolder));
             }
         }
+        LOG.info("BEFORE 2");
         return emailsInFolder;
     }
 
     @Override
-    public List<EmailBean> findEmailsBySender(String sender) throws SQLException {
+    public List<EmailBean> findEmailsBySender(String sender) throws SQLException, FileNotFoundException, IOException {
         List<EmailBean> emailsBySender = new ArrayList<>();
-        String queryEmailsBySender = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE FROMADDRESS = ?";
+        String queryEmailsBySender = "SELECT EMAIL.EMAILID,EMAIL.FROMADDRESS,EMAIL.SUBJECT,EMAIL.TEXTMESSAGE,EMAIL.HTMLMESSAGE,EMAIL.SENTDATE,EMAIL.RECEIVEDATE,EMAIL.FOLDERID FROM EMAIL WHERE FROMADDRESS = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsBySender);) {
             ps.setString(1, sender);
             ResultSet resultEmails = ps.executeQuery();
@@ -458,7 +528,22 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     @Override
-    public List<EmailBean> findEmailsBySubject(String subject) throws SQLException {
+    public List<EmailBean> findEmailsByRecipient(String recipientEmailAddress) throws SQLException, FileNotFoundException, IOException {
+        List<EmailBean> emailsByRecipient = new ArrayList<>();
+        String queryEmailsByRecipient = "SELECT EMAIL.EMAILID,EMAIL.FROMADDRESS,EMAIL.SUBJECT,EMAIL.TEXTMESSAGE,EMAIL.HTMLMESSAGE,EMAIL.SENTDATE,EMAIL.RECEIVEDATE,EMAIL.FOLDERID FROM EMAIL INNER JOIN EMAILTOADDRESS ON EMAIL.EMAILID = EMAILTOADDRESS.EMAILID INNER JOIN ADDRESSES ON EMAILTOADDRESS.ADDRESSID = ADDRESSES.ADDRESSID WHERE ADDRESSES.EMAILADDRESS = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsByRecipient);) {
+            ps.setString(1, recipientEmailAddress);
+            ResultSet resultEmails = ps.executeQuery();
+            while (resultEmails.next()) {
+                //Add the EmailBean to the list
+                emailsByRecipient.add(createEmailBean(resultEmails));
+            }
+        }
+        return emailsByRecipient;
+    }
+
+    @Override
+    public List<EmailBean> findEmailsBySubject(String subject) throws SQLException, FileNotFoundException, IOException {
         List<EmailBean> emailsBySubject = new ArrayList<>();
         String queryEmailsBySubject = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL WHERE SUBJECT = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsBySubject);) {
@@ -473,14 +558,22 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     @Override
-    public int updateDraft(EmailBean emailBean) throws SQLException {
+    public int updateDraft(EmailBean emailBean) throws SQLException, IOException {
         //Update the fields in the Email table with the new EmailBean information
         int emailTableUpdateResult = updateEmailTableFields(emailBean);
         if (emailTableUpdateResult != 1) {
             return -1;
         }
-        //Update the recipients of the updated email. first delete all EmailToAddressEntries for a specific Email id, then insert the new ones.
+        //First insert new email recipients into the Addresses table if the updated draft has new email recipients that are not in the table yet.
+        insertUnknownAddresses(emailBean.email);
+        //Delete all associated recipients of the old Email in the EmailToAddress table.
+        deleteEmailToAddressRow(emailBean.getId());
+        //Update the recipients of the updated email. first delete all EmailToAddress Entries for a specific Email id, then insert the new ones.
         updateEmailRecipients(emailBean);
+        //Delete all associate attachments of the old Email in the attachments table.
+        deleteEmailAttachments(emailBean.getId());
+        //Update the files of the old email and insert new files if needed.
+        insertAttachments(emailBean);
         return 1;
     }
 
@@ -493,20 +586,36 @@ public class EmailDAOImpl implements EmailDAO {
             List<EmailMessage> messages = emailBean.email.messages();
             String plainText = "";
             String htmlText = "";
-            //If the email has both a text and html message, assign them both
-            if (messages.size() == 2) {
-                plainText = messages.get(0).getContent();
-                htmlText = messages.get(1).getContent();
-                //If the email has either a text or html message, assign a single message.
-            } else if (messages.size() == 1) {
-                if (messages.get(0).getMimeType().equals("TEXT/PLAIN")) {
-                    plainText = messages.get(0).getContent();
-                } else {
-                    htmlText = messages.get(1).getContent();
+
+            LOG.info("INSIDE UPDATE METHOD THE SIZE IS " + messages.size());
+            for (EmailMessage message : messages) {
+                LOG.info("content: " + message.getContent() + " mime type: " + message.getMimeType());
+            }
+            //Starts at the end since a email's messages is a list which can be added to. We take the most recent messages added.
+            for (int i = messages.size() - 1; i >= 0; i--) {
+                if (messages.get(i).getMimeType().equals("text/plain")) {
+                    plainText = messages.get(i).getContent();
+                    break;
                 }
             }
+            for (int i = messages.size() - 1; i >= 0; i--) {
+                if (messages.get(i).getMimeType().equals("text/html")) {
+                    htmlText = messages.get(i).getContent();
+                    break;
+                }
+            }
+
+            LOG.info("NEW TEXT:" + plainText);
+            LOG.info("NEW HTML:" + htmlText);
             ps.setString(3, plainText);
             ps.setString(4, htmlText);
+            //if the new folder is changing from draft to sent, send the email and update its folder in the Email table
+            if (emailBean.getFolderKey() == 2) {
+                //Send the email
+                sendDraftEmail(emailBean.email);
+                updateSentEmail(emailBean);
+            }
+            //Set the emailId of the email we wish to update.
             ps.setInt(5, emailBean.getId());
             tableUpdatesResult = ps.executeUpdate();
             //Should be 1 since only one row in the Email table was affected
@@ -514,14 +623,62 @@ public class EmailDAOImpl implements EmailDAO {
         }
     }
 
+    private void sendDraftEmail(Email email) {
+        SmtpServer smtpServer = MailServer.create()
+                .ssl(true)
+                .host(this.mailConfigBean.getSmtpUrl())
+                .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
+                .buildSmtpMailServer();
+        try ( // A session is the object responsible for communicating with the server
+                 SendMailSession session = smtpServer.createSession()) {
+            // Like a file we open the session, send the message and close the
+            // session
+            session.open();
+            session.sendMail(email);
+            //Setting the email's sent date as the current date
+            email.currentSentDate();
+            LOG.info("The Draft Email has been sent.");
+        }
+    }
+
+    private void updateSentEmail(EmailBean emailBean) throws SQLException {
+        int tableUpdatesResult = -1;
+        String updateSentDateQuery = "UPDATE EMAIL SET SENTDATE = ?, FOLDERID = ? WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(updateSentDateQuery);) {
+            ps.setTimestamp(1, new Timestamp(emailBean.email.sentDate().getTime()));
+            ps.setInt(2, emailBean.getFolderKey());
+            ps.setInt(3, emailBean.getId());
+            tableUpdatesResult = ps.executeUpdate();
+        }
+        if (tableUpdatesResult > 0) {
+            LOG.info("The email with the ID: " + emailBean.getId() + " has set its sentDate in the Email table.");
+        }
+    }
+
+    @Override
+    public int updateFolder(EmailBean emailBean) throws SQLException {
+        int updateResult = -1;
+        String updateFolderQuery = "UPDATE EMAIL SET FOLDERID = ? WHERE EMAILID = ?";
+        if (emailBean.getFolderKey() == 3) {
+            //throw custom exception
+        }
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(updateFolderQuery);) {
+            ps.setInt(1, emailBean.getFolderKey());
+            ps.setInt(2, emailBean.getId());
+            updateResult = ps.executeUpdate();
+        }
+        if (updateResult > 0) {
+            LOG.info("The email with ID: " + emailBean.getId() + " has updated its folder");
+        }
+        return updateResult;
+
+    }
+
     private void updateEmailRecipients(EmailBean emailBean) throws SQLException {
         EmailAddress[] toList = emailBean.email.to();
         EmailAddress[] ccList = emailBean.email.cc();
         EmailAddress[] bccList = emailBean.email.bcc();
-        //First insert new email recipients into the Addresses table if the updated draft has new email recipients that are not in the table yet.
-        insertUnknownAddresses(emailBean.email);
-        //First delete all associated recipients of the Email in the EmailToAddress table.
-        deleteEmailToAddressRow(emailBean.getId());
+
         if (toList.length >= 1) {
             for (EmailAddress address : toList) {
                 int emailIndex = getEmailAddressIndex(address);
@@ -540,7 +697,6 @@ public class EmailDAOImpl implements EmailDAO {
                 executeEmailToAddressQuery(emailBean.getId(), emailIndex, "BCC");
             }
         }
-
     }
 
     /**
@@ -557,7 +713,18 @@ public class EmailDAOImpl implements EmailDAO {
             ps.setInt(1, emailId);
             int resultDeletes = ps.executeUpdate();
             if (resultDeletes > 0) {
-                LOG.info("The recipients for the email with ID: \"" + emailId + "\" has been deleted.");
+                LOG.info("The recipients for the email with ID: \"" + emailId + "\" have been deleted.");
+            }
+        }
+    }
+
+    private void deleteEmailAttachments(int emailId) throws SQLException {
+        String deleteOldAttachments = "DELETE FROM ATTACHMENTS WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(deleteOldAttachments);) {
+            ps.setInt(1, emailId);
+            int resultDeletes = ps.executeUpdate();
+            if (resultDeletes > 0) {
+                LOG.info("The attachments for the email with ID: \"" + emailId + "\" have been deleted.");
             }
         }
     }
@@ -609,13 +776,59 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     @Override
-    public int update(Email email) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int deleteFolder(String foldername) throws SQLException {
+        int folderDeletes = -1;
+        //Delete all associated rows in the EmailToAddresses and Attachments table.
+        deleteFolderEmails(foldername);
+        //Delete the emails in the Email table that are part of this folder
+        deleteEmailTableRowsInFolder(foldername);
+        String deleteFolderQuery = "DELETE FROM FOLDERS WHERE FOLDERNAME = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  
+                PreparedStatement ps = connection.prepareStatement(deleteFolderQuery);) {
+            ps.setString(1, foldername);
+            folderDeletes = ps.executeUpdate();
+        }
+        if(folderDeletes > 0){
+            LOG.info("The folder \"" + foldername + "\" along with its emails has been deleted.");
+        }
+        return folderDeletes;
+    }
+
+    private void deleteFolderEmails(String foldername) throws SQLException {
+        //first find out all the emailId's that are in this folder, then call other helpers to delete associated rows
+        String emailsInFolder = "SELECT EMAIL.EMAILID FROM EMAIL INNER JOIN FOLDERS ON EMAIL.FOLDERID = FOLDERS.FOLDERID WHERE FOLDERNAME = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailsInFolder);) {
+            ps.setString(1, foldername);
+            ResultSet emailsToDelete = ps.executeQuery();
+            while (emailsToDelete.next()) {
+                deleteEmailToAddressRow(emailsToDelete.getInt("EMAILID"));
+                deleteEmailAttachments(emailsToDelete.getInt("EMAILID"));
+            }
+        }
+    }
+
+    private void deleteEmailTableRowsInFolder(String foldername) throws SQLException {
+        //first find out all the emailId's that are in this folder, then call other helpers to delete associated rows
+        String emailsInFolder = "DELETE FROM EMAIL INNER JOIN FOLDERS ON EMAIL.FOLDERID = FOLDERS.FOLDERID WHERE FOLDERS.FOLDERNAME = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailsInFolder);) {
+            ps.setString(1, foldername);
+            int deleteResults = ps.executeUpdate();
+        }
     }
 
     @Override
-    public int delete(int id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int deleteEmail(int emailId) throws SQLException {
+        int queryResult = -1;
+        deleteEmailToAddressRow(emailId);
+        deleteEmailAttachments(emailId);
+        String deleteEmailRow = "DELETE FROM EMAIL WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(deleteEmailRow);) {
+            ps.setInt(1, emailId);
+            queryResult = ps.executeUpdate();
+            if (queryResult == 1) {
+                LOG.info("The email with ID: \"" + emailId + "\" has been deleted from the Email table.");
+            }
+        }
+        return queryResult;
     }
-
 }

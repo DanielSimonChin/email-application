@@ -1,7 +1,3 @@
- /**
- * Author:  Daniel
- * Created: Sep. 25, 2020
- */
 USE EMAILCLIENT;
 DROP TABLE IF EXISTS EmailToAddress;
 
@@ -14,11 +10,11 @@ CREATE TABLE EMAILTOADDRESS (
   CONSTRAINT fkaddressid FOREIGN KEY (ADDRESSID) REFERENCES ADDRESSES(ADDRESSID),
   PRIMARY KEY  (EMAILTOADDRESSKEY)
 );
---All the recipients of the email with the primary Key 1
+
 INSERT INTO EMAILTOADDRESS (EMAILID,ADDRESSID,RECIPIENTCATEGORY) values (1,2,'TO'),(1,3,'CC'),(1,4,'BCC');
---All the recipients of the email with the primary Key 2
+
 INSERT INTO EMAILTOADDRESS (EMAILID,ADDRESSID,RECIPIENTCATEGORY) values (2,1,'TO'),(2,3,'CC'),(2,4,'CC');
---This email is only sent to two recipients
+
 INSERT INTO EMAILTOADDRESS (EMAILID,ADDRESSID,RECIPIENTCATEGORY) values (3,1,'BCC'),(3,2,'BCC');
---This email is only sent to 1 person
+
 INSERT INTO EMAILTOADDRESS (EMAILID,ADDRESSID,RECIPIENTCATEGORY) values (4,4,'TO');
