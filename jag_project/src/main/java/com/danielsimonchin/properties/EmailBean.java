@@ -5,11 +5,11 @@
  */
 package com.danielsimonchin.properties;
 
-import com.danielsimonchin.business.SendAndReceive;
 import java.io.File;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.activation.DataSource;
 import jodd.mail.Email;
 import jodd.mail.EmailAddress;
@@ -60,26 +60,35 @@ public class EmailBean {
     }
 
     /**
-     * Takes as input a receivedEmail and converts it to an Email object. The bcc is ommitted since receivedEmails cant return a bcc field.
-     * 
+     * Takes as input a receivedEmail and converts it to an Email object. The
+     * bcc is ommitted since receivedEmails cant return a bcc field.
+     *
      * @param id
      * @param folderKey
-     * @param receivedEmail 
+     * @param receivedEmail
      */
     public EmailBean(int id, int folderKey, ReceivedEmail receivedEmail) {
         this.id = id;
         this.folderKey = folderKey;
         this.receivedDate = new Timestamp(receivedEmail.sentDate().getTime());
-        LOG.info("RECEIVED DATE: " + receivedDate);
         this.email = convertToEmail(receivedEmail);
     }
 
+    /**
+     * Convert a receivedEmail into an Email object with helper methods that
+     * attach recipients and attachments.
+     *
+     * @param receivedEmail
+     * @return A constructed Email object with set fields copied from the
+     * receivedEmail
+     */
     private Email convertToEmail(ReceivedEmail receivedEmail) {
         Email email = new Email();
         email.from(receivedEmail.from().toString());
         email.subject(receivedEmail.subject());
-        
+
         List<EmailMessage> messages = receivedEmail.messages();
+        //set the messages based on their mime type
         for (EmailMessage message : messages) {
             if (message.getMimeType().equals("text/plain")) {
                 email.textMessage(message.getContent());
@@ -87,19 +96,28 @@ public class EmailBean {
                 email.htmlMessage(message.getContent());
             }
         }
-        retrieveRecipients(receivedEmail,email);
-        retrieveAttachments(receivedEmail,email);
+        //call helpers to set the attachments and recipients
+        retrieveRecipients(receivedEmail, email);
+        retrieveAttachments(receivedEmail, email);
         return email;
     }
-    private void retrieveRecipients(ReceivedEmail receivedEmail, Email email){
+
+    /**
+     * Helper method that sets the receivedEmail's recipients and copies them
+     * into the Email object.
+     *
+     * @param receivedEmail
+     * @param email
+     */
+    private void retrieveRecipients(ReceivedEmail receivedEmail, Email email) {
         List<String> toList = new ArrayList<>();
         List<String> ccList = new ArrayList<>();
         EmailAddress[] toRecipients = receivedEmail.to();
         EmailAddress[] ccRecipients = receivedEmail.cc();
-        for(EmailAddress address : toRecipients){
+        for (EmailAddress address : toRecipients) {
             toList.add(address.getEmail());
         }
-        for(EmailAddress address : ccRecipients){
+        for (EmailAddress address : ccRecipients) {
             ccList.add(address.getEmail());
         }
         toList.forEach(emailAddress -> {
@@ -109,14 +127,20 @@ public class EmailBean {
             email.cc(emailAddress);
         });
     }
-    private void retrieveAttachments(ReceivedEmail receivedEmail, Email email){
+
+    /**
+     * Set the receivedEmail's attachments and copy them into the Email object.
+     *
+     * @param receivedEmail
+     * @param email
+     */
+    private void retrieveAttachments(ReceivedEmail receivedEmail, Email email) {
         List<EmailAttachment<? extends DataSource>> attachments = receivedEmail.attachments();
-        for(EmailAttachment attachment : attachments){
-            if(attachment.isEmbedded()){
+        for (EmailAttachment attachment : attachments) {
+            if (!attachment.isEmbedded()) {
+                email.attachment(EmailAttachment.with().content(attachment.getName()));
+            } else {
                 email.embeddedAttachment(EmailAttachment.with().content(new File(attachment.getName())));
-            }
-            else{
-                email.attachment(EmailAttachment.with().content(attachment.getName())); 
             }
         }
     }
@@ -143,16 +167,21 @@ public class EmailBean {
     }
 
     /**
-     * @param folderKey
+     * @param folderKey FolderId
      */
     public void setFolderKey(int folderKey) {
         this.folderKey = folderKey;
     }
 
+    /**
+     * @return the Email's receivedDate field
+     */
     public Timestamp getReceivedDate() {
         return this.receivedDate;
     }
-
+    /**
+     * @param receivedDate Date email is received
+     */
     public void setReceivedDate(Timestamp receivedDate) {
         this.receivedDate = receivedDate;
     }
@@ -192,10 +221,14 @@ public class EmailBean {
         }
         if (receivedDate == null) {
             if (other.receivedDate != null) {
+                LOG.info("bad1");
                 return false;
             }
-        } else if (receivedDate != other.receivedDate) {
+        } else if (!receivedDate.equals(other.receivedDate)) {
             return false;
+        }
+        if (email == null && other.email == null) {
+            return true;
         }
         if (email == null) {
             if (other.email != null) {
@@ -214,45 +247,74 @@ public class EmailBean {
             if (otherEmail.from() != null) {
                 return false;
             }
-        } else if (!email.from().toString().equals(otherEmail.from().toString())) {
-            return false;
+        }
+        if (email.from() != null && otherEmail.from() != null) {
+            if (!email.from().toString().equals(otherEmail.from().toString())) {
+                return false;
+            }
         }
         if (email.messages() == null) {
             if (otherEmail.messages() != null) {
                 return false;
             }
-        } else if (!compareMessages(email.messages(), otherEmail.messages())) {
-            return false;
+        }
+        if (email.messages() != null && otherEmail.messages() != null) {
+            if (!compareMessages(email.messages(), otherEmail.messages())) {
+                return false;
+            }
+
         }
         if (email.to() == null) {
             if (otherEmail.to() != null) {
                 return false;
             }
-        } else if (!compareRecipients(email.to(), otherEmail.to())) {
-            return false;
+        }
+        if (email.to() != null && otherEmail.to() != null) {
+            if (!compareRecipients(email.to(), otherEmail.to())) {
+                return false;
+            }
         }
         if (email.cc() == null) {
             if (otherEmail.cc() != null) {
                 return false;
             }
-        } else if (!compareRecipients(email.cc(), otherEmail.cc())) {
-            return false;
+        }
+        if (email.cc() != null && otherEmail.cc() != null) {
+            if (!compareRecipients(email.cc(), otherEmail.cc())) {
+                return false;
+            }
         }
         if (email.bcc() == null) {
             if (otherEmail.bcc() != null) {
                 return false;
             }
-        } else if (!compareRecipients(email.bcc(), otherEmail.bcc())) {
-            return false;
+        }
+        if (email.bcc() != null && otherEmail.bcc() != null) {
+            if (!compareRecipients(email.bcc(), otherEmail.bcc())) {
+                return false;
+            }
         }
         if (email.attachments() == null) {
             if (otherEmail.attachments() != null) {
                 return false;
             }
-        } else if (!compareAttachments(email.attachments(), otherEmail.attachments())) {
-            return false;
+        }
+        if (email.attachments() != null && otherEmail.attachments() != null) {
+            if (!compareAttachments(email.attachments(), otherEmail.attachments())) {
+                return false;
+            }
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.id;
+        hash = 53 * hash + this.folderKey;
+        hash = 53 * hash + Objects.hashCode(this.receivedDate);
+        hash = 53 * hash + Objects.hashCode(this.email);
+        return hash;
     }
 
     /**
@@ -275,12 +337,10 @@ public class EmailBean {
         int sizeDifference = list1.size() - list2.size();
         //The size of the list2 is the actual text and html indexes that we need since the textMessage and htmlMessages fields can be appended to. We want the most recent changes
         for (int i = list2.size() - 1; i >= 0; i--) {
-            LOG.info("COMPARING MESSAGES : " + list1.get(i + sizeDifference).getContent() + " " + list2.get(i).getContent());
             if (!list1.get(i + sizeDifference).getContent().equals(list2.get(i).getContent())) {
                 return false;
             }
         }
-        LOG.info("THE MESSAGES ARE SAME");
         return true;
     }
 
@@ -302,14 +362,12 @@ public class EmailBean {
             return false;
         } else {
             for (int i = 0; i < list1.length; i++) {
-                LOG.info("COMPARING ADDRESS:" + list1[i].getEmail() + " " + list2[i].getEmail());
                 //return false if the recipient at an index is not the same as the other bean's recipient at an index.
                 if (!list1[i].getEmail().equals(list2[i].getEmail())) {
                     return false;
                 }
             }
         }
-        LOG.info("THE RECIPIENTS ARE SAME");
         return true;
     }
 
@@ -330,19 +388,10 @@ public class EmailBean {
         if (list1.size() != list2.size()) {
             return false;
         } else {
-            for (int i = 0; i < list1.size(); i++) {
-                LOG.info("ATTACHMENTS COMPARING : " + list1.get(i).getName() + " " + list2.get(i).getName());
-                LOG.info("ATTACHMENTS SIZES : " + list1.get(i).getSize()+ " " + list2.get(i).getSize());
-                if (!list1.get(i).getName().equals(list2.get(i).getName())) {
-                    return false;
-                }
-            }
-            /*
             //The counts for the first list's attachments
             int list1CountEmbedded = 0;
             int list1CountRegular = 0;
             for (EmailAttachment item : list1) {
-                LOG.info(" LIST1 ATTACHMENT : " + item.getName());
                 if (item.isEmbedded()) {
                     list1CountEmbedded++;
                 } else {
@@ -353,7 +402,6 @@ public class EmailBean {
             int list2CountEmbedded = 0;
             int list2CountRegular = 0;
             for (EmailAttachment item : list2) {
-                LOG.info(" LIST2 ATTACHMENT : " + item.getName());
                 if (item.isEmbedded()) {
                     list2CountEmbedded++;
                 } else {
@@ -363,7 +411,7 @@ public class EmailBean {
             //return false if their regular and embedded attachments counts are not the same.
             if ((list1CountEmbedded != list2CountEmbedded) && (list1CountRegular != list2CountRegular)) {
                 return false;
-            }*/
+            }
         }
         return true;
     }

@@ -23,3 +23,7 @@ INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,FOLDERID
 INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,FOLDERID) values("danieldawsontest3@gmail.com","Jodd Test","This is a plain text message","This is an html message","2020-09-19 18:15:41.000",2);
 
 INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,FOLDERID) values("recievedanieldawson1@gmail.com","Jodd Test","This is a plain text message","This is an html message",3);
+
+INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,FOLDERID) values("danieldawsontest1@gmail.com","Draft Email Subject","This is a plain text message","This is an html message",3);
+
+INSERT INTO EMAIL (FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID) values("danieldawsontest2@gmail.com","Inbox Subject","This is a plain text message","This is an html message","2020-09-25 18:15:41.000","2020-09-25 18:15:41.000",1);

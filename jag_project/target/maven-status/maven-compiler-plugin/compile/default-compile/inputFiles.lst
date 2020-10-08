@@ -1,5 +1,10 @@
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\CannotRenameFolderException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\persistence\EmailDAOImpl.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\properties\MailConfigBean.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\CannotDeleteFolderException.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\FolderAlreadyExistsException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\business\SendAndReceive.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\CannotMoveToDraftsException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\properties\EmailBean.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\NotEnoughRecipientsException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\persistence\EmailDAO.java

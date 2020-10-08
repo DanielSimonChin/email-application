@@ -1,5 +1,10 @@
 com\danielsimonchin\properties\EmailBean.class
 com\danielsimonchin\business\SendAndReceive.class
-com\danielsimonchin\persistence\EmailDAOImpl.class
 com\danielsimonchin\properties\MailConfigBean.class
+com\danielsimonchin\exceptions\FolderAlreadyExistsException.class
+com\danielsimonchin\exceptions\CannotDeleteFolderException.class
+com\danielsimonchin\exceptions\CannotRenameFolderException.class
+com\danielsimonchin\persistence\EmailDAOImpl.class
+com\danielsimonchin\exceptions\CannotMoveToDraftsException.class
+com\danielsimonchin\exceptions\NotEnoughRecipientsException.class
 com\danielsimonchin\persistence\EmailDAO.class
