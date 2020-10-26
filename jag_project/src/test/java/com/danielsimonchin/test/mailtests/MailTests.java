@@ -1,6 +1,12 @@
 package com.danielsimonchin.test.mailtests;
 
 import com.danielsimonchin.business.SendAndReceive;
+import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
+import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
+import com.danielsimonchin.exceptions.RecipientListNullException;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
 import java.time.LocalDateTime;
@@ -14,11 +20,12 @@ import jodd.mail.EmailMessage;
 import jodd.mail.MailServer;
 import jodd.mail.ReceiveMailSession;
 import jodd.mail.ReceivedEmail;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 /**
  * Unit tests for methods in SendAndReceive.java which include plain text, html
@@ -27,8 +34,14 @@ import org.junit.Ignore;
  * @author Daniel Simon Chin
  * @version September 20, 2020
  */
-@Ignore
+
+@Ignore //Ignoring so maven does not run the tests during Phase3 (quicker)
 public class MailTests {
+
+    // This can be placed at the beginning of the class. We only
+    // need one for all exceptions we test for.
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     private SendAndReceive runMail;
     private String plainMsg = "Hello from plain text email: " + LocalDateTime.now();
@@ -43,9 +56,9 @@ public class MailTests {
     //List of all recipients, will be used later when validating the emails received
     private List<MailConfigBean> allRecipients;
     //The mail config beans relating to the recipients of the email. The fields left as 0 or null are those relating to database that are not part of the email object.
-    private MailConfigBean recipient1 = new MailConfigBean(null,"danieldawsontest2@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
-    private MailConfigBean recipient2 = new MailConfigBean(null,"danieldawsontest3@gmail.com", "Danieltester3","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
-    private MailConfigBean recipient3 = new MailConfigBean(null,"recievedanieldawson1@gmail.com", "Danieltester4","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    private MailConfigBean recipient1 = new MailConfigBean(null, "danieldawsontest2@gmail.com", "Danieltester2", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
+    private MailConfigBean recipient2 = new MailConfigBean(null, "danieldawsontest3@gmail.com", "Danieltester3", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
+    private MailConfigBean recipient3 = new MailConfigBean(null, "recievedanieldawson1@gmail.com", "Danieltester4", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
 
     //ArrayList of recipients in the To List
     private List<String> toList;
@@ -74,7 +87,7 @@ public class MailTests {
         allRecipients.add(recipient3);
         regularAttachments = new ArrayList<>();
         embeddedAttachments = new ArrayList<>();
-        this.mailConfigBean = new MailConfigBean(null,"danieldawsontest1@gmail.com", "Danieltester1","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+        this.mailConfigBean = new MailConfigBean(null, "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
 
         //This is to make sure that all emails in all recipient accounts have seen/read the emails sent. Prevents having a test affect the result of the next.
         allRecipients.stream().map(recipient -> MailServer.create()
@@ -91,12 +104,19 @@ public class MailTests {
     }
 
     /**
-     * Testing the sendEmail method which sends an email to multiple recipients.
-     * An email is sent, received and compared. Assuming that all the input
-     * parameters are valid and provided.
+     * Testing the sendEmail method which sends an email to multiple
+     * recipients.An email is sent, received and compared.Assuming that all the
+     * input parameters are valid and provided.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void sendEmailTestPassed() {
+    public void sendEmailTestPassed() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -168,11 +188,18 @@ public class MailTests {
     }
 
     /**
-     * This sends an email to the TO List only. The cc and bcc fields are left
+     * This sends an email to the TO List only.The cc and bcc fields are left
      * empty. Checking that the toFields are the same, and the cc, bcc are empty
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void sendEmailToList() {
+    public void sendEmailToList() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding people into the TO list
         toList.add(recipient1.getUserEmailAddress());
         toList.add(recipient2.getUserEmailAddress());
@@ -215,11 +242,18 @@ public class MailTests {
     }
 
     /**
-     * This sends an email to the CC List only. The TO and BCC fields are left
-     * empty. Checking that the CCFields are the same, and the TO, BCC are empty
+     * This sends an email to the CC List only.The TO and BCC fields are left
+     * empty.Checking that the CCFields are the same, and the TO, BCC are empty
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void sendEmailCCList() {
+    public void sendEmailCCList() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding people into the TO list
         ccList.add(recipient1.getUserEmailAddress());
         ccList.add(recipient2.getUserEmailAddress());
@@ -262,11 +296,18 @@ public class MailTests {
     }
 
     /**
-     * Sends an email to the bcc List only. Checking that the bcc fields are the
+     * Sends an email to the bcc List only.Checking that the bcc fields are the
      * same, and the TO, CC are empty.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void sendEmailBCCList() {
+    public void sendEmailBCCList() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding people into the TO list
         bccList.add(recipient1.getUserEmailAddress());
         bccList.add(recipient2.getUserEmailAddress());
@@ -303,12 +344,19 @@ public class MailTests {
     }
 
     /**
-     * Sends an email and verifies the contents of the attachments. Loops
-     * through every email, compares the file names and if one of the files are
+     * Sends an email and verifies the contents of the attachments.Loops through
+     * every email, compares the file names and if one of the files are
      * embedded.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void testAllAttachments() {
+    public void testAllAttachments() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         toList.add(recipient2.getUserEmailAddress());
@@ -344,11 +392,19 @@ public class MailTests {
     }
 
     /**
-     * Expects to receive an IllegalArgumentException since no recipients were
-     * given in the parameters for sendEmail
+     * Expects to receive an NotEnoughEmailRecipientsException since no
+     * recipients were given in the parameters for sendEmail
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void testNoRecipients() {
+    @Test
+    public void testNoRecipients() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        thrown.expect(NotEnoughEmailRecipientsException.class);
+
         //Adding a regular attachment to the attachment lists
         regularAttachments.add(new File("WindsorKen180.jpg"));
         //Adding an embedded attachment to the embedded attachment lists
@@ -357,57 +413,102 @@ public class MailTests {
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         //fail the test if the program does not throw an IllegalArgumentException
-        fail("The parameters were given at least 1 recipient");
     }
 
     /**
-     * Expects to receive a NullPointerException when presented with a null
-     * email address
+     * Expects to receive a RecipientEmailAddressNullException when presented
+     * with a null email address
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientListNullException
+     * @throws RecipientInvalidFormatException
      */
-    @Test(expected = NullPointerException.class)
-    public void testNullEmailAddress() {
+    @Test
+    public void testNullEmailAddress() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        thrown.expect(RecipientEmailAddressNullException.class);
+
         toList.add(recipient1.getUserEmailAddress());
         toList.add(null);
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
-        //fail the test if the program does not throw an NullPointerException
-        fail("The parameters were not given a null email address");
     }
 
     /**
-     * Expects to receive an IllegalArgumentException when presented with an
-     * invalid recipient email addresses.
+     * Expects to receive a RecipientListNullException when presented with a
+     * null list
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientListNullException
+     * @throws RecipientInvalidFormatException
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidEmailAddress() {
+    @Test
+    public void testNullRecipientList() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        thrown.expect(RecipientListNullException.class);
+
+        toList.add(recipient1.getUserEmailAddress());
+        ccList = null;
+        runMail = new SendAndReceive(mailConfigBean);
+        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+    }
+
+    /**
+     * Expects to receive an RecipientInvalidFormatException when presented with
+     * an invalid recipient email addresses.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     */
+    @Test
+    public void testInvalidEmailAddress() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        thrown.expect(RecipientInvalidFormatException.class);
+
         toList.add(recipient1.getUserEmailAddress());
         toList.add("FakeEmailAddressString");
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
-        //fail the test if the program does not throw an NullPointerException
-        fail("The parameters did not receive an invalid email address");
     }
 
     /**
-     * Expects an IllegalArgumentException if the sender's bean email address is
-     * invalid (invalid format). The check is made in the sendEmail method.
+     * Expects an InvalidMailConfigBeanUsernameException if the sender's bean
+     * email address is invalid (invalid format).The check is made in the
+     * sendEmail method.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientInvalidFormatException
+     * @throws RecipientEmailAddressNullException
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidMailConfigBeanUserName() {
-        MailConfigBean invalidSenderBean = new MailConfigBean(null,"INVALIDSENDER", "Danieltester1","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    @Test
+    public void testInvalidMailConfigBeanUserName() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        thrown.expect(InvalidMailConfigBeanUsernameException.class);
+
+        MailConfigBean invalidSenderBean = new MailConfigBean(null, "INVALIDSENDER", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
         toList.add(recipient1.getUserEmailAddress());
         runMail = new SendAndReceive(invalidSenderBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
-        //fail the test if the program does not throw an IllegalArgumentException
-        fail("The program did not receive an invalid sender MailConfigBean");
     }
 
     /**
      * This test verifies that the number of emails sent is the same number of
-     * emails received in receiveEmail. (5 emails sent and received)
+     * emails received in receiveEmail.(5 emails sent and received)
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void testReceiveEmail() {
+    public void testReceiveEmail() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding a regular attachment to the attachment lists
@@ -440,9 +541,12 @@ public class MailTests {
     /**
      * Tests that the receiveEmail method returns an empty array when there are
      * no emails to receive.
+     *
+     * @throws InvalidRecipientImapURLException
+     * @throws RecipientInvalidFormatException
      */
     @Test
-    public void testNoEmailsSent() {
+    public void testNoEmailsSent() throws InvalidRecipientImapURLException, RecipientInvalidFormatException {
         runMail = new SendAndReceive(mailConfigBean);
         ReceivedEmail[] emails = runMail.receiveEmail(recipient1);
         //Assert that the number of emails in the result array is 0
@@ -452,9 +556,16 @@ public class MailTests {
     /**
      * Tests that the to and cc lists of the receivedEmail[] are the same as the
      * intended recipients.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void receiveEmailCheckRecipientNames() {
+    public void receiveEmailCheckRecipientNames() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding two people into the CC list
@@ -486,12 +597,21 @@ public class MailTests {
     }
 
     /**
-     * Checks that the receiveEmail method returns a null if the username is
-     * invalid and cannot properly authenticate.
+     * Testing to expect a RecipientInvalidFormatException since it is not
+     * properly formatted as an email address.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void receiveEmailInvalidUsername() {
-        MailConfigBean invalidUser = new MailConfigBean(null,"invalidUserName@gmail.com", "Danieltester2","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    public void receiveEmailInvalidUsernameFormat() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+        thrown.expect(RecipientInvalidFormatException.class);
+
+        MailConfigBean invalidUser = new MailConfigBean(null, "invalidAddressFormat", "Danieltester2", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -502,17 +622,24 @@ public class MailTests {
             Thread.currentThread().interrupt();
         }
         ReceivedEmail[] emails = runMail.receiveEmail(invalidUser);
-        //The returned array is null since the username is invalid
-        Assert.assertArrayEquals(null, emails);
     }
 
     /**
-     * Checks that the receiveEmail method returns a null if the password is
-     * invalid and cannot properly authenticate.
+     * Checks that the receiveEmail method throws a jodd.mail.MailException
+     * exception if username is incorrect and cannot properly authenticate.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void receiveEmailInvalidPassword() {
-        MailConfigBean invalidUser = new MailConfigBean(null,"danieldawsontest2@gmail.com", "invalidpassword2020","imap.gmail.com","smtp.gmail.com",null,null,null,null,null,null,null);
+    public void receiveEmailInvalidUsername() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+        thrown.expect(jodd.mail.MailException.class);
+
+        MailConfigBean invalidUser = new MailConfigBean(null, "invalidUserName@gmail.com", "Danieltester2", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -523,18 +650,53 @@ public class MailTests {
             Thread.currentThread().interrupt();
         }
         ReceivedEmail[] emails = runMail.receiveEmail(invalidUser);
-        //The returned array is null since the password is invalid
-        Assert.assertArrayEquals(null, emails);
     }
 
     /**
-     * Checks that the receiveEmail method returns a null if the host is invalid
-     * and cannot properly authenticate.
+     * Checks that the receiveEmail throws a jodd.mail.MailException if the
+     * password is incorrect and cannot authenticate
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
      */
     @Test
-    public void receiveEmailInvalidHost() {
+    public void receiveEmailInvalidPassword() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+        thrown.expect(jodd.mail.MailException.class);
+
+        MailConfigBean invalidUser = new MailConfigBean(null, "danieldawsontest2@gmail.com", "invalidpassword2020", "imap.gmail.com", "smtp.gmail.com", null, null, null, null, null, null, null);
+        toList.add(invalidUser.getUserEmailAddress());
+        runMail = new SendAndReceive(mailConfigBean);
+        Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
+        // Add a three second pause to allow the Gmail server to receive what has been sent
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
+        ReceivedEmail[] emails = runMail.receiveEmail(invalidUser);
+    }
+
+    /**
+     * Checks that the receiveEmail throws a InvalidRecipientImapURLException if
+     * the recipient host is invalid and cannot properly authenticate.
+     *
+     * @throws NotEnoughEmailRecipientsException
+     * @throws InvalidMailConfigBeanUsernameException
+     * @throws RecipientListNullException
+     * @throws RecipientEmailAddressNullException
+     * @throws RecipientInvalidFormatException
+     * @throws InvalidRecipientImapURLException
+     */
+    @Test
+    public void receiveEmailInvalidHost() throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+        thrown.expect(InvalidRecipientImapURLException.class);
+
         //This bean does not have a valid recipient host (should be imap.gmail.com)
-        MailConfigBean invalidUser = new MailConfigBean(null,"danieldawsontest2@gmail.com","Danieltester2","invalidHost.com","smtp.gmail.com",null,null,null,null,null,null,null);
+        MailConfigBean invalidUser = new MailConfigBean(null, "danieldawsontest2@gmail.com", "Danieltester2", "invalidHost.com", "smtp.gmail.com", null, null, null, null, null, null, null);
         toList.add(invalidUser.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
@@ -545,6 +707,5 @@ public class MailTests {
             Thread.currentThread().interrupt();
         }
         ReceivedEmail[] emails = runMail.receiveEmail(invalidUser);
-        Assert.assertArrayEquals(null, emails);
     }
 }

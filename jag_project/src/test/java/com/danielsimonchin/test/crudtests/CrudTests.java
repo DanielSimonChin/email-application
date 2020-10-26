@@ -5,7 +5,13 @@ import com.danielsimonchin.exceptions.CannotDeleteFolderException;
 import com.danielsimonchin.exceptions.CannotMoveToDraftsException;
 import com.danielsimonchin.exceptions.CannotRenameFolderException;
 import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
+import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
 import com.danielsimonchin.exceptions.NotEnoughRecipientsException;
+import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
+import com.danielsimonchin.exceptions.RecipientListNullException;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
 import com.danielsimonchin.properties.EmailBean;
@@ -38,6 +44,7 @@ import jodd.mail.ReceivedEmail;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
@@ -49,6 +56,8 @@ import org.slf4j.LoggerFactory;
  * @author Daniel Simon Chin
  * @version Oct 7th, 2020
  */
+
+@Ignore //Ignoring so maven does not run the tests during Phase3 (quicker)
 public class CrudTests {
 
     @Rule
@@ -133,9 +142,14 @@ public class CrudTests {
      *
      * @throws SQLException
      * @throws IOException
+     * @throws com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException
+     * @throws com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException
+     * @throws com.danielsimonchin.exceptions.RecipientListNullException
+     * @throws com.danielsimonchin.exceptions.RecipientEmailAddressNullException
+     * @throws com.danielsimonchin.exceptions.RecipientInvalidFormatException
      */
     @Test
-    public void testEmailCreate() throws SQLException, IOException {
+    public void testEmailCreate() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException{
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -148,6 +162,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
+        
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null. The emailId will be set in the create method. 2 represents the sent folder
@@ -167,7 +182,7 @@ public class CrudTests {
      * @throws IOException
      */
     @Test
-    public void testEmailCreateWithReceivedEmail() throws SQLException, IOException {
+    public void testEmailCreateWithReceivedEmail() throws SQLException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
@@ -181,6 +196,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
+        
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         try {
             Thread.sleep(3000);
@@ -424,7 +440,7 @@ public class CrudTests {
      * @throws IOException
      */
     @Test
-    public void testFindById() throws SQLException, IOException {
+    public void testFindById() throws SQLException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -437,6 +453,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
+        
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null.
@@ -832,10 +849,11 @@ public class CrudTests {
      * @throws CannotMoveToDraftsException
      */
     @Test
-    public void testUpdateFolderToInbox() throws SQLException, IOException, CannotMoveToDraftsException {
+    public void testUpdateFolderToInbox() throws SQLException, IOException, CannotMoveToDraftsException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
+        
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null. The emailId will be set in the create method. 2 represents the sent folder

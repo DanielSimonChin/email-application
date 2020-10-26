@@ -416,4 +416,17 @@ public class EmailBean {
         return true;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("EmailBean{id=").append(id);
+        sb.append(", folderKey=").append(folderKey);
+        sb.append(", receivedDate=").append(receivedDate);
+        sb.append(", email=").append(email);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
+
 }

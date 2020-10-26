@@ -1,5 +1,11 @@
 package com.danielsimonchin.business;
 
+import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
+import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
+import com.danielsimonchin.exceptions.RecipientListNullException;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
 import java.util.List;
@@ -8,6 +14,7 @@ import jodd.mail.EmailFilter;
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;
 import jodd.mail.ImapServer;
+import jodd.mail.MailException;
 import jodd.mail.MailServer;
 import jodd.mail.RFC2822AddressParser;
 import jodd.mail.ReceiveMailSession;
@@ -35,7 +42,7 @@ public class SendAndReceive {
     }
 
     /**
-     * Creates an Email object, sends it and returns the Email object. Validates
+     * Creates an Email object, sends it and returns the Email object.Validates
      * all the email addresses in the ArrayLists.
      *
      * @param toList List of all recipients in the 'To' field
@@ -48,33 +55,46 @@ public class SendAndReceive {
      * @param embeddedAttachments List of File objects that will be embedded in
      * the email
      * @return An Email object which was created and sent.
+     * @throws com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException
+     * @throws
+     * com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException
+     * @throws com.danielsimonchin.exceptions.RecipientListNullException
+     * @throws com.danielsimonchin.exceptions.RecipientEmailAddressNullException
+     * @throws com.danielsimonchin.exceptions.RecipientInvalidFormatException
      */
-    public Email sendEmail(List<String> toList, List<String> ccList, List<String> bccList, String subject, String textMsg, String htmlMsg, List<File> regularAttachments, List<File> embeddedAttachments) {
+    public Email sendEmail(List<String> toList, List<String> ccList, List<String> bccList, String subject, String textMsg, String htmlMsg, List<File> regularAttachments, List<File> embeddedAttachments) throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //The constructed and sent email that will be returned
         Email email = null;
-        if (hasMinimumOneAddress(toList, ccList, bccList) && checkEmail(this.mailConfigBean.getUserEmailAddress()) && verifyEmailList(toList) && verifyEmailList(ccList) && verifyEmailList(bccList)) {
-            // Create am SMTP server object
-            SmtpServer smtpServer = MailServer.create()
-                    .ssl(true)
-                    .host(this.mailConfigBean.getSmtpUrl())
-                    .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
-                    .buildSmtpMailServer();
+        //Call a helper method to check if the email address is properly formatted.
+        if (checkEmail(this.mailConfigBean.getUserEmailAddress())) {
+            if (hasMinimumOneAddress(toList, ccList, bccList) && verifyEmailList(toList) && verifyEmailList(ccList) && verifyEmailList(bccList)) {
+                // Create am SMTP server object
+                SmtpServer smtpServer = MailServer.create()
+                        .ssl(true)
+                        .host(this.mailConfigBean.getSmtpUrl())
+                        .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
+                        .buildSmtpMailServer();
 
-            //Create an email with the needed parameters
-            email = createEmail(toList, ccList, bccList, subject, textMsg, htmlMsg, regularAttachments, embeddedAttachments);
-            // Like a file we open the session, send the message and close the
-            // session
-            try ( // A session is the object responsible for communicating with the server
-                     SendMailSession session = smtpServer.createSession()) {
-                // Like a file we open the session, send the message and close the
-                // session
-                session.open();
-                session.sendMail(email);
-                LOG.info("Email sent");
+                //Create an email with the needed parameters
+                email = createEmail(toList, ccList, bccList, subject, textMsg, htmlMsg, regularAttachments, embeddedAttachments);
+                //A session to the server should only be created if an Email object is created and set with the proper information.
+                if (email != null) {
+                    // Like a file we open the session, send the message and close the
+                    // session
+                    try ( // A session is the object responsible for communicating with the server
+                             SendMailSession session = smtpServer.createSession()) {
+                        // Like a file we open the session, send the message and close the
+                        // session
+                        session.open();
+                        session.sendMail(email);
+                        LOG.info("Email sent");
+                    }
+                }
             }
         } else {
-            throw new IllegalArgumentException("The input parameters are invalid!");
+            throw new InvalidMailConfigBeanUsernameException("The MailConfigBean's user email address \"" + this.mailConfigBean.getUserEmailAddress() + "\" has an invalid format.");
         }
+
         return email;
     }
 
@@ -87,9 +107,24 @@ public class SendAndReceive {
      * @param ccList List of recipients in the cc List
      * @param bccList List of recipients in the bcc List
      * @return A boolean representing if the number of recipients is at least 1.
+     * @throws NotEnoughEmailRecipientsException
      */
-    private boolean hasMinimumOneAddress(List<String> toList, List<String> ccList, List<String> bccList) {
-        int numberOfAddresses = toList.size() + ccList.size() + bccList.size();
+    private boolean hasMinimumOneAddress(List<String> toList, List<String> ccList, List<String> bccList) throws NotEnoughEmailRecipientsException {
+        int numberOfAddresses = 0;
+        //Only increment the count if the lists are not null, to avoid null pointer exception
+        if (toList != null) {
+            numberOfAddresses += toList.size();
+        }
+        if (ccList != null) {
+            numberOfAddresses += ccList.size();
+        }
+        if (bccList != null) {
+            numberOfAddresses += bccList.size();
+        }
+
+        if (numberOfAddresses == 0) {
+            throw new NotEnoughEmailRecipientsException("The email to be sent must have a minimum of one recipient.");
+        }
         return numberOfAddresses >= 1;
     }
 
@@ -138,17 +173,25 @@ public class SendAndReceive {
      *
      * @param emailList the list of Mails needed to be checked
      * @return true if all emails are valid, false otherwise.
+     * @throws RecipientListNullException
      */
-    private boolean verifyEmailList(List<String> emailList) {
+    private boolean verifyEmailList(List<String> emailList) throws RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+        if (emailList == null) {
+            throw new RecipientListNullException("The recipient list was null");
+        }
         int count = 0;
         for (String email : emailList) {
             //throw an exception if the email is null
             if (email == null) {
-                throw new NullPointerException("The input email address cannot be null.");
-            } //call the checkEmail method to validate that the email is good
-            else if (checkEmail(email)) {
+                throw new RecipientEmailAddressNullException("The input email address cannot be null.");
+            }
+
+            //call the checkEmail method to validate that the email is good
+            if (checkEmail(email)) {
                 //increment the count if it is valid
                 count++;
+            } else {
+                throw new RecipientInvalidFormatException("The email address \"" + email + "\" has an invalid format.");
             }
         }
         //check if the total number of valid email addresses equals the number of total number of email addresses
@@ -156,37 +199,36 @@ public class SendAndReceive {
     }
 
     /**
-     * Standard receive routine for Jodd using an ImapServer. Authenticates the
+     * Standard receive routine for Jodd using an ImapServer.Authenticates the
      * receiver bean and leaves are received emails on seen.
      *
      * @param mailConfigBean The recipient that will be authenticated to
      * retrieve its emails.
      * @return An array of ReceivedEmail of the recipient.
+     * @throws InvalidRecipientImapURLException
+     * @throws RecipientInvalidFormatException
      */
-    public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) {
+    public ReceivedEmail[] receiveEmail(MailConfigBean mailConfigBean) throws InvalidRecipientImapURLException, RecipientInvalidFormatException {
         ReceivedEmail[] receivedEmails = new ReceivedEmail[]{};
-        //The recipient email address must be valid and its host must be imap.gmail.com
-        if (checkEmail(mailConfigBean.getUserEmailAddress()) && (this.mailConfigBean.getImapUrl().equals(mailConfigBean.getImapUrl()))) {
-            ImapServer imapServer = MailServer.create()
-                    .host(mailConfigBean.getImapUrl())
-                    .ssl(true)
-                    .auth(mailConfigBean.getUserEmailAddress(), mailConfigBean.getPassword())
-                    .buildImapMailServer();
+        //First ensure that the recipient mailConfigBean has a valid address, if not then throw a custom exception
+        if (checkEmail(mailConfigBean.getUserEmailAddress())) {
+            if (this.mailConfigBean.getImapUrl().equals(mailConfigBean.getImapUrl())) {
+                ImapServer imapServer = MailServer.create()
+                        .host(mailConfigBean.getImapUrl())
+                        .ssl(true)
+                        .auth(mailConfigBean.getUserEmailAddress(), mailConfigBean.getPassword())
+                        .buildImapMailServer();
 
-            try ( ReceiveMailSession session = imapServer.createSession()) {
-                session.open();
+                try ( ReceiveMailSession session = imapServer.createSession()) {
+                    session.open();
 
-                receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
-                
-            } catch (jodd.mail.MailException e) {
-                //If the recipient's mail bean is invalid, and cannot log in, return null.
-                LOG.info("The session cannot be opened because the mailConfigBean's credentials are invalid.");
-                return null;
+                    receivedEmails = session.receiveEmailAndMarkSeen(EmailFilter.filter().flag(Flags.Flag.SEEN, false));
+                }
+            } else {
+                throw new InvalidRecipientImapURLException("The recipient's imap url must be imap.gmail.com");
             }
         } else {
-            //if the username is not a proper email address or if the recipient host is not imap.gmail.com
-            LOG.info("One or many of the mailConfigBean's credentials were invalid.");
-            return null;
+            throw new RecipientInvalidFormatException("The MailConfigBean's username is not properly formatted");
         }
         return receivedEmails;
     }
@@ -196,7 +238,8 @@ public class SendAndReceive {
      * valid address
      *
      * @param address
-     * @return true is OK, false if not
+     * @return true is OK, throw an exception if it is not an email address of a
+     * proper format.
      */
     private boolean checkEmail(String address) {
         return RFC2822AddressParser.STRICT.parseToEmailAddress(address) != null;

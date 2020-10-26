@@ -25,6 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.activation.DataSource;
 import jodd.mail.EmailAddress;
 import jodd.mail.EmailAttachment;
@@ -377,8 +379,10 @@ public class EmailDAOImpl implements EmailDAO {
      * @throws IOException
      */
     @Override
-    public List<EmailBean> findAll() throws SQLException, FileNotFoundException, IOException {
-        List<EmailBean> rows = new ArrayList<>();
+    public ObservableList<EmailBean> findAll() throws SQLException, FileNotFoundException, IOException {
+        //List<EmailBean> rows = new ArrayList<>();
+        ObservableList<EmailBean> rows = FXCollections
+                .observableArrayList();
 
         String selectQuery = "SELECT EMAILID,FROMADDRESS,SUBJECT,TEXTMESSAGE,HTMLMESSAGE,SENTDATE,RECEIVEDATE,FOLDERID FROM EMAIL";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement pStatement = connection.prepareStatement(selectQuery);  ResultSet resultSet = pStatement.executeQuery()) {
@@ -1008,5 +1012,25 @@ public class EmailDAOImpl implements EmailDAO {
             }
         }
         return queryResult;
+    }
+
+    /**
+     * Used in the Presentation layer where we must display all the folder names
+     * inside of the Tree View.
+     *
+     * @return A list of String representing the folder names.
+     * @throws SQLException
+     */
+    @Override
+    public ObservableList<String> getAllFolderNames() throws SQLException {
+        ObservableList<String> allFolderNames = FXCollections.observableArrayList();
+        String findAllFoldersQuery = "SELECT FOLDERNAME FROM FOLDERS";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findAllFoldersQuery);) {
+            ResultSet queryResult = ps.executeQuery();
+            while (queryResult.next()) {
+                allFolderNames.add(queryResult.getString("FOLDERNAME"));
+            }
+        }
+        return allFolderNames;
     }
 }

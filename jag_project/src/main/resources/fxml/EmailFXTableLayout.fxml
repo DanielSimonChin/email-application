@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="emailFXTable" prefHeight="515.0" prefWidth="903.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.EmailFXTableLayoutController">
+    <stylesheets>
+        <URL value="@/styles/emailfxtablelayout.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="emailDataTable" prefHeight="515.0" prefWidth="903.0">
+        <columns>
+          <TableColumn fx:id="fromColumn" prefWidth="75.0" text="From" />
+          <TableColumn fx:id="subjectColumn" prefWidth="75.0" text="Subject" />
+            <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

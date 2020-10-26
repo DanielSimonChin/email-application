@@ -1,11 +1,8 @@
 package com.danielsimonchin.properties;
 
 /**
- * Class to contain the information for an email account. This is sufficient for
- * this project but will need more fields if you wish the program to work with
- * mail systems other than GMail. This should be stored in properties file. If
- * you are feeling adventurous you can look into how you might encrypt the
- * password as it will be in a simple text file.
+ * Class which contains fields relating to a email server connection and a database connection.
+ * This bean will be used in both the SendAndReceive operations for sending and receiving emails and for database operations in the persistence class.
  *
  * @author Daniel Simon Chin
  * @version September 20, 2020
@@ -26,7 +23,7 @@ public class MailConfigBean {
     private String databasePassword;
 
     /**
-     * Default Constructor
+     * Default Constructor, sets everything as an empty string
      */
     public MailConfigBean() {
         this.name = "";
@@ -45,7 +42,7 @@ public class MailConfigBean {
 
     /**
      * Non-default constructor Takes as input all the parameters relating to an
-     * Email Object and sets the fields.The non-applicable fields are left empty
+     * Email server connection/database connection and sets the fields.
      *
      * @param name
      * @param userEmailAddress

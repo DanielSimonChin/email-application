@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 /**
  * Interface for CRUD Methods relating to an Email object and to the database.
@@ -19,7 +20,7 @@ import java.util.List;
 public interface EmailDAO {
     public int createEmailRecord(EmailBean emailBean) throws SQLException, IOException;
 
-    public List<EmailBean> findAll() throws SQLException, FileNotFoundException,IOException;
+    public ObservableList<EmailBean> findAll() throws SQLException, FileNotFoundException,IOException;
 
     public EmailBean findID(int id) throws SQLException, FileNotFoundException,IOException;
     
@@ -40,4 +41,6 @@ public interface EmailDAO {
     public int createFolder(String folderName) throws SQLException,FolderAlreadyExistsException;
     
     public int deleteFolder(String foldername)throws SQLException,CannotDeleteFolderException;
+    
+    public ObservableList<String> getAllFolderNames() throws SQLException;
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="rootAnchorPane" prefHeight="918.0" prefWidth="935.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.RootLayoutController">
+    <stylesheets>
+        <URL value="@/styles/rootlayout.css" />
+    </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.3528161530286929" orientation="VERTICAL" prefHeight="918.0" prefWidth="972.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="1004.0">
+               <children>
+                  <SplitPane dividerPositions="0.27243928194297784" prefHeight="320.0" prefWidth="972.0">
+                    <items>
+                      <AnchorPane fx:id="upperLeftSplit" minHeight="0.0" minWidth="0.0" />
+                      <AnchorPane fx:id="upperRightSplit" minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="629.0" />
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.3539651837524178" layoutY="-2.0" prefHeight="590.0" prefWidth="970.0">
+                    <items>
+                      <AnchorPane fx:id="lowerLeftSplit" minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="451.0" />
+                      <AnchorPane fx:id="lowerRightSplit" minHeight="0.0" minWidth="0.0" prefHeight="585.0" prefWidth="549.0" />
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
