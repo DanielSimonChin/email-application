@@ -9,7 +9,7 @@ import com.danielsimonchin.controllers.MailConfigFXMLController;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
-import com.danielsimonchin.propertybean.PropertyBean;
+import com.danielsimonchin.fxbeans.PropertyBean;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;

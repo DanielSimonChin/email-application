@@ -2,7 +2,7 @@ package com.danielsimonchin.controllers;
 
 import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
-import com.danielsimonchin.propertybean.PropertyBean;
+import com.danielsimonchin.fxbeans.PropertyBean;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.slf4j.LoggerFactory;
 
@@ -101,12 +101,13 @@ public class MailConfigFXMLController {
             loader.setLocation(RootLayoutController.class
                   .getResource("/fxml/RootLayout.fxml"));
 
-            AnchorPane rootPane = (AnchorPane) loader.load();
+            BorderPane rootPane = (BorderPane) loader.load();
 
             rootLayout = loader.getController();
 
             Scene scene = new Scene(rootPane);
             primaryStage.setScene(scene);
+            primaryStage.setTitle(resources.getString("appTitle"));
             primaryStage.show();
 
         } catch (IOException ex) {

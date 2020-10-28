@@ -1,7 +1,11 @@
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\properties\MailConfigBean.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\fxbeans\FormFXBean.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\CannotDeleteFolderException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\controllers\MailConfigFXMLController.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\NotEnoughRecipientsException.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\fxbeans\FolderFXBean.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\fxbeans\EmailTableFXBean.java
+C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\fxbeans\PropertyBean.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\controllers\EmailFXTableLayoutController.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\controllers\RootLayoutController.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\runjag\RunApp.java
@@ -22,4 +26,3 @@ C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\excepti
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\controllers\EmailFXHTMLLayoutController.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\NotEnoughEmailRecipientsException.java
 C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\RecipientListNullException.java
-C:\dev\420-517\jag-project\jag_project\src\main\java\com\danielsimonchin\propertybean\PropertyBean.java

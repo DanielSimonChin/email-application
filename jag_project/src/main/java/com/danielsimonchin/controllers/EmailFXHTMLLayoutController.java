@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.web.HTMLEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class EmailFXHTMLLayoutController {
     private ResourceBundle resources;
 
     @FXML
-    private AnchorPane emailFXHTMLLayout;
+    private BorderPane emailFXHTMLLayout;
 
     @FXML
     private URL location;

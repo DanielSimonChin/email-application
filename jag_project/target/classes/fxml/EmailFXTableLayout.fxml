@@ -12,9 +12,9 @@
    <children>
       <TableView fx:id="emailDataTable" prefHeight="515.0" prefWidth="903.0">
         <columns>
-          <TableColumn fx:id="fromColumn" prefWidth="75.0" text="From" />
-          <TableColumn fx:id="subjectColumn" prefWidth="75.0" text="Subject" />
-            <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="fromColumn" prefWidth="75.0" text="%tableFromColumn" />
+          <TableColumn fx:id="subjectColumn" prefWidth="75.0" text="%tableSubjectColumn" />
+            <TableColumn fx:id="dateColumn" prefWidth="75.0" text="%tableDateColumn" />
         </columns>
       </TableView>
    </children>

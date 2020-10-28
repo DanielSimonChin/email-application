@@ -40356,3 +40356,1505 @@ Caused by: java.util.MissingResourceException: Can't find resource for bundle ja
 [INFO ] 2020-10-25 23:28:40.753 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
 [INFO ] 2020-10-25 23:28:40.754 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
 [INFO ] 2020-10-25 23:29:28.562 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 11:34:13.667 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 11:34:14.021 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 11:34:14.022 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 11:34:14.022 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 11:34:14.442 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 11:34:17.373 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[ERROR] 2020-10-27 11:34:21.891 [JavaFX Application Thread] RootLayoutController - initialize error
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at java.sql.DriverManager.getConnection(DriverManager.java:677) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at com.danielsimonchin.persistence.EmailDAOImpl.getAllFolderNames(EmailDAOImpl.java:1028) ~[classes/:?]
+	at com.danielsimonchin.controllers.FolderFXTreeLayoutController.displayTree(FolderFXTreeLayoutController.java:83) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:69) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:104) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:91) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	... 80 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at sun.nio.ch.Net.connect0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.connect(Net.java:503) ~[?:?]
+	at sun.nio.ch.Net.connect(Net.java:492) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[?:?]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333) ~[?:?]
+	at java.net.Socket.connect(Socket.java:648) ~[?:?]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.21.jar:8.0.21]
+	... 80 more
+[ERROR] 2020-10-27 11:34:21.918 [JavaFX Application Thread] MailConfigFXMLController - initUpperLeftLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/RootLayout.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:104) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:91) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+Caused by: java.util.MissingResourceException: Can't find resource for bundle java.util.PropertyResourceBundle, key sqlError
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:564) ~[?:?]
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:558) ~[?:?]
+	at java.util.ResourceBundle.getString(ResourceBundle.java:521) ~[?:?]
+	at com.danielsimonchin.controllers.RootLayoutController.errorAlert(RootLayoutController.java:188) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:73) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+[INFO ] 2020-10-27 11:34:21.946 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 11:35:09.970 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 11:35:10.314 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 11:35:10.314 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 11:35:10.315 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 11:35:10.756 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 11:35:13.204 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[INFO ] 2020-10-27 11:35:13.892 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:13.932 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:13.976 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.047 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.047 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.072 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.117 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.144 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.144 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.170 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.201 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.229 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.229 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.250 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.279 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.300 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.301 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.318 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.341 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.364 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.365 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.392 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.413 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.435 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.435 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 11:35:14.450 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 11:35:14.470 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 11:35:14.493 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 11:35:14.494 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 11:39:27.043 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 12:00:24.150 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 12:00:37.759 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 12:00:38.022 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 12:00:38.022 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 12:00:38.022 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 12:00:38.363 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 12:00:40.593 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[INFO ] 2020-10-27 12:00:41.246 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.282 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.318 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.366 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.367 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.394 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.420 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.453 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.453 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.485 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.518 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.555 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.555 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.582 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.612 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.644 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.644 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.670 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.695 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.733 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.734 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.759 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.786 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.814 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.814 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:00:41.838 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:00:41.859 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:00:41.880 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:00:41.881 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 12:01:56.566 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 12:04:51.424 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 12:04:51.719 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 12:04:51.719 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 12:04:51.719 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 12:04:52.089 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 12:04:54.452 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[INFO ] 2020-10-27 12:04:55.020 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.049 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.077 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.117 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.117 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.141 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.171 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.196 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.196 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.217 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.245 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.279 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.280 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.299 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.319 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.343 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.343 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.363 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.381 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.405 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.406 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.425 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.448 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.473 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.473 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:04:55.491 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:04:55.509 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:04:55.527 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:04:55.527 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 12:05:00.654 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 12:06:16.660 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 12:06:16.933 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 12:06:16.933 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 12:06:16.933 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 12:06:17.292 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 12:06:20.204 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[INFO ] 2020-10-27 12:06:20.779 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:20.809 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:20.840 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:20.878 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:20.878 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:20.901 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:20.933 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:20.957 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:20.958 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:20.986 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:21.023 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:21.058 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:21.058 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:21.086 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:21.137 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:21.174 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:21.174 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:21.213 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:21.257 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:21.293 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:21.294 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:21.325 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:21.355 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:21.383 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:21.383 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:06:21.411 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:06:21.446 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:06:21.470 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:06:21.471 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 12:07:35.892 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 12:14:47.423 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 12:14:47.732 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 12:14:47.732 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 12:14:47.732 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 12:14:48.090 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 12:14:52.367 [JavaFX Application Thread] EmailFXWebLayoutController - uri= file:///C:/dev/420-517/jag-project/jag_project/example.html
+[INFO ] 2020-10-27 12:14:52.912 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:52.947 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:52.978 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.019 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.019 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.040 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.068 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.093 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.094 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.117 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.148 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.180 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.180 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.200 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.223 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.244 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.244 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.262 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.283 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.306 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.306 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.323 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.341 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.364 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.365 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 12:14:53.381 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 12:14:53.398 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 12:14:53.414 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 12:14:53.415 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 12:15:11.088 [JavaFX Application Thread] EmailFXHTMLLayoutController - Will implement the feature to save a draft email into the draft folder whenever the save button is clicked
+[INFO ] 2020-10-27 12:15:12.966 [JavaFX Application Thread] EmailFXHTMLLayoutController - Implement clearing all the fields in the lowerRightSplit
+[INFO ] 2020-10-27 12:15:13.603 [JavaFX Application Thread] EmailFXHTMLLayoutController - Implement sending the draft email
+[INFO ] 2020-10-27 12:15:18.928 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:37:04.197 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:37:04.452 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:37:04.453 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:37:04.453 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:37:04.773 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:37:19.076 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:39:27.561 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:39:27.830 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:39:27.830 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:39:27.830 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:39:28.183 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:39:50.380 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:45:36.198 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:45:36.451 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:45:36.451 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:45:36.452 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:45:36.792 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:45:39.227 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.259 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.288 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.328 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.328 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.349 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.370 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.394 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.394 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.414 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.440 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.471 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.471 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.491 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.512 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.535 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.535 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.557 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.579 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.601 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.602 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.631 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.653 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.673 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.674 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:45:39.696 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:45:39.714 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:45:39.731 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:45:39.732 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:46:50.790 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:47:02.622 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:47:02.893 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:47:02.893 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:47:02.893 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:47:03.265 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:47:06.118 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.152 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.178 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.216 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.216 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.237 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.259 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.280 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.280 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.309 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.332 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.355 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.356 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.374 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.396 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.417 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.417 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.438 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.457 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.477 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.477 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.494 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.512 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.536 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.537 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:47:06.555 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:47:06.578 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:47:06.594 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:47:06.595 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:47:15.309 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:48:07.968 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:48:08.218 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:48:08.218 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:48:08.218 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:48:08.571 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:48:10.797 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:10.829 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:10.858 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:10.901 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:10.901 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:10.921 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:10.942 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:10.966 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:10.966 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:10.987 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:11.010 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:11.036 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:11.036 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:11.060 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:11.081 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:11.101 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:11.101 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:11.121 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:11.139 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:11.158 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:11.158 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:11.176 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:11.195 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:11.212 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:11.212 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:48:11.237 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:48:11.255 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:48:11.272 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:48:11.273 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:48:42.688 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:49:35.289 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:49:35.556 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:49:35.557 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:49:35.557 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:49:35.878 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:49:38.626 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.653 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:38.679 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:38.717 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:38.717 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.737 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:38.757 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:38.780 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:38.780 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.800 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:38.822 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:38.845 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:38.845 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.866 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:38.888 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:38.910 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:38.910 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.928 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:38.948 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:38.968 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:38.968 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:38.990 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:39.010 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:39.028 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:39.028 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:49:39.046 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:49:39.066 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:49:39.083 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:49:39.084 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:51:15.991 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:51:28.515 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:51:28.758 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:51:28.758 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:51:28.758 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:51:29.069 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:51:31.710 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:31.744 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:31.774 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:31.818 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:31.818 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:31.839 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:31.861 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:31.884 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:31.884 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:31.906 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:31.933 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:31.956 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:31.956 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:31.977 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:31.997 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:32.016 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:32.016 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:32.035 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:32.054 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:32.072 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:32.073 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:32.093 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:32.112 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:32.129 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:32.129 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:51:32.146 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:51:32.165 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:51:32.182 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:51:32.182 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:51:44.758 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 18:52:46.237 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 18:52:46.506 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 18:52:46.506 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 18:52:46.506 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 18:52:46.852 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 18:52:49.181 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.208 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.232 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.271 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.271 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.291 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.313 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.337 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.337 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.357 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.379 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.405 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.405 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.424 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.444 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.464 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.465 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.483 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.502 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.521 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.521 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.545 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.564 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.583 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.583 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 18:52:49.601 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 18:52:49.623 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 18:52:49.641 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 18:52:49.641 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 18:53:50.720 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 18:53:52.373 [JavaFX Application Thread] EmailFXHTMLLayoutController - Will implement the feature to save a draft email into the draft folder whenever the save button is clicked
+[INFO ] 2020-10-27 18:53:54.081 [JavaFX Application Thread] EmailFXHTMLLayoutController - Implement clearing all the fields in the lowerRightSplit
+[INFO ] 2020-10-27 18:53:56.792 [JavaFX Application Thread] EmailFXHTMLLayoutController - Implement sending the draft email
+[INFO ] 2020-10-27 18:54:06.252 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 18:54:28.154 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:07:40.160 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:07:40.439 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:07:40.439 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:07:40.439 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:07:40.813 [JavaFX Application Thread] RunApp - Program started
+[ERROR] 2020-10-27 19:07:43.106 [JavaFX Application Thread] MailConfigFXMLController - initUpperLeftLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/RootLayout.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:105) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+Caused by: java.lang.ClassCastException: class javafx.scene.layout.BorderPane cannot be cast to class javafx.scene.layout.AnchorPane (javafx.scene.layout.BorderPane and javafx.scene.layout.AnchorPane are in module javafx.graphics of loader 'app')
+	at com.danielsimonchin.controllers.RootLayoutController.initLowerRightLayout(RootLayoutController.java:142) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:60) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+[INFO ] 2020-10-27 19:07:43.124 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:09:33.223 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:09:33.476 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:09:33.476 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:09:33.476 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:09:33.809 [JavaFX Application Thread] RunApp - Program started
+[ERROR] 2020-10-27 19:09:35.652 [JavaFX Application Thread] MailConfigFXMLController - initUpperLeftLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/RootLayout.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:105) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+Caused by: java.lang.NullPointerException
+	at com.danielsimonchin.controllers.RootLayoutController.initLowerRightLayout(RootLayoutController.java:146) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:60) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+[INFO ] 2020-10-27 19:09:35.674 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:11:56.935 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:11:57.179 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:11:57.179 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:11:57.179 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:11:57.502 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 19:11:58.248 [JavaFX Application Thread] RootLayoutController - LEFT SPLIT GOOD
+[INFO ] 2020-10-27 19:11:58.273 [JavaFX Application Thread] RootLayoutController - UPPER RIGHT GOOD
+[ERROR] 2020-10-27 19:11:59.020 [JavaFX Application Thread] MailConfigFXMLController - initUpperLeftLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/RootLayout.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:105) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+Caused by: java.lang.NullPointerException
+	at com.danielsimonchin.controllers.RootLayoutController.initLowerRightLayout(RootLayoutController.java:148) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:60) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+[INFO ] 2020-10-27 19:11:59.040 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:12:49.400 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:12:49.659 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:12:49.659 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:12:49.659 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:12:49.978 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 19:12:51.936 [JavaFX Application Thread] RootLayoutController - LEFT SPLIT GOOD
+[INFO ] 2020-10-27 19:12:51.963 [JavaFX Application Thread] RootLayoutController - UPPER RIGHT GOOD
+[ERROR] 2020-10-27 19:12:51.967 [JavaFX Application Thread] RootLayoutController - initLowerRightLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/EmailFXHTMLLayout.fxml:13
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ValueElement.processAttribute(FXMLLoader.java:932) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(FXMLLoader.java:982) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$Element.processStartElement(FXMLLoader.java:229) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(FXMLLoader.java:754) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2808) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2634) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initLowerRightLayout(RootLayoutController.java:144) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:60) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:105) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.ClassNotFoundException: com.danielsimonchin.controllers
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:602) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at javafx.fxml.FXMLLoader$ValueElement.processAttribute(FXMLLoader.java:930) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 81 more
+[ERROR] 2020-10-27 19:12:51.996 [JavaFX Application Thread] MailConfigFXMLController - initUpperLeftLayout error
+javafx.fxml.LoadException: 
+/C:/dev/420-517/jag-project/jag_project/target/classes/fxml/RootLayout.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2707) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.setupRootLayout(MailConfigFXMLController.java:105) ~[classes/:?]
+	at com.danielsimonchin.controllers.MailConfigFXMLController.saveConfigAction(MailConfigFXMLController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8885) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-16-ea+1-win.jar:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+Caused by: java.util.MissingResourceException: Can't find resource for bundle java.util.PropertyResourceBundle, key sqlError
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:564) ~[?:?]
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:558) ~[?:?]
+	at java.util.ResourceBundle.getString(ResourceBundle.java:521) ~[?:?]
+	at com.danielsimonchin.controllers.RootLayoutController.errorAlert(RootLayoutController.java:167) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initLowerRightLayout(RootLayoutController.java:154) ~[classes/:?]
+	at com.danielsimonchin.controllers.RootLayoutController.initialize(RootLayoutController.java:60) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76) ~[javafx-base-16-ea+1-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273) ~[javafx-base-16-ea+1-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83) ~[javafx-fxml-16-ea+1-win.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673) ~[javafx-fxml-16-ea+1-win.jar:?]
+	... 61 more
+[INFO ] 2020-10-27 19:12:52.001 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:15:10.036 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:15:10.303 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:15:10.303 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:15:10.303 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:15:10.626 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 19:15:11.514 [JavaFX Application Thread] RootLayoutController - LEFT SPLIT GOOD
+[INFO ] 2020-10-27 19:15:11.538 [JavaFX Application Thread] RootLayoutController - UPPER RIGHT GOOD
+[INFO ] 2020-10-27 19:15:12.292 [JavaFX Application Thread] RootLayoutController - LOWER RIGHT GOOD
+[INFO ] 2020-10-27 19:15:12.756 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:12.784 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:12.812 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:12.849 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:12.849 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:12.869 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:12.894 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:12.917 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:12.917 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:12.937 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:12.958 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:12.983 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:12.984 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:13.002 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:13.021 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:13.041 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:13.041 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:13.059 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:13.081 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:13.106 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:13.106 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:13.123 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:13.140 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:13.159 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:13.159 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:15:13.178 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:15:13.197 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:15:13.214 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:15:13.214 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 19:15:33.459 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 19:15:42.384 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 19:15:57.422 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 19:32:39.774 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 19:32:40.034 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 19:32:40.035 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 19:32:40.035 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 19:32:40.372 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 19:32:41.970 [JavaFX Application Thread] RootLayoutController - LEFT SPLIT GOOD
+[INFO ] 2020-10-27 19:32:41.995 [JavaFX Application Thread] RootLayoutController - UPPER RIGHT GOOD
+[INFO ] 2020-10-27 19:32:42.752 [JavaFX Application Thread] RootLayoutController - LOWER RIGHT GOOD
+[INFO ] 2020-10-27 19:32:43.227 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.264 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.294 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.333 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.333 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.355 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.375 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.399 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.399 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.419 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.446 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.480 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.480 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.500 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.521 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.543 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.544 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.563 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.585 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.606 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.606 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.623 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.645 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.663 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.664 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 19:32:43.680 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 19:32:43.702 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 19:32:43.723 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 19:32:43.723 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 19:33:03.871 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 20:40:13.815 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 20:40:14.109 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 20:40:14.109 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 20:40:14.109 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 20:40:14.491 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 20:40:18.137 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.170 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.198 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.236 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.237 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.258 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.283 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.306 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.306 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.327 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.354 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.387 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.388 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.406 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.426 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.446 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.447 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.464 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.483 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.507 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.507 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.525 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.544 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.565 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.565 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 20:40:18.584 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 20:40:18.605 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 20:40:18.625 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 20:40:18.626 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 20:40:55.145 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:16:36.340 [JavaFX Application Thread] RunApp - Locale = en_CA
+[INFO ] 2020-10-27 21:16:36.634 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:16:36.634 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:16:36.634 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:16:36.973 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:16:39.271 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.303 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.328 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.370 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.370 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.396 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.421 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.448 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.448 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.471 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.498 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.527 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.527 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.546 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.566 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.587 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.587 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.606 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.628 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.652 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.652 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.669 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.690 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.709 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.710 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:16:39.728 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:16:39.752 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:16:39.770 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:16:39.771 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:16:52.866 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:17:12.018 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 21:17:12.276 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:17:12.276 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:17:12.276 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:17:12.608 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:17:14.827 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:14.860 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:14.890 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:14.927 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:14.927 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:14.947 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:14.971 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:14.994 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:14.994 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:15.016 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:15.041 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:15.068 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:15.068 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:15.087 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:15.107 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:15.129 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:15.129 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:15.147 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:15.166 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:15.190 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:15.190 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:15.209 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:15.229 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:15.251 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:15.251 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:17:15.270 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:17:15.288 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:17:15.306 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:17:15.306 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:17:25.632 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:18:43.828 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 21:18:44.125 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:18:44.126 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:18:44.126 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:18:44.482 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:18:47.766 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:47.807 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:47.838 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:47.892 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:47.892 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:47.914 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:47.938 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:47.964 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:47.965 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:47.994 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:48.017 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:48.041 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:48.042 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:48.061 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:48.081 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:48.103 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:48.103 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:48.120 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:48.139 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:48.159 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:48.159 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:48.182 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:48.200 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:48.217 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:48.218 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:18:48.235 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:18:48.253 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:18:48.271 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:18:48.271 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:22:21.643 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:22:35.583 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 21:22:35.867 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:22:35.867 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:22:35.867 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:22:36.317 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:22:39.862 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:39.897 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:39.930 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:39.970 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:39.970 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:39.991 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.019 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.043 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.043 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:40.065 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.096 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.126 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.126 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:40.145 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.169 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.189 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.190 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:40.208 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.228 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.252 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.253 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:40.274 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.295 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.318 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.319 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:22:40.338 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:22:40.356 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:22:40.380 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:22:40.381 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:22:44.911 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:23:03.409 [JavaFX Application Thread] RunApp - Locale = en_CA
+[INFO ] 2020-10-27 21:23:03.709 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:23:03.709 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:23:03.709 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:23:04.115 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:23:10.725 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:10.755 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:10.782 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:10.820 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:10.821 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:10.841 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:10.865 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:10.887 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:10.887 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:10.907 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:10.935 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:10.964 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:10.965 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:10.984 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:11.005 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:11.026 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:11.027 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:11.046 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:11.066 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:11.092 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:11.092 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:11.109 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:11.127 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:11.146 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:11.147 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:23:11.167 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:23:11.184 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:23:11.208 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:23:11.209 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:23:40.937 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-27 21:23:51.262 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:25:23.448 [JavaFX Application Thread] RunApp - Locale = en_CA
+[INFO ] 2020-10-27 21:25:23.733 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:25:23.733 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:25:23.733 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:25:24.094 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:25:29.761 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-27 21:25:48.041 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 21:25:48.310 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:25:48.310 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:25:48.310 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:25:48.645 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:25:57.076 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.111 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.142 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.185 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.186 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.208 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.230 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.256 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.256 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.277 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.302 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.337 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.337 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.355 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.374 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.395 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.395 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.415 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.433 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.457 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.457 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.476 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.503 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.522 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.522 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:25:57.538 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:25:57.562 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:25:57.580 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:25:57.581 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[DEBUG] 2020-10-27 21:26:52.018 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-27 21:26:52.328 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-27 21:26:52.328 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-27 21:26:52.329 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-27 21:26:52.675 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-27 21:26:55.414 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.448 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.478 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.515 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.515 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.536 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.559 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.589 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.589 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.613 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.644 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.673 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.673 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.693 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.715 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.737 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.738 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.757 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.777 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.797 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.797 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.817 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.839 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.863 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.863 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-27 21:26:55.885 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-27 21:26:55.905 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-27 21:26:55.922 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-27 21:26:55.923 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-27 21:27:13.920 [JavaFX Application Thread] RunApp - Stage is closing

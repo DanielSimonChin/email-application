@@ -1,4 +1,4 @@
-package com.danielsimonchin.propertybean;
+package com.danielsimonchin.fxbeans;
 
 import java.util.Objects;
 import javafx.beans.property.StringProperty;

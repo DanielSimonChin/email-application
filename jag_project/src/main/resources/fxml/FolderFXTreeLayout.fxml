@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="folderFXTreeLayout" prefHeight="627.0" prefWidth="317.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.FolderFXTreeLayoutController">
+<AnchorPane id="AnchorPane" fx:id="folderFXTreeLayout" prefHeight="919.0" prefWidth="315.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.FolderFXTreeLayoutController">
     <stylesheets>
         <URL value="@/styles/folderfxtreelayout.css" />
     </stylesheets>
    <children>
-      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="49.0" prefHeight="579.0" prefWidth="317.0" />
+      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="49.0" prefHeight="870.0" prefWidth="317.0" />
       <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="147.0" />
-      <Button layoutX="169.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddFolder" text="Add Folder" />
+      <Button layoutX="169.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddFolder" text="%addFolderButton" />
    </children>
 </AnchorPane>

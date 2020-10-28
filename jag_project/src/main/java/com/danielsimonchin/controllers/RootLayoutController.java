@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,27 +29,23 @@ public class RootLayoutController {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // fx:id="rootAnchorPane"
-    private AnchorPane rootAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private BorderPane rootBorderPane;
 
-    @FXML // fx:id="upperLeftSplit"
-    private AnchorPane upperLeftSplit; // Value injected by FXMLLoader
+    @FXML
+    private BorderPane leftSplit;
 
-    @FXML // fx:id="upperRightSplit"
-    private AnchorPane upperRightSplit; // Value injected by FXMLLoader
+    @FXML
+    private BorderPane upperRightSplit;
 
-    @FXML // fx:id="lowerLeftSplit"
-    private AnchorPane lowerLeftSplit; // Value injected by FXMLLoader
-
-    @FXML // fx:id="lowerRightSplit"
-    private AnchorPane lowerRightSplit; // Value injected by FXMLLoader
+    @FXML
+    private BorderPane lowerRightSplit;
     
     private EmailDAO emailDAO;
     
     private FolderFXTreeLayoutController emailFXTreeController;
     private EmailFXTableLayoutController emailFXTableController;
     private EmailFXHTMLLayoutController emailFXHTMLController;
-    //private EmailFXWebLayoutController emailFXWebController;
 
 
     
@@ -58,10 +55,10 @@ public class RootLayoutController {
         this.emailDAO = new EmailDAOImpl(MailConfigFXMLController.getMailConfigBean());
 
         //Setup all the sections of the application 
-        initUpperLeftLayout();
+        initLeftSplitLayout();
         initUpperRightLayout();
         initLowerRightLayout();
-        initLowerLeftLayout();
+
         
         // Tell the tree about the table
         setTableControllerToTree();
@@ -87,7 +84,7 @@ public class RootLayoutController {
         /**
      * The TreeView Layout
      */
-    private void initUpperLeftLayout() {
+    private void initLeftSplitLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setResources(resources);
@@ -100,10 +97,10 @@ public class RootLayoutController {
             emailFXTreeController = loader.getController();
             emailFXTreeController.setEmailDAO(emailDAO);
 
-            upperLeftSplit.getChildren().add(treeView);
+            leftSplit.getChildren().add(treeView);
         } catch (IOException ex) {
-            LOG.error("initUpperLeftLayout error", ex);
-            errorAlert("initUpperLeftLayout()");
+            LOG.error("initLeftSplitLayout error", ex);
+            errorAlert("initLeftSplitLayout()");
             Platform.exit();
         }
     }
@@ -142,7 +139,7 @@ public class RootLayoutController {
 
             loader.setLocation(RootLayoutController.class
                     .getResource("/fxml/EmailFXHTMLLayout.fxml"));
-            AnchorPane htmlView = (AnchorPane) loader.load();
+            BorderPane htmlView = (BorderPane) loader.load();
 
             // Give the controller the data object.
             emailFXHTMLController = loader.getController();
@@ -156,27 +153,6 @@ public class RootLayoutController {
         }
     }
     
-    /**
-     * The WebView Layout
-     */
-    private void initLowerLeftLayout() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setResources(resources);
-
-            loader.setLocation(RootLayoutController.class
-                    .getResource("/fxml/EmailFXWebLayout.fxml"));
-            AnchorPane webView = (AnchorPane) loader.load();
-
-            // Retrieve the controller if you must send it messages
-            //fishFXWebViewController = loader.getController();
-            lowerLeftSplit.getChildren().add(webView);
-        } catch (IOException ex) {
-            LOG.error("initLowerLeftLayout error", ex);
-            errorAlert("initLowerLeftLayout()");
-            Platform.exit();
-        }
-    }
     
     /**
      * Error message popup dialog

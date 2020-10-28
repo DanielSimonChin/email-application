@@ -1,6 +1,6 @@
 package com.danielsimonchin.propertiesmanager;
 
-import com.danielsimonchin.propertybean.PropertyBean;
+import com.danielsimonchin.fxbeans.PropertyBean;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
