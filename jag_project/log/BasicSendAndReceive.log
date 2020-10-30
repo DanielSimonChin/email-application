@@ -41858,3 +41858,799 @@ Caused by: java.util.MissingResourceException: Can't find resource for bundle ja
 [INFO ] 2020-10-27 21:26:55.922 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
 [INFO ] 2020-10-27 21:26:55.923 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
 [INFO ] 2020-10-27 21:27:13.920 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-28 10:40:06.706 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-28 10:40:06.991 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-28 10:40:06.991 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-28 10:40:06.991 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-28 10:40:07.356 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-28 10:40:11.386 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.426 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.458 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.505 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.506 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.534 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.564 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.593 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.593 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.616 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.640 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.666 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.667 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.688 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.716 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.743 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.743 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.765 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.790 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.813 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.814 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.840 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.860 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.880 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.880 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-28 10:40:11.901 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-28 10:40:11.922 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-28 10:40:11.941 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-28 10:40:11.942 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-28 10:40:16.124 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-29 11:23:01.480 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-29 11:23:01.775 [JavaFX Application Thread] RunApp - TEST 1
+[INFO ] 2020-10-29 11:23:01.775 [JavaFX Application Thread] RunApp - TEST 2
+[INFO ] 2020-10-29 11:23:01.775 [JavaFX Application Thread] RunApp - TEST 3
+[INFO ] 2020-10-29 11:23:02.127 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-29 11:23:05.308 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.341 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.372 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.417 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.417 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.440 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.462 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.483 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.484 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.504 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.529 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.551 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.552 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.569 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.588 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.607 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.608 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.625 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.643 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.668 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.668 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.685 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.702 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.722 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.722 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:23:05.741 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:23:05.760 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:23:05.776 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:23:05.777 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-29 11:23:11.466 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-29 11:51:13.035 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-29 11:51:13.676 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-29 11:51:17.435 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.470 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.507 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.544 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.546 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.565 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.590 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.619 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.619 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.649 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.687 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.712 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.713 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.733 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.756 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.778 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.779 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.799 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.818 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.842 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.843 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.861 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.884 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.908 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.908 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 11:51:17.925 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 11:51:17.945 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 11:51:17.962 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 11:51:17.963 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-29 11:51:21.831 [JavaFX Application Thread] RunApp - Stage is closing
+[INFO ] 2020-10-29 15:31:45.414 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:04.273 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:04.840 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:04.953 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:05.031 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:05.176 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:13.907 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:37:13.988 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:37:14.000 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:37:14.094 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:37:14.135 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:37:14.170 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:37:14.171 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:37:14.210 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:37:14.211 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:37:14.227 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:37:14.243 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:37:14.261 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:37:14.278 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:37:34.584 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:35.179 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:35.325 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:35.429 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:35.542 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:37:44.905 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:37:50.348 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:37:50.364 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:37:50.439 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:37:50.477 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:37:50.478 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:37:50.516 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:37:50.516 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:37:52.089 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:37:52.093 [main] EmailDAOImpl - New record ID is 8
+[INFO ] 2020-10-29 15:37:52.166 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "8".
+[INFO ] 2020-10-29 15:37:52.200 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "8".
+[INFO ] 2020-10-29 15:37:52.201 [main] EmailDAOImpl - Email recipients for record #8 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:37:52.239 [main] EmailDAOImpl - The attachments for the record #8 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:37:52.239 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:37:56.025 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:37:56.028 [main] EmailDAOImpl - New record ID is 9
+[INFO ] 2020-10-29 15:37:56.093 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "9".
+[INFO ] 2020-10-29 15:37:56.125 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "9".
+[INFO ] 2020-10-29 15:37:56.125 [main] EmailDAOImpl - Email recipients for record #9 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:37:56.159 [main] EmailDAOImpl - The attachments for the record #9 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:37:56.160 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:39:24.666 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:25.329 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:25.446 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:25.547 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:25.694 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:30.089 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:30.111 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:30.138 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:30.168 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:30.193 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:30.278 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:30.379 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:30.472 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:30.560 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:34.366 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:39:34.379 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:39:34.450 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:39:34.484 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:39:34.485 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:39:34.505 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:39:34.506 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:39:34.528 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:34.543 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:34.560 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:34.577 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:34.578 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:34.657 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:34.781 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:34.873 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:34.961 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:38.811 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:38.825 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:38.840 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:38.856 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:38.857 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:38.936 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:39.027 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:39.115 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:39.200 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:42.566 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:42.580 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:42.595 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:42.610 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:42.611 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:42.625 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:42.640 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:42.656 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:42.656 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:42.670 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:42.685 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:42.701 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:42.702 [main] CrudTests - list size 3
+[INFO ] 2020-10-29 15:39:42.720 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:42.815 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:42.897 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:42.976 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:43.060 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:46.293 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:46.364 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:46.452 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:46.567 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:46.643 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:50.375 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:50.446 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:50.532 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:50.609 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:50.713 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:54.418 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.431 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.453 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.466 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.467 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.479 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.492 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.505 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.506 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.518 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.531 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.544 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.544 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.556 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.569 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.582 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.582 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.594 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.607 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.619 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.619 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:54.633 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:54.647 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:54.660 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:54.661 [main] EmailDAOImpl - # of records found : 6
+[INFO ] 2020-10-29 15:39:54.661 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:54.729 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:54.816 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:54.915 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:55.005 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:59.370 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:39:59.375 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:39:59.389 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:39:59.404 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:39:59.430 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:39:59.431 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:39:59.445 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:39:59.445 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:39:59.458 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:39:59.471 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:39:59.483 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:39:59.497 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:39:59.498 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:59.582 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:59.726 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:59.805 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:39:59.886 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:03.796 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:40:03.807 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:40:03.861 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:03.886 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:03.887 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:40:03.904 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:40:03.904 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:40:03.917 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:03.930 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:03.946 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:03.963 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:03.963 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:03.976 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:03.993 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.009 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.009 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:04.026 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:04.041 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.055 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.056 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:04.067 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:04.085 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.101 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.101 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:04.115 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:04.127 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.142 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.142 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:04.158 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:04.173 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.192 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.192 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:04.208 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:04.225 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:04.240 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:04.241 [main] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-29 15:40:04.241 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:04.324 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:04.413 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:04.494 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:04.573 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:08.625 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:08.696 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:08.784 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:08.881 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:09.005 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:12.799 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:12.811 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:12.823 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:12.835 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:14.349 [main] EmailDAOImpl - The Draft Email has been sent.
+[INFO ] 2020-10-29 15:40:14.434 [main] EmailDAOImpl - The email with the ID: 4 has set its sentDate in the Email table.
+[INFO ] 2020-10-29 15:40:14.460 [main] EmailDAOImpl - The recipients for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:40:14.484 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-29 15:40:14.499 [main] EmailDAOImpl - The attachments for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:40:14.512 [main] EmailDAOImpl - The attachments for the record #4 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:40:14.523 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:14.534 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:14.550 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:14.563 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:14.563 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:14.635 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:14.725 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:14.830 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:14.912 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:19.810 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:19.821 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:19.834 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:19.847 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:19.848 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:19.860 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:19.872 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:19.885 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:19.885 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:19.897 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:19.909 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:19.921 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:19.921 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:19.937 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:19.950 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:19.962 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:19.962 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:19.974 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:19.989 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.005 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.005 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.017 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.032 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.049 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.049 [main] EmailDAOImpl - # of records found : 6
+[INFO ] 2020-10-29 15:40:20.063 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.076 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.090 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.107 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.123 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.136 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.147 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.159 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.170 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.182 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.193 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.209 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.221 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.233 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.245 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.257 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.268 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.279 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.290 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.301 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.312 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:20.323 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:20.334 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:20.345 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:20.346 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:20.409 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:20.506 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:20.587 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:20.675 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:24.287 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:24.355 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:24.442 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:24.515 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:24.590 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:27.757 [main] EmailDAOImpl - The folder "My Documents" has been created.
+[INFO ] 2020-10-29 15:40:27.757 [main] EmailDAOImpl - The folder name was not changed.
+[INFO ] 2020-10-29 15:40:27.758 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:27.825 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:27.908 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:27.981 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:28.056 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:31.974 [main] EmailDAOImpl - The folder "MyImportantDocuments" has been created.
+[INFO ] 2020-10-29 15:40:31.987 [main] CrudTests - list size 0
+[INFO ] 2020-10-29 15:40:32.003 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:32.077 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:32.217 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:32.319 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:32.397 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:36.000 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:36.012 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:36.025 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:36.037 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:36.066 [main] EmailDAOImpl - The recipients for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:40:36.081 [main] EmailDAOImpl - The attachments for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:40:36.082 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:36.176 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:36.282 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:36.358 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:36.446 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:39.687 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:39.770 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:39.856 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:39.934 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:40.012 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:45.215 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:40:45.281 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:40:45.286 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:40:45.310 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:40:45.323 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:40:45.334 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:40:45.347 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:40:45.375 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:45.399 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:45.425 [main] EmailDAOImpl - The address ID: "6" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:45.425 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:40:45.454 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:40:45.455 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:40:45.468 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:45.481 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:45.493 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:45.505 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:45.506 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:45.578 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:45.678 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:45.759 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:45.834 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:51.984 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:40:52.051 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:40:52.063 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:40:52.100 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:52.100 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:40:52.101 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:40:52.114 [main] EmailDAOImpl - The email with ID: 7 has updated its folder
+[INFO ] 2020-10-29 15:40:52.115 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:52.223 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:52.330 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:52.444 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:52.512 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:56.716 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:40:56.726 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:40:56.782 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:56.810 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:56.833 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:40:56.834 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:40:56.861 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:40:56.862 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:40:56.873 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:40:56.886 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:40:56.898 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:40:56.912 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:40:56.912 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:56.989 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:57.076 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:57.155 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:40:57.268 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:00.680 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:41:00.696 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:41:00.709 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:41:00.721 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:41:00.721 [main] CrudTests - SIZE BEFORE: 2
+[INFO ] 2020-10-29 15:41:00.757 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:41:00.769 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:41:00.781 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:41:00.794 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:41:00.809 [main] EmailDAOImpl - The recipients for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:41:00.833 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-29 15:41:00.859 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-29 15:41:00.885 [main] EmailDAOImpl - The address ID: "6" has been inserted as a "TO" for the email with ID: "4".
+[INFO ] 2020-10-29 15:41:00.902 [main] EmailDAOImpl - The attachments for the email with ID: "4" have been deleted.
+[INFO ] 2020-10-29 15:41:00.929 [main] EmailDAOImpl - The attachments for the record #4 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:41:00.944 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:41:00.956 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:41:00.967 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:41:00.980 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:41:00.980 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:01.048 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:01.133 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:01.201 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:01.274 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:05.420 [main] EmailDAOImpl - The folder "My Documents" has been created.
+[INFO ] 2020-10-29 15:41:05.433 [main] EmailDAOImpl - The My Documents folder was renamed to MY NEW FOLDER NAME
+[INFO ] 2020-10-29 15:41:05.434 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:05.501 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:05.578 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:05.660 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:05.739 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:09.884 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:09.955 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:10.048 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:10.134 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:10.208 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:14.629 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:41:14.693 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:41:14.700 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:41:14.757 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:41:14.786 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:41:14.810 [main] EmailDAOImpl - The address ID: "4" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:41:14.810 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:41:14.837 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:41:14.837 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:41:14.848 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:41:14.858 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:41:14.870 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:41:14.882 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:41:14.883 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:14.947 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:15.026 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:15.098 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:15.193 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:21.786 [main] EmailDAOImpl - The recipients for the email with ID: "1" have been deleted.
+[INFO ] 2020-10-29 15:41:21.804 [main] EmailDAOImpl - The attachments for the email with ID: "1" have been deleted.
+[INFO ] 2020-10-29 15:41:21.824 [main] EmailDAOImpl - The email with ID: "1" has been deleted from the Email table.
+[INFO ] 2020-10-29 15:41:21.825 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:21.896 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:21.994 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:22.076 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:22.150 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:26.846 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:41:26.857 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:41:26.871 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:41:26.883 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:41:26.884 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:41:26.895 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:41:26.906 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:41:26.918 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:41:26.920 [main] CrudTests - ID: 1 has subject:  SQL TESTING
+[INFO ] 2020-10-29 15:41:26.920 [main] CrudTests - ID: 2 has subject:  SQL TESTING
+[INFO ] 2020-10-29 15:41:26.931 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:26.999 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:27.086 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:27.166 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:27.254 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:31.431 [main] EmailDAOImpl - The folder "MyImportantDocuments" has been created.
+[INFO ] 2020-10-29 15:41:31.443 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:31.512 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:31.590 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:31.693 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:31.787 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:35.466 [main] EmailDAOImpl - The folder "?!!..[]<>" has been created.
+[INFO ] 2020-10-29 15:41:35.467 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:35.534 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:35.622 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:35.723 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:35.811 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:39.898 [main] EmailDAOImpl - The folder "MyImportantDocuments" has been created.
+[INFO ] 2020-10-29 15:41:39.899 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:39.967 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:40.057 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:40.129 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:40.203 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:45.965 [main] SendAndReceive - Email sent
+[INFO ] 2020-10-29 15:41:51.603 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:41:51.614 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:41:51.664 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:41:51.687 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:41:51.687 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:41:51.712 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:41:51.712 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:41:53.269 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:41:53.272 [main] EmailDAOImpl - New record ID is 8
+[INFO ] 2020-10-29 15:41:53.315 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "8".
+[INFO ] 2020-10-29 15:41:53.338 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "8".
+[INFO ] 2020-10-29 15:41:53.338 [main] EmailDAOImpl - Email recipients for record #8 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:41:53.362 [main] EmailDAOImpl - The attachments for the record #8 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:41:53.362 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:41:57.052 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:41:57.056 [main] EmailDAOImpl - New record ID is 9
+[INFO ] 2020-10-29 15:41:57.098 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "9".
+[INFO ] 2020-10-29 15:41:57.121 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "9".
+[INFO ] 2020-10-29 15:41:57.121 [main] EmailDAOImpl - Email recipients for record #9 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:41:57.147 [main] EmailDAOImpl - The attachments for the record #9 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:41:57.147 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:41:57.148 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:57.254 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:57.368 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:57.461 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:41:57.540 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:00.692 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:00.704 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:00.714 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:00.730 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:42:00.730 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:00.741 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:00.751 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:00.762 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:42:00.763 [main] CrudTests - REAL SIZE 2
+[INFO ] 2020-10-29 15:42:00.774 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:00.841 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:00.961 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:01.036 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:01.109 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:04.988 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:04.999 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:05.010 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:05.021 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:42:05.021 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:05.032 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:05.043 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:05.059 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:42:05.059 [main] CrudTests - list size 2
+[INFO ] 2020-10-29 15:42:05.070 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:05.132 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:05.223 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:05.293 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:05.365 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:08.506 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:42:08.513 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:42:08.524 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:42:08.538 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:42:08.561 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:42:08.562 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:42:08.574 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:42:08.574 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:42:08.585 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:08.595 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:08.610 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:08.621 [main] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 15:42:08.622 [main] CrudTests - REAL SIZE 1
+[INFO ] 2020-10-29 15:42:08.622 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:08.690 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:08.767 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:08.847 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:08.959 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:13.225 [main] EmailDAOImpl - The folder "My Documents" has been created.
+[INFO ] 2020-10-29 15:42:13.261 [main] EmailDAOImpl - The folder "My Documents" along with its emails has been deleted.
+[INFO ] 2020-10-29 15:42:13.262 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:13.329 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:13.406 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:13.471 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:13.545 [main] CrudTests - @Before seeding
+[INFO ] 2020-10-29 15:42:17.110 [main] EmailDAOImpl - PreparedStatement for inserting a row in Email table has been setup.
+[DEBUG] 2020-10-29 15:42:17.117 [main] EmailDAOImpl - New record ID is 7
+[INFO ] 2020-10-29 15:42:17.151 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:42:17.164 [main] EmailDAOImpl - The email address "newrecipient1@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:42:17.176 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" is not currently in the Addresses table.
+[INFO ] 2020-10-29 15:42:17.190 [main] EmailDAOImpl - The email address "newrecipient2@gmail.com" has been added to the Addresses table.
+[INFO ] 2020-10-29 15:42:17.215 [main] EmailDAOImpl - The address ID: "2" has been inserted as a "TO" for the email with ID: "7".
+[INFO ] 2020-10-29 15:42:17.239 [main] EmailDAOImpl - The address ID: "3" has been inserted as a "CC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:42:17.266 [main] EmailDAOImpl - The address ID: "5" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:42:17.306 [main] EmailDAOImpl - The address ID: "6" has been inserted as a "BCC" for the email with ID: "7".
+[INFO ] 2020-10-29 15:42:17.306 [main] EmailDAOImpl - Email recipients for record #7 have been added in EmailToAddress
+[INFO ] 2020-10-29 15:42:17.341 [main] EmailDAOImpl - The attachments for the record #7 have been added in EmailToAttachments
+[INFO ] 2020-10-29 15:42:17.341 [main] EmailDAOImpl - # of records created : 1
+[INFO ] 2020-10-29 15:42:17.355 [main] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 15:42:17.366 [main] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 15:42:17.380 [main] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 15:42:17.392 [main] EmailDAOImpl - EmailBean successfully created.
+[DEBUG] 2020-10-29 22:44:45.875 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-29 22:44:46.487 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-29 22:44:48.842 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:48.878 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:48.913 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:48.957 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:48.957 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:48.980 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.006 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.034 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.034 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:49.062 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.089 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.116 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.116 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:49.137 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.163 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.190 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.191 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:49.210 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.232 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.252 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.253 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:49.272 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.295 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.316 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.316 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-29 22:44:49.338 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-29 22:44:49.359 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-29 22:44:49.381 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-29 22:44:49.382 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-29 22:45:02.308 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-10-29 22:45:22.131 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-30 11:26:40.911 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-30 11:26:41.904 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-30 11:26:45.472 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:45.506 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:45.558 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:45.620 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:45.620 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:45.652 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:45.686 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:45.725 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:45.725 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:45.757 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:45.795 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:45.832 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:45.833 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:45.865 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:45.897 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:45.936 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:45.937 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:45.967 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:46.008 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:46.057 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:46.058 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:46.084 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:46.113 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:46.141 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:46.142 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 11:26:46.169 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 11:26:46.197 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 11:26:46.231 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 11:26:46.232 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[DEBUG] 2020-10-30 11:26:54.926 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-30 11:26:55.521 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-30 11:27:01.217 [JavaFX Application Thread] RunApp - Stage is closing
+[INFO ] 2020-10-30 11:27:34.180 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-30 12:01:12.723 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-30 12:01:13.370 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-30 12:01:15.675 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:15.712 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:15.746 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:15.790 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:15.791 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:15.814 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:15.838 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:15.860 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:15.860 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:15.886 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:15.917 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:15.943 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:15.943 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:15.962 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:15.985 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:16.005 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:16.005 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:16.023 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:16.046 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:16.072 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:16.072 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:16.088 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:16.113 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:16.133 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:16.133 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:16.149 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:16.167 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:16.186 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:16.187 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-30 12:01:31.687 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-30 12:01:53.887 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[INFO ] 2020-10-30 12:01:54.541 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-30 12:01:57.605 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:57.636 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:57.667 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:57.713 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:57.713 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:57.738 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:57.767 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:57.791 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:57.791 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:57.824 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:57.855 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:57.886 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:57.886 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:57.907 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:57.931 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:57.951 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:57.951 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:57.969 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:57.991 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:58.011 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:58.011 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:58.029 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:58.049 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:58.069 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:58.069 [JavaFX Application Thread] EmailDAOImpl - Creating an EmailBean
+[INFO ] 2020-10-30 12:01:58.085 [JavaFX Application Thread] EmailDAOImpl - Email object has set the From, subject, textMessage and HtmlMessage
+[INFO ] 2020-10-30 12:01:58.103 [JavaFX Application Thread] EmailDAOImpl - Email object has set the recipient email addresses
+[INFO ] 2020-10-30 12:01:58.126 [JavaFX Application Thread] EmailDAOImpl - EmailBean successfully created.
+[INFO ] 2020-10-30 12:01:58.127 [JavaFX Application Thread] EmailDAOImpl - # of records found : 7
+[INFO ] 2020-10-30 12:02:02.610 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Send Email Menu Item
+[INFO ] 2020-10-30 12:02:06.708 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Save Draft Menu Item
+[INFO ] 2020-10-30 12:02:08.763 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Add Attachment Menu Item
+[INFO ] 2020-10-30 12:02:11.081 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Save Attachment Menu Item
+[INFO ] 2020-10-30 12:02:12.984 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the About Menu Item
+[INFO ] 2020-10-30 12:02:16.755 [JavaFX Application Thread] RunApp - Stage is closing

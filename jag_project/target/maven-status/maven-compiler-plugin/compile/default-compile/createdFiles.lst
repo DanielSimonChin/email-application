@@ -24,6 +24,5 @@ com\danielsimonchin\controllers\EmailFXHTMLLayoutController.class
 com\danielsimonchin\controllers\FolderFXTreeLayoutController.class
 com\danielsimonchin\controllers\RootLayoutController.class
 com\danielsimonchin\exceptions\InvalidRecipientImapURLException.class
-com\danielsimonchin\controllers\EmailFXWebLayoutController.class
 com\danielsimonchin\exceptions\CannotMoveToDraftsException.class
 com\danielsimonchin\persistence\EmailDAO.class

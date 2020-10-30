@@ -12,10 +12,10 @@ import static java.nio.file.Paths.get;
 import java.util.Properties;
 
 /**
- * Example of a class to manage properties
+ * Reading and Writing to a properties file.
  *
  * @author Daniel Simon Chin
- *
+ * @version Oct 31, 2020
  */
 public class PropertiesManager {
 
@@ -25,7 +25,7 @@ public class PropertiesManager {
      * @param propertyBean
      * @param path
      * @param propFileName
-     * @return
+     * @return true if the file's properties have been loaded, false otherwise.
      * @throws java.io.IOException
      */
     public final boolean loadTextProperties(final PropertyBean propertyBean, final String path, final String propFileName) throws IOException {

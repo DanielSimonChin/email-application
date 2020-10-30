@@ -21,7 +21,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * This controller is for the tree layout of the folders in the JAG project. The
- * container for the tree layout will be a child of the root layout.
+ * container for the tree layout will be a child of the root layout. This
+ * controller will implement handlers for accepting drag and drops to place
+ * emails into a folder. It will allow users to select a folder and display the
+ * contents in the TableView.
  *
  * @author Daniel Simon Chin
  * @version Oct 31, 2020
@@ -34,7 +37,7 @@ public class FolderFXTreeLayoutController {
 
     private EmailDAO emailDAO;
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
+    @FXML
     private ResourceBundle resources;
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
@@ -46,7 +49,12 @@ public class FolderFXTreeLayoutController {
     @FXML // fx:id="folderFXTreeView"
     private TreeView<String> folderFXTreeView; // Value injected by FXMLLoader
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    /**
+     * This method is called by the FXMLLoader when initialization is complete.
+     * It sets up the TreeView of the folders by calling a helper method to
+     * retrieve all the folder names
+     */
+    @FXML
     void initialize() {
         // We need a root node for the tree and it must be the same type as all
         // nodes
@@ -79,6 +87,10 @@ public class FolderFXTreeLayoutController {
         this.emailDAO = emailDAO;
     }
 
+    /**
+     * Get all the folder names of the database and add them to the TreeView.
+     * @throws SQLException 
+     */
     public void displayTree() throws SQLException {
         ObservableList<String> folderNames = emailDAO.getAllFolderNames();
 
@@ -94,7 +106,7 @@ public class FolderFXTreeLayoutController {
         // Open the tree
         folderFXTreeView.getRoot().setExpanded(true);
 
-        //do to add listener
+        //TODO: Add listeners to these tree items so they can be clicked to view the folder's contents
     }
 
     /**
@@ -108,10 +120,16 @@ public class FolderFXTreeLayoutController {
     public void setTableController(EmailFXTableLayoutController emailFXTableController) {
         this.emailFXTableController = emailFXTableController;
     }
-    
-     @FXML
+
+    /**
+     * The handler for adding a folder to the list of folder and display the
+     * updated folders in the TreeView.
+     *
+     * @param event
+     */
+    @FXML
     void handleAddFolder(ActionEvent event) {
         LOG.info("Implement adding the folder event");
-        //after adding folder, need to display table once again with updated folders.
+        //TODO: after adding folder, need to display table once again with updated folders.
     }
 }

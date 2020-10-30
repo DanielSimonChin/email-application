@@ -12,17 +12,20 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Mail">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#handleSendEmail" text="Send Email" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveDraft" text="Save Draft" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAddAttachment" text="Add Attachment" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAttachment" text="Save Attachment" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
             </items>
           </Menu>
         </menus>

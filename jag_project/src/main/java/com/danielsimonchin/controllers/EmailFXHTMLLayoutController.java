@@ -16,6 +16,13 @@ import javafx.scene.web.HTMLEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The controller class for the Border Pane representing the html editor and the
+ * form for an email's recipient and subject.
+ *
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
+ */
 public class EmailFXHTMLLayoutController {
 
     private final static Logger LOG = LoggerFactory.getLogger(EmailFXHTMLLayoutController.class);
@@ -30,45 +37,25 @@ public class EmailFXHTMLLayoutController {
     @FXML
     private URL location;
 
-    //This will be a key=value pair in the email.properties
     @FXML
     private TextField toRecipientField;
 
-    //This will be a key=value pair in the email.properties
     @FXML
     private TextField ccRecipientField;
 
-    //This will be a key=value pair in the email.properties
     @FXML
     private TextField bccRecipientField;
 
-    //This will be a key=value pair in the email.properties
     @FXML
     private TextField subjectField;
 
-    //This will be a key=value pair in the email.properties
     @FXML
     private HTMLEditor emailFXHTMLEditor;
 
-    @FXML
-    void handleAbout(ActionEvent event) {
-        LOG.info("Will implement the about button which will display The user's name, email and info relating to the app");
-    }
-
-    @FXML
-    void handleClose(ActionEvent event) {
-        LOG.info("Will implement the feature to close the application.");
-    }
-
-    @FXML
-    void saveDraft(ActionEvent event) {
-        LOG.info("Will implement the feature to save a draft email into the draft folder whenever the save button is clicked");
-    }
 
     @FXML
     void initialize() {
-        assert emailFXHTMLLayout != null : "fx:id=\"emailFXHTMLLayout\" was not injected: check your FXML file 'EmailFXHTMLLayout.fxml'.";
-        assert emailFXHTMLEditor != null : "fx:id=\"emailFXHTMLEditor\" was not injected: check your FXML file 'EmailFXHTMLLayout.fxml'.";
+        //Todo, implement binding the gui components to its corresponding  FormFXBean
 
     }
 
@@ -80,15 +67,5 @@ public class EmailFXHTMLLayoutController {
      */
     public void setEmailDAO(EmailDAO emailDAO) {
         this.emailDAO = emailDAO;
-    }
-
-    @FXML
-    void sendEmail(ActionEvent event) {
-        LOG.info("Implement sending the draft email");
-    }
-
-    @FXML
-    void handleClear(ActionEvent event) {
-        LOG.info("Implement clearing all the fields in the lowerRightSplit");
     }
 }

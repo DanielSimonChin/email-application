@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.danielsimonchin.fxbeans;
 
 import java.sql.Timestamp;
@@ -14,8 +9,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
+ * The JavaFX bean for a row in the email table.
  *
- * @author Daniel
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
  */
 public class EmailTableFXBean {
 
@@ -39,12 +36,12 @@ public class EmailTableFXBean {
         this.subjectField = new SimpleStringProperty(subjectField);
         this.dateField = new SimpleObjectProperty(dateField);
     }
-    
+
     /**
      * Default constructor which calls the first constructor
      */
-    public EmailTableFXBean(){
-        this(0,"","",new Timestamp(0));
+    public EmailTableFXBean() {
+        this(0, "", "", new Timestamp(0));
     }
 
     public int getEmailId() {
@@ -54,8 +51,8 @@ public class EmailTableFXBean {
     public void setEmailId(int emailId) {
         this.emailId.set(emailId);
     }
-    
-    public IntegerProperty getEmailIdProperty(){
+
+    public IntegerProperty getEmailIdProperty() {
         return emailId;
     }
 
@@ -66,8 +63,8 @@ public class EmailTableFXBean {
     public void setFromField(String fromField) {
         this.fromField.set(fromField);
     }
-    
-    public StringProperty getFromFieldProperty(){
+
+    public StringProperty getFromFieldProperty() {
         return this.fromField;
     }
 
@@ -79,10 +76,10 @@ public class EmailTableFXBean {
         this.subjectField.set(subjectField);
     }
 
-    public StringProperty getSubjectFieldProperty(){
+    public StringProperty getSubjectFieldProperty() {
         return this.subjectField;
     }
-    
+
     public Object getDateField() {
         return dateField.get();
     }
@@ -90,8 +87,8 @@ public class EmailTableFXBean {
     public void setDateField(Timestamp dateField) {
         this.dateField.set(dateField);
     }
-    
-    public ObjectProperty getDateFieldProperty(){
+
+    public ObjectProperty getDateFieldProperty() {
         return this.dateField;
     }
 }

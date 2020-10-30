@@ -52,11 +52,12 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Unit tests methods to test the function of the CRUD in EmailDAOImpl class.
+ * The createEmailClientDB.sql file must have been executed before running these
+ * unit tests. This allows us to us the created user in the script.
  *
  * @author Daniel Simon Chin
  * @version Oct 7th, 2020
  */
-
 @Ignore //Ignoring so maven does not run the tests during Phase3 (quicker)
 public class CrudTests {
 
@@ -101,16 +102,13 @@ public class CrudTests {
      */
     @Before
     public void createMailConfigBean() {
-        //Use the root user to create the db and the tables. 
-        this.mailConfigBean = new MailConfigBean("daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", "jdbc:mysql://localhost:3306/EMAILCLIENT", "EMAILCLIENT", "3306", "root", "logitech7790");
-        seedDatabase("createEmailClientDB.sql");
+        //Use the created user to create the tables
+        this.mailConfigBean = new MailConfigBean("daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", "jdbc:mysql://localhost:3306/EMAILCLIENT", "EMAILCLIENT", "3306", "daniel", "danielpw");
         seedDatabase("createFoldersTable.sql");
         seedDatabase("createEmailTable.sql");
         seedDatabase("createAddressesTable.sql");
         seedDatabase("createAttachmentsTable.sql");
         seedDatabase("createEmailToAddressTable.sql");
-        //Use the newly created user for the rest of the tests.
-        this.mailConfigBean = new MailConfigBean("daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", "jdbc:mysql://localhost:3306/EMAILCLIENT", "EMAILCLIENT", "3306", "daniel", "danielpw");
 
         allRecipients = new ArrayList<>();
         toList = new ArrayList<>();
@@ -143,13 +141,14 @@ public class CrudTests {
      * @throws SQLException
      * @throws IOException
      * @throws com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException
-     * @throws com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException
+     * @throws
+     * com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException
      * @throws com.danielsimonchin.exceptions.RecipientListNullException
      * @throws com.danielsimonchin.exceptions.RecipientEmailAddressNullException
      * @throws com.danielsimonchin.exceptions.RecipientInvalidFormatException
      */
     @Test
-    public void testEmailCreate() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException{
+    public void testEmailCreate() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -162,7 +161,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
-        
+
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null. The emailId will be set in the create method. 2 represents the sent folder
@@ -182,7 +181,7 @@ public class CrudTests {
      * @throws IOException
      */
     @Test
-    public void testEmailCreateWithReceivedEmail() throws SQLException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+    public void testEmailCreateWithReceivedEmail() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
@@ -196,7 +195,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
-        
+
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         try {
             Thread.sleep(3000);
@@ -440,7 +439,7 @@ public class CrudTests {
      * @throws IOException
      */
     @Test
-    public void testFindById() throws SQLException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+    public void testFindById() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         //Adding one person into the CC list
@@ -453,7 +452,7 @@ public class CrudTests {
         embeddedAttachments.add(new File("FreeFall.jpg"));
         //Instantiate a SendAndReceive object to utilize its methods
         runMail = new SendAndReceive(mailConfigBean);
-        
+
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null.
@@ -495,7 +494,6 @@ public class CrudTests {
         }
         assertTrue(testResult);
     }
-
 
     /**
      * Find all the emails in a folder and return a list of EmailBean. Uses a
@@ -849,11 +847,11 @@ public class CrudTests {
      * @throws CannotMoveToDraftsException
      */
     @Test
-    public void testUpdateFolderToInbox() throws SQLException, IOException, CannotMoveToDraftsException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
+    public void testUpdateFolderToInbox() throws SQLException, IOException, CannotMoveToDraftsException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException {
         //Adding one person into the TO list
         toList.add(recipient1.getUserEmailAddress());
         runMail = new SendAndReceive(mailConfigBean);
-        
+
         Email resultEmail = runMail.sendEmail(toList, ccList, bccList, subject, plainMsg, htmlMsg, regularAttachments, embeddedAttachments);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //since we are sending it, it does not have a receivedDate so we leave it as null. The emailId will be set in the create method. 2 represents the sent folder
@@ -863,7 +861,7 @@ public class CrudTests {
         emailBean.setFolderKey(1);
         int queryResult = crud.updateFolder(emailBean);
         assertEquals(1, queryResult);
-    } 
+    }
 
     /**
      * Expect an exception when the user tries to move a sent or inbox email to

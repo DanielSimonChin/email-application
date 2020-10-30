@@ -12,44 +12,47 @@ import javafx.collections.ObservableList;
 /**
  * JavaFX Bean for a folder in the folder Tree
  *
- * @author Daniel
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
  */
 public class FolderFXBean {
+
     private IntegerProperty folderId;
     private StringProperty folderName;
     private ListProperty folderContents;
-    
+
     /**
      * Constructor which sets the input parameters to the associated FXBean.
-     * 
+     *
      * @param folderId
      * @param folderName
-     * @param folderContent 
+     * @param folderContent
      */
-    public FolderFXBean(int folderId, String folderName, ObservableList folderContent){
+    public FolderFXBean(int folderId, String folderName, ObservableList folderContent) {
         this.folderId = new SimpleIntegerProperty(folderId);
         this.folderName = new SimpleStringProperty(folderName);
         this.folderContents = new SimpleListProperty(folderContent);
     }
-    
+
     /**
-     * Default constructor which calls the first constructor and giving it default values.
+     * Default constructor which calls the first constructor and giving it
+     * default values.
      */
-    public FolderFXBean(){
-        this(0,"",FXCollections.observableArrayList());
+    public FolderFXBean() {
+        this(0, "", FXCollections.observableArrayList());
     }
-    
+
     /**
      * @return the folder's id
      */
-    public int getFolderId(){
+    public int getFolderId() {
         return this.folderId.get();
     }
-    
+
     /**
      * @param folderId
      */
-    public void setFolderId(int folderId ) {
+    public void setFolderId(int folderId) {
         this.folderId.set(folderId);
     }
 
@@ -59,18 +62,18 @@ public class FolderFXBean {
     public IntegerProperty getFolderIdProperty() {
         return folderId;
     }
-    
+
     /**
      * @return the folder's name
      */
-    public String getFolderName(){
+    public String getFolderName() {
         return this.folderName.get();
     }
-    
+
     /**
      * @param folderName
      */
-    public void setFolderName(String folderName ) {
+    public void setFolderName(String folderName) {
         this.folderName.set(folderName);
     }
 
@@ -80,14 +83,14 @@ public class FolderFXBean {
     public StringProperty getFolderNameProperty() {
         return folderName;
     }
-    
+
     /**
      * @return the folder's contents
      */
-    public ObservableList getFolderContents(){
+    public ObservableList getFolderContents() {
         return this.folderContents.getValue();
     }
-    
+
     /**
      * @param folderContents
      */

@@ -5,9 +5,10 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * JavaFX Bean for JAG Properties
+ * JavaFX Bean for JAG Properties at the form interface.
  *
- * @author Daniel
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
  */
 public class PropertyBean {
 

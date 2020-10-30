@@ -15,6 +15,15 @@ import javafx.scene.layout.AnchorPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The controller for the Email table component of the UI. Will implement
+ * handlers for dragging and dropping emails into folders. And will display the
+ * list of emails according to the selected folder. If no folder is selected, it
+ * defaults to displaying all the emails.
+ *
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
+ */
 public class EmailFXTableLayoutController {
 
     private final static Logger LOG = LoggerFactory.getLogger(EmailFXTableLayoutController.class);
@@ -43,15 +52,13 @@ public class EmailFXTableLayoutController {
 
     @FXML
     void initialize() {
-        // Connects the property in the EmailBean object to the column in the
+        //TOOD: Connects the property in the EmailBean object to the column in the
         // table
-        //TODO
-        
+
         adjustColumnWidths();
-        
-        //Add listeners so when clicking on a cell, it will show the email contents in either the webViewer or the htmlEditor(if it is a draft).
-        
-        //add listener for onDrag detected so we can drag and drop emails into sent/inbox folders
+
+        //TODO: Add listeners so when clicking on a cell, it will show the email contents in either the webViewer or the htmlEditor(if it is a draft).
+        //TODO: Add listener for onDrag detected so we can drag and drop emails into sent/inbox folders
     }
 
     /**
@@ -64,28 +71,33 @@ public class EmailFXTableLayoutController {
         this.emailDAO = emailDAO;
     }
 
-    
+    /**
+     * When program first starts, we want to display all emails since no folder
+     * has been selected yet.
+     *
+     * @throws SQLException
+     * @throws IOException
+     */
     public void displayTable() throws SQLException, IOException {
-        //At first, we dispay all the emails in the db, since a folder has not been selected yet.
+        //TODO: Need to implement converting an EmailBean to a JAVAFX BEAN in phase 4
         emailDataTable.setItems(this.emailDAO.findAll());
     }
-    
+
     /**
-     * The FolderFXTreeLayoutController needs a reference to the this controller. With
-     * that reference it can call this method to retrieve a reference to the
-     * TableView and change its selection
+     * The FolderFXTreeLayoutController needs a reference to the this
+     * controller. With that reference it can call this method to retrieve a
+     * reference to the TableView and change its selection
      *
      * @return emailDataTable
      */
     public TableView<EmailBean> getEmailDataTable() {
         return emailDataTable;
     }
-    
+
     private void showEmailDetails(EmailBean emailBean) {
-        //TODO, display the contents of the email in the emailViewer section of the app.
-        //PHASE 4 TODO
+        //TODO: display the contents of the email in the section of the app where an email must be shown.
     }
-    
+
     /**
      * Sets the width of the columns based on a percentage of the overall width
      *
@@ -99,8 +111,5 @@ public class EmailFXTableLayoutController {
         fromColumn.setPrefWidth(width * .25);
         subjectColumn.setPrefWidth(width * .25);
         dateColumn.setPrefWidth(width * .25);
-    
     }
-    
-   
 }

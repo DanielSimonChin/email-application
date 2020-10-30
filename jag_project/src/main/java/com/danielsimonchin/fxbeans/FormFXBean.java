@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.danielsimonchin.fxbeans;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
+ * The JavaFX bean for the form in which a user sets up an email to be sent.
  *
- * @author Daniel
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
  */
 public class FormFXBean {
+
     private StringProperty toField;
     private StringProperty ccField;
     private StringProperty bccField;
@@ -24,7 +22,7 @@ public class FormFXBean {
         this.bccField = new SimpleStringProperty(bccField);
         this.subjectField = new SimpleStringProperty(subjectField);
     }
-    
+
     /**
      * Default constructor which ensures we don't have any nulls and sets every
      * field as an empty string.
@@ -32,7 +30,7 @@ public class FormFXBean {
     public FormFXBean() {
         this("", "", "", "");
     }
-    
+
     /**
      * @return the toField
      */
@@ -53,7 +51,7 @@ public class FormFXBean {
     public StringProperty getToFieldProperty() {
         return toField;
     }
-    
+
     /**
      * @return the ccField
      */
@@ -74,7 +72,7 @@ public class FormFXBean {
     public StringProperty getCcFieldProperty() {
         return ccField;
     }
-    
+
     /**
      * @return the bccField
      */
@@ -95,7 +93,7 @@ public class FormFXBean {
     public StringProperty getBccFieldProperty() {
         return bccField;
     }
-    
+
     /**
      * @return the subjectField
      */
@@ -113,7 +111,7 @@ public class FormFXBean {
     /**
      * @return the StringProperty subjectField
      */
-    public StringProperty getSubjectFieldProperty(){
+    public StringProperty getSubjectFieldProperty() {
         return subjectField;
-    }  
+    }
 }

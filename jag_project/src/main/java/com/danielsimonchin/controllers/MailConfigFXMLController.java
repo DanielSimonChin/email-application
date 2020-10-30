@@ -17,6 +17,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The controller for the MailConfig form at the start of the program. Binds the
+ * form fields to the JavaFX Bean PropertyBean. Allows for user to clear all
+ * fields or to save the field contents and proceed to the app.
+ *
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
+ */
 public class MailConfigFXMLController {
 
     private Stage primaryStage;
@@ -77,8 +85,10 @@ public class MailConfigFXMLController {
     }
 
     /**
-     * Write the form changes to the MailConfig.properties file and open the application, therefore changing the scene.
-     * @param event 
+     * Write the form changes to the MailConfig.properties file and open the
+     * application, therefore changing the scene.
+     *
+     * @param event
      */
     @FXML
     void saveConfigAction(ActionEvent event) {
@@ -87,19 +97,24 @@ public class MailConfigFXMLController {
         } catch (IOException ex) {
             //Add dialog
         }
-        //when you save, opens up the email application
+        //when you save, opens up the email application.
         setupRootLayout();
     }
 
+    /**
+     * Sets up the Root border pane that will contain 3 other embedded
+     * containers representing the FolderTree, Email table and html editor.
+     * Changes the scene so that the application is presented
+     */
     private void setupRootLayout() {
         try {
             this.mcBean = generateMailConfigBean();
-            
+
             FXMLLoader loader = new FXMLLoader();
             loader.setResources(resources);
 
             loader.setLocation(RootLayoutController.class
-                  .getResource("/fxml/RootLayout.fxml"));
+                    .getResource("/fxml/RootLayout.fxml"));
 
             BorderPane rootPane = (BorderPane) loader.load();
 
@@ -111,7 +126,7 @@ public class MailConfigFXMLController {
             primaryStage.show();
 
         } catch (IOException ex) {
-            LOG.error("initUpperLeftLayout error", ex);
+            LOG.error("RootLayout error", ex);
             Platform.exit();
         }
     }
@@ -125,12 +140,23 @@ public class MailConfigFXMLController {
     private MailConfigBean generateMailConfigBean() {
         return new MailConfigBean(propertyBean.getUserName(), propertyBean.getEmailAddress(), propertyBean.getEmailPassword(), propertyBean.getImapURL(), propertyBean.getSmtpURL(), propertyBean.getImapPort(), propertyBean.getSmtpPort(), propertyBean.getmysqlURL(), propertyBean.getmysqlDatabase(), propertyBean.getmysqlPort(), propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword());
     }
-    
-    public static MailConfigBean getMailConfigBean(){
+
+    /**
+     * The RootLayout will use this method to retrieve the MailConfigBean to
+     * initialize its EmailDAO.
+     *
+     * @return
+     */
+    public static MailConfigBean getMailConfigBean() {
         return mcBean;
     }
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    /**
+     * This method is called by the FXMLLoader when initialization is complete.
+     * Will bind the form fields to the JAVAFX Bean. So we are able to read and
+     * write to the properties file MailConfig.properties
+     */
+    @FXML
     void initialize() {
         assert userNameField != null : "fx:id=\"userNameField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
         assert emailAddressField != null : "fx:id=\"emailAddressField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
@@ -166,8 +192,13 @@ public class MailConfigFXMLController {
         Bindings.bindBidirectional(mysqlUsernameField.textProperty(), propertyBean.getmysqlUsernameProperty());
         Bindings.bindBidirectional(mysqlPasswordField.textProperty(), propertyBean.getmysqlPasswordProperty());
     }
-    
-    public void passStage(Stage primaryStage){
+
+    /**
+     * The MainApp will pass its stage so we can utilize it in this controller.
+     *
+     * @param primaryStage
+     */
+    public void passStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 }

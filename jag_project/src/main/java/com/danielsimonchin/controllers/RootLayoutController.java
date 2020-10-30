@@ -12,6 +12,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -20,7 +21,16 @@ import javafx.scene.layout.BorderPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The controller for the root layout containing three embedded layouts. Calls
+ * helper methods that sets up 3 individual panes and places them in their
+ * respective sections of the parent Border pane.
+ *
+ * @author Daniel Simon Chin
+ * @version Oct 31, 2020
+ */
 public class RootLayoutController {
+
     private final static Logger LOG = LoggerFactory.getLogger(RootLayoutController.class);
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -40,16 +50,21 @@ public class RootLayoutController {
 
     @FXML
     private BorderPane lowerRightSplit;
-    
+
     private EmailDAO emailDAO;
-    
+
     private FolderFXTreeLayoutController emailFXTreeController;
     private EmailFXTableLayoutController emailFXTableController;
     private EmailFXHTMLLayoutController emailFXHTMLController;
 
-
-    
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    /**
+     * This method is called by the FXMLLoader when initialization is complete.
+     * Creates an EmailDAO object to be passed to other controllers sets the 3
+     * children layouts into the root layout.
+     *
+     * @throws IOException
+     */
+    @FXML
     void initialize() throws IOException {
         //retrieve the generated MailConfigBean from the MailConfigFXMLController class
         this.emailDAO = new EmailDAOImpl(MailConfigFXMLController.getMailConfigBean());
@@ -59,8 +74,6 @@ public class RootLayoutController {
         initUpperRightLayout();
         initLowerRightLayout();
 
-        
-        // Tell the tree about the table
         setTableControllerToTree();
         try {
             emailFXTreeController.displayTree();
@@ -70,18 +83,17 @@ public class RootLayoutController {
             errorAlert("initialize()");
             Platform.exit();
         }
-
     }
-    
+
     /**
-     * Send the reference to the FishFXTableController to the
-     * FishFXTreeController
+     * Send the reference to the emailFXTableController to the
+     * emailFXTreeController
      */
     private void setTableControllerToTree() {
         emailFXTreeController.setTableController(emailFXTableController);
     }
-    
-        /**
+
+    /**
      * The TreeView Layout
      */
     private void initLeftSplitLayout() {
@@ -104,7 +116,7 @@ public class RootLayoutController {
             Platform.exit();
         }
     }
-    
+
     /**
      * The TableView Layout
      */
@@ -128,7 +140,7 @@ public class RootLayoutController {
             Platform.exit();
         }
     }
-    
+
     /**
      * The HTMLEditor Layout
      */
@@ -152,8 +164,7 @@ public class RootLayoutController {
             Platform.exit();
         }
     }
-    
-    
+
     /**
      * Error message popup dialog
      *
@@ -166,5 +177,67 @@ public class RootLayoutController {
         dialog.setContentText(resources.getString(msg));
         dialog.show();
     }
-}
 
+    /**
+     * When user clicks on the About menu item, it will display a html page
+     * using a webViewer with a guide on what each button does.
+     *
+     * @param event
+     */
+    @FXML
+    void handleAbout(ActionEvent event) {
+        LOG.info("TODO : Implementation for the About Menu Item");
+    }
+
+    /**
+     * Allow the user to add an attachment to an email.
+     *
+     * @param event
+     */
+    @FXML
+    void handleAddAttachment(ActionEvent event) {
+        LOG.info("TODO : Implementation for the Add Attachment Menu Item");
+    }
+
+    /**
+     * Allow user to save an attachment of a selected Email
+     *
+     * @param event
+     */
+    @FXML
+    void handleSaveAttachment(ActionEvent event) {
+        LOG.info("TODO : Implementation for the Save Attachment Menu Item");
+    }
+
+    /**
+     * The application will close when this Menu Item is clicked
+     *
+     * @param event
+     */
+    @FXML
+    void handleClose(ActionEvent event) {
+        Platform.exit();
+    }
+
+    /**
+     * An Email being written in the htxml editor will be saved to the database
+     * in the DRAFT folder.
+     *
+     * @param event
+     */
+    @FXML
+    void handleSaveDraft(ActionEvent event) {
+        LOG.info("TODO : Implementation for the Save Draft Menu Item");
+    }
+
+    /**
+     * An email that is in the html editor along with the form for recipients
+     * and subject will be sent.
+     *
+     * @param event
+     */
+    @FXML
+    void handleSendEmail(ActionEvent event) {
+        LOG.info("TODO : Implementation for the Send Email Menu Item");
+    }
+}
