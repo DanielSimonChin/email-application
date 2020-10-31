@@ -16,6 +16,15 @@ public class FormFXBean {
     private StringProperty bccField;
     private StringProperty subjectField;
 
+    /**
+     * Takes the multiple inputs for the email form and sets them in the
+     * FormFXBean
+     *
+     * @param toField
+     * @param ccField
+     * @param bccField
+     * @param subjectField
+     */
     public FormFXBean(String toField, String ccField, String bccField, String subjectField) {
         this.toField = new SimpleStringProperty(toField);
         this.ccField = new SimpleStringProperty(ccField);

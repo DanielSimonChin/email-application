@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Daniel Simon Chin
  * @version Oct 31, 2020
  */
-public class PropertyBean {
+public class MailConfigFXBean {
 
     private StringProperty userName;
     private StringProperty emailAddress;
@@ -42,7 +42,7 @@ public class PropertyBean {
      * @param mysqlUsername
      * @param mysqlPassword
      */
-    public PropertyBean(String userName, String emailAddress, String emailPassword, String imapURL, String smtpURL, String imapPort, String smtpPort, String mysqlURL, String mysqlDatabase, String mysqlPort, String mysqlUsername, String mysqlPassword) {
+    public MailConfigFXBean(String userName, String emailAddress, String emailPassword, String imapURL, String smtpURL, String imapPort, String smtpPort, String mysqlURL, String mysqlDatabase, String mysqlPort, String mysqlUsername, String mysqlPassword) {
         this.userName = new SimpleStringProperty(userName);
         this.emailAddress = new SimpleStringProperty(emailAddress);
         this.emailPassword = new SimpleStringProperty(emailPassword);
@@ -61,7 +61,7 @@ public class PropertyBean {
      * Default constructor which ensures we don't have any nulls and sets every
      * field as an empty string.
      */
-    public PropertyBean() {
+    public MailConfigFXBean() {
         this("", "", "", "", "", "", "", "", "", "", "", "");
     }
 
@@ -318,7 +318,7 @@ public class PropertyBean {
     }
 
     /**
-     * Override the toString for a PropertyBean
+     * Override the toString for a MailConfigFXBean
      *
      * @return resulting toString() String
      */
@@ -342,7 +342,7 @@ public class PropertyBean {
     }
 
     /**
-     * Generate and returns the hashCode of a PropertyBean object.
+     * Generate and returns the hashCode of a MailConfigFXBean object.
      *
      * @return The generated hashCode.
      */
@@ -365,7 +365,7 @@ public class PropertyBean {
     }
 
     /**
-     * Override of the equals method to compare two PropertyBean objects.
+     * Override of the equals method to compare two MailConfigFXBean objects.
      *
      * @param obj
      * @return true if they are equal, false otherwise
@@ -381,7 +381,7 @@ public class PropertyBean {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PropertyBean other = (PropertyBean) obj;
+        final MailConfigFXBean other = (MailConfigFXBean) obj;
         if (!Objects.equals(this.userName, other.userName)) {
             return false;
         }

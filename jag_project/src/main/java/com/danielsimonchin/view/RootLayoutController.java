@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.danielsimonchin.controllers;
+package com.danielsimonchin.view;
 
+import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
+import com.danielsimonchin.propertiesmanager.PropertiesManager;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -15,9 +17,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,6 +38,10 @@ import org.slf4j.LoggerFactory;
 public class RootLayoutController {
 
     private final static Logger LOG = LoggerFactory.getLogger(RootLayoutController.class);
+
+    private Stage primaryStage;
+
+    private FileChooser fileChooser;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -54,7 +64,9 @@ public class RootLayoutController {
     private EmailDAO emailDAO;
 
     private FolderFXTreeLayoutController emailFXTreeController;
+
     private EmailFXTableLayoutController emailFXTableController;
+
     private EmailFXHTMLLayoutController emailFXHTMLController;
 
     /**
@@ -66,8 +78,14 @@ public class RootLayoutController {
      */
     @FXML
     void initialize() throws IOException {
-        //retrieve the generated MailConfigBean from the MailConfigFXMLController class
-        this.emailDAO = new EmailDAOImpl(MailConfigFXMLController.getMailConfigBean());
+        fileChooser = new FileChooser();
+
+        //Read from the properties file so we create our MailConfigBean to initialize a EmailDAO object.
+        PropertiesManager propertiesManager = new PropertiesManager();
+        MailConfigFXBean mcBean = new MailConfigFXBean();
+        propertiesManager.loadTextProperties(mcBean, "", "MailConfig");
+
+        this.emailDAO = new EmailDAOImpl(MailConfigFXMLController.generateMailConfigBean(mcBean));
 
         //Setup all the sections of the application 
         initLeftSplitLayout();
@@ -158,6 +176,7 @@ public class RootLayoutController {
             emailFXHTMLController.setEmailDAO(emailDAO);
 
             lowerRightSplit.getChildren().add(htmlView);
+
         } catch (IOException ex) {
             LOG.error("initLowerRightLayout error", ex);
             errorAlert("initLowerRightLayout()");
@@ -239,5 +258,55 @@ public class RootLayoutController {
     @FXML
     void handleSendEmail(ActionEvent event) {
         LOG.info("TODO : Implementation for the Send Email Menu Item");
+    }
+
+    /**
+     * The user is able to return to the MailConfig form when clicking the
+     * MenuItem in settings. Loads the MailConfigFXML.fxml and passes the stage
+     * through the passStage() method.
+     *
+     * @param event
+     */
+    @FXML
+    void handleReturnToConfig(ActionEvent event) {
+        try {
+            //Instantiate a FXMLLoader object
+            FXMLLoader loader = new FXMLLoader();
+
+            //Configure the FXMLLoader with the i18n locale resource bundles
+            loader.setResources(resources);
+
+            //Connect the FXMLLoader to the fxml file that is stored in the jar
+            loader.setLocation(MailConfigFXMLController.class.getResource("/fxml/MailConfigFXML.fxml"));
+
+            //The load command returns a reference to the root pane of the fxml file
+            GridPane rootPane = (GridPane) loader.load();
+            MailConfigFXMLController formLayout = loader.getController();
+
+            formLayout.passStage(primaryStage);
+
+            Scene scene = new Scene(rootPane);
+
+            primaryStage.setTitle(resources.getString("title"));
+            primaryStage.setScene(scene);
+
+            primaryStage.show();
+
+            LOG.info("The scene has changed from the Email Application to the MailConfig Form Interface.");
+
+        } catch (IOException ex) {
+            LOG.error("Error displaying the form from the application", ex);
+            errorAlert("handleReturnToConfig()");
+            Platform.exit();
+        }
+    }
+
+    /**
+     * Pass the primary Stage to this controller
+     *
+     * @param primaryStage
+     */
+    public void passStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 }

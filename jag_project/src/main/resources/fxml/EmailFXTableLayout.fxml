@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="emailFXTable" prefHeight="515.0" prefWidth="903.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.EmailFXTableLayoutController">
+<AnchorPane id="AnchorPane" fx:id="emailFXTable" prefHeight="515.0" prefWidth="903.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.view.EmailFXTableLayoutController">
     <stylesheets>
         <URL value="@/styles/emailfxtablelayout.css" />
     </stylesheets>

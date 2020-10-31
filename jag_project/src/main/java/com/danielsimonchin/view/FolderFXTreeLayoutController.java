@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.danielsimonchin.controllers;
+package com.danielsimonchin.view;
 
+import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
+import com.danielsimonchin.persistence.FakeEmailDAOPersistence;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -15,6 +12,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,15 +40,15 @@ public class FolderFXTreeLayoutController {
 
     @FXML
     private ResourceBundle resources;
-
+    
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // fx:id="folderFXTreeLayout"
-    private AnchorPane folderFXTreeLayout; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane folderFXTreeLayout;
 
-    @FXML // fx:id="folderFXTreeView"
-    private TreeView<String> folderFXTreeView; // Value injected by FXMLLoader
+    @FXML
+    private TreeView<FolderFXBean> folderFXTreeView;
 
     /**
      * This method is called by the FXMLLoader when initialization is complete.
@@ -58,23 +59,24 @@ public class FolderFXTreeLayoutController {
     void initialize() {
         // We need a root node for the tree and it must be the same type as all
         // nodes
-        String rootString = new String();
+        FolderFXBean rootFolder = new FolderFXBean();
 
-        folderFXTreeView.setRoot(new TreeItem<>(rootString));
+        folderFXTreeView.setRoot(new TreeItem<FolderFXBean>(rootFolder));
         // This cell factory is used to choose which field in the FihDta object
         // is used for the node name
-        folderFXTreeView.setCellFactory((e) -> new TreeCell<String>() {
+        folderFXTreeView.setCellFactory((e) -> new TreeCell<FolderFXBean>() {
             @Override
-            protected void updateItem(String item, boolean empty) {
+            protected void updateItem(FolderFXBean item, boolean empty) {
                 super.updateItem(item, empty);
                 if (item != null) {
-                    setText(item);
+                    setText(item.getFolderName());
+                    setGraphic(getTreeItem().getGraphic());
                 } else {
                     setText("");
+                    setGraphic(null);
                 }
             }
         });
-
     }
 
     /**
@@ -89,24 +91,82 @@ public class FolderFXTreeLayoutController {
 
     /**
      * Get all the folder names of the database and add them to the TreeView.
-     * @throws SQLException 
+     *
+     * @throws SQLException
      */
     public void displayTree() throws SQLException {
-        ObservableList<String> folderNames = emailDAO.getAllFolderNames();
+        ObservableList<FolderFXBean> folders = FakeEmailDAOPersistence.findAllFolders();
 
-        // Build an item for each fish and add it to the root
-        if (folderNames != null) {
-            folderNames.stream().map((folder) -> new TreeItem<>(folder)).map((item) -> {
-                return item;
-            }).forEachOrdered((item) -> {
+        // Build an item for each email and add it to the root
+        if (folders != null) {
+            for (FolderFXBean folder : folders) {
+                TreeItem<FolderFXBean> item = new TreeItem<>(folder);
+                item.setGraphic(new ImageView(getClass().getResource("/images/foldericon.png").toExternalForm()));
                 folderFXTreeView.getRoot().getChildren().add(item);
-            });
+            }
         }
 
         // Open the tree
         folderFXTreeView.getRoot().setExpanded(true);
 
         //TODO: Add listeners to these tree items so they can be clicked to view the folder's contents
+        // Listen for selection changes and show the fishData details when changed.
+        folderFXTreeView
+                .getSelectionModel()
+                .selectedItemProperty()
+                .addListener(
+                        (observable, oldValue, newValue) -> showFolderContents(newValue));
+    }
+
+    /**
+     * This method prevents dropping the value on anything buts the TreeView.
+     *
+     * @param event
+     */
+    @FXML
+    void handleDragOver(DragEvent event) {
+        /* data is dragged over the target */
+        LOG.debug("onDragOver");
+
+        // Accept it only if it is not dragged from the same control and if it
+        // has a string data
+        if (event.getGestureSource() != folderFXTreeView && event.getDragboard().hasString()) {
+            // allow for both copying and moving, whatever user chooses
+            event.acceptTransferModes(TransferMode.ANY);
+        }
+        event.consume();
+    }
+
+    /**
+     * When the email is dropped into a folder, take that email out of the table
+     * and place it into the new folder.
+     *
+     * @param event
+     */
+    @FXML
+    void handleDragDropped(DragEvent event) {
+        //TODO : implement the action for dropping an email into a folder.
+        
+        LOG.debug("onDragDropped");
+        Dragboard db = event.getDragboard();
+        boolean success = false;
+
+        //let the source know whether the string was successfully transferred
+        // and used
+        event.setDropCompleted(success);
+
+        event.consume();
+    }
+
+    /**
+     * To be able to test the selection handler for the tree, this method
+     * displays the emails in a selected folder.
+     *
+     * @param folderData
+     */
+    private void showFolderContents(TreeItem<FolderFXBean> folderData) {
+        //TODO : in phase 4, We send the EmailDAOImpl the folder name and find all the emails to be displayed from that folder.
+        LOG.info("SHOW A FOLDER'S EMAILS IN THE TABLE");
     }
 
     /**

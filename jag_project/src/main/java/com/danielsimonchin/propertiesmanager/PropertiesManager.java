@@ -1,6 +1,6 @@
 package com.danielsimonchin.propertiesmanager;
 
-import com.danielsimonchin.fxbeans.PropertyBean;
+import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,7 +28,7 @@ public class PropertiesManager {
      * @return true if the file's properties have been loaded, false otherwise.
      * @throws java.io.IOException
      */
-    public final boolean loadTextProperties(final PropertyBean propertyBean, final String path, final String propFileName) throws IOException {
+    public final boolean loadTextProperties(final MailConfigFXBean propertyBean, final String path, final String propFileName) throws IOException {
 
         boolean found = false;
         Properties prop = new Properties();
@@ -65,7 +65,7 @@ public class PropertiesManager {
      * @param propertyBean The bean to store into the properties
      * @throws IOException
      */
-    public final void writeTextProperties(final String path, final String propFileName, final PropertyBean propertyBean) throws IOException {
+    public final void writeTextProperties(final String path, final String propFileName, final MailConfigFXBean propertyBean) throws IOException {
 
         Properties prop = new Properties();
 

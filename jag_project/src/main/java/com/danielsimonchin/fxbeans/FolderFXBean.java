@@ -1,13 +1,9 @@
 package com.danielsimonchin.fxbeans;
 
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  * JavaFX Bean for a folder in the folder Tree
@@ -19,19 +15,16 @@ public class FolderFXBean {
 
     private IntegerProperty folderId;
     private StringProperty folderName;
-    private ListProperty folderContents;
 
     /**
      * Constructor which sets the input parameters to the associated FXBean.
      *
      * @param folderId
      * @param folderName
-     * @param folderContent
      */
-    public FolderFXBean(int folderId, String folderName, ObservableList folderContent) {
+    public FolderFXBean(int folderId, String folderName) {
         this.folderId = new SimpleIntegerProperty(folderId);
         this.folderName = new SimpleStringProperty(folderName);
-        this.folderContents = new SimpleListProperty(folderContent);
     }
 
     /**
@@ -39,7 +32,7 @@ public class FolderFXBean {
      * default values.
      */
     public FolderFXBean() {
-        this(0, "", FXCollections.observableArrayList());
+        this(0, "");
     }
 
     /**
@@ -82,26 +75,5 @@ public class FolderFXBean {
      */
     public StringProperty getFolderNameProperty() {
         return folderName;
-    }
-
-    /**
-     * @return the folder's contents
-     */
-    public ObservableList getFolderContents() {
-        return this.folderContents.getValue();
-    }
-
-    /**
-     * @param folderContents
-     */
-    public void setFolderContents(ObservableList folderContents) {
-        this.folderContents.set(folderContents);
-    }
-
-    /**
-     * @return the folderContents ListProperty
-     */
-    public ListProperty getFolderContentsProperty() {
-        return folderContents;
     }
 }

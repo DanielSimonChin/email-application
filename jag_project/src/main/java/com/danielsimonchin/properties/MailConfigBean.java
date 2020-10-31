@@ -1,8 +1,10 @@
 package com.danielsimonchin.properties;
 
 /**
- * Class which contains fields relating to a email server connection and a database connection.
- * This bean will be used in both the SendAndReceive operations for sending and receiving emails and for database operations in the persistence class.
+ * Class which contains fields relating to a email server connection and a
+ * database connection. This bean will be used in both the SendAndReceive
+ * operations for sending and receiving emails and for database operations in
+ * the persistence class.
  *
  * @author Daniel Simon Chin
  * @version September 20, 2020
@@ -239,4 +241,24 @@ public class MailConfigBean {
     public final void setDatabasePassword(final String databasePassword) {
         this.databasePassword = databasePassword;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("MailConfigBean{name=").append(name);
+        sb.append(", userEmailAddress=").append(userEmailAddress);
+        sb.append(", password=").append(password);
+        sb.append(", imapUrl=").append(imapUrl);
+        sb.append(", smtpUrl=").append(smtpUrl);
+        sb.append(", imapPort=").append(imapPort);
+        sb.append(", smtpPort=").append(smtpPort);
+        sb.append(", databaseURL=").append(databaseURL);
+        sb.append(", databaseName=").append(databaseName);
+        sb.append(", databasePort=").append(databasePort);
+        sb.append(", databaseUserName=").append(databaseUserName);
+        sb.append(", databasePassword=").append(databasePassword);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

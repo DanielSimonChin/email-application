@@ -1,8 +1,8 @@
-package com.danielsimonchin.controllers;
+package com.danielsimonchin.view;
 
 import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
-import com.danielsimonchin.fxbeans.PropertyBean;
+import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -28,58 +29,63 @@ import org.slf4j.LoggerFactory;
 public class MailConfigFXMLController {
 
     private Stage primaryStage;
-    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(MailConfigFXMLController.class);
+    private final static Logger LOG = LoggerFactory.getLogger(MailConfigFXMLController.class);
 
-    private PropertyBean propertyBean;
+    private MailConfigFXBean propertyBean;
     private PropertiesManager propertiesManager;
     private static MailConfigBean mcBean;
 
     private RootLayoutController rootLayout;
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
-
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // fx:id="userNameField"
-    private TextField userNameField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="emailAddressField"
-    private TextField emailAddressField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="emailPasswordField"
-    private TextField emailPasswordField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="imapURLField"
-    private TextField imapURLField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="smtpURLField"
-    private TextField smtpURLField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="imapPortField"
-    private TextField imapPortField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="smtpPortField"
-    private TextField smtpPortField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="mysqlURLField"
-    private TextField mysqlURLField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="mysqlPortField"
-    private TextField mysqlPortField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="mysqlDatabaseField"
-    private TextField mysqlDatabaseField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="mysqlUsernameField"
-    private TextField mysqlUsernameField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="mysqlPasswordField"
-    private TextField mysqlPasswordField; // Value injected by FXMLLoader
+    @FXML
+    private ResourceBundle resources;
 
     @FXML
-    void cancelAction(ActionEvent event) {
+    private TextField userNameField;
+
+    @FXML
+    private TextField emailAddressField;
+
+    @FXML
+    private TextField emailPasswordField;
+
+    @FXML
+    private TextField imapURLField;
+
+    @FXML
+    private TextField smtpURLField;
+
+    @FXML
+    private TextField imapPortField;
+
+    @FXML
+    private TextField smtpPortField;
+
+    @FXML
+    private TextField mysqlURLField;
+
+    @FXML
+    private TextField mysqlPortField;
+
+    @FXML
+    private TextField mysqlDatabaseField;
+
+    @FXML
+    private TextField mysqlUsernameField;
+
+    @FXML
+    private TextField mysqlPasswordField;
+
+    /**
+     * This event handler will clear all the text fields of the form
+     *
+     * @param event
+     */
+    @FXML
+    void clearAction(ActionEvent event) {
         //TODO clear all the text fields when clicked
         LOG.info("Will implement the feature to clear the form whenever the cancel button is pressed");
     }
@@ -92,13 +98,29 @@ public class MailConfigFXMLController {
      */
     @FXML
     void saveConfigAction(ActionEvent event) {
-        try {
-            propertiesManager.writeTextProperties("", "MailConfig", propertyBean);
-        } catch (IOException ex) {
-            //Add dialog
+        //if all the fields are filled, then proceed to the application.
+        if (checkFormFilled()) {
+            try {
+                propertiesManager.writeTextProperties("", "MailConfig", propertyBean);
+            } catch (IOException ex) {
+                LOG.info("Error writing to the properties file");
+            }
+            //when you save, opens up the email application.
+            setupRootLayout();
+        } else {
+            //TODO implement at pop up window saying to fill up the form first
+            LOG.info("Will implement a pop up window asking to fill all fields.");
         }
-        //when you save, opens up the email application.
-        setupRootLayout();
+
+    }
+
+    /**
+     * Checks if the form is completely filled up.
+     *
+     * @return true if filled, false otherwise.
+     */
+    private boolean checkFormFilled() {
+        return (!userNameField.getText().isEmpty() && !emailAddressField.getText().isEmpty() && !emailPasswordField.getText().isEmpty() && !imapURLField.getText().isEmpty() && !smtpURLField.getText().isEmpty() && !imapPortField.getText().isEmpty() && !smtpPortField.getText().isEmpty() && !mysqlURLField.getText().isEmpty() && !mysqlPortField.getText().isEmpty() && !mysqlDatabaseField.getText().isEmpty() && !mysqlUsernameField.getText().isEmpty() && !mysqlPasswordField.getText().isEmpty());
     }
 
     /**
@@ -108,7 +130,7 @@ public class MailConfigFXMLController {
      */
     private void setupRootLayout() {
         try {
-            this.mcBean = generateMailConfigBean();
+            mcBean = generateMailConfigBean(propertyBean);
 
             FXMLLoader loader = new FXMLLoader();
             loader.setResources(resources);
@@ -119,6 +141,7 @@ public class MailConfigFXMLController {
             BorderPane rootPane = (BorderPane) loader.load();
 
             rootLayout = loader.getController();
+            rootLayout.passStage(primaryStage);
 
             Scene scene = new Scene(rootPane);
             primaryStage.setScene(scene);
@@ -135,20 +158,11 @@ public class MailConfigFXMLController {
      * Helper method that takes the propertyBean's contents and creates a
      * MailConfigBean when we want to access the email Application.
      *
+     * @param propertyBean
      * @return A MailConfigBean
      */
-    private MailConfigBean generateMailConfigBean() {
+    public static MailConfigBean generateMailConfigBean(MailConfigFXBean propertyBean) {
         return new MailConfigBean(propertyBean.getUserName(), propertyBean.getEmailAddress(), propertyBean.getEmailPassword(), propertyBean.getImapURL(), propertyBean.getSmtpURL(), propertyBean.getImapPort(), propertyBean.getSmtpPort(), propertyBean.getmysqlURL(), propertyBean.getmysqlDatabase(), propertyBean.getmysqlPort(), propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword());
-    }
-
-    /**
-     * The RootLayout will use this method to retrieve the MailConfigBean to
-     * initialize its EmailDAO.
-     *
-     * @return
-     */
-    public static MailConfigBean getMailConfigBean() {
-        return mcBean;
     }
 
     /**
@@ -158,25 +172,12 @@ public class MailConfigFXMLController {
      */
     @FXML
     void initialize() {
-        assert userNameField != null : "fx:id=\"userNameField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert emailAddressField != null : "fx:id=\"emailAddressField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert emailPasswordField != null : "fx:id=\"emailPasswordField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert imapURLField != null : "fx:id=\"imapURLField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert smtpURLField != null : "fx:id=\"smtpURLField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert imapPortField != null : "fx:id=\"imapPortField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert smtpPortField != null : "fx:id=\"smtpPortField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert mysqlURLField != null : "fx:id=\"mysqlURLField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert mysqlPortField != null : "fx:id=\"mysqlPortField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert mysqlDatabaseField != null : "fx:id=\"mysqlDatabaseField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert mysqlUsernameField != null : "fx:id=\"mysqlUsernameField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-        assert mysqlPasswordField != null : "fx:id=\"mysqlPasswordField\" was not injected: check your FXML file 'MailConfigFXML.fxml'.";
-
-        propertyBean = new PropertyBean();
+        propertyBean = new MailConfigFXBean();
         propertiesManager = new PropertiesManager();
         try {
             propertiesManager.loadTextProperties(propertyBean, "", "MailConfig");
         } catch (IOException ex) {
-            //Show dialog about file failure
+            //TODO : Show dialog about file failure
         }
 
         Bindings.bindBidirectional(userNameField.textProperty(), propertyBean.getUserNameProperty());

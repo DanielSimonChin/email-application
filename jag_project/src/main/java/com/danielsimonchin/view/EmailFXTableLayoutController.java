@@ -1,8 +1,9 @@
-package com.danielsimonchin.controllers;
+package com.danielsimonchin.view;
 
+import com.danielsimonchin.fxbeans.EmailTableFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
-import com.danielsimonchin.properties.EmailBean;
-import java.awt.event.MouseEvent;
+import com.danielsimonchin.persistence.FakeEmailDAOPersistence;
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -11,6 +12,9 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,34 +35,62 @@ public class EmailFXTableLayoutController {
     private EmailDAO emailDAO;
     @FXML
     private ResourceBundle resources;
-
-    @FXML
+    
+    @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
-
+    
     @FXML
     private AnchorPane emailFXTable;
 
     @FXML
-    private TableView<EmailBean> emailDataTable;
+    private TableView<EmailTableFXBean> emailDataTable;
 
     @FXML
-    private TableColumn<EmailBean, String> fromColumn;
+    private TableColumn<EmailTableFXBean, String> fromColumn;
 
     @FXML
-    private TableColumn<EmailBean, String> subjectColumn;
+    private TableColumn<EmailTableFXBean, String> subjectColumn;
 
     @FXML
-    private TableColumn<EmailBean, Timestamp> dateColumn;
+    private TableColumn<EmailTableFXBean, Timestamp> dateColumn;
 
     @FXML
     void initialize() {
         //TOOD: Connects the property in the EmailBean object to the column in the
         // table
+        fromColumn.setCellValueFactory(cellData -> cellData.getValue()
+                .getFromFieldProperty());
+        subjectColumn.setCellValueFactory(cellData -> cellData.getValue()
+                .getSubjectFieldProperty());
+        dateColumn.setCellValueFactory(cellData -> cellData.getValue()
+                .getDateFieldProperty());
 
         adjustColumnWidths();
 
-        //TODO: Add listeners so when clicking on a cell, it will show the email contents in either the webViewer or the htmlEditor(if it is a draft).
-        //TODO: Add listener for onDrag detected so we can drag and drop emails into sent/inbox folders
+        emailDataTable
+                .getSelectionModel()
+                .selectedItemProperty()
+                .addListener(
+                        (observable, oldValue, newValue) -> showEmailDetails(newValue));
+
+        //The table rows can be dragged and dropped into a folder. Not complete yet.
+        emailDataTable.setOnDragDetected((MouseEvent event) -> {
+            //TODO : incomplete event handler
+
+            /* drag was detected, start drag-and-drop gesture */
+            LOG.debug("onDragDetected");
+
+            /* allow any transfer mode */
+            Dragboard db = emailDataTable.startDragAndDrop(TransferMode.ANY);
+
+            ClipboardContent content = new ClipboardContent();
+            //content.putString(emailDataTable.getSelectionModel().getSelectedItem().getValue().toString());
+
+            db.setContent(content);
+
+            event.consume();
+        });
+
     }
 
     /**
@@ -80,7 +112,7 @@ public class EmailFXTableLayoutController {
      */
     public void displayTable() throws SQLException, IOException {
         //TODO: Need to implement converting an EmailBean to a JAVAFX BEAN in phase 4
-        emailDataTable.setItems(this.emailDAO.findAll());
+        emailDataTable.setItems(FakeEmailDAOPersistence.findAllEmails());
     }
 
     /**
@@ -90,12 +122,19 @@ public class EmailFXTableLayoutController {
      *
      * @return emailDataTable
      */
-    public TableView<EmailBean> getEmailDataTable() {
+    public TableView<EmailTableFXBean> getEmailDataTable() {
         return emailDataTable;
     }
 
-    private void showEmailDetails(EmailBean emailBean) {
+    /**
+     * The content of the email selected in the table will be shown in the html
+     * editor.
+     *
+     * @param emailData
+     */
+    private void showEmailDetails(EmailTableFXBean emailData) {
         //TODO: display the contents of the email in the section of the app where an email must be shown.
+        LOG.info("DISPLAY THE EMAIL INFO WHEN CLICKED");
     }
 
     /**

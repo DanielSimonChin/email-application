@@ -6,28 +6,33 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.controllers.RootLayoutController">
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.view.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="%fileMenu">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="%closeMenuItem" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Mail">
+          <Menu mnemonicParsing="false" text="%mailMenu">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleSendEmail" text="Send Email" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSaveDraft" text="Save Draft" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleAddAttachment" text="Add Attachment" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAttachment" text="Save Attachment" />
+              <MenuItem mnemonicParsing="false" onAction="#handleSendEmail" text="%sendMenuItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveDraft" text="%saveMenuItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAddAttachment" text="%addAttachmentMenuItem" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAttachment" text="%saveAttachmentMenuItem" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="%helpMenu">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%aboutMenuItem" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="%settingsMenu">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleReturnToConfig" text="%returnToConfigMenuItem" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
