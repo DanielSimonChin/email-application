@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.danielsimonchin.view;
 
 import com.danielsimonchin.fxbeans.MailConfigFXBean;
@@ -78,6 +73,7 @@ public class RootLayoutController {
      */
     @FXML
     void initialize() throws IOException {
+        //will implement the file explorer in phase 4
         fileChooser = new FileChooser();
 
         //Read from the properties file so we create our MailConfigBean to initialize a EmailDAO object.
@@ -236,28 +232,6 @@ public class RootLayoutController {
     @FXML
     void handleClose(ActionEvent event) {
         Platform.exit();
-    }
-
-    /**
-     * An Email being written in the htxml editor will be saved to the database
-     * in the DRAFT folder.
-     *
-     * @param event
-     */
-    @FXML
-    void handleSaveDraft(ActionEvent event) {
-        LOG.info("TODO : Implementation for the Save Draft Menu Item");
-    }
-
-    /**
-     * An email that is in the html editor along with the form for recipients
-     * and subject will be sent.
-     *
-     * @param event
-     */
-    @FXML
-    void handleSendEmail(ActionEvent event) {
-        LOG.info("TODO : Implementation for the Send Email Menu Item");
     }
 
     /**

@@ -45,7 +45,7 @@ public class RunApp extends Application {
      */
     public RunApp() {
         super();
-        currentLocale = new Locale("fr", "CA");
+        currentLocale = new Locale("en", "CA");
         LOG.debug("Locale = " + currentLocale);
     }
 

@@ -44581,3 +44581,108 @@ Caused by: java.lang.NullPointerException
 [INFO ] 2020-10-30 23:39:02.637 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
 [INFO ] 2020-10-30 23:39:03.236 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
 [INFO ] 2020-10-30 23:39:04.828 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-31 21:46:08.076 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[DEBUG] 2020-10-31 21:46:08.104 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: ], emailAddress=StringProperty [value: ], emailPassword=StringProperty [value: ], imapURL=StringProperty [value: ], smtpURL=StringProperty [value: ], imapPort=StringProperty [value: ], smtpPort=StringProperty [value: ], mysqlURL=StringProperty [value: ], mysqlDatabase=StringProperty [value: ], mysqlPort=StringProperty [value: ], mysqlUsername=StringProperty [value: ], mysqlPassword=StringProperty [value: ]}
+[INFO ] 2020-10-31 21:46:08.677 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-31 21:46:51.213 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-10-31 21:47:52.730 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-10-31 23:25:36.869 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[DEBUG] 2020-10-31 23:25:36.910 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: sdad], emailAddress=StringProperty [value: dasdad], emailPassword=StringProperty [value: dsadada], imapURL=StringProperty [value: dadad], smtpURL=StringProperty [value: dadad], imapPort=StringProperty [value: dadad], smtpPort=StringProperty [value: adada], mysqlURL=StringProperty [value: 111], mysqlDatabase=StringProperty [value: 1], mysqlPort=StringProperty [value: 1], mysqlUsername=StringProperty [value: 1], mysqlPassword=StringProperty [value: 1]}
+[INFO ] 2020-10-31 23:25:38.738 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-10-31 23:25:40.259 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-11-01 16:46:01.185 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[DEBUG] 2020-11-01 16:46:01.219 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: sdad], emailAddress=StringProperty [value: dasdad], emailPassword=StringProperty [value: dsadada], imapURL=StringProperty [value: dadad], smtpURL=StringProperty [value: dadad], imapPort=StringProperty [value: dadad], smtpPort=StringProperty [value: adada], mysqlURL=StringProperty [value: 111], mysqlDatabase=StringProperty [value: 1], mysqlPort=StringProperty [value: 1], mysqlUsername=StringProperty [value: 1], mysqlPassword=StringProperty [value: 1]}
+[INFO ] 2020-11-01 16:46:02.975 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-11-01 16:46:16.058 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:46:17.011 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:46:18.052 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:46:28.528 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Add Attachment Menu Item
+[INFO ] 2020-11-01 16:46:31.594 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Save Attachment Menu Item
+[INFO ] 2020-11-01 16:46:33.992 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the About Menu Item
+[INFO ] 2020-11-01 16:46:36.320 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:46:38.962 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:46:43.817 [JavaFX Application Thread] MailConfigFXMLController - Will implement the feature to clear the form whenever the cancel button is pressed
+[INFO ] 2020-11-01 16:46:48.711 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:46:54.687 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:46:55.214 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:46:55.760 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:46:56.681 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:46:59.127 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:46:59.703 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:00.588 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:00.840 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:01.546 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:01.620 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:02.439 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:02.491 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:02.946 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:03.008 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:03.418 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:03.462 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:03.795 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:03.827 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:04.217 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:04.245 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:04.635 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:04.673 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:05.465 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:05.532 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:06.265 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:06.367 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:06.982 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:07.071 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:07.513 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:07.630 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:09.332 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:47:09.422 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:47:16.421 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:47:20.152 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-11-01 16:48:14.740 [JavaFX Application Thread] RunApp - Locale = en_CA
+[DEBUG] 2020-11-01 16:48:14.775 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: sdad], emailAddress=StringProperty [value: dasdad], emailPassword=StringProperty [value: dsadada], imapURL=StringProperty [value: dadad], smtpURL=StringProperty [value: dadad], imapPort=StringProperty [value: dadad], smtpPort=StringProperty [value: adada], mysqlURL=StringProperty [value: 111], mysqlDatabase=StringProperty [value: 1], mysqlPort=StringProperty [value: 1], mysqlUsername=StringProperty [value: 1], mysqlPassword=StringProperty [value: 1]}
+[INFO ] 2020-11-01 16:48:16.608 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-11-01 16:48:26.735 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Add Attachment Menu Item
+[INFO ] 2020-11-01 16:48:27.675 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Save Attachment Menu Item
+[INFO ] 2020-11-01 16:48:28.571 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the About Menu Item
+[INFO ] 2020-11-01 16:48:29.910 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:48:34.951 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:48:35.596 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:48:36.335 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:48:36.899 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:48:37.400 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:48:37.725 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:48:37.998 [JavaFX Application Thread] FolderFXTreeLayoutController - SHOW A FOLDER'S EMAILS IN THE TABLE
+[INFO ] 2020-11-01 16:48:38.378 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:48:38.399 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[DEBUG] 2020-11-01 16:48:39.216 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:48:39.720 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:48:40.562 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:48:41.808 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:48:41.930 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:48:42.721 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:48:42.784 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:48:43.401 [JavaFX Application Thread] EmailFXTableLayoutController - DISPLAY THE EMAIL INFO WHEN CLICKED
+[DEBUG] 2020-11-01 16:48:43.473 [JavaFX Application Thread] EmailFXTableLayoutController - onDragDetected
+[INFO ] 2020-11-01 16:48:50.511 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:48:54.973 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-11-01 16:49:23.364 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[DEBUG] 2020-11-01 16:49:23.395 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: ], emailAddress=StringProperty [value: ], emailPassword=StringProperty [value: ], imapURL=StringProperty [value: ], smtpURL=StringProperty [value: ], imapPort=StringProperty [value: ], smtpPort=StringProperty [value: ], mysqlURL=StringProperty [value: ], mysqlDatabase=StringProperty [value: ], mysqlPort=StringProperty [value: ], mysqlUsername=StringProperty [value: ], mysqlPassword=StringProperty [value: ]}
+[INFO ] 2020-11-01 16:49:24.073 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-11-01 16:49:53.311 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:49:54.028 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:49:54.589 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:49:55.128 [JavaFX Application Thread] FolderFXTreeLayoutController - Implement adding the folder event
+[INFO ] 2020-11-01 16:50:01.372 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the Add Attachment Menu Item
+[INFO ] 2020-11-01 16:50:02.277 [JavaFX Application Thread] RootLayoutController - TODO : Implementation for the About Menu Item
+[INFO ] 2020-11-01 16:50:03.337 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:50:06.974 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 16:50:13.232 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-11-01 17:00:20.466 [JavaFX Application Thread] RunApp - Locale = fr_CA
+[DEBUG] 2020-11-01 17:00:20.505 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: ], emailAddress=StringProperty [value: ], emailPassword=StringProperty [value: ], imapURL=StringProperty [value: ], smtpURL=StringProperty [value: ], imapPort=StringProperty [value: ], smtpPort=StringProperty [value: ], mysqlURL=StringProperty [value: ], mysqlDatabase=StringProperty [value: ], mysqlPort=StringProperty [value: ], mysqlUsername=StringProperty [value: ], mysqlPassword=StringProperty [value: ]}
+[INFO ] 2020-11-01 17:00:21.238 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-11-01 17:00:38.948 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 17:00:42.661 [JavaFX Application Thread] RunApp - Stage is closing
+[DEBUG] 2020-11-01 17:00:59.919 [JavaFX Application Thread] RunApp - Locale = en_CA
+[DEBUG] 2020-11-01 17:00:59.950 [JavaFX Application Thread] RunApp - PropertyBean{userName=StringProperty [value: 111111], emailAddress=StringProperty [value: 1], emailPassword=StringProperty [value: 1], imapURL=StringProperty [value: 1], smtpURL=StringProperty [value: 1], imapPort=StringProperty [value: 1], smtpPort=StringProperty [value: 1], mysqlURL=StringProperty [value: 1], mysqlDatabase=StringProperty [value: 1], mysqlPort=StringProperty [value: 1], mysqlUsername=StringProperty [value: 1], mysqlPassword=StringProperty [value: 1]}
+[INFO ] 2020-11-01 17:01:01.818 [JavaFX Application Thread] RunApp - Program started
+[INFO ] 2020-11-01 17:01:09.501 [JavaFX Application Thread] RootLayoutController - The scene has changed from the Email Application to the MailConfig Form Interface.
+[INFO ] 2020-11-01 17:01:17.477 [JavaFX Application Thread] RunApp - Stage is closing

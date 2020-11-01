@@ -35,10 +35,10 @@ public class EmailFXTableLayoutController {
     private EmailDAO emailDAO;
     @FXML
     private ResourceBundle resources;
-    
+
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
-    
+
     @FXML
     private AnchorPane emailFXTable;
 

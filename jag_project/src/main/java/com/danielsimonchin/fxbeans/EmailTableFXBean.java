@@ -44,50 +44,86 @@ public class EmailTableFXBean {
         this(0, "", "", new Timestamp(0));
     }
 
+    /**
+     * @return the id of an email
+     */
     public int getEmailId() {
         return emailId.get();
     }
 
+    /**
+     * @param emailId
+     */
     public void setEmailId(int emailId) {
         this.emailId.set(emailId);
     }
 
+    /**
+     * @return The EmailIDProperty
+     */
     public IntegerProperty getEmailIdProperty() {
         return emailId;
     }
 
+    /**
+     * @return The from field
+     */
     public String getFromField() {
         return fromField.get();
     }
 
+    /**
+     * @param fromField
+     */
     public void setFromField(String fromField) {
         this.fromField.set(fromField);
     }
 
+    /**
+     * @return the FromFieldProperty
+     */
     public StringProperty getFromFieldProperty() {
         return this.fromField;
     }
 
+    /**
+     * @return the email's subject
+     */
     public String getSubjectField() {
         return subjectField.get();
     }
 
+    /**
+     * @param subjectField
+     */
     public void setSubjectField(String subjectField) {
         this.subjectField.set(subjectField);
     }
 
+    /**
+     * @return the subjectFieldProperty
+     */
     public StringProperty getSubjectFieldProperty() {
         return this.subjectField;
     }
 
+    /**
+     * @return the date field
+     */
     public Object getDateField() {
         return dateField.get();
     }
 
+    /**
+     * @param dateField
+     */
     public void setDateField(Timestamp dateField) {
         this.dateField.set(dateField);
     }
 
+    /**
+     * @return the date field property.
+     */
     public ObjectProperty getDateFieldProperty() {
         return this.dateField;
     }
