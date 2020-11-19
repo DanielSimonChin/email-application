@@ -1,21 +1,29 @@
 package com.danielsimonchin.view;
 
 import com.danielsimonchin.fxbeans.EmailTableFXBean;
+import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.FakeEmailDAOPersistence;
+import com.danielsimonchin.properties.EmailBean;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import jodd.mail.Email;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +39,8 @@ import org.slf4j.LoggerFactory;
 public class EmailFXTableLayoutController {
 
     private final static Logger LOG = LoggerFactory.getLogger(EmailFXTableLayoutController.class);
+
+    private EmailFXHTMLLayoutController htmlController;
 
     private EmailDAO emailDAO;
     @FXML
@@ -52,12 +62,11 @@ public class EmailFXTableLayoutController {
     private TableColumn<EmailTableFXBean, String> subjectColumn;
 
     @FXML
-    private TableColumn<EmailTableFXBean, Timestamp> dateColumn;
+    private TableColumn<EmailTableFXBean, LocalDateTime> dateColumn;
 
     @FXML
     void initialize() {
-        //TOOD: Connects the property in the EmailBean object to the column in the
-        // table
+        //TOOD: Connects the property in the EmailBean object to the column in the table
         fromColumn.setCellValueFactory(cellData -> cellData.getValue()
                 .getFromFieldProperty());
         subjectColumn.setCellValueFactory(cellData -> cellData.getValue()
@@ -71,7 +80,15 @@ public class EmailFXTableLayoutController {
                 .getSelectionModel()
                 .selectedItemProperty()
                 .addListener(
-                        (observable, oldValue, newValue) -> showEmailDetails(newValue));
+                        (observable, oldValue, newValue) -> {
+                            try {
+                                showEmailDetails(newValue);
+                            } catch (SQLException ex) {
+                                LOG.info("Caught SQLException when trying to display an email's details");
+                            } catch (IOException ex) {
+                                LOG.info("Caught IOException when trying to display an email's details");
+                            }
+                        });
 
         //The table rows can be dragged and dropped into a folder. Not complete yet.
         emailDataTable.setOnDragDetected((MouseEvent event) -> {
@@ -103,16 +120,42 @@ public class EmailFXTableLayoutController {
         this.emailDAO = emailDAO;
     }
 
+    public void setHtmlController(EmailFXHTMLLayoutController emailFXHTMLController) {
+        this.htmlController = emailFXHTMLController;
+    }
+
     /**
-     * When program first starts, we want to display all emails since no folder
-     * has been selected yet.
+     * When program first starts, the default folder is INBOX
      *
      * @throws SQLException
      * @throws IOException
      */
     public void displayTable() throws SQLException, IOException {
-        //TODO: Need to implement converting an EmailBean to a JAVAFX BEAN in phase 4
-        emailDataTable.setItems(FakeEmailDAOPersistence.findAllEmails());
+        ObservableList<EmailBean> allEmails = this.emailDAO.findAllInFolder("Inbox");
+        emailDataTable.setItems(convertToTableBean(allEmails));
+    }
+
+    private ObservableList<EmailTableFXBean> convertToTableBean(ObservableList<EmailBean> allEmails) {
+        ObservableList<EmailTableFXBean> tableFXBeans = FXCollections
+                .observableArrayList();
+        for (int i = 0; i < allEmails.size(); i++) {
+            tableFXBeans.add(allEmails.get(i).convertToEmailTableFXBean());
+        }
+        return tableFXBeans;
+    }
+
+    /**
+     * This is called from the Tree controller whenever a folder is clicked, we
+     * update the table view with all the emails in that folder.
+     *
+     * @param folderBean
+     * @throws SQLException
+     * @throws IOException
+     */
+    public void displaySelectedFolder(FolderFXBean folderBean) throws SQLException, IOException {
+        emailDataTable.getSelectionModel().clearSelection();
+        ObservableList<EmailBean> allEmails = this.emailDAO.findAllInFolder(folderBean.getFolderName());
+        emailDataTable.setItems(convertToTableBean(allEmails));
     }
 
     /**
@@ -128,13 +171,18 @@ public class EmailFXTableLayoutController {
 
     /**
      * The content of the email selected in the table will be shown in the html
-     * editor.
+     * editor and the form.
      *
      * @param emailData
      */
-    private void showEmailDetails(EmailTableFXBean emailData) {
-        //TODO: display the contents of the email in the section of the app where an email must be shown.
-        LOG.info("DISPLAY THE EMAIL INFO WHEN CLICKED");
+    private void showEmailDetails(EmailTableFXBean emailData) throws SQLException, IOException {
+        if (emailData == null) {
+            LOG.info("EMAIL DATA IS NULL");
+        }
+        EmailBean selectedEmail = this.emailDAO.findID(emailData.getEmailId());
+
+        //The html controller will handle displaying the email in the form and html sections.
+        htmlController.displaySelectedEmail(selectedEmail);
     }
 
     /**

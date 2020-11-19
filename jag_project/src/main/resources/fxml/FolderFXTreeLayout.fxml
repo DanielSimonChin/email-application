@@ -5,14 +5,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" fx:id="folderFXTreeLayout" prefHeight="919.0" prefWidth="315.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.view.FolderFXTreeLayoutController">
+<AnchorPane id="AnchorPane" fx:id="folderFXTreeLayout" prefHeight="919.0" prefWidth="270.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.danielsimonchin.view.FolderFXTreeLayoutController">
     <stylesheets>
         <URL value="@/styles/folderfxtreelayout.css" />
     </stylesheets>
    <children>
-      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="49.0" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="870.0" prefWidth="317.0" />
-      <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="147.0" />
-      <Button layoutX="169.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddFolder" text="%addFolderButton" />
+      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="83.0" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="836.0" prefWidth="317.0" />
+      <TextField fx:id="newFolderInput" layoutX="35.0" layoutY="14.0" prefHeight="25.0" prefWidth="147.0" />
+      <HBox layoutX="14.0" layoutY="49.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleAddFolder" text="%addFolderButton" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleDeleteFolder" prefHeight="25.0" prefWidth="114.0" text="%deleteFolderButton" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

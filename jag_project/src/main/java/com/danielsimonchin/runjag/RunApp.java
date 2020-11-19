@@ -45,7 +45,9 @@ public class RunApp extends Application {
      */
     public RunApp() {
         super();
-        currentLocale = new Locale("en", "CA");
+        //The program will use the computer's default language to determine which message bundle to use.
+        currentLocale = new Locale("fr", "CA");
+        //currentLocale = Locale.getDefault();
         LOG.debug("Locale = " + currentLocale);
     }
 

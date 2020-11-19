@@ -4,7 +4,14 @@ import com.danielsimonchin.exceptions.CannotDeleteFolderException;
 import com.danielsimonchin.exceptions.CannotMoveToDraftsException;
 import com.danielsimonchin.exceptions.CannotRenameFolderException;
 import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
+import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
 import com.danielsimonchin.exceptions.NotEnoughRecipientsException;
+import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
+import com.danielsimonchin.exceptions.RecipientListNullException;
+import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.properties.EmailBean;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,13 +31,13 @@ public interface EmailDAO {
 
     public EmailBean findID(int id) throws SQLException, FileNotFoundException,IOException;
     
-    public List<EmailBean> findAllInFolder(String folderName) throws SQLException,FileNotFoundException,IOException;
+    public ObservableList<EmailBean> findAllInFolder(String folderName) throws SQLException,FileNotFoundException,IOException;
     
     public List<EmailBean> findEmailsByRecipient(String recipientEmailAddress) throws SQLException, FileNotFoundException, IOException;
             
     public List<EmailBean> findEmailsBySubject(String subject) throws SQLException,FileNotFoundException,IOException;
     
-    public int updateDraft(EmailBean emailBean) throws SQLException,IOException,NotEnoughRecipientsException;
+    public int updateDraft(EmailBean emailBean) throws IOException,SQLException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException;
     
     public int updateFolder(EmailBean emailBean) throws SQLException,CannotMoveToDraftsException;
     
@@ -42,5 +49,7 @@ public interface EmailDAO {
     
     public int deleteFolder(String foldername)throws SQLException,CannotDeleteFolderException;
     
-    public ObservableList<String> getAllFolderNames() throws SQLException;
+    public ObservableList<FolderFXBean> getAllFolders() throws SQLException;
+    
+    public String getFolderName(int id) throws SQLException;
 }

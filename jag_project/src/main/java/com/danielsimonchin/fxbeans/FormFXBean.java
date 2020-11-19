@@ -123,4 +123,15 @@ public class FormFXBean {
     public StringProperty getSubjectFieldProperty() {
         return subjectField;
     }
+
+    /**
+     * The toString override method which returns all the fields for the
+     * FormFXBean
+     *
+     * @return the toString of the FormFXBean
+     */
+    @Override
+    public String toString() {
+        return "FormFXBean{" + "toField=" + toField + ", ccField=" + ccField + ", bccField=" + bccField + ", subjectField=" + subjectField + '}';
+    }
 }

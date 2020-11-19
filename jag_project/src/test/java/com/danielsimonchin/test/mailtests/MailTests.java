@@ -23,7 +23,6 @@ import jodd.mail.ReceivedEmail;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 
@@ -34,8 +33,6 @@ import org.junit.rules.ExpectedException;
  * @author Daniel Simon Chin
  * @version September 20, 2020
  */
-
-@Ignore //Ignoring so maven does not run the tests during Phase3 (quicker)
 public class MailTests {
 
     // This can be placed at the beginning of the class. We only

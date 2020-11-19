@@ -1,6 +1,7 @@
 package com.danielsimonchin.fxbeans;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -30,7 +31,7 @@ public class EmailTableFXBean {
      * @param subjectField
      * @param dateField
      */
-    public EmailTableFXBean(int emailId, String fromField, String subjectField, Timestamp dateField) {
+    public EmailTableFXBean(int emailId, String fromField, String subjectField, LocalDateTime dateField) {
         this.emailId = new SimpleIntegerProperty(emailId);
         this.fromField = new SimpleStringProperty(fromField);
         this.subjectField = new SimpleStringProperty(subjectField);
@@ -41,7 +42,7 @@ public class EmailTableFXBean {
      * Default constructor which calls the first constructor
      */
     public EmailTableFXBean() {
-        this(0, "", "", new Timestamp(0));
+        this(0, "", "", null);
     }
 
     /**

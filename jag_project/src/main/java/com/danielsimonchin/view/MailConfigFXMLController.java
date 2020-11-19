@@ -33,7 +33,6 @@ public class MailConfigFXMLController {
 
     private MailConfigFXBean propertyBean;
     private PropertiesManager propertiesManager;
-    private static MailConfigBean mcBean;
 
     private RootLayoutController rootLayout;
 
@@ -86,8 +85,18 @@ public class MailConfigFXMLController {
      */
     @FXML
     void clearAction(ActionEvent event) {
-        //TODO clear all the text fields when clicked
-        LOG.info("Will implement the feature to clear the form whenever the cancel button is pressed");
+        propertyBean.setUserName("");
+        propertyBean.setEmailAddress("");
+        propertyBean.setEmailPassword("");
+        propertyBean.setImapURL("");
+        propertyBean.setSmtpURL("");
+        propertyBean.setImapPort("");
+        propertyBean.setSmtpPort("");
+        propertyBean.setmysqlURL("");
+        propertyBean.setmysqlPort("");
+        propertyBean.setmysqlDatabase("");
+        propertyBean.setmysqlUsername("");
+        propertyBean.setmysqlPassword("");
     }
 
     /**
@@ -130,7 +139,7 @@ public class MailConfigFXMLController {
      */
     private void setupRootLayout() {
         try {
-            mcBean = generateMailConfigBean(propertyBean);
+            //mcBean = generateMailConfigBean(propertyBean);
 
             FXMLLoader loader = new FXMLLoader();
             loader.setResources(resources);
@@ -152,17 +161,6 @@ public class MailConfigFXMLController {
             LOG.error("RootLayout error", ex);
             Platform.exit();
         }
-    }
-
-    /**
-     * Helper method that takes the propertyBean's contents and creates a
-     * MailConfigBean when we want to access the email Application.
-     *
-     * @param propertyBean
-     * @return A MailConfigBean
-     */
-    public static MailConfigBean generateMailConfigBean(MailConfigFXBean propertyBean) {
-        return new MailConfigBean(propertyBean.getUserName(), propertyBean.getEmailAddress(), propertyBean.getEmailPassword(), propertyBean.getImapURL(), propertyBean.getSmtpURL(), propertyBean.getImapPort(), propertyBean.getSmtpPort(), propertyBean.getmysqlURL(), propertyBean.getmysqlDatabase(), propertyBean.getmysqlPort(), propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword());
     }
 
     /**

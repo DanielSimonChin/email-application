@@ -3,6 +3,7 @@ package com.danielsimonchin.view;
 import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
+import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
 import java.io.IOException;
 import java.net.URL;
@@ -81,14 +82,23 @@ public class RootLayoutController {
         MailConfigFXBean mcBean = new MailConfigFXBean();
         propertiesManager.loadTextProperties(mcBean, "", "MailConfig");
 
-        this.emailDAO = new EmailDAOImpl(MailConfigFXMLController.generateMailConfigBean(mcBean));
+        MailConfigBean mailConfigBean = generateMailConfigBean(mcBean);
+        this.emailDAO = new EmailDAOImpl(mailConfigBean);
 
         //Setup all the sections of the application 
         initLeftSplitLayout();
         initUpperRightLayout();
-        initLowerRightLayout();
+        initLowerRightLayout(mailConfigBean);
 
+        //The tree controller needs a reference to the table controller.
         setTableControllerToTree();
+        //The table controller needs a reference to the html controller.
+        setHtmlControllerToTable();
+        //The html controller needs a reference to the table controller whenever an email is sent, updated or deleted.
+        setTableControllerToHTMLController();
+        //The tree controller needs the reference to the html controller
+        setHTMLControllerToTree();
+
         try {
             emailFXTreeController.displayTree();
             emailFXTableController.displayTable();
@@ -100,11 +110,45 @@ public class RootLayoutController {
     }
 
     /**
+     * Helper method that takes the propertyBean's contents and creates a
+     * MailConfigBean when we want to access the email Application.
+     *
+     * @param propertyBean
+     * @return A MailConfigBean
+     */
+    private MailConfigBean generateMailConfigBean(MailConfigFXBean propertyBean) {
+        //use the user's inputs for the mySqlDatabaseURL, the mySQL port and the database name to construct "jdbc:mysql://localhost:3306/EMAILCLIENT"
+        String constructedMySqlURL = "jdbc:mysql://" + propertyBean.getmysqlURL() + ":" + propertyBean.getmysqlPort() + "/" + propertyBean.getmysqlDatabase();
+        return new MailConfigBean(propertyBean.getUserName(), propertyBean.getEmailAddress(), propertyBean.getEmailPassword(), propertyBean.getImapURL(), propertyBean.getSmtpURL(), propertyBean.getImapPort(), propertyBean.getSmtpPort(), constructedMySqlURL, propertyBean.getmysqlDatabase(), propertyBean.getmysqlPort(), propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword());
+    }
+
+    /**
      * Send the reference to the emailFXTableController to the
      * emailFXTreeController
      */
     private void setTableControllerToTree() {
         emailFXTreeController.setTableController(emailFXTableController);
+    }
+
+    /**
+     * Send the reference of the HTML controller to the table controller
+     */
+    private void setHtmlControllerToTable() {
+        emailFXTableController.setHtmlController(emailFXHTMLController);
+    }
+
+    /**
+     * Send the reference of the table controller to the HTML Controller
+     */
+    private void setTableControllerToHTMLController() {
+        emailFXHTMLController.setTableController(emailFXTableController);
+    }
+
+    /**
+     * Send the reference of the html controller to the tree controller
+     */
+    private void setHTMLControllerToTree() {
+        emailFXTreeController.setHTMLController(emailFXHTMLController);
     }
 
     /**
@@ -158,7 +202,7 @@ public class RootLayoutController {
     /**
      * The HTMLEditor Layout
      */
-    private void initLowerRightLayout() {
+    private void initLowerRightLayout(MailConfigBean mailConfigBean) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setResources(resources);
@@ -170,6 +214,7 @@ public class RootLayoutController {
             // Give the controller the data object.
             emailFXHTMLController = loader.getController();
             emailFXHTMLController.setEmailDAO(emailDAO);
+            emailFXHTMLController.setMailConfigBean(mailConfigBean);
 
             lowerRightSplit.getChildren().add(htmlView);
 

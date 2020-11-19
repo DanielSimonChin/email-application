@@ -11,7 +11,7 @@
         <!-- class that has the main method -->
         <mainClass>com.danielsimonchin.runjag.RunApp</mainClass>
         
-        <skipTests>false</skipTests>
+        <skipTests>true</skipTests>
     </properties>
     
     <!-- All of the sample code shares the same dependencies and build         -->
@@ -104,6 +104,6 @@
     </dependencies>
     <!--<build>
         <defaultGoal>clean test</defaultGoal>
-    </build>--> 
+    </build>-->
 
 </project>

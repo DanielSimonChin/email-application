@@ -44,7 +44,6 @@ import jodd.mail.ReceivedEmail;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
@@ -58,7 +57,6 @@ import org.slf4j.LoggerFactory;
  * @author Daniel Simon Chin
  * @version Oct 7th, 2020
  */
-@Ignore //Ignoring so maven does not run the tests during Phase3 (quicker)
 public class CrudTests {
 
     @Rule
@@ -740,7 +738,7 @@ public class CrudTests {
      * @throws com.danielsimonchin.exceptions.NotEnoughRecipientsException
      */
     @Test
-    public void testUpdateDraftEmail() throws SQLException, FileNotFoundException, IOException, NotEnoughRecipientsException {
+    public void testUpdateDraftEmail() throws SQLException, FileNotFoundException, SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Retrieving one of the email in the draft folder (mock data)
         EmailBean beforeUpdateBean = crud.findID(4);
@@ -776,7 +774,7 @@ public class CrudTests {
      * @throws com.danielsimonchin.exceptions.NotEnoughRecipientsException
      */
     @Test
-    public void testSendDraftEmail() throws SQLException, FileNotFoundException, IOException, NotEnoughRecipientsException {
+    public void testSendDraftEmail() throws SQLException, FileNotFoundException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Retrieving one of the email in the draft folder (mock data)
         EmailBean draftToBeSent = crud.findID(4);
@@ -803,7 +801,7 @@ public class CrudTests {
      * @throws NotEnoughRecipientsException
      */
     @Test
-    public void testSendEmptyDraft() throws SQLException, FileNotFoundException, IOException, NotEnoughRecipientsException {
+    public void testSendEmptyDraft() throws SQLException, FileNotFoundException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Retrieving one of the email in the draft folder (mock data)
         EmailBean draftToBeSent = crud.findID(4);
@@ -824,7 +822,7 @@ public class CrudTests {
      * @throws NotEnoughRecipientsException
      */
     @Test
-    public void testSendDraftNoRecipients() throws SQLException, FileNotFoundException, IOException, NotEnoughRecipientsException {
+    public void testSendDraftNoRecipients() throws SQLException, FileNotFoundException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
         thrown.expect(NotEnoughRecipientsException.class);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Retrieving one of the email in the draft folder (mock data)

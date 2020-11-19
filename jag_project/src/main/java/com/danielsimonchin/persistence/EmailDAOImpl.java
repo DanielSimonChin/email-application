@@ -1,10 +1,18 @@
 package com.danielsimonchin.persistence;
 
+import com.danielsimonchin.business.SendAndReceive;
 import com.danielsimonchin.exceptions.CannotDeleteFolderException;
 import com.danielsimonchin.exceptions.CannotMoveToDraftsException;
 import com.danielsimonchin.exceptions.CannotRenameFolderException;
 import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
+import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
 import com.danielsimonchin.exceptions.NotEnoughRecipientsException;
+import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
+import com.danielsimonchin.exceptions.RecipientListNullException;
+import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import java.io.File;
@@ -25,6 +33,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.activation.DataSource;
@@ -557,8 +567,9 @@ public class EmailDAOImpl implements EmailDAO {
      * @throws java.io.FileNotFoundException
      */
     @Override
-    public List<EmailBean> findAllInFolder(String folderName) throws SQLException, FileNotFoundException, IOException {
-        List<EmailBean> emailsInFolder = new ArrayList<>();
+    public ObservableList<EmailBean> findAllInFolder(String folderName) throws SQLException, FileNotFoundException, IOException {
+        ObservableList<EmailBean> emailsInFolder = FXCollections.observableArrayList();
+
         String queryEmailsInFolder = "SELECT EMAIL.EMAILID,EMAIL.FROMADDRESS,EMAIL.SUBJECT,EMAIL.TEXTMESSAGE,EMAIL.HTMLMESSAGE,EMAIL.SENTDATE,EMAIL.RECEIVEDATE,EMAIL.FOLDERID FROM EMAIL INNER JOIN FOLDERS ON EMAIL.FOLDERID = FOLDERS.FOLDERID WHERE FOLDERNAME = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(queryEmailsInFolder);) {
             ps.setString(1, folderName);
@@ -629,12 +640,28 @@ public class EmailDAOImpl implements EmailDAO {
      * table
      * @throws SQLException
      * @throws IOException
-     * @throws NotEnoughRecipientsException
      */
     @Override
-    public int updateDraft(EmailBean emailBean) throws SQLException, IOException, NotEnoughRecipientsException {
+    public int updateDraft(EmailBean emailBean) throws IOException, SQLException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         //Update the fields in the Email table with the new EmailBean information
-        int emailTableUpdateResult = updateEmailTableFields(emailBean);
+        int emailTableUpdateResult = -1;
+
+        try {
+            emailTableUpdateResult = updateEmailTableFields(emailBean);
+        } catch (NotEnoughEmailRecipientsException ex) {
+            throw new NotEnoughEmailRecipientsException("Not enough recipients");
+        } catch (InvalidMailConfigBeanUsernameException ex) {
+            throw new InvalidMailConfigBeanUsernameException("Invalid Mail Config Bean Username");
+        } catch (RecipientListNullException ex) {
+            throw new RecipientListNullException("Recipient list is null");
+        } catch (RecipientEmailAddressNullException ex) {
+            throw new RecipientEmailAddressNullException("A recipient's address is null");
+        } catch (RecipientInvalidFormatException ex) {
+            throw new RecipientInvalidFormatException("One or more of the recipients have an invalid email format");
+        } catch (InvalidRecipientImapURLException ex) {
+            throw new InvalidRecipientImapURLException("The imap url is invalid");
+        }
+
         if (emailTableUpdateResult != 1) {
             return -1;
         }
@@ -660,7 +687,7 @@ public class EmailDAOImpl implements EmailDAO {
      * @throws SQLException
      * @throws NotEnoughRecipientsException
      */
-    private int updateEmailTableFields(EmailBean emailBean) throws SQLException, NotEnoughRecipientsException {
+    private int updateEmailTableFields(EmailBean emailBean) throws SQLException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
         int tableUpdatesResult = -1;
         String emailTableUpdateQuery = "UPDATE EMAIL SET SUBJECT = ?, TEXTMESSAGE = ?, HTMLMESSAGE = ? WHERE EMAILID = ?";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(emailTableUpdateQuery);) {
@@ -701,30 +728,54 @@ public class EmailDAOImpl implements EmailDAO {
     }
 
     /**
-     * Helper method that sends an Email draft
+     * Helper method that sends an Email draft by calling the sendEmail method.
+     * Deconstructs the email so we can call the the method in SendAndReceive
      *
      * @param email
      * @throws NotEnoughRecipientsException
      */
-    private void sendDraftEmail(Email email) throws NotEnoughRecipientsException {
-        if ((email.to().length + email.cc().length + email.bcc().length) == 0) {
-            throw new NotEnoughRecipientsException("An Email can only be sent if it has at least 1 recipient");
+    private void sendDraftEmail(Email email) throws NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
+        SendAndReceive runMail = new SendAndReceive(mailConfigBean);
+
+        List<String> toRecipients = getRecipientArray(email.to());
+        List<String> ccRecipients = getRecipientArray(email.cc());
+        List<String> bccRecipients = getRecipientArray(email.bcc());
+
+        String textMsg = "";
+        String htmlMsg = "";
+
+        List<EmailMessage> messages = email.messages();
+        //set the messages based on their mime type
+        for (EmailMessage message : messages) {
+            if (message.getMimeType().equals("text/plain")) {
+                textMsg = message.getContent();
+            } else {
+                htmlMsg = message.getContent();
+            }
         }
-        SmtpServer smtpServer = MailServer.create()
-                .ssl(true)
-                .host(this.mailConfigBean.getSmtpUrl())
-                .auth(this.mailConfigBean.getUserEmailAddress(), this.mailConfigBean.getPassword())
-                .buildSmtpMailServer();
-        try ( // A session is the object responsible for communicating with the server
-                 SendMailSession session = smtpServer.createSession()) {
-            // Like a file we open the session, send the message and close the
-            // session
-            session.open();
-            session.sendMail(email);
-            //Setting the email's sent date as the current date
-            email.currentSentDate();
-            LOG.info("The Draft Email has been sent.");
+
+        List<File> regularAttachments = new ArrayList<>();
+        List<File> embeddedAttachments = new ArrayList<>();
+
+        Email resultEmail = runMail.sendEmail(toRecipients, ccRecipients, bccRecipients, email.subject(), textMsg, htmlMsg, regularAttachments, embeddedAttachments);
+
+        email.currentSentDate();
+    }
+
+    /**
+     * Helper method to convert an array of EmailAddress to a list of string
+     * representing recipients
+     *
+     * @param recipients
+     * @return A list of recipient strings
+     */
+    private List<String> getRecipientArray(EmailAddress[] recipients) {
+        List<String> listRecipients = new ArrayList<>();
+        for (EmailAddress recipient : recipients) {
+            listRecipients.add(recipient.getEmail());
         }
+
+        return listRecipients;
     }
 
     /**
@@ -744,6 +795,7 @@ public class EmailDAOImpl implements EmailDAO {
             tableUpdatesResult = ps.executeUpdate();
         }
         if (tableUpdatesResult > 0) {
+            emailBean.setFolderKey(2);
             LOG.info("The email with the ID: " + emailBean.getId() + " has set its sentDate in the Email table.");
         }
     }
@@ -1022,15 +1074,39 @@ public class EmailDAOImpl implements EmailDAO {
      * @throws SQLException
      */
     @Override
-    public ObservableList<String> getAllFolderNames() throws SQLException {
-        ObservableList<String> allFolderNames = FXCollections.observableArrayList();
-        String findAllFoldersQuery = "SELECT FOLDERNAME FROM FOLDERS";
+    public ObservableList<FolderFXBean> getAllFolders() throws SQLException {
+        ObservableList<FolderFXBean> allFolders = FXCollections.observableArrayList();
+        String findAllFoldersQuery = "SELECT FOLDERID,FOLDERNAME FROM FOLDERS";
         try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findAllFoldersQuery);) {
             ResultSet queryResult = ps.executeQuery();
             while (queryResult.next()) {
-                allFolderNames.add(queryResult.getString("FOLDERNAME"));
+                FolderFXBean folder = new FolderFXBean(queryResult.getInt("FOLDERID"), queryResult.getString("FOLDERNAME"));
+                allFolders.add(folder);
             }
         }
-        return allFolderNames;
+        return allFolders;
+    }
+
+    /**
+     * Method that allows us to get a folder's name, using the ID
+     *
+     * @param id representing the folder's primary key
+     * @return the folder's name
+     * @throws SQLException
+     */
+    @Override
+    public String getFolderName(int id) throws SQLException {
+        String folderName = "";
+
+        String findFolderQuery = "SELECT FOLDERNAME FROM FOLDERS WHERE FOLDERID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findFolderQuery);) {
+            ps.setInt(1, id);
+            ResultSet queryResult = ps.executeQuery();
+            if (queryResult.next()) {
+                folderName = queryResult.getString("FOLDERNAME");
+            }
+        }
+        LOG.info("THE FOLDER FOUND IN THE DAO IS  : " + folderName);
+        return folderName;
     }
 }

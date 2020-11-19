@@ -46,14 +46,14 @@ public class FakeEmailDAOPersistence {
         ObservableList<EmailTableFXBean> emailsInFolder = FXCollections
                 .observableArrayList();
 
-        emailsInFolder.add(new EmailTableFXBean(1, "sender1@gmail.com", "My subject", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(2, "sender2@gmail.com", "Info", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(3, "sender3@gmail.com", "Our meeting", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(4, "sender4@gmail.com", "Dawson Con", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(5, "sender5@gmail.com", "Phase 3", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(6, "sender6@gmail.com", "Phase 4", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(7, "sender7@gmail.com", "Phase 1", new Timestamp(System.currentTimeMillis())));
-        emailsInFolder.add(new EmailTableFXBean(8, "sender8@gmail.com", "Phase 2", new Timestamp(System.currentTimeMillis())));
+        emailsInFolder.add(new EmailTableFXBean(1, "sender1@gmail.com", "My subject", null));
+        emailsInFolder.add(new EmailTableFXBean(2, "sender2@gmail.com", "Info", null));
+        emailsInFolder.add(new EmailTableFXBean(3, "sender3@gmail.com", "Our meeting", null));
+        emailsInFolder.add(new EmailTableFXBean(4, "sender4@gmail.com", "Dawson Con", null));
+        emailsInFolder.add(new EmailTableFXBean(5, "sender5@gmail.com", "Phase 3", null));
+        emailsInFolder.add(new EmailTableFXBean(6, "sender6@gmail.com", "Phase 4", null));
+        emailsInFolder.add(new EmailTableFXBean(7, "sender7@gmail.com", "Phase 1", null));
+        emailsInFolder.add(new EmailTableFXBean(8, "sender8@gmail.com", "Phase 2", null));
 
         return emailsInFolder;
     }

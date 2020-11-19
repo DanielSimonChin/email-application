@@ -1,14 +1,20 @@
 package com.danielsimonchin.view;
 
+import com.danielsimonchin.exceptions.CannotDeleteFolderException;
+import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
 import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.FakeEmailDAOPersistence;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -36,11 +42,16 @@ public class FolderFXTreeLayoutController {
 
     private EmailFXTableLayoutController emailFXTableController;
 
+    private EmailFXHTMLLayoutController htmlController;
+
     private EmailDAO emailDAO;
 
     @FXML
     private ResourceBundle resources;
-    
+
+    @FXML
+    private TextField newFolderInput;
+
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
@@ -95,7 +106,9 @@ public class FolderFXTreeLayoutController {
      * @throws SQLException
      */
     public void displayTree() throws SQLException {
-        ObservableList<FolderFXBean> folders = FakeEmailDAOPersistence.findAllFolders();
+        folderFXTreeView.getRoot().getChildren().clear();
+        //ObservableList<FolderFXBean> folders = FakeEmailDAOPersistence.findAllFolders();
+        ObservableList<FolderFXBean> folders = this.emailDAO.getAllFolders();
 
         // Build an item for each email and add it to the root
         if (folders != null) {
@@ -115,7 +128,15 @@ public class FolderFXTreeLayoutController {
                 .getSelectionModel()
                 .selectedItemProperty()
                 .addListener(
-                        (observable, oldValue, newValue) -> showFolderContents(newValue));
+                        (observable, oldValue, newValue) -> {
+                            try {
+                                showFolderContents(newValue);
+                            } catch (SQLException ex) {
+                                LOG.info("Could not display the folder contents ");
+                            } catch (IOException ex) {
+                                LOG.info("Got an IOExceptio when trying to display the folder contents");
+                            }
+                        });
     }
 
     /**
@@ -146,7 +167,7 @@ public class FolderFXTreeLayoutController {
     @FXML
     void handleDragDropped(DragEvent event) {
         //TODO : implement the action for dropping an email into a folder.
-        
+
         LOG.debug("onDragDropped");
         Dragboard db = event.getDragboard();
         boolean success = false;
@@ -164,9 +185,18 @@ public class FolderFXTreeLayoutController {
      *
      * @param folderData
      */
-    private void showFolderContents(TreeItem<FolderFXBean> folderData) {
-        //TODO : in phase 4, We send the EmailDAOImpl the folder name and find all the emails to be displayed from that folder.
+    private void showFolderContents(TreeItem<FolderFXBean> folderBean) throws SQLException, IOException {
+        if (folderBean.getValue().getFolderName().equals("DRAFT")) {
+            htmlController.enableFormAndHTML();
+        } else {
+            htmlController.disableFormAndHTML();
+        }
+
+        emailFXTableController.getEmailDataTable().getSelectionModel().clearSelection();
+        htmlController.resetSelectedEmailBean();
+        htmlController.clearFormAndHtmlEditor();
         LOG.info("SHOW A FOLDER'S EMAILS IN THE TABLE");
+        emailFXTableController.displaySelectedFolder(folderBean.getValue());
     }
 
     /**
@@ -182,14 +212,66 @@ public class FolderFXTreeLayoutController {
     }
 
     /**
+     * Pass the html controller reference to this controller
+     *
+     * @param htmlController
+     */
+    public void setHTMLController(EmailFXHTMLLayoutController htmlController) {
+        this.htmlController = htmlController;
+    }
+
+    /**
      * The handler for adding a folder to the list of folder and display the
-     * updated folders in the TreeView.
+     * updated folders in the TreeView. The user cannot add a folder that
+     * already exists
      *
      * @param event
      */
     @FXML
-    void handleAddFolder(ActionEvent event) {
-        LOG.info("Implement adding the folder event");
-        //TODO: after adding folder, need to display table once again with updated folders.
+    void handleAddFolder(ActionEvent event) throws SQLException, FolderAlreadyExistsException {
+        if (!newFolderInput.getText().isEmpty()) {
+            try {
+                //create the new folder
+                int foldersCreated = this.emailDAO.createFolder(newFolderInput.getText());
+                //reload the folder tree with the updated folder added.
+                displayTree();
+            } catch (FolderAlreadyExistsException ex) {
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle(resources.getString("addFolderTitle"));
+                dialog.setContentText(resources.getString("addFolderAlreadyExists") + " " + newFolderInput.getText());
+                dialog.show();
+            }
+        }
+    }
+
+    /**
+     * The user must click on a folder and then click on the delete folder
+     * button. The INBOX, SENT AND DRAFT folders cannot be deleted.
+     *
+     * @param event
+     */
+    @FXML
+    void handleDeleteFolder(ActionEvent event) {
+        //if no folder was selected yet.
+        if (folderFXTreeView.getSelectionModel().selectedItemProperty().getValue() == null) {
+            Alert dialog = new Alert(Alert.AlertType.ERROR);
+            dialog.setTitle(resources.getString("deleteFolderTitle"));
+            dialog.setContentText(resources.getString("deleteFolderNotSelected"));
+            dialog.show();
+            return;
+        }
+
+        try {
+            //remove the folder and redisplay the TreeView
+            this.emailDAO.deleteFolder(folderFXTreeView.getSelectionModel().selectedItemProperty().getValue().getValue().getFolderName());
+            displayTree();
+        } catch (SQLException ex) {
+            LOG.info("Caught an SQLException when trying to delete a folder");
+        } catch (CannotDeleteFolderException ex) {
+            Alert dialog = new Alert(Alert.AlertType.ERROR);
+            dialog.setTitle(resources.getString("deleteFolderTitle"));
+            dialog.setContentText(resources.getString("folderCannotBeDeleted") + " " + folderFXTreeView.getSelectionModel().selectedItemProperty().getValue().getValue().getFolderName());
+            dialog.show();
+        }
     }
 }

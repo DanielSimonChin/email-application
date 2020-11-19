@@ -5,8 +5,12 @@
  */
 package com.danielsimonchin.properties;
 
+import com.danielsimonchin.fxbeans.EmailTableFXBean;
 import java.io.File;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -179,6 +183,7 @@ public class EmailBean {
     public Timestamp getReceivedDate() {
         return this.receivedDate;
     }
+
     /**
      * @param receivedDate Date email is received
      */
@@ -426,7 +431,25 @@ public class EmailBean {
         sb.append('}');
         return sb.toString();
     }
-    
-    
+
+    /**
+     * A conversion method from EmailBean to EmailTableFXBean.
+     *
+     * @return the resulting EmailTableFXBean
+     */
+    public EmailTableFXBean convertToEmailTableFXBean() {
+        if (this.receivedDate == null) {
+            //if there is no received or sent date, it is a draft email.
+            if (email.sentDate() == null) {
+                return new EmailTableFXBean(id, email.from().getEmail(), email.subject(), null);
+            }
+
+            Date dateSent = new Date(email.sentDate().getTime());
+            LocalDateTime sentDate = dateSent.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+            //returning a sent email
+            return new EmailTableFXBean(id, email.from().getEmail(), email.subject(), sentDate);
+        }
+        return new EmailTableFXBean(id, email.from().getEmail(), email.subject(), receivedDate.toLocalDateTime());
+    }
 
 }

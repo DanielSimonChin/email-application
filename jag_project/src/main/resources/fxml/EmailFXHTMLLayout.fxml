@@ -70,7 +70,7 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#onSendEmail" text="%sendEmail" />
                   <Button mnemonicParsing="false" onAction="#onSaveDraft" text="%saveDraft" />
-                  <Button mnemonicParsing="false" onAction="#onDeleteDraft" text="%deleteDraft" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteEmail" text="%deleteEmail" />
                </children>
                <padding>
                   <Insets bottom="5.0" top="5.0" />
