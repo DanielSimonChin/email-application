@@ -1,7 +1,14 @@
 package com.danielsimonchin.fxbeans;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * The JavaFX bean for the form in which a user sets up an email to be sent.
@@ -15,6 +22,7 @@ public class FormFXBean {
     private StringProperty ccField;
     private StringProperty bccField;
     private StringProperty subjectField;
+    private ListProperty attachments;
 
     /**
      * Takes the multiple inputs for the email form and sets them in the
@@ -24,12 +32,14 @@ public class FormFXBean {
      * @param ccField
      * @param bccField
      * @param subjectField
+     * @param attachments
      */
-    public FormFXBean(String toField, String ccField, String bccField, String subjectField) {
+    public FormFXBean(String toField, String ccField, String bccField, String subjectField, ObservableList<File> attachments) {
         this.toField = new SimpleStringProperty(toField);
         this.ccField = new SimpleStringProperty(ccField);
         this.bccField = new SimpleStringProperty(bccField);
         this.subjectField = new SimpleStringProperty(subjectField);
+        this.attachments = new SimpleListProperty(attachments);
     }
 
     /**
@@ -37,7 +47,7 @@ public class FormFXBean {
      * field as an empty string.
      */
     public FormFXBean() {
-        this("", "", "", "");
+        this("", "", "", "", FXCollections.observableArrayList());
     }
 
     /**
@@ -122,6 +132,27 @@ public class FormFXBean {
      */
     public StringProperty getSubjectFieldProperty() {
         return subjectField;
+    }
+
+    /**
+     * @return the observable list of attachment files
+     */
+    public List<File> getAttachments() {
+        return this.attachments.getValue();
+    }
+
+    /**
+     * @param attachments
+     */
+    public void setAttachments(List<File> attachments) {
+        this.attachments.setValue(attachments);
+    }
+
+    /**
+     * @return The list property object
+     */
+    public ListProperty getAttachmentsProperty() {
+        return this.attachments;
     }
 
     /**

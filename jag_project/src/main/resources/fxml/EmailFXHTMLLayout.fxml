@@ -71,6 +71,7 @@
                   <Button mnemonicParsing="false" onAction="#onSendEmail" text="%sendEmail" />
                   <Button mnemonicParsing="false" onAction="#onSaveDraft" text="%saveDraft" />
                   <Button mnemonicParsing="false" onAction="#onDeleteEmail" text="%deleteEmail" />
+                  <Button mnemonicParsing="false" onAction="#onReplyButton" text="%replyEmail" />
                </children>
                <padding>
                   <Insets bottom="5.0" top="5.0" />
@@ -80,6 +81,6 @@
       </GridPane>
    </top>
    <center>
-      <HTMLEditor fx:id="emailFXHTMLEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="424.0" prefWidth="718.0" BorderPane.alignment="CENTER" />
+      <HTMLEditor fx:id="emailFXHTMLEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

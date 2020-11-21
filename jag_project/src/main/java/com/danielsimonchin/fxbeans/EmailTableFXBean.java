@@ -1,6 +1,5 @@
 package com.danielsimonchin.fxbeans;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -118,7 +117,7 @@ public class EmailTableFXBean {
     /**
      * @param dateField
      */
-    public void setDateField(Timestamp dateField) {
+    public void setDateField(LocalDateTime dateField) {
         this.dateField.set(dateField);
     }
 

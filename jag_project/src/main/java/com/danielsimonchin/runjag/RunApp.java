@@ -46,7 +46,7 @@ public class RunApp extends Application {
     public RunApp() {
         super();
         //The program will use the computer's default language to determine which message bundle to use.
-        currentLocale = new Locale("fr", "CA");
+        currentLocale = new Locale("en", "CA");
         //currentLocale = Locale.getDefault();
         LOG.debug("Locale = " + currentLocale);
     }
@@ -61,16 +61,18 @@ public class RunApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString("title"));
+        
 
         boolean isRead = retrieveMailConfig();
         //the file was read and the properties were set.
         if (isRead) {
             //if all properties are empty, then open the mail config form.
             if (checkPropertyBeanEmpty(propertyBean)) {
+                this.primaryStage.setTitle(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString("title"));
                 initRootLayout();
             } //if they are not empty, then open the app right away.
             else {
+                this.primaryStage.setTitle(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString("appTitle"));
                 loadApplicationWithoutForm();
             }
         } else {

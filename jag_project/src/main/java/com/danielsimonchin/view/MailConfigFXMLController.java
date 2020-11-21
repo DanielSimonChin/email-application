@@ -1,10 +1,12 @@
 package com.danielsimonchin.view;
 
-import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
 import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -12,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -114,11 +117,19 @@ public class MailConfigFXMLController {
             } catch (IOException ex) {
                 LOG.info("Error writing to the properties file");
             }
-            //when you save, opens up the email application.
-            setupRootLayout();
+
+            String constructedMySqlURL = "jdbc:mysql://" + propertyBean.getmysqlURL() + ":" + propertyBean.getmysqlPort() + "/" + propertyBean.getmysqlDatabase();
+
+            try ( Connection connection = DriverManager.getConnection(constructedMySqlURL, propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword())) {
+                //when you save, opens up the email application.
+                setupRootLayout();
+
+            } catch (SQLException ex) {
+                errorAlert("invalidFormTitle","invalidFormHeader","invalidFormMessage");
+            }
+
         } else {
-            //TODO implement at pop up window saying to fill up the form first
-            LOG.info("Will implement a pop up window asking to fill all fields.");
+            errorAlert("invalidFormTitle","formUnfilledHeader","formUnfilledMessage");
         }
 
     }
@@ -199,5 +210,18 @@ public class MailConfigFXMLController {
      */
     public void passStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    /**
+     * Error message popup dialog
+     *
+     * @param msg
+     */
+    private void errorAlert(String title, String header, String message) {
+        Alert dialog = new Alert(Alert.AlertType.ERROR);
+        dialog.setTitle(resources.getString(title));
+        dialog.setHeaderText(resources.getString(header));
+        dialog.setContentText(resources.getString(message));
+        dialog.show();
     }
 }

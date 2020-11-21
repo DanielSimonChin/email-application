@@ -102,11 +102,11 @@ public class CrudTests {
     public void createMailConfigBean() {
         //Use the created user to create the tables
         this.mailConfigBean = new MailConfigBean("daniel", "danieldawsontest1@gmail.com", "Danieltester1", "imap.gmail.com", "smtp.gmail.com", "993", "465", "jdbc:mysql://localhost:3306/EMAILCLIENT", "EMAILCLIENT", "3306", "daniel", "danielpw");
-        seedDatabase("createFoldersTable.sql");
-        seedDatabase("createEmailTable.sql");
-        seedDatabase("createAddressesTable.sql");
-        seedDatabase("createAttachmentsTable.sql");
-        seedDatabase("createEmailToAddressTable.sql");
+        seedDatabase("01_createFoldersTable.sql");
+        seedDatabase("02_createEmailTable.sql");
+        seedDatabase("03_createAddressesTable.sql");
+        seedDatabase("04_createAttachmentsTable.sql");
+        seedDatabase("05_createEmailToAddressTable.sql");
 
         allRecipients = new ArrayList<>();
         toList = new ArrayList<>();
@@ -771,7 +771,6 @@ public class CrudTests {
      * @throws SQLException
      * @throws FileNotFoundException
      * @throws IOException
-     * @throws com.danielsimonchin.exceptions.NotEnoughRecipientsException
      */
     @Test
     public void testSendDraftEmail() throws SQLException, FileNotFoundException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
@@ -823,7 +822,7 @@ public class CrudTests {
      */
     @Test
     public void testSendDraftNoRecipients() throws SQLException, FileNotFoundException, IOException,NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException  {
-        thrown.expect(NotEnoughRecipientsException.class);
+        thrown.expect(NotEnoughEmailRecipientsException.class);
         EmailDAO crud = new EmailDAOImpl(mailConfigBean);
         //Retrieving one of the email in the draft folder (mock data)
         EmailBean draftToBeSent = crud.findID(4);

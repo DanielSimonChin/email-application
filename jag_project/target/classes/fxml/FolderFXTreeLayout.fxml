@@ -12,7 +12,7 @@
         <URL value="@/styles/folderfxtreelayout.css" />
     </stylesheets>
    <children>
-      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="83.0" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="836.0" prefWidth="317.0" />
+      <TreeView fx:id="folderFXTreeView" layoutX="-2.0" layoutY="87.0" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="832.0" prefWidth="270.0" />
       <TextField fx:id="newFolderInput" layoutX="35.0" layoutY="14.0" prefHeight="25.0" prefWidth="147.0" />
       <HBox layoutX="14.0" layoutY="49.0" spacing="10.0">
          <children>

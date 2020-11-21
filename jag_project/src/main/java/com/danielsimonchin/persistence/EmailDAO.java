@@ -52,4 +52,8 @@ public interface EmailDAO {
     public ObservableList<FolderFXBean> getAllFolders() throws SQLException;
     
     public String getFolderName(int id) throws SQLException;
+    
+    public int getFolderID(String folderName) throws SQLException;
+    
+    public void saveBlobToDisk(int emailID) throws SQLException;
 }

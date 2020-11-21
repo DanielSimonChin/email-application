@@ -421,6 +421,7 @@ public class EmailDAOImpl implements EmailDAO {
         emailBean.setId(resultSet.getInt("EMAILID"));
         emailBean.setFolderKey(resultSet.getInt("FOLDERID"));
         emailBean.setReceivedDate(resultSet.getTimestamp("RECEIVEDATE"));
+        emailBean.email.sentDate(resultSet.getTimestamp("SENTDATE"));
         emailBean.email = queryEmailTableFields(resultSet, emailBean.email);
         emailBean.email = queryEmailToAddressTableFields(resultSet, emailBean.email);
         emailBean.email = queryAttachmentsFields(resultSet, emailBean.email);
@@ -713,6 +714,7 @@ public class EmailDAOImpl implements EmailDAO {
 
             ps.setString(2, plainText);
             ps.setString(3, htmlText);
+
             //if the new folder is changing from draft to sent, send the email and update its folder in the Email table
             if (emailBean.getFolderKey() == 2) {
                 //Send the email
@@ -796,6 +798,7 @@ public class EmailDAOImpl implements EmailDAO {
         }
         if (tableUpdatesResult > 0) {
             emailBean.setFolderKey(2);
+            LOG.info("THE SENT DATE OF THE DRAFT EMAIL IS : " + new Timestamp(emailBean.email.sentDate().getTime()));
             LOG.info("The email with the ID: " + emailBean.getId() + " has set its sentDate in the Email table.");
         }
     }
@@ -1108,5 +1111,58 @@ public class EmailDAOImpl implements EmailDAO {
         }
         LOG.info("THE FOLDER FOUND IN THE DAO IS  : " + folderName);
         return folderName;
+    }
+
+    /**
+     * Method that returns the ID of a folder given its name. Useful when drag
+     * and dropping emails into a folder and we require its ID.
+     *
+     * @param folderName
+     * @return the ID of the folder.
+     * @throws SQLException
+     */
+    @Override
+    public int getFolderID(String folderName) throws SQLException {
+        int folderID = 0;
+
+        String findFolderID = "SELECT FOLDERID FROM FOLDERS WHERE FOLDERNAME = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(findFolderID);) {
+            ps.setString(1, folderName);
+            ResultSet queryResult = ps.executeQuery();
+            if (queryResult.next()) {
+                folderID = queryResult.getInt("FOLDERID");
+            }
+        }
+        LOG.info("THE FOLDER ID FOUND : " + folderID);
+        return folderID;
+    }
+
+    @Override
+    public void saveBlobToDisk(int emailID) throws SQLException {
+        String getBlobsQuery = "SELECT FILENAME, ATTACHMENT FROM ATTACHMENTS WHERE EMAILID = ?";
+        try ( Connection connection = DriverManager.getConnection(mailConfigBean.getDatabaseUrl(), mailConfigBean.getDatabaseUserName(), mailConfigBean.getDatabasePassword());  PreparedStatement ps = connection.prepareStatement(getBlobsQuery);) {
+            ps.setInt(1, emailID);
+            ResultSet queryResult = ps.executeQuery();
+            while (queryResult.next()) {
+                String fileName = queryResult.getString("FILENAME");
+
+                File image = new File(fileName);
+                FileOutputStream fos;
+                try {
+                    fos = new FileOutputStream(image);
+                    byte[] buffer = new byte[1];
+                    InputStream is = queryResult.getBinaryStream("ATTACHMENT");
+                    while (is.read(buffer) > 0) {
+                        fos.write(buffer);
+                    }
+                    fos.close();
+                    LOG.info("THE FILE WAS SAVED");
+                } catch (FileNotFoundException ex) {
+                    LOG.info("The file could not be found : " + fileName);
+                } catch (IOException ex) {
+                    LOG.info("Caught IOException when writing to the file.");
+                }
+            }
+        }
     }
 }

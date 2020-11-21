@@ -3,12 +3,16 @@ package com.danielsimonchin.view;
 import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
+import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +79,6 @@ public class RootLayoutController {
      */
     @FXML
     void initialize() throws IOException {
-        //will implement the file explorer in phase 4
         fileChooser = new FileChooser();
 
         //Read from the properties file so we create our MailConfigBean to initialize a EmailDAO object.
@@ -91,13 +95,15 @@ public class RootLayoutController {
         initLowerRightLayout(mailConfigBean);
 
         //The tree controller needs a reference to the table controller.
-        setTableControllerToTree();
+        emailFXTreeController.setTableController(emailFXTableController);
         //The table controller needs a reference to the html controller.
-        setHtmlControllerToTable();
+        emailFXTableController.setHtmlController(emailFXHTMLController);
         //The html controller needs a reference to the table controller whenever an email is sent, updated or deleted.
-        setTableControllerToHTMLController();
+        emailFXHTMLController.setTableController(emailFXTableController);
         //The tree controller needs the reference to the html controller
-        setHTMLControllerToTree();
+        emailFXTreeController.setHTMLController(emailFXHTMLController);
+        //Pass the mailConfigBean to the TreeController
+        emailFXTreeController.setMailConfigBean(mailConfigBean);
 
         try {
             emailFXTreeController.displayTree();
@@ -120,35 +126,6 @@ public class RootLayoutController {
         //use the user's inputs for the mySqlDatabaseURL, the mySQL port and the database name to construct "jdbc:mysql://localhost:3306/EMAILCLIENT"
         String constructedMySqlURL = "jdbc:mysql://" + propertyBean.getmysqlURL() + ":" + propertyBean.getmysqlPort() + "/" + propertyBean.getmysqlDatabase();
         return new MailConfigBean(propertyBean.getUserName(), propertyBean.getEmailAddress(), propertyBean.getEmailPassword(), propertyBean.getImapURL(), propertyBean.getSmtpURL(), propertyBean.getImapPort(), propertyBean.getSmtpPort(), constructedMySqlURL, propertyBean.getmysqlDatabase(), propertyBean.getmysqlPort(), propertyBean.getmysqlUsername(), propertyBean.getmysqlPassword());
-    }
-
-    /**
-     * Send the reference to the emailFXTableController to the
-     * emailFXTreeController
-     */
-    private void setTableControllerToTree() {
-        emailFXTreeController.setTableController(emailFXTableController);
-    }
-
-    /**
-     * Send the reference of the HTML controller to the table controller
-     */
-    private void setHtmlControllerToTable() {
-        emailFXTableController.setHtmlController(emailFXHTMLController);
-    }
-
-    /**
-     * Send the reference of the table controller to the HTML Controller
-     */
-    private void setTableControllerToHTMLController() {
-        emailFXHTMLController.setTableController(emailFXTableController);
-    }
-
-    /**
-     * Send the reference of the html controller to the tree controller
-     */
-    private void setHTMLControllerToTree() {
-        emailFXTreeController.setHTMLController(emailFXHTMLController);
     }
 
     /**
@@ -247,16 +224,55 @@ public class RootLayoutController {
     @FXML
     void handleAbout(ActionEvent event) {
         LOG.info("TODO : Implementation for the About Menu Item");
+        try {
+            Stage newStage = new Stage();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setResources(resources);
+
+            loader.setLocation(this.getClass().getResource("/fxml/AboutWebView.fxml"));
+
+            AnchorPane webView = (AnchorPane) loader.load();
+
+            newStage.setScene(new Scene(webView));
+
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+
+        } catch (IOException ex) {
+            LOG.error("Error loading the WebView About Page", ex);
+            Platform.exit();
+        }
     }
 
     /**
-     * Allow the user to add an attachment to an email.
+     * Allow the user to add an attachment to an email. The selected file gets
+     * added to the FXBean property attachments
      *
      * @param event
      */
     @FXML
     void handleAddAttachment(ActionEvent event) {
         LOG.info("TODO : Implementation for the Add Attachment Menu Item");
+
+        Stage stage = new Stage();
+
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            //add this file to the list of files to be sent or saved
+            emailFXHTMLController.getFormFXBean().getAttachments().add(selectedFile);
+
+            //display the selected file in the html editor
+            emailFXHTMLController.displayImagesInHtml(selectedFile);
+
+            LOG.info("THE FXBEANS ATTACHMENTS:");
+            for (File file : emailFXHTMLController.getFormFXBean().getAttachments()) {
+                LOG.info("FILE NAME : " + file.getName());
+            }
+        }
     }
 
     /**
@@ -267,6 +283,12 @@ public class RootLayoutController {
     @FXML
     void handleSaveAttachment(ActionEvent event) {
         LOG.info("TODO : Implementation for the Save Attachment Menu Item");
+
+        try {
+            this.emailDAO.saveBlobToDisk(emailFXTableController.getEmailDataTable().getSelectionModel().selectedItemProperty().getValue().getEmailId());
+        } catch (SQLException ex) {
+            LOG.info("Caught an SQLException when saving the files");
+        }
     }
 
     /**

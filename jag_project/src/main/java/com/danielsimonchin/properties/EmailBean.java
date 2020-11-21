@@ -6,12 +6,10 @@
 package com.danielsimonchin.properties;
 
 import com.danielsimonchin.fxbeans.EmailTableFXBean;
-import java.io.File;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.activation.DataSource;
@@ -75,78 +73,28 @@ public class EmailBean {
         this.id = id;
         this.folderKey = folderKey;
         this.receivedDate = new Timestamp(receivedEmail.sentDate().getTime());
-        this.email = convertToEmail(receivedEmail);
+        this.email = convertReceivedEmail(receivedEmail);
     }
 
     /**
-     * Convert a receivedEmail into an Email object with helper methods that
-     * attach recipients and attachments.
+     * Convert a receivedEmail into an Email object.
      *
      * @param receivedEmail
      * @return A constructed Email object with set fields copied from the
      * receivedEmail
      */
-    private Email convertToEmail(ReceivedEmail receivedEmail) {
-        Email email = new Email();
-        email.from(receivedEmail.from().toString());
-        email.subject(receivedEmail.subject());
+    private Email convertReceivedEmail(ReceivedEmail email) {
+        Email resultEmail = Email.create().from(email.from())
+                .subject(email.subject())
+                .textMessage(email.messages().get(0).getContent())
+                .htmlMessage(email.messages().get(1).getContent())
+                .to(email.to())
+                .cc(email.cc());
 
-        List<EmailMessage> messages = receivedEmail.messages();
-        //set the messages based on their mime type
-        for (EmailMessage message : messages) {
-            if (message.getMimeType().equals("text/plain")) {
-                email.textMessage(message.getContent());
-            } else {
-                email.htmlMessage(message.getContent());
-            }
-        }
-        //call helpers to set the attachments and recipients
-        retrieveRecipients(receivedEmail, email);
-        retrieveAttachments(receivedEmail, email);
-        return email;
-    }
+        List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
+        resultEmail.attachments(attachments);
 
-    /**
-     * Helper method that sets the receivedEmail's recipients and copies them
-     * into the Email object.
-     *
-     * @param receivedEmail
-     * @param email
-     */
-    private void retrieveRecipients(ReceivedEmail receivedEmail, Email email) {
-        List<String> toList = new ArrayList<>();
-        List<String> ccList = new ArrayList<>();
-        EmailAddress[] toRecipients = receivedEmail.to();
-        EmailAddress[] ccRecipients = receivedEmail.cc();
-        for (EmailAddress address : toRecipients) {
-            toList.add(address.getEmail());
-        }
-        for (EmailAddress address : ccRecipients) {
-            ccList.add(address.getEmail());
-        }
-        toList.forEach(emailAddress -> {
-            email.to(emailAddress);
-        });
-        ccList.forEach(emailAddress -> {
-            email.cc(emailAddress);
-        });
-    }
-
-    /**
-     * Set the receivedEmail's attachments and copy them into the Email object.
-     *
-     * @param receivedEmail
-     * @param email
-     */
-    private void retrieveAttachments(ReceivedEmail receivedEmail, Email email) {
-        List<EmailAttachment<? extends DataSource>> attachments = receivedEmail.attachments();
-        for (EmailAttachment attachment : attachments) {
-            if (!attachment.isEmbedded()) {
-                email.attachment(EmailAttachment.with().content(attachment.getName()));
-            } else {
-                email.embeddedAttachment(EmailAttachment.with().content(new File(attachment.getName())));
-            }
-        }
+        return resultEmail;
     }
 
     /**
@@ -451,5 +399,4 @@ public class EmailBean {
         }
         return new EmailTableFXBean(id, email.from().getEmail(), email.subject(), receivedDate.toLocalDateTime());
     }
-
 }

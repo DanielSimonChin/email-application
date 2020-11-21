@@ -1,0 +1,11 @@
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; danieldawsontest1@gmail.com
+Arrival-Date: Fri, 20 Nov 2020 20:39:12 -0800 (PST)
+X-Original-Message-ID: <1625896473.2.1605933551772@smtp.gmail.com>
+
+Final-Recipient: rfc822; danieldawsontest1@gmailcom
+Action: failed
+Status: 4.0.0
+Diagnostic-Code: smtp; DNS Error: 5797308 DNS type 'mx' lookup of gmailcom responded with code NXDOMAIN
+ Domain name not found: gmailcom
+Last-Attempt-Date: Fri, 20 Nov 2020 20:39:13 -0800 (PST)

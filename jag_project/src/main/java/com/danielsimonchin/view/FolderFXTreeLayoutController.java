@@ -1,10 +1,15 @@
 package com.danielsimonchin.view;
 
+import com.danielsimonchin.business.SendAndReceive;
 import com.danielsimonchin.exceptions.CannotDeleteFolderException;
+import com.danielsimonchin.exceptions.CannotMoveToDraftsException;
 import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
+import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
+import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
 import com.danielsimonchin.fxbeans.FolderFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
-import com.danielsimonchin.persistence.FakeEmailDAOPersistence;
+import com.danielsimonchin.properties.EmailBean;
+import com.danielsimonchin.properties.MailConfigBean;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -23,6 +28,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import jodd.mail.ReceivedEmail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +50,8 @@ public class FolderFXTreeLayoutController {
 
     private EmailFXHTMLLayoutController htmlController;
 
+    private MailConfigBean mailConfigBean;
+
     private EmailDAO emailDAO;
 
     @FXML
@@ -52,7 +60,7 @@ public class FolderFXTreeLayoutController {
     @FXML
     private TextField newFolderInput;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
+    @FXML
     private URL location;
 
     @FXML
@@ -72,7 +80,7 @@ public class FolderFXTreeLayoutController {
         // nodes
         FolderFXBean rootFolder = new FolderFXBean();
 
-        folderFXTreeView.setRoot(new TreeItem<FolderFXBean>(rootFolder));
+        folderFXTreeView.setRoot(new TreeItem<>(rootFolder));
         // This cell factory is used to choose which field in the FihDta object
         // is used for the node name
         folderFXTreeView.setCellFactory((e) -> new TreeCell<FolderFXBean>() {
@@ -165,17 +173,47 @@ public class FolderFXTreeLayoutController {
      * @param event
      */
     @FXML
-    void handleDragDropped(DragEvent event) {
-        //TODO : implement the action for dropping an email into a folder.
-
-        LOG.debug("onDragDropped");
+    void handleDragDropped(DragEvent event) throws SQLException, IOException {
         Dragboard db = event.getDragboard();
         boolean success = false;
 
-        //let the source know whether the string was successfully transferred
-        // and used
-        event.setDropCompleted(success);
+        if (event.getDragboard().hasString()) {
+            //The ID of the email which we drag and dropped
+            String tableID = db.getString();
+            LOG.debug("Table ID: " + tableID);
 
+            //Get the emailBean of the email we wish to move
+            EmailBean emailToMove = this.emailDAO.findID(Integer.parseInt(tableID));
+
+            //Emails cannot be moved out of the DRAFTS folder
+            if (emailToMove.getFolderKey() == 3) {
+                errorAlert("folderChangeTitle", "folderChangeHeader", "folderChangeMessage");
+                return;
+            }
+
+            String folderType = event.getTarget().toString();
+            //retrieve the folder name of the TreeItem that was dropped upon
+            String folderName = folderType.split("\"")[1];
+            LOG.debug("FOLDER DROPPED ON :" + folderName);
+
+            //get the id of the new folder to be updated
+            emailToMove.setFolderKey(this.emailDAO.getFolderID(folderName));
+
+            try {
+                //the email we wish to move is updated to its new folder
+                this.emailDAO.updateFolder(emailToMove);
+                //Emails cannot be moved into the DRAFTS folder
+            } catch (CannotMoveToDraftsException ex) {
+                errorAlert("folderChangeTitle", "folderChangeHeader", "folderChangeMessage");
+                return;
+            }
+
+            emailFXTableController.displaySelectedFolder(folderName);
+
+            //this.emailDAO.updateFolder(EmailBean emailBean);
+            success = true;
+        }
+        event.setDropCompleted(success);
         event.consume();
     }
 
@@ -186,6 +224,10 @@ public class FolderFXTreeLayoutController {
      * @param folderData
      */
     private void showFolderContents(TreeItem<FolderFXBean> folderBean) throws SQLException, IOException {
+        if (folderBean.getValue().getFolderName().equals("INBOX")) {
+            refreshInboxForReceivedEmails();
+        }
+        //the user can only create emails or edit drafts when they select the draft folder
         if (folderBean.getValue().getFolderName().equals("DRAFT")) {
             htmlController.enableFormAndHTML();
         } else {
@@ -195,8 +237,36 @@ public class FolderFXTreeLayoutController {
         emailFXTableController.getEmailDataTable().getSelectionModel().clearSelection();
         htmlController.resetSelectedEmailBean();
         htmlController.clearFormAndHtmlEditor();
-        LOG.info("SHOW A FOLDER'S EMAILS IN THE TABLE");
-        emailFXTableController.displaySelectedFolder(folderBean.getValue());
+
+        emailFXTableController.displaySelectedFolder(folderBean.getValue().getFolderName());
+    }
+
+    private void refreshInboxForReceivedEmails() throws SQLException, IOException {
+        try {
+            SendAndReceive runMail = new SendAndReceive(mailConfigBean);
+
+            //retreive all the emails sent to the current user
+            ReceivedEmail[] receivedEmails = runMail.receiveEmail(mailConfigBean);
+
+            for (ReceivedEmail email : receivedEmails) {
+                //The email id will be set in the method, the key for inbox is 1.
+                emailDAO.createEmailRecord(new EmailBean(-1, 1, email));
+            }
+        } catch (InvalidRecipientImapURLException ex) {
+            LOG.info("The recipient IMAP URL is invalid");
+        } catch (RecipientInvalidFormatException ex) {
+            LOG.info("The user's mailConfigBean username is invalid");
+        }
+    }
+
+    /**
+     * Pass the reference of the MailConfigBean to this controller so we can
+     * call the receiveEmails method in refreshInboxForReceivedEmails()
+     *
+     * @param mcBean
+     */
+    public void setMailConfigBean(MailConfigBean mcBean) {
+        this.mailConfigBean = mcBean;
     }
 
     /**
@@ -233,13 +303,13 @@ public class FolderFXTreeLayoutController {
             try {
                 //create the new folder
                 int foldersCreated = this.emailDAO.createFolder(newFolderInput.getText());
+
+                newFolderInput.clear();
+
                 //reload the folder tree with the updated folder added.
                 displayTree();
             } catch (FolderAlreadyExistsException ex) {
-                Alert dialog = new Alert(Alert.AlertType.ERROR);
-                dialog.setTitle(resources.getString("addFolderTitle"));
-                dialog.setContentText(resources.getString("addFolderAlreadyExists") + " " + newFolderInput.getText());
-                dialog.show();
+                errorAlert("addFolderTitle", "addFolderAlreadyExistsHeader", "addFolderAlreadyExists");
             }
         }
     }
@@ -254,10 +324,7 @@ public class FolderFXTreeLayoutController {
     void handleDeleteFolder(ActionEvent event) {
         //if no folder was selected yet.
         if (folderFXTreeView.getSelectionModel().selectedItemProperty().getValue() == null) {
-            Alert dialog = new Alert(Alert.AlertType.ERROR);
-            dialog.setTitle(resources.getString("deleteFolderTitle"));
-            dialog.setContentText(resources.getString("deleteFolderNotSelected"));
-            dialog.show();
+            errorAlert("deleteFolderTitle", "deleteFolderNotSelected", "selectFolderBeforeDeleting");
             return;
         }
 
@@ -268,10 +335,20 @@ public class FolderFXTreeLayoutController {
         } catch (SQLException ex) {
             LOG.info("Caught an SQLException when trying to delete a folder");
         } catch (CannotDeleteFolderException ex) {
-            Alert dialog = new Alert(Alert.AlertType.ERROR);
-            dialog.setTitle(resources.getString("deleteFolderTitle"));
-            dialog.setContentText(resources.getString("folderCannotBeDeleted") + " " + folderFXTreeView.getSelectionModel().selectedItemProperty().getValue().getValue().getFolderName());
-            dialog.show();
+            errorAlert("deleteFolderTitle", "folderCannotBeDeletedHeader", "folderCannotBeDeleted");
         }
+    }
+
+    /**
+     * Error message popup dialog
+     *
+     * @param msg
+     */
+    private void errorAlert(String title, String header, String message) {
+        Alert dialog = new Alert(Alert.AlertType.ERROR);
+        dialog.setTitle(resources.getString(title));
+        dialog.setHeaderText(resources.getString(header));
+        dialog.setContentText(resources.getString(message));
+        dialog.show();
     }
 }

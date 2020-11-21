@@ -10,7 +10,7 @@
         <URL value="@/styles/emailfxtablelayout.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="emailDataTable" prefHeight="515.0" prefWidth="903.0">
+      <TableView fx:id="emailDataTable" onDragDetected="#dragDetected" prefHeight="515.0" prefWidth="903.0">
         <columns>
           <TableColumn fx:id="fromColumn" prefWidth="75.0" text="%tableFromColumn" />
           <TableColumn fx:id="subjectColumn" prefWidth="75.0" text="%tableSubjectColumn" />

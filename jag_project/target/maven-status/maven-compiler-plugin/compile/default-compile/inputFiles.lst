@@ -22,6 +22,7 @@ C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\dani
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\persistence\EmailDAO.java
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\properties\EmailBean.java
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\properties\MailConfigBean.java
+C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\view\AboutWebViewController.java
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\InvalidMailConfigBeanUsernameException.java
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\exceptions\CannotMoveToDraftsException.java
 C:\dev\420-517\jag-project_phase4\jag-project\jag_project\src\main\java\com\danielsimonchin\view\EmailFXHTMLLayoutController.java

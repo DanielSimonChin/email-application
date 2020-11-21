@@ -47,10 +47,10 @@
       <Label text="%imapURL" GridPane.rowIndex="4" />
       <Label text="%smtpURL" GridPane.rowIndex="5" />
       <Label text="%imapPort" GridPane.rowIndex="6" />
-      <Label text="%imapPort" GridPane.rowIndex="7" />
+      <Label text="%smtpPort" GridPane.rowIndex="7" />
       <Label text="%mysqlURL" GridPane.rowIndex="8" />
-      <Label prefHeight="18.0" prefWidth="78.0" text="%mysqlPort" GridPane.rowIndex="9" />
-      <Label prefHeight="18.0" prefWidth="107.0" text="%mysqlDatabase" GridPane.rowIndex="10" />
+      <Label prefHeight="18.0" prefWidth="71.0" text="%mysqlPort" GridPane.rowIndex="9" />
+      <Label prefHeight="18.0" prefWidth="94.0" text="%mysqlDatabase" GridPane.rowIndex="10" />
       <Label text="%mysqlUser" GridPane.rowIndex="11" />
       <Label text="%mysqlPassword" GridPane.rowIndex="12" />
       <TextField fx:id="userNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
