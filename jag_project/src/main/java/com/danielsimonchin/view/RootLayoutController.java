@@ -6,8 +6,11 @@ import com.danielsimonchin.persistence.EmailDAOImpl;
 import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -19,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -253,18 +257,43 @@ public class RootLayoutController {
     }
 
     /**
-     * Allow user to save an attachment of a selected Email
+     * Allow user to save an email's attachment in a selected directory.
      *
      * @param event
      */
     @FXML
     void handleSaveAttachment(ActionEvent event) {
-        //User must select an email before saving anything to disk
         if (emailFXTableController.getEmailDataTable().getSelectionModel().getSelectedItem() != null) {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            File selectedDirectory = directoryChooser.showDialog(stage);
+
             try {
-                this.emailDAO.saveBlobToDisk(emailFXTableController.getEmailDataTable().getSelectionModel().selectedItemProperty().getValue().getEmailId());
-            } catch (SQLException ex) {
-                LOG.info("Caught an SQLException when saving the files");
+                saveToFolder(selectedDirectory);
+            } catch (IOException ex) {
+                LOG.info("The files could not be saved.");
+            }
+        }
+
+    }
+
+    /**
+     * Writes the files of the email into the selected directory
+     *
+     * @param selectedDirectory
+     * @throws IOException
+     */
+    private void saveToFolder(File selectedDirectory) throws IOException {
+        if (selectedDirectory.isDirectory()) {
+            File file = null;
+            OutputStream out = null;
+
+            for (File attachment : this.emailFXHTMLController.getFormFXBean().getAttachments()) {
+                file = new File(selectedDirectory.getAbsolutePath() + "/" + attachment.getName());
+                out = new FileOutputStream(file);
+                out.write(Files.readAllBytes(attachment.toPath()));
             }
         }
     }
