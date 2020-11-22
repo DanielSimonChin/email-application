@@ -125,13 +125,12 @@ public class MailConfigFXMLController {
                 setupRootLayout();
 
             } catch (SQLException ex) {
-                errorAlert("invalidFormTitle","invalidFormHeader","invalidFormMessage");
+                errorAlert("invalidFormTitle", "invalidFormHeader", "invalidFormMessage");
             }
 
         } else {
-            errorAlert("invalidFormTitle","formUnfilledHeader","formUnfilledMessage");
+            errorAlert("invalidFormTitle", "formUnfilledHeader", "formUnfilledMessage");
         }
-
     }
 
     /**

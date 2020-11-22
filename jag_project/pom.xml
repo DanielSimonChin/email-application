@@ -102,8 +102,4 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <!--<build>
-        <defaultGoal>clean test</defaultGoal>
-    </build>-->
-
 </project>

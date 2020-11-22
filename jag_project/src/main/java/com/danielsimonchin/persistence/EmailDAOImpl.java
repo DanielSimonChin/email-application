@@ -33,16 +33,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.activation.DataSource;
 import jodd.mail.EmailAddress;
 import jodd.mail.EmailAttachment;
-import jodd.mail.MailServer;
-import jodd.mail.SendMailSession;
-import jodd.mail.SmtpServer;
 
 /**
  * This class implements the EmailDAO. Contains multiple methods that perform
@@ -517,8 +512,10 @@ public class EmailDAOImpl implements EmailDAO {
                 fos.close();
                 //Add the File to the appropriate list depending on if the image is embedded or not
                 if (emailAttachmentsResult.getInt("IS_EMBEDDED") == 1) {
+                    LOG.info("THE ATTACHMENT IS EMBEDDED : " + emailAttachmentsResult.getString("FILENAME"));
                     embeddedAttachments.add(image);
                 } else {
+                    LOG.info("THE ATTACHMENT IS REGULAR : " + emailAttachmentsResult.getString("FILENAME"));
                     regularAttachments.add(image);
                 }
             }
@@ -1137,6 +1134,14 @@ public class EmailDAOImpl implements EmailDAO {
         return folderID;
     }
 
+    /**
+     * When the save attachments button is clicked, we take all the attachments
+     * related to that email and save it to disk. In the root folder. If the
+     * file already exists, then we overwrite it,
+     *
+     * @param emailID
+     * @throws SQLException
+     */
     @Override
     public void saveBlobToDisk(int emailID) throws SQLException {
         String getBlobsQuery = "SELECT FILENAME, ATTACHMENT FROM ATTACHMENTS WHERE EMAILID = ?";

@@ -242,6 +242,12 @@ public class MailConfigBean {
         this.databasePassword = databasePassword;
     }
 
+    /**
+     * Override of the toString which displays all the fields of the
+     * MailConfigBean
+     *
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

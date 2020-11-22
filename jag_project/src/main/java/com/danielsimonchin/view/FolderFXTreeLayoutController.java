@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -81,8 +80,7 @@ public class FolderFXTreeLayoutController {
         FolderFXBean rootFolder = new FolderFXBean();
 
         folderFXTreeView.setRoot(new TreeItem<>(rootFolder));
-        // This cell factory is used to choose which field in the FihDta object
-        // is used for the node name
+
         folderFXTreeView.setCellFactory((e) -> new TreeCell<FolderFXBean>() {
             @Override
             protected void updateItem(FolderFXBean item, boolean empty) {
@@ -114,8 +112,9 @@ public class FolderFXTreeLayoutController {
      * @throws SQLException
      */
     public void displayTree() throws SQLException {
+        //clear all the children since we are re-displaying it
         folderFXTreeView.getRoot().getChildren().clear();
-        //ObservableList<FolderFXBean> folders = FakeEmailDAOPersistence.findAllFolders();
+
         ObservableList<FolderFXBean> folders = this.emailDAO.getAllFolders();
 
         // Build an item for each email and add it to the root
@@ -130,8 +129,6 @@ public class FolderFXTreeLayoutController {
         // Open the tree
         folderFXTreeView.getRoot().setExpanded(true);
 
-        //TODO: Add listeners to these tree items so they can be clicked to view the folder's contents
-        // Listen for selection changes and show the fishData details when changed.
         folderFXTreeView
                 .getSelectionModel()
                 .selectedItemProperty()
@@ -140,9 +137,9 @@ public class FolderFXTreeLayoutController {
                             try {
                                 showFolderContents(newValue);
                             } catch (SQLException ex) {
-                                LOG.info("Could not display the folder contents ");
+                                LOG.error("Could not display the folder contents ");
                             } catch (IOException ex) {
-                                LOG.info("Got an IOExceptio when trying to display the folder contents");
+                                LOG.error("Got an IOExceptio when trying to display the folder contents");
                             }
                         });
     }
@@ -210,7 +207,6 @@ public class FolderFXTreeLayoutController {
 
             emailFXTableController.displaySelectedFolder(folderName);
 
-            //this.emailDAO.updateFolder(EmailBean emailBean);
             success = true;
         }
         event.setDropCompleted(success);
@@ -227,6 +223,7 @@ public class FolderFXTreeLayoutController {
         if (folderBean.getValue().getFolderName().equals("INBOX")) {
             refreshInboxForReceivedEmails();
         }
+
         //the user can only create emails or edit drafts when they select the draft folder
         if (folderBean.getValue().getFolderName().equals("DRAFT")) {
             htmlController.enableFormAndHTML();
@@ -241,6 +238,13 @@ public class FolderFXTreeLayoutController {
         emailFXTableController.displaySelectedFolder(folderBean.getValue().getFolderName());
     }
 
+    /**
+     * Whenever the folder INBOX is clicked, we receive emails that were sent to
+     * the current account.
+     *
+     * @throws SQLException
+     * @throws IOException
+     */
     private void refreshInboxForReceivedEmails() throws SQLException, IOException {
         try {
             SendAndReceive runMail = new SendAndReceive(mailConfigBean);

@@ -183,6 +183,7 @@ public class EmailFXTableLayoutController {
      * @param emailData
      */
     private void showEmailDetails(EmailTableFXBean emailData) throws SQLException, IOException {
+        htmlController.clearFormAndHtmlEditor();
         EmailBean selectedEmail = this.emailDAO.findID(emailData.getEmailId());
 
         //The html controller will handle displaying the email in the form and html sections.
@@ -202,8 +203,5 @@ public class EmailFXTableLayoutController {
         fromColumn.setPrefWidth(width * .25);
         subjectColumn.setPrefWidth(width * .25);
         dateColumn.setPrefWidth(width * .25);
-//        fromColumn.setPrefWidth(width / 3);
-//        subjectColumn.setPrefWidth(width / 3);
-//        dateColumn.setPrefWidth(width / 3);
     }
 }

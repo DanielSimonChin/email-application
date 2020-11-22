@@ -7,7 +7,6 @@ import com.danielsimonchin.exceptions.FolderAlreadyExistsException;
 import com.danielsimonchin.exceptions.InvalidMailConfigBeanUsernameException;
 import com.danielsimonchin.exceptions.InvalidRecipientImapURLException;
 import com.danielsimonchin.exceptions.NotEnoughEmailRecipientsException;
-import com.danielsimonchin.exceptions.NotEnoughRecipientsException;
 import com.danielsimonchin.exceptions.RecipientEmailAddressNullException;
 import com.danielsimonchin.exceptions.RecipientInvalidFormatException;
 import com.danielsimonchin.exceptions.RecipientListNullException;

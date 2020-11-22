@@ -32,6 +32,9 @@ public class AboutWebViewController {
     @FXML
     private WebView aboutWebView;
 
+    /**
+     * Displays the contents of the html page onto the WebView
+     */
     @FXML
     void initialize() {
         final String html = "AboutPage.html";

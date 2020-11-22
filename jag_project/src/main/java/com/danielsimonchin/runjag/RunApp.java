@@ -45,9 +45,9 @@ public class RunApp extends Application {
      */
     public RunApp() {
         super();
+        
         //The program will use the computer's default language to determine which message bundle to use.
-        currentLocale = new Locale("en", "CA");
-        //currentLocale = Locale.getDefault();
+        currentLocale = Locale.getDefault();
         LOG.debug("Locale = " + currentLocale);
     }
 
@@ -62,7 +62,6 @@ public class RunApp extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         
-
         boolean isRead = retrieveMailConfig();
         //the file was read and the properties were set.
         if (isRead) {
@@ -187,7 +186,7 @@ public class RunApp extends Application {
         Alert dialog = new Alert(Alert.AlertType.ERROR);
         dialog.setTitle(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString("sqlError"));
         dialog.setHeaderText(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString("sqlError"));
-        dialog.setContentText(ResourceBundle.getBundle("MessagesBundle", currentLocale).getString(msg));
+        dialog.setContentText(msg);
         dialog.show();
     }
 
@@ -197,5 +196,4 @@ public class RunApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }

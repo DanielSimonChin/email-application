@@ -7,7 +7,6 @@ package com.danielsimonchin.persistence;
 
 import com.danielsimonchin.fxbeans.EmailTableFXBean;
 import com.danielsimonchin.fxbeans.FolderFXBean;
-import java.sql.Timestamp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

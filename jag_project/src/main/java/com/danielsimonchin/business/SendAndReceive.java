@@ -14,7 +14,6 @@ import jodd.mail.EmailFilter;
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;
 import jodd.mail.ImapServer;
-import jodd.mail.MailException;
 import jodd.mail.MailServer;
 import jodd.mail.RFC2822AddressParser;
 import jodd.mail.ReceiveMailSession;

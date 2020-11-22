@@ -3,16 +3,13 @@ package com.danielsimonchin.view;
 import com.danielsimonchin.fxbeans.MailConfigFXBean;
 import com.danielsimonchin.persistence.EmailDAO;
 import com.danielsimonchin.persistence.EmailDAOImpl;
-import com.danielsimonchin.properties.EmailBean;
 import com.danielsimonchin.properties.MailConfigBean;
 import com.danielsimonchin.propertiesmanager.PropertiesManager;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,10 +41,10 @@ public class RootLayoutController {
 
     private FileChooser fileChooser;
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
+    @FXML
     private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
+    @FXML
     private URL location;
 
     @FXML
@@ -203,19 +200,6 @@ public class RootLayoutController {
     }
 
     /**
-     * Error message popup dialog
-     *
-     * @param msg
-     */
-    private void errorAlert(String msg) {
-        Alert dialog = new Alert(Alert.AlertType.ERROR);
-        dialog.setTitle(resources.getString("sqlError"));
-        dialog.setHeaderText(resources.getString("sqlError"));
-        dialog.setContentText(resources.getString(msg));
-        dialog.show();
-    }
-
-    /**
      * When user clicks on the About menu item, it will display a html page
      * using a webViewer with a guide on what each button does.
      *
@@ -223,7 +207,6 @@ public class RootLayoutController {
      */
     @FXML
     void handleAbout(ActionEvent event) {
-        LOG.info("TODO : Implementation for the About Menu Item");
         try {
             Stage newStage = new Stage();
 
@@ -240,7 +223,8 @@ public class RootLayoutController {
             newStage.showAndWait();
 
         } catch (IOException ex) {
-            LOG.error("Error loading the WebView About Page", ex);
+            LOG.error("handleAbout error", ex);
+            errorAlert("handleAbout()");
             Platform.exit();
         }
     }
@@ -253,8 +237,6 @@ public class RootLayoutController {
      */
     @FXML
     void handleAddAttachment(ActionEvent event) {
-        LOG.info("TODO : Implementation for the Add Attachment Menu Item");
-
         Stage stage = new Stage();
 
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -267,11 +249,6 @@ public class RootLayoutController {
 
             //display the selected file in the html editor
             emailFXHTMLController.displayImagesInHtml(selectedFile);
-
-            LOG.info("THE FXBEANS ATTACHMENTS:");
-            for (File file : emailFXHTMLController.getFormFXBean().getAttachments()) {
-                LOG.info("FILE NAME : " + file.getName());
-            }
         }
     }
 
@@ -282,12 +259,13 @@ public class RootLayoutController {
      */
     @FXML
     void handleSaveAttachment(ActionEvent event) {
-        LOG.info("TODO : Implementation for the Save Attachment Menu Item");
-
-        try {
-            this.emailDAO.saveBlobToDisk(emailFXTableController.getEmailDataTable().getSelectionModel().selectedItemProperty().getValue().getEmailId());
-        } catch (SQLException ex) {
-            LOG.info("Caught an SQLException when saving the files");
+        //User must select an email before saving anything to disk
+        if (emailFXTableController.getEmailDataTable().getSelectionModel().getSelectedItem() != null) {
+            try {
+                this.emailDAO.saveBlobToDisk(emailFXTableController.getEmailDataTable().getSelectionModel().selectedItemProperty().getValue().getEmailId());
+            } catch (SQLException ex) {
+                LOG.info("Caught an SQLException when saving the files");
+            }
         }
     }
 
@@ -349,5 +327,18 @@ public class RootLayoutController {
      */
     public void passStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    /**
+     * Error message popup dialog
+     *
+     * @param msg
+     */
+    private void errorAlert(String msg) {
+        Alert dialog = new Alert(Alert.AlertType.ERROR);
+        dialog.setTitle(resources.getString("sqlError"));
+        dialog.setHeaderText(resources.getString("sqlError"));
+        dialog.setContentText(msg);
+        dialog.show();
     }
 }

@@ -6,6 +6,7 @@
 package com.danielsimonchin.properties;
 
 import com.danielsimonchin.fxbeans.EmailTableFXBean;
+import java.io.File;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -92,7 +93,15 @@ public class EmailBean {
                 .cc(email.cc());
 
         List<EmailAttachment<? extends DataSource>> attachments = email.attachments();
-        resultEmail.attachments(attachments);
+        //resultEmail.attachments(attachments);
+        for(EmailAttachment attachment : attachments){
+            if(attachment.isEmbedded()){
+                resultEmail.embeddedAttachment(EmailAttachment.with().content(new File(attachment.getName())));
+            }
+            else{
+                resultEmail.attachment(EmailAttachment.with().content(attachment.getName()));
+            }
+        }
 
         return resultEmail;
     }

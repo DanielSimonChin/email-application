@@ -23,6 +23,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -79,11 +81,11 @@ public class EmailFXHTMLLayoutController {
     private FormFXBean formFXBean;
     private HTMLEditorFXBean htmlEditorFXBean;
 
+    //the email that is selected will be passed to this controller.
     private EmailBean currentlySelectedEmail;
 
     @FXML
     void initialize() {
-        //Todo, implement binding the gui components to its corresponding  FormFXBean
         formFXBean = new FormFXBean();
         htmlEditorFXBean = new HTMLEditorFXBean();
 
@@ -100,9 +102,20 @@ public class EmailFXHTMLLayoutController {
      * @param emailBean
      */
     public void displaySelectedEmail(EmailBean emailBean) {
+        LOG.info("Displaying the selected email.");
+
+        //reset the current email bean and the formFXBean's attachments so we have no information about the previously selected email.
+        resetSelectedEmailBean();
+
         currentlySelectedEmail = emailBean;
 
-        LOG.info("DISPLAYING THE SELECTED EMAIL");
+        ObservableList<File> attachments = FXCollections.observableArrayList();
+        emailBean.email.attachments().forEach(attachment -> {
+            attachments.add(new File(attachment.getName()));
+        });
+
+        //set the formFXBean's attachments with the emailBean's attachments
+        this.formFXBean.getAttachments().addAll(attachments);
 
         formFXBean.setToField(createRecipientListString(emailBean.email.to()));
         formFXBean.setCcField(createRecipientListString(emailBean.email.cc()));
@@ -118,6 +131,7 @@ public class EmailFXHTMLLayoutController {
             }
         }
 
+        //removing all img tags so we can show the images once each using the email's attachments
         String htmlWithoutImages = htmlMessage.replaceAll("\\<.*?\\>", "");
 
         //Since we cannot bind the htmlEditor, we simply set its html message to the html message of the emailBean
@@ -126,7 +140,7 @@ public class EmailFXHTMLLayoutController {
 
         //For every image, display it in the html editor
         emailBean.email.attachments().forEach(attachment -> {
-            displayReceivedEmailImage(attachment.getName());
+            displayImagesInHtml(new File(attachment.getName()));
         });
 
     }
@@ -195,13 +209,12 @@ public class EmailFXHTMLLayoutController {
             if (this.emailDAO.deleteEmail(this.currentlySelectedEmail.getId()) == 1) {
                 //We want to refresh the draft folder to display what changes were made to the drafts
                 String folderName = this.emailDAO.getFolderName(this.currentlySelectedEmail.getFolderKey());
-                LOG.info("FOLDERNAME : " + folderName);
 
                 this.tableController.displaySelectedFolder(folderName);
 
                 clearFormAndHtmlEditor();
 
-                errorAlert("deletedEmailTitle", "deletedEmailHeader", "deletedEmailMessage");
+                popupAlert("deletedEmailTitle", "deletedEmailHeader", "deletedEmailMessage");
 
                 this.currentlySelectedEmail = new EmailBean();
             }
@@ -310,14 +323,12 @@ public class EmailFXHTMLLayoutController {
      */
     @FXML
     void onSendEmail(ActionEvent event) throws SQLException, IOException, NotEnoughRecipientsException {
-        LOG.info("SENDING EMAIL BUTTON IMPLEMENTATION");
-
         if (this.currentlySelectedEmail != null && this.currentlySelectedEmail.getFolderKey() == 3) {
             try {
                 sendDraftEmail();
             } catch (NotEnoughEmailRecipientsException ex) {
                 LOG.info("The email must have at least 1 recipient.");
-                errorAlert("noRecipientsTitle", "noRecipientsHeader", "noRecipientsErrorMessage");
+                popupAlert("noRecipientsTitle", "noRecipientsHeader", "noRecipientsErrorMessage");
             } catch (InvalidMailConfigBeanUsernameException ex) {
                 LOG.info("The username is invalid");
             } catch (RecipientListNullException ex) {
@@ -326,7 +337,7 @@ public class EmailFXHTMLLayoutController {
                 LOG.info("One of the email recipients is null");
             } catch (RecipientInvalidFormatException ex) {
                 LOG.info("One or more of the email recipients has an invalid format");
-                errorAlert("invalidRecipientTitle", "invalidRecipientHeader", "invalidRecipientMessage");
+                popupAlert("invalidRecipientTitle", "invalidRecipientHeader", "invalidRecipientMessage");
             } catch (InvalidRecipientImapURLException ex) {
                 LOG.info("The Imap URL is invalid");
             }
@@ -367,7 +378,7 @@ public class EmailFXHTMLLayoutController {
 
         } catch (NotEnoughEmailRecipientsException ex) {
             LOG.info("The email must have at least 1 recipient.");
-            errorAlert("noRecipientsTitle", "noRecipientsHeader", "noRecipientsErrorMessage");
+            popupAlert("noRecipientsTitle", "noRecipientsHeader", "noRecipientsErrorMessage");
         } catch (InvalidMailConfigBeanUsernameException ex) {
             LOG.info("The username is invalid");
         } catch (RecipientListNullException ex) {
@@ -376,7 +387,7 @@ public class EmailFXHTMLLayoutController {
             LOG.info("One of the email recipients is null");
         } catch (RecipientInvalidFormatException ex) {
             LOG.info("One or more of the email recipients has an invalid format");
-            errorAlert("invalidRecipientTitle", "invalidRecipientHeader", "invalidRecipientMessage");
+            popupAlert("invalidRecipientTitle", "invalidRecipientHeader", "invalidRecipientMessage");
         }
     }
 
@@ -395,7 +406,6 @@ public class EmailFXHTMLLayoutController {
      * @throws InvalidRecipientImapURLException
      */
     private void sendDraftEmail() throws SQLException, IOException, NotEnoughEmailRecipientsException, InvalidMailConfigBeanUsernameException, RecipientListNullException, RecipientEmailAddressNullException, RecipientInvalidFormatException, InvalidRecipientImapURLException {
-        LOG.info("SENDING A DRAFT EMAIL");
         List<File> regularAttachments = new ArrayList<>(this.formFXBean.getAttachments());
         List<File> embeddedAttachments = new ArrayList<>();
         //Construct an email object which will be used to create an EmailBean
@@ -435,6 +445,20 @@ public class EmailFXHTMLLayoutController {
     }
 
     /**
+     * Clicking the compose button enables the user to write in the form and
+     * editor.
+     *
+     * @param event
+     */
+    @FXML
+    void onComposeClick(ActionEvent event) {
+        clearFormAndHtmlEditor();
+        enableFormAndHTML();
+        resetSelectedEmailBean();
+        tableController.getEmailDataTable().getSelectionModel().clearSelection();
+    }
+
+    /**
      * The text field in the UI is seperated by the user with ';'. We split the
      * recipient emails and return them as List of string
      *
@@ -461,8 +485,8 @@ public class EmailFXHTMLLayoutController {
         this.subjectField.clear();
         this.emailFXHTMLEditor.setHtmlText("");
 
-        LOG.info("The form fx bean after clearing" + this.formFXBean.toString());
-        LOG.info("The html editor fx bean after clearing" + this.emailFXHTMLEditor.getHtmlText());
+        LOG.debug("The form fx bean after clearing" + this.formFXBean.toString());
+        LOG.debug("The html editor fx bean after clearing" + this.emailFXHTMLEditor.getHtmlText());
     }
 
     /**
@@ -470,7 +494,7 @@ public class EmailFXHTMLLayoutController {
      *
      * @param msg
      */
-    private void errorAlert(String title, String header, String message) {
+    private void popupAlert(String title, String header, String message) {
         Alert dialog = new Alert(Alert.AlertType.ERROR);
         dialog.setTitle(resources.getString(title));
         dialog.setHeaderText(resources.getString(header));
@@ -507,6 +531,7 @@ public class EmailFXHTMLLayoutController {
      */
     public void resetSelectedEmailBean() {
         this.currentlySelectedEmail = new EmailBean();
+        this.formFXBean.setAttachments(FXCollections.observableArrayList());
     }
 
     /**
@@ -527,16 +552,6 @@ public class EmailFXHTMLLayoutController {
         sb.append(this.emailFXHTMLEditor.getHtmlText());
 
         sb.append("<img src=' ").append(file.toURI()).append("'/>");
-
-        this.emailFXHTMLEditor.setHtmlText(sb.toString());
-    }
-
-    private void displayReceivedEmailImage(String fileName) {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.emailFXHTMLEditor.getHtmlText());
-
-        sb.append("<img src=' ").append(new File(fileName).toURI()).append("'/>");
 
         this.emailFXHTMLEditor.setHtmlText(sb.toString());
     }

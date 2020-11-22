@@ -11,12 +11,13 @@
 <h3 style="text-align: center;">Show Email Details</h3>
 <p style="text-align: center;">Whenever an email in the table is clicked, its content along with its attachments are shown in the Form and html editor sections.</p>
 <h3 style="text-align: center;">Button Functionality</h3>
-<p style="text-align: center;">The <strong>Send</strong> button can send both regular email compositions of draft emails. If a user tries to send an email without any recipients or to a recipient with an invalid format, an error pop up appears with an appropriate message.</p>
+<p style="text-align: center;">The <strong>Send</strong> button can send both regular email compositions of draft emails. If a user tries to send an email without any recipients or to a recipient with an invalid format, an error pop up appears with an appropriate message. Email recipients in the TO,CC,BCC can be seperated by semi-colon. ex: recipient1@gmail.com;recipient2@gmail.com</p>
 <p style="text-align: center;">The <strong>Save Draft </strong>will either update a current draft email if it was clicked on the table or create a completely new draft if no table row was clicked.</p>
 <p style="text-align: center;">The <strong>Delete Emai</strong>l button will work on any selected table row that is selected. If nothing is selected, then a pop up error message is shown.</p>
 <p style="text-align: center;">The <strong>Reply </strong>button takes a selected table row's Sender and subject prefixed with "RE:" and changes are made to the Form.</p>
+<p style="text-align: center;">The <strong>Compose</strong> button enables the form and editor and clears everything so the user can compose a new email.</p>
 <p style="text-align: center;">The form and html editor are cleared whenever an email is sent/drafted or updated.</p>
-<p style="text-align: center;">Changing folder selections will also clear the form and html editor.</p>
+<p style="text-align: center;">Changing folder selections will also clear the form and html editor. Attachments that are added to the email must be inside of the root of the project (same folder as the pom.xml). Emails received that contain attachments are automatically added to the root folder even if it does not exist in the local machine yet.</p>
 <p style="text-align: center;"><span style="color: #ff0000;">It is important noting that all incoming and outgoing attachments are saved to the root folder and database regardless of if they are embedded or not.</span></p>
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -32,3 +33,4 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
+
