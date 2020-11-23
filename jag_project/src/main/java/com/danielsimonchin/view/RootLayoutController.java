@@ -276,7 +276,6 @@ public class RootLayoutController {
                 LOG.info("The files could not be saved.");
             }
         }
-
     }
 
     /**
@@ -286,14 +285,16 @@ public class RootLayoutController {
      * @throws IOException
      */
     private void saveToFolder(File selectedDirectory) throws IOException {
-        if (selectedDirectory.isDirectory()) {
-            File file = null;
-            OutputStream out = null;
+        if (selectedDirectory != null) {
+            if (selectedDirectory.isDirectory()) {
+                File file = null;
+                OutputStream out = null;
 
-            for (File attachment : this.emailFXHTMLController.getFormFXBean().getAttachments()) {
-                file = new File(selectedDirectory.getAbsolutePath() + "/" + attachment.getName());
-                out = new FileOutputStream(file);
-                out.write(Files.readAllBytes(attachment.toPath()));
+                for (File attachment : this.emailFXHTMLController.getFormFXBean().getAttachments()) {
+                    file = new File(selectedDirectory.getAbsolutePath() + "/" + attachment.getName());
+                    out = new FileOutputStream(file);
+                    out.write(Files.readAllBytes(attachment.toPath()));
+                }
             }
         }
     }
