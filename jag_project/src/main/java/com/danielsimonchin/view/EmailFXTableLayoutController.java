@@ -159,7 +159,6 @@ public class EmailFXTableLayoutController {
      * @throws IOException
      */
     public void displaySelectedFolder(String folderName) throws SQLException, IOException {
-        //emailDataTable.getSelectionModel().clearSelection();
         emailDataTable.getItems().clear();
         ObservableList<EmailBean> allEmails = this.emailDAO.findAllInFolder(folderName);
         emailDataTable.setItems(convertToTableBean(allEmails));

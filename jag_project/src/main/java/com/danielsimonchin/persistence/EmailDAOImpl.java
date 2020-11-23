@@ -239,7 +239,6 @@ public class EmailDAOImpl implements EmailDAO {
             if (queryResult == 1) {
                 LOG.info("The address ID: \"" + addressId + "\" has been inserted as a \"" + recipientCategory + "\" for the email with ID: \"" + emailId + "\".");
             }
-
         }
     }
 
@@ -755,6 +754,15 @@ public class EmailDAOImpl implements EmailDAO {
 
         List<File> regularAttachments = new ArrayList<>();
         List<File> embeddedAttachments = new ArrayList<>();
+
+        //add the attachments to the appropriate list depending on if it is embedded or not
+        for (EmailAttachment attachment : email.attachments()) {
+            if (attachment.isEmbedded()) {
+                embeddedAttachments.add(new File(attachment.getName()));
+            } else {
+                regularAttachments.add(new File(attachment.getName()));
+            }
+        }
 
         Email resultEmail = runMail.sendEmail(toRecipients, ccRecipients, bccRecipients, email.subject(), textMsg, htmlMsg, regularAttachments, embeddedAttachments);
 

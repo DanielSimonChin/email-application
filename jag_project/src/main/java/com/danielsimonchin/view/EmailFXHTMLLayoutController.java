@@ -216,7 +216,7 @@ public class EmailFXHTMLLayoutController {
 
                 popupAlert("deletedEmailTitle", "deletedEmailHeader", "deletedEmailMessage");
 
-                this.currentlySelectedEmail = new EmailBean();
+                resetSelectedEmailBean();
             }
         }
     }
@@ -249,7 +249,7 @@ public class EmailFXHTMLLayoutController {
             LOG.info("The DRAFT Email with ID: " + this.currentlySelectedEmail.getId() + " has been updated.");
 
             clearFormAndHtmlEditor();
-            this.currentlySelectedEmail = new EmailBean();
+            resetSelectedEmailBean();
 
             return;
         }
@@ -270,7 +270,7 @@ public class EmailFXHTMLLayoutController {
         this.tableController.displaySelectedFolder("DRAFT");
 
         clearFormAndHtmlEditor();
-        this.currentlySelectedEmail = new EmailBean();
+        resetSelectedEmailBean();
 
         LOG.info("The DRAFT Email with ID: " + emailBean.getId() + " has been added to the DRAFT folder.");
     }
